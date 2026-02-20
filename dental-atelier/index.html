@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayfair Dental Atelier | Private Cosmetic & Implant Dentistry London</title>
+    <meta name="description" content="World-class private dentistry in Mayfair. From routine hygiene to complex implants and cosmetic makeovers. Nervous patients welcome.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. DESIGN TOKENS
+           ========================================= */
+        :root {
+            /* Palette */
+            --bg-body: #FAFAF9;      
+            --bg-surface: #FFFFFF;   
+            --bg-overlay: rgba(250, 250, 249, 0.98); /* Increased opacity for navbar */
+            
+            --text-main: #1C1917;    
+            --text-muted: #57534E;   
+            --text-light: #A8A29E;   
+
+            --accent-primary: #2E86C1; 
+            
+            --gold: #D4AF37;
+            --border-light: rgba(28, 25, 23, 0.08);
+
+            /* Fonts */
+            --font-display: 'Cinzel', serif;
+            --font-editorial: 'Crimson Text', serif;
+            --font-ui: 'Figtree', sans-serif;
+            
+            /* Animation */
+            --ease-silk: cubic-bezier(0.25, 1, 0.5, 1);
+            --radius-petal: 0px 100px 0px 100px;
+        }
+
+        /* =========================================
+           2. RESET & BASE
+           ========================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { 
+            font-size: 16px; 
+            background-color: var(--bg-body); 
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            font-family: var(--font-ui);
+            color: var(--text-main);
+            background: var(--bg-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        body.loaded { opacity: 1; }
+        ::selection { background: var(--text-main); color: var(--bg-body); }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .display-xl { 
+            font-size: clamp(3.5rem, 10vw, 8.5rem); 
+            text-transform: uppercase; 
+            letter-spacing: -0.02em; 
+            line-height: 0.95;
+        }
+        .display-lg { font-size: clamp(2.5rem, 6vw, 5rem); }
+        .display-md { font-size: clamp(1.8rem, 4vw, 3rem); }
+        
+        p {
+            font-family: var(--font-ui);
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 60ch;
+        }
+
+        .editorial-text { font-family: var(--font-editorial); font-style: italic; font-weight: 400; }
+
+        .eyebrow {
+            font-family: var(--font-ui);
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.2em;
+            color: var(--gold); 
+            display: block; 
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            padding-left: 40px;
+        }
+        .eyebrow::before {
+            content: ''; position: absolute; left: 0; top: 50%; width: 30px; height: 1px; background: var(--gold);
+        }
+
+        /* Accessibility: Reduce Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .noise { display: none; }
+            #cursor-follower { display: none !important; }
+        }
+
+        /* =========================================
+           3. UI ELEMENTS (Cursor, Noise)
+           ========================================= */
+        body { cursor: default; }
+        a, button, .hover-target, .tech-item, .nav-link, .slider-btn { cursor: pointer; }
+
+        #cursor-follower {
+            position: fixed; top: 0; left: 0; width: 32px; height: 32px;
+            border: 1px solid var(--text-main); border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            transition: transform 0.15s ease-out, opacity 0.3s, background-color 0.3s;
+            transform: translate(-50%, -50%);
+            opacity: 0.4;
+        }
+        
+        body.hovering #cursor-follower {
+            transform: translate(-50%, -50%) scale(1.8);
+            background: rgba(46, 134, 193, 0.05);
+            border-color: var(--accent-primary);
+            opacity: 1;
+        }
+
+        .noise {
+            position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.04;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* =========================================
+           4. LAYOUT UTILITIES
+           ========================================= */
+        .container {
+            width: 100%; max-width: 1440px; margin: 0 auto;
+            padding: 0 clamp(24px, 5vw, 80px); position: relative; z-index: 2;
+        }
+
+        .section { padding: clamp(80px, 10vh, 160px) 0; position: relative; z-index: 2; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 100px); }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+       /* =========================================
+           5. NAVIGATION (Updated)
+           ========================================= */
+           nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 120px;
+            
+            /* UPDATED: High Z-Index & Background */
+            z-index: 9999; 
+            background: rgba(250, 250, 249, 0.95); /* Matches body color with slight transparency */
+            backdrop-filter: blur(20px);            /* Blurs content behind the nav */
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(28, 25, 23, 0.05); /* Subtle border for separation */
+
+            display: flex; align-items: center;
+            transition: transform 0.6s var(--ease-silk), height 0.4s var(--ease-silk), background-color 0.4s ease;
+        }
+        
+        /* Scrolled State: Light Mode */
+        nav.scrolled {
+            background: var(--bg-overlay); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            height: 90px; 
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Hidden State (When over footer) */
+        nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-logo-block {
+            text-decoration: none; display: flex; align-items: center; gap: 12px;
+            transition: opacity 0.3s ease;
+        }
+        .logo-text-stack { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
+        
+        .logo-main {
+            font-family: var(--font-display); font-size: 1.5rem; color: var(--text-main);
+            font-weight: 700; letter-spacing: -0.02em; transition: color 0.4s ease;
+        }
+        .logo-sub {
+            font-family: var(--font-ui); font-size: 0.55rem; text-transform: uppercase;
+            letter-spacing: 0.25em; color: var(--text-muted); margin-top: 4px; transition: color 0.4s ease;
+        }
+        
+        .nav-menu { display: flex; gap: 50px; transition: opacity 0.3s ease; }
+        .nav-link {
+            text-decoration: none; color: var(--text-main); font-family: var(--font-ui);
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
+            position: relative; padding-bottom: 4px; transition: color 0.4s ease;
+        }
+
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+            background: var(--gold); transition: width 0.4s var(--ease-silk);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-gold {
+            padding: 16px 32px; background: var(--text-main); color: #fff;
+            text-decoration: none; font-family: var(--font-ui); text-transform: uppercase;
+            font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 600;
+            transition: all 0.4s var(--ease-silk); position: relative; overflow: hidden;
+        }
+        
+        .btn-gold::before {
+            content: ''; position: absolute; inset: 0; background: var(--accent-primary);
+            transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease-silk); z-index: 0;
+        }
+        .btn-gold span { position: relative; z-index: 1; }
+        .btn-gold:hover::before { transform: scaleX(1); transform-origin: left; }
+
+        /* =========================================
+           6. HERO SECTION (Redesigned)
+           ========================================= */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; 
+            position: relative; overflow: hidden; padding-top: 120px; /* Clear navbar */
+        }
+
+        .hero-bg-img {
+            position: absolute; inset: 0;
+            background-image: url('https://plus.unsplash.com/premium_photo-1764691394121-d13adf636511?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover; background-position: center;
+            filter: grayscale(100%) blur(2px) opacity(0.35);
+            z-index: 0; transform: scale(1.1);
+        }
+
+        .hero-content { position: relative; z-index: 2; width: 100%; }
+        .hero-reveal { overflow: hidden; }
+        .hero-reveal span { 
+            display: block; transform: translateY(110%); 
+            transition: transform 1.2s var(--ease-silk); will-change: transform;
+        }
+        .hero-visible .hero-reveal span { transform: translateY(0); }
+
+        /* New Hero Grid Layout */
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1px 1fr; 
+            gap: 60px; margin-top: 80px; align-items: start;
+            /* REMOVED HORIZONTAL BORDER AS REQUESTED */
+            border-top: none;
+            padding-top: 40px;
+        }
+        
+        .divider-v { width: 0px; height: 100%; background: rgba(0,0,0,0.1); }
+
+        .hero-txt-col h2 {
+            font-size: 1.4rem; line-height: 1.4; margin-bottom: 20px; font-family: var(--font-display);
+        }
+        .hero-txt-col p { font-size: 0.95rem; color: var(--text-muted); }
+        .segment-tag {
+            display: inline-block; font-size: 0.75rem; text-transform: uppercase; 
+            letter-spacing: 0.1em; color: var(--gold); margin-bottom: 15px; font-weight: 600;
+        }
+
+        /* NEW: Metric Matrix (Innovative Credibility) */
+        .cred-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 20px;
+            padding-left: 20px;
+            border-left: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .metric-block {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .metric-val {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            line-height: 1;
+            color: var(--text-main);
+        }
+        
+        .metric-val span {
+            font-size: 1rem;
+            vertical-align: super;
+            margin-left: 2px;
+            color: var(--gold);
+        }
+
+        .metric-lbl {
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* =========================================
+           7. SERVICES
+           ========================================= */
+        .service-list-container { margin-top: 60px; border-top: 1px solid var(--border-light); }
+        .service-row {
+            display: grid; grid-template-columns: 1.5fr 2fr 1fr; padding: 50px 0;
+            border-bottom: 1px solid var(--border-light); transition: all 0.4s ease;
+            position: relative; align-items: flex-start;
+        }
+        .service-row:hover { border-bottom-color: var(--accent-primary); }
+        .service-title { font-size: 1.8rem; color: var(--text-main); transition: color 0.3s; }
+        .service-row:hover .service-title { color: var(--accent-primary); }
+        .service-desc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .service-desc-list li {
+            font-family: var(--font-ui); font-size: 1.05rem; color: var(--text-muted);
+            line-height: 1.4; display: flex; align-items: center; gap: 10px;
+        }
+        .service-desc-list li::before {
+            content: ''; width: 10px; height: 1px; background: var(--border-light); transition: width 0.3s, background 0.3s;
+        }
+        .service-row:hover .service-desc-list li::before { width: 20px; background: var(--accent-primary); }
+        .service-meta { text-align: right; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
+        .price-tag { font-family: var(--font-editorial); font-style: italic; color: var(--text-muted); font-size: 1rem; }
+        .service-cta {
+            font-family: var(--font-ui); font-size: 0.75rem; text-transform: uppercase; 
+            letter-spacing: 0.15em; color: var(--text-light); opacity: 0; 
+            transform: translateX(-10px); transition: all 0.4s var(--ease-silk); font-weight: 600;
+        }
+        .service-row:hover .service-cta { opacity: 1; transform: translateX(0); color: var(--text-main); }
+
+        /* =========================================
+           8. GALLERY & NEW TESTIMONIAL SLIDER
+           ========================================= */
+        .liquid-img-wrap {
+            position: relative; width: 100%; height: 500px; overflow: hidden;
+            border-radius: var(--radius-petal); background: #F0F0EE;
+            transition: transform 0.6s var(--ease-silk), box-shadow 0.6s ease; will-change: transform;
+        }
+        .hover-target:hover .liquid-img-wrap { transform: translateY(-10px); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.08); }
+        .liquid-img {
+            width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);
+            filter: grayscale(100%) sepia(10%); transition: transform 1.2s var(--ease-silk), filter 0.6s ease;
+        }
+        .hover-target:hover .liquid-img { transform: scale(1); filter: grayscale(0%) sepia(0%); }
+        .gallery-caption {
+            margin-top: 25px; display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05); padding-top: 15px;
+        }
+
+        /* REFINED TESTIMONIAL SLIDER */
+        .testimonial-section { margin-top: 120px; position: relative; }
+        .slider-container {
+            position: relative; max-width: 900px; margin: 0 auto; min-height: 300px;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .slide {
+            position: absolute; width: 100%; opacity: 0; 
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px); pointer-events: none;
+            display: flex; flex-direction: column; align-items: center; 
+        }
+        .slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        
+        .stars { color: var(--gold); margin-bottom: 25px; display: flex; gap: 4px; justify-content: center; }
+        .slide-quote {
+            font-family: var(--font-editorial); font-size: 1.8rem; font-style: italic;
+            color: var(--text-main); line-height: 1.4; margin-bottom: 30px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .slide-author {
+            font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);
+        }
+        
+        .slider-controls {
+            display: flex; justify-content: center; gap: 20px; margin-top: 40px;
+            position: relative; z-index: 10; /* Ensures clicks work */
+        }
+        .slider-btn {
+            background: none; border: 1px solid var(--border-light); width: 40px; height: 40px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .slider-btn:hover { border-color: var(--text-main); background: var(--text-main); color: #fff; }
+/* =========================================
+   NEW SECTION: MEET THE TEAM
+   ========================================= */
+   .team-section {
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(30px, 4vw, 60px);
+    margin-top: 80px;
+}
+
+.team-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-img-box {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    /* Consistent with the 'petal' theme but slightly subtler for portraits */
+    border-radius: 0px 80px 0px 80px; 
+    background: #E5E5E5;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform 0.8s var(--ease-silk), filter 0.5s ease;
+}
+
+.team-card:hover .team-img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.team-info {
+    padding-right: 10px;
+}
+
+.team-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-family: var(--font-ui);
+    color: var(--gold);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.team-quals {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.team-gdc {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.team-quote {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.4;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    margin-top: auto; /* Pushes quote to bottom if heights vary */
+}
+
+/* Mobile Responsiveness for Team */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .team-img-box {
+        aspect-ratio: 4/5;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .team-info {
+        text-align: center;
+    }
+}
+        /* =========================================
+           10. TECHNOLOGY
+           ========================================= */
+        .tech-section { background: #FFFFFF; }
+        .tech-interface { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; }
+        .tech-item {
+            padding: 30px 0; border-bottom: 1px solid var(--border-light);
+            cursor: pointer; opacity: 0.5; transition: all 0.3s; position: relative;
+        }
+        .tech-item:hover { opacity: 0.8; }
+        .tech-item.active { opacity: 1; border-color: var(--accent-primary); }
+        .tech-item.active h4 { color: var(--accent-primary); transform: translateX(10px); }
+        .tech-item h4 { 
+            font-size: 1.5rem; margin-bottom: 5px; transition: transform 0.3s;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .tech-arrow { opacity: 0; font-size: 1rem; transition: opacity 0.3s; }
+        .tech-item.active .tech-arrow { opacity: 1; }
+        .tech-visual-circle {
+            width: 100%; height: 500px; border: 1px solid var(--border-light);
+            border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; background: #FAFAF9;
+        }
+        .tech-layer {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+        }
+        .tech-layer.active { opacity: 1; }
+        
+        /* Animations */
+        .radar-sweep {
+            width: 100%; height: 2px; background: var(--accent-primary);
+            position: absolute; top: 50%; animation: scanDown 3s infinite ease-in-out;
+            opacity: 0.5; box-shadow: 0 0 20px var(--accent-primary);
+        }
+        .radar-ring {
+            width: 80%; height: 80%; border: 1px dashed var(--accent-primary); 
+            border-radius: 50%; animation: spinSlow 20s linear infinite;
+        }
+        @keyframes scanDown { 0% { top: 0%; opacity:0; } 50% { opacity:1; } 100% { top: 100%; opacity:0; } }
+        @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+        .pulse-ring {
+            position: absolute; border: 1px solid var(--text-main); border-radius: 50%;
+            animation: pulseWave 3s infinite ease-out;
+        }
+        .pr-1 { width: 20%; height: 20%; animation-delay: 0s; }
+        .pr-2 { width: 20%; height: 20%; animation-delay: 1s; }
+        .pr-3 { width: 20%; height: 20%; animation-delay: 2s; }
+        @keyframes pulseWave { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(3); } }
+        .print-layer {
+            width: 60%; height: 0%; background: rgba(46, 134, 193, 0.1);
+            border-bottom: 2px solid var(--accent-primary);
+            position: absolute; bottom: 20%; animation: buildUp 4s infinite ease-in-out;
+        }
+        @keyframes buildUp { 0% { height: 0%; } 50% { height: 60%; } 100% { height: 0%; } }
+        .ai-blob {
+            width: 300px; height: 300px; background: radial-gradient(circle, #D6EAF8, #FAFAF9);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morphBlob 6s infinite ease-in-out; mix-blend-mode: multiply;
+        }
+        @keyframes morphBlob { 
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } 
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 
+        }
+
+        /* =========================================
+           10. CONCIERGE
+           ========================================= */
+        .concierge-section { background: #F5F5F4; }
+        .timeline-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+            margin-top: 80px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 60px;
+        }
+        .timeline-card { position: relative; padding-right: 20px; }
+        .timeline-card::before {
+            content: ''; position: absolute; top: -65px; left: 0;
+            width: 10px; height: 10px; background: var(--text-main); border-radius: 50%;
+        }
+        .t-num { font-family: var(--font-display); font-size: 3rem; color: #E5E5E5; margin-bottom: 15px; }
+
+        /* =========================================
+           11. FIRST VISIT
+           ========================================= */
+        .process-list { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+        .process-step { padding: 30px 20px; background: #fff; border: 1px solid var(--border-light); }
+        .process-step h4 { font-size: 1.1rem; margin-bottom: 10px; color: var(--text-main); }
+        .process-step p { font-size: 0.9rem; line-height: 1.5; }
+        .process-step .step-no { color: var(--gold); font-size: 0.8rem; margin-bottom: 15px; display: block; }
+
+        /* =========================================
+           12. FOOTER
+           ========================================= */
+        footer { background: #111; color: #fff; padding: 80px 0 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-top: 0; }
+        .footer-link { color: #888; text-decoration: none; display: block; margin-bottom: 8px; transition: 0.3s; font-size: 0.9rem; }
+        .footer-link:hover { color: #fff; }
+        .legal-links { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .legal-links a { color: #555; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .legal-links a:hover { color: #888; }
+
+        /* =========================================
+           13. MOBILE
+           ========================================= */
+        .mobile-cta-bar {
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: 60px;
+            background: #fff; z-index: 9999; border-top: 1px solid #eee;
+            align-items: center; justify-content: space-between;
+        }
+        .mobile-cta-btn {
+            flex: 1; text-align: center; height: 100%; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-family: var(--font-ui); font-weight: 600; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .cta-call { background: #fff; color: var(--text-main); }
+        .cta-book { background: var(--text-main); color: #fff; }
+
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3, .timeline-grid, .tech-interface, .process-list, .hero-grid { 
+                grid-template-columns: 1fr; gap: 40px; 
+            }
+            .divider-v { display: none; }
+            .service-row { grid-template-columns: 1fr; gap: 20px; }
+            .service-cta { display: none; }
+            .service-meta { align-items: flex-start; text-align: left; }
+            
+            /* NAV */
+            .nav-menu { display: none; }
+            .nav-logo-block { transform: scale(0.9); }
+            nav .btn-gold { display: none; }
+            
+            /* HERO */
+            .display-xl { font-size: 3.2rem; }
+            .hero-bg-img { background-position: 70% center; }
+            .hero-grid { border-top: none; padding-top: 0; margin-top: 40px; }
+            .credibility-strip { flex-wrap: wrap; gap: 20px; }
+            .cred-matrix { grid-template-columns: 1fr; border-left: none; padding-left: 0; }
+
+            /* GALLERY */
+            .liquid-img-wrap { height: 350px; }
+            .tech-visual-circle { height: 300px; width: 300px; margin: 0 auto; }
+
+            /* MOBILE FIX: CONCIERGE DOTS */
+            .timeline-card { padding-left: 20px; padding-right: 0; padding-top: 15px; margin-top: 15px; }
+            .timeline-card::before { top: 0; left: 0; }
+
+            .mobile-cta-bar { display: flex; }
+            footer { padding-bottom: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+    <div id="cursor-follower"></div>
+
+    <div style="position: fixed; inset: 0; background: var(--bg-body); z-index: 99999; display: flex; align-items: center; justify-content: center; transition: transform 0.8s var(--ease-silk);" id="loader">
+        <div style="width: 200px; height: 1px; background: rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: var(--text-main); animation: loadBar 1.5s var(--ease-silk) forwards;"></div>
+        </div>
+        <style>@keyframes loadBar { 0% { width: 0%; } 100% { width: 100%; } }</style>
+    </div>
+
+    <div class="mobile-cta-bar">
+        <a href="tel:02079999999" class="mobile-cta-btn cta-call">Call Us</a>
+        <a href="#book" class="mobile-cta-btn cta-book">Book Now</a>
+    </div>
+
+    <nav>
+        <div class="container flex-between">
+            <a href="#" class="nav-logo-block">
+                <div class="logo-text-stack">
+                    <span class="logo-main">MAYFAIR</span>
+                    <span class="logo-sub">Est. 2025 Cambridge</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="#services" class="nav-link">Treatments</a>
+                <a href="#gallery" class="nav-link">Evidence</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#visit" class="nav-link">First Visit</a>
+            </div>
+            <a href="#book" class="btn-gold">
+                <span>Book Private Consultation</span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg-img"></div>
+        <div class="container hero-content">
+            
+            <h1 class="display-xl hero-reveal" style="margin-top: 40px;">
+                <span>The Art of</span>
+            </h1>
+            <h1 class="display-xl hero-reveal" style="margin-top: -10px;">
+                <span class="editorial-text" style="color: var(--accent-primary);">Precision.</span>
+            </h1>
+
+            <div class="hero-grid" style="margin-top: 40px; padding-top: 0;">
+                <div class="hero-txt-col hero-reveal" style="transition-delay: 0.2s;">
+                    <div class="cred-matrix" style="border-left: none; padding-left: 0; padding-right: 20px; border-right: 1px solid rgba(0,0,0,0.05);">
+                        <div class="metric-block">
+                            <span class="metric-val" style="color: var(--gold); font-size: 2rem; letter-spacing: 2px;">★★★★★</span>
+                            <span class="metric-lbl">Google Rating (489)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider-v"></div>
+
+                <div class="hero-txt-col hero-reveal" style="transition-delay: 0.4s;">
+                    <span class="segment-tag">Private Patient Care</span>
+                    <h2>Private cosmetic and implant dentistry for patients who value long‑term health.</h2>
+                </div>
+            </div>
+        </div>
+
+                <div class="divider-v"></div>
+
+            
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="flex-between" style="align-items: flex-end;">
+                <div>
+                    <span class="eyebrow">Our Clinical Menu</span>
+                    <h2 class="display-lg">Curated<br>Interventions</h2>
+                </div>
+                <p style="text-align: right;">Bespoke treatments designed<br>for longevity and function.</p>
+            </div>
+
+            <div class="service-list-container">
+                <div class="service-row hover-target">
+                    <div>
+                        <h3 class="service-title">Preventive<br>& Hygiene</h3>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">The foundation of health.</p>
+                    </div>
+                    <ul class="service-desc-list">
+                        <li>Comprehensive Exams</li>
+                        <li>Guided Biofilm Therapy</li>
+                        <li>Oral Cancer Screening</li>
+                        <li>Emergency Pain Relief</li>
+                    </ul>
+                    <div class="service-meta">
+                        <span class="price-tag">New Patient Assessment £150</span>
+                        <div class="service-cta">Book Assessment →</div>
+                    </div>
+                </div>
+
+                <div class="service-row hover-target">
+                    <div>
+                        <h3 class="service-title">Cosmetic<br>Enhancements</h3>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Artistic smile curation.</p>
+                    </div>
+                    <ul class="service-desc-list">
+                        <li>Porcelain Veneers</li>
+                        <li>Composite Bonding</li>
+                        <li>Invisalign® Aligners</li>
+                        <li>Professional Whitening</li>
+                    </ul>
+                    <div class="service-meta">
+                        <span class="price-tag">Consultations from £95</span>
+                        <div class="service-cta">View Case Studies →</div>
+                    </div>
+                </div>
+
+                <div class="service-row hover-target">
+                    <div>
+                        <h3 class="service-title">Implants<br>& Surgery</h3>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Restoring function & form.</p>
+                    </div>
+                    <ul class="service-desc-list">
+                        <li>Swiss Dental Implants</li>
+                        <li>All-on-4 Restoration</li>
+                        <li>Sedation for Anxiety</li>
+                        <li>Bone Regeneration</li>
+                    </ul>
+                    <div class="service-meta">
+                        <span class="price-tag">Implants from £2,500</span>
+                        <div class="service-cta">Restore Function →</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="grid-2" style="align-items: end; margin-bottom: 80px;">
+                <div>
+                    <span class="eyebrow">The Evidence</span>
+                    <h3 class="display-lg">Smile Gallery</h3>
+                </div>
+                <p>Real results from our atelier. No stock photography, ever.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="hover-target">
+                    <div class="liquid-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1000" class="liquid-img" alt="Veneers">
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="font-family: var(--font-display);">Case 01</span>
+                        <span style="color: var(--accent-primary); font-family: var(--font-editorial); font-style: italic;">10 Porcelain Units</span>
+                    </div>
+                </div>
+                
+                <div class="hover-target" style="margin-top: 60px;"> 
+                    <div class="liquid-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000" class="liquid-img" alt="Bonding">
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="font-family: var(--font-display);">Case 02</span>
+                        <span style="color: var(--accent-primary); font-family: var(--font-editorial); font-style: italic;">Edge Bonding</span>
+                    </div>
+                </div>
+                
+                <div class="hover-target">
+                    <div class="liquid-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" class="liquid-img" alt="Whitening">
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="font-family: var(--font-display);">Case 03</span>
+                        <span style="color: var(--accent-primary); font-family: var(--font-editorial); font-style: italic;">Invisalign</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-section">
+                <span class="eyebrow" style="text-align:center; padding-left:0; margin-bottom:40px;">Patient Stories</span>
+                
+                <div class="slider-container">
+                    <div class="slide active">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"I avoided the dentist for 10 years due to anxiety. The sedation clinic at Mayfair changed everything. I felt safe, heard, and finally have my smile back."</p>
+                        <p class="slide-author">Sarah J. — Nervous Patient</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"The level of detail is unmatched. My veneers look completely natural. The team understood exactly what I wanted—a refined, not fake, look."</p>
+                        <p class="slide-author">Elena M. — Fashion Director</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"A seamless experience from the valet to the chair. The implants have restored my ability to eat properly. Truly world-class surgery."</p>
+                        <p class="slide-author">James R. — Architect</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"Invisalign here was a breeze. The AI simulation showed me my future smile before we started. High-tech, transparent, and effective."</p>
+                        <p class="slide-author">David K. — Tech Entrepreneur</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"I travel from Geneva for my appointments. There is simply no other clinic that combines this level of aesthetic taste with medical rigour."</p>
+                        <p class="slide-author">Sophia L. — Private Client</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"The composite bonding is undetectable. I had chipped edges for years, and in one session, my smile was completely restored. Brilliant artistry."</p>
+                        <p class="slide-author">Marcus T. — Musician</p>
+                    </div>
+                    <div class="slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="slide-quote">"Even the hygiene appointments are spa-like. The Guided Biofilm Therapy is painless and effective. My gum health has never been better."</p>
+                        <p class="slide-author">Rebecca W. — Barrister</p>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn" onclick="moveSlide(-1)">←</button>
+                    <button class="slider-btn" onclick="moveSlide(1)">→</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="team" class="section team-section">
+        <div class="container">
+            <div class="flex-between" style="align-items: flex-end; margin-bottom: 20px;">
+                <div>
+                    <span class="eyebrow">The Clinicians</span>
+                    <h2 class="display-lg">Masters of<br>The Craft</h2>
+                </div>
+                <p style="text-align: right;" class="hide-mobile">
+                    Highly qualified specialists dedicated to<br>minimally invasive precision.
+                </p>
+            </div>
+    
+            <div class="team-grid">
+                
+                <div class="team-card hover-target">
+                    <div class="team-img-box">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" alt="Dr. Alexander Thorne" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Alexander Thorne</h3>
+                        <span class="team-role">Clinical Director & Implantologist</span>
+                        
+                        <span class="team-quals">BDS (Lond), MSc Implantology, MFDS RCPS</span>
+                        <span class="team-gdc">GDC No. 182944</span>
+                        
+                        <p class="team-quote">
+                            "Implant dentistry is engineering meeting biology. My focus is not just on the tooth, but on preserving the bone structure for decades to come."
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="team-card hover-target">
+                    <div class="team-img-box">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" alt="Dr. Elara Vance" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Elara Vance</h3>
+                        <span class="team-role">Cosmetic & Restorative Lead</span>
+                        
+                        <span class="team-quals">BDS (Hons), PGDip Aesthetic Dentistry</span>
+                        <span class="team-gdc">GDC No. 249102</span>
+                        
+                        <p class="team-quote">
+                            "I believe in 'invisible' dentistry. A veneer should never look like a veneer; it should look like you were born with a perfect genetic gift."
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="team-card hover-target">
+                    <div class="team-img-box">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800" alt="Dr. James Sterling" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. James Sterling</h3>
+                        <span class="team-role">Specialist Orthodontist</span>
+                        
+                        <span class="team-quals">BDS, MSc, MOrth RCS (Eng)</span>
+                        <span class="team-gdc">GDC No. 110459</span>
+                        
+                        <p class="team-quote">
+                            "Straight teeth are vital, but facial harmony is paramount. We align smiles to support the lips and cheeks, creating an anti-ageing effect."
+                        </p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    <section id="technology" class="section tech-section">
+        <div class="container">
+            <span class="eyebrow">Precision Tech</span>
+            <h2 class="display-md" style="margin-bottom: 60px;">Digital Blueprint</h2>
+
+            <div class="tech-interface">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="tech-item active" onclick="setTech(0)">
+                        <h4>01. iTero 5D Plus <span class="tech-arrow">→</span></h4>
+                        <p>6000 frames per second scanning. No messy impressions.</p>
+                    </div>
+                    <div class="tech-item" onclick="setTech(1)">
+                        <h4>02. CT Cone Beam <span class="tech-arrow">→</span></h4>
+                        <p>3D volumetric X-ray for surgical precision & implant safety.</p>
+                    </div>
+                    <div class="tech-item" onclick="setTech(2)">
+                        <h4>03. 3D Printing <span class="tech-arrow">→</span></h4>
+                        <p>On-site laboratory for same-day production.</p>
+                    </div>
+                    <div class="tech-item" onclick="setTech(3)">
+                        <h4>04. AI Simulation <span class="tech-arrow">→</span></h4>
+                        <p>Preview your future smile on screen before we begin.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <div class="tech-visual-circle">
+                        <div class="tech-layer active" id="tech-0">
+                            <div class="radar-ring"></div>
+                            <div class="radar-sweep"></div>
+                        </div>
+                        <div class="tech-layer" id="tech-1">
+                            <div class="pulse-ring pr-1"></div>
+                            <div class="pulse-ring pr-2"></div>
+                            <div class="pulse-ring pr-3"></div>
+                        </div>
+                        <div class="tech-layer" id="tech-2">
+                            <div class="print-layer"></div>
+                            <i data-lucide="layers" size="48" color="#2E86C1" style="position:absolute; z-index:2;"></i>
+                        </div>
+                        <div class="tech-layer" id="tech-3">
+                            <div class="ai-blob"></div>
+                            <i data-lucide="sparkles" size="32" color="#1C1917" style="position:absolute; z-index:2;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concierge" class="section concierge-section">
+        <div class="container">
+            <span class="eyebrow">The Experience</span>
+            <h2 class="display-lg">Hospitality, Refined.</h2>
+            <p style="margin-top: 20px;">Clinical excellence without the clinical feel. Every detail curated for your comfort.</p>
+            
+            <div class="timeline-grid">
+                <div class="timeline-card hover-target">
+                    <div class="t-num">01</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Valet & Host</h3>
+                    <p>Personal greeting and private parking assistance upon arrival.</p>
+                </div>
+                <div class="timeline-card hover-target">
+                    <div class="t-num">02</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Private Lounge</h3>
+                    <p>No waiting rooms. A private suite with a beverage menu.</p>
+                </div>
+                <div class="timeline-card hover-target">
+                    <div class="t-num">03</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Twilight Sedation</h3>
+                    <p>Drift away. Our anaesthetist ensures total relaxation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="section" style="background: #FAFAF9; border-top: 1px solid var(--border-light);">
+        <div class="container">
+            <span class="eyebrow">Your First Visit</span>
+            <h2 class="display-md">What to Expect</h2>
+            <p style="margin-bottom: 40px;">No treatment is carried out at your initial atelier consultation. This visit is for thorough assessment, safety checks, and planning.</p>
+            
+            <div class="process-list">
+                <div class="process-step">
+                    <span class="step-no">STEP 01</span>
+                    <h4>Consultation</h4>
+                    <p>60 minutes with your lead clinician to discuss your goals, fears, and medical history.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-no">STEP 02</span>
+                    <h4>Digital Diagnostics</h4>
+                    <p>Full oral health check, 3D bone scan, and digital photos. No hidden issues.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-no">STEP 03</span>
+                    <h4>The Blueprint</h4>
+                    <p>We present a bespoke treatment plan with clear transparent costs and timelines.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-no">STEP 04</span>
+                    <h4>Booking</h4>
+                    <p>Only when you are ready, our concierge schedules your treatment appointments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="book">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="display-lg" style="color: #fff; margin-bottom: 40px;">Ready for your<br><span class="editorial-text" style="color: var(--accent-primary)">Masterpiece?</span></h2>
+                    
+                    <a href="#" class="btn-gold" style="background: #fff; color: #111; display: inline-flex; width: auto;">
+                        <span>Book Private Consultation</span>
+                    </a>
+                    
+                    <p style="color: #666; font-size: 0.8rem; margin-top: 20px;">
+                        Submit your details in under 60 seconds – our concierge will call you back to confirm.
+                    </p>
+                </div>
+                
+                <div class="grid-2" style="font-size: 0.9rem;">
+                    <div>
+                        <strong style="color: #fff; display: block; margin-bottom: 15px;">Visit</strong>
+                        <p style="color: #888;">42 Berkeley Square<br>Mayfair, London<br>W1J 5AW</p>
+                        <br>
+                        <strong style="color: #fff; display: block; margin-bottom: 5px;">Emergency?</strong>
+                        <p style="color: #888;">Call us before 10am for same-day urgent care.</p>
+                    </div>
+                    <div>
+                        <strong style="color: #fff; display: block; margin-bottom: 15px;">Contact</strong>
+                        <a href="tel:02079999999" class="footer-link">0207 999 9999</a>
+                        <a href="mailto:prive@mayfairatelier.com" class="footer-link">prive@mayfairatelier.com</a>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="#" class="footer-link">Instagram</a>
+                            <a href="#" class="footer-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 80px; padding-top: 20px; border-top: 1px solid #222;">
+                <div class="flex-between" style="flex-wrap: wrap; gap: 20px;">
+                    <span style="font-size: 0.75rem; color: #444; text-transform: uppercase;">
+                        © 202 Mayfair Dental Atelier.
+                    </span>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">CQC Report</a>
+                        <a href="#">GDC Guidelines</a>
+                        <a href="#">Complaints</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+    <script>
+        // 1. Initial Load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.transform = 'translateY(-100%)';
+                document.body.classList.add('loaded');
+                document.body.classList.add('hero-visible');
+                
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if(!prefersReducedMotion) {
+                    initAnimations();
+                } else {
+                    document.querySelectorAll('.service-row, .liquid-img-wrap, .timeline-card').forEach(el => {
+                        el.style.opacity = 1;
+                        el.style.transform = 'none';
+                    });
+                }
+            }, 1000);
+        });
+
+        // 2. Icons & Smooth Scroll
+        lucide.createIcons();
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            smooth: true
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 3. Cursor Follower
+        const follower = document.getElementById('cursor-follower');
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            });
+            document.querySelectorAll('a, button, .hover-target, .tech-item').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        } else {
+            follower.style.display = 'none';
+        }
+
+        // 4. Testimonial Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function moveSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        // Expose to global scope ensuring onclick works
+        window.moveSlide = moveSlide;
+
+        // 5. Tech Logic
+        function setTech(index) {
+            document.querySelectorAll('.tech-item').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tech-layer').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tech-item')[index].classList.add('active');
+            document.getElementById(`tech-${index}`).classList.add('active');
+        }
+        window.setTech = setTech;
+
+        // 6. Animations & Navbar Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        function initAnimations() {
+            // Service Rows
+            gsap.utils.toArray('.service-row').forEach((row, i) => {
+                gsap.from(row, {
+                    scrollTrigger: { trigger: row, start: "top 90%" },
+                    y: 30, opacity: 0, duration: 0.8, delay: i * 0.1, ease: "power3.out"
+                });
+            });
+
+            // Gallery
+            gsap.utils.toArray('.liquid-img-wrap').forEach((img, i) => {
+                gsap.from(img, {
+                    scrollTrigger: { trigger: img, start: "top 85%" },
+                    y: 50, opacity: 0, duration: 1, delay: i * 0.2, ease: "power3.out"
+                });
+            });
+
+            // Team Cards Animation
+gsap.utils.toArray('.team-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: { trigger: card, start: "top 85%" },
+        y: 40, 
+        opacity: 0, 
+        duration: 1, 
+        delay: i * 0.15, 
+        ease: "power3.out"
+    });
+});
+
+            // Navbar: Scrolled State (Blur/Opacity)
+            const nav = document.querySelector('nav');
+            lenis.on('scroll', ({ scroll }) => {
+                if(scroll > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            });
+
+            // Navbar: Hide Over Footer (UPDATED LOGIC)
+            ScrollTrigger.create({
+                trigger: "footer",
+                start: "top 80px", 
+                onEnter: () => nav.classList.add('nav-hidden'),    // Slide up/hide
+                onLeaveBack: () => nav.classList.remove('nav-hidden') // Slide down/show
+            });
+        }
+    </script>
+</body>
+</html>
