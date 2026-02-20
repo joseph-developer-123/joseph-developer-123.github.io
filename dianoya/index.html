@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dianoya Therapeutics | Brain-Shuttle Biologics & Platform</title>
+    <style>
+        /* * ====================================================================================
+         * BRAND & TYPOGRAPHY SYSTEM
+         * ====================================================================================
+         */
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+        
+        :root {
+            /* * CORE PALETTE: Deep Clinical Blue-Black */
+            --bg-dark: #020408;
+            --bg-deep: #050810;
+            --bg-card: rgba(13, 22, 38, 0.4);
+            
+            /* TEXT SYSTEM */
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --text-dark: #0F172A;
+            
+            /* ACCENT COLORS */
+            --brand-blue: #2E8AFF;
+            --brand-cyan: #0DD9C4;
+            --brand-purple: #7C3AED;
+            --brand-red: #EF4444; 
+            --brand-gold: #F59E0B;
+            --brand-success: #10B981;
+            
+            /* GRADIENTS */
+            --grad-ocean: linear-gradient(135deg, #2E8AFF 0%, #0DD9C4 100%);
+            --grad-royal: linear-gradient(135deg, #7C3AED 0%, #2E8AFF 100%);
+            --grad-glow: radial-gradient(circle at center, rgba(46, 138, 255, 0.15) 0%, transparent 70%);
+            
+            /* GLASSMORPHISM VARIABLES */
+            --glass-bg: rgba(13, 22, 38, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shine: rgba(255, 255, 255, 0.05);
+            --glass-blur: blur(24px);
+            
+            /* SPACING & RADIUS */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            
+            /* FONTS */
+            --font-main: 'Manrope', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-btn: 'Geist', sans-serif;
+        }
+        
+        /* * ====================================================================================
+         * RESET & BASE
+         * ====================================================================================
+         */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            padding: 0; 
+            position: relative;
+        }
+
+        /* * ====================================================================================
+         * ANIMATED MESH BACKGROUND
+         * ====================================================================================
+         */
+        .mesh-bg {
+            position: fixed; inset: 0; z-index: -2; pointer-events: none;
+            background: #020408; overflow: hidden;
+        }
+        
+        .mesh-orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(140px); opacity: 0.4;
+            animation: meshFloat 10s infinite alternate ease-in-out;
+            will-change: transform;
+        }
+        
+        .orb-1 { top: -10%; left: -5%; width: 60vw; height: 60vw; background: radial-gradient(circle, var(--brand-blue), transparent 70%); }
+        .orb-2 { bottom: -10%; right: -5%; width: 50vw; height: 50vw; background: radial-gradient(circle, var(--brand-purple), transparent 70%); animation-delay: -2s; }
+        .orb-3 { top: 40%; left: 30%; width: 40vw; height: 40vw; background: radial-gradient(circle, var(--brand-cyan), transparent 70%); opacity: 0.2; animation-duration: 14s; }
+
+        @keyframes meshFloat { 
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); } 
+            100% { transform: translate(100px, 100px) scale(1.15) rotate(15deg); } 
+        }
+
+        .noise-overlay {
+            position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* * ====================================================================================
+         * LAYOUT UTILITIES (3% Margin Logic)
+         * ====================================================================================
+         */
+        .container { 
+            /* Viewport-based margins as requested: 3% L and R */
+            width: 94vw; 
+            margin-left: 3vw; 
+            margin-right: 3vw;
+            max-width: 1600px; /* Cap at distinct large size to prevent readability loss on ultra-wide */
+            margin: 0 auto; /* Centering helper if max-width hit */
+            padding: 0;
+            position: relative;
+        }
+        
+        h1 { 
+            font-size: clamp(42px, 5vw, 72px); 
+            letter-spacing: -0.03em; line-height: 1.1; 
+            font-weight: 700; color: white; 
+            margin-bottom: 24px;
+        }
+        
+        h2 { 
+            font-size: clamp(28px, 3vw, 36px); 
+            letter-spacing: -0.02em; margin-bottom: 24px; color: white; 
+            display: flex; align-items: center; gap: 16px;
+        }
+        h2::before { content: ''; display: block; width: 4px; height: 32px; background: var(--grad-ocean); border-radius: 2px; }
+        
+        h3 { font-size: 20px; font-weight: 600; color: white; margin-bottom: 12px; letter-spacing: -0.01em; }
+        p { margin-bottom: 16px; }
+        
+        .text-gradient { background: var(--grad-ocean); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .eyebrow { font-family: var(--font-mono); color: var(--brand-cyan); font-size: 12px; margin-bottom: 16px; display: block; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; }
+        .p-lead { font-size: clamp(16px, 1.5vw, 19px); color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px auto; font-weight: 400; line-height: 1.6; }
+        .text-sm { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* * ====================================================================================
+         * NAVIGATION
+         * ====================================================================================
+         */
+        .nav-wrapper { position: fixed; top: 20px; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; padding: 0 3vw; }
+        .nav { width: 100%; max-width: 1600px; height: 72px; margin: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background: rgba(5, 8, 16, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 100px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .logo { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
+        .logo-mark { width: 24px; height: 24px; background: var(--grad-ocean); border-radius: 50%; position: relative; }
+        .logo-mark::after { content: ''; position: absolute; inset: 6px; background: #000; border-radius: 50%; }
+        .nav-center { display: flex; gap: 32px; align-items: center; }
+        .nav-link { font-size: 14px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: 0.2s; position: relative; }
+        .nav-link:hover { color: white; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--brand-cyan); transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .persona-pill { display: flex; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-right: 16px; }
+        .persona-btn { background: transparent; border: none; color: var(--text-secondary); font-size: 12px; font-weight: 600; padding: 6px 18px; border-radius: 16px; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-btn); }
+        .persona-btn.active { background: rgba(255,255,255,0.15); color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .cta-header { background: var(--grad-ocean); color: white; padding: 10px 24px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 20px rgba(46, 138, 255, 0.3); font-family: var(--font-btn); white-space: nowrap; }
+
+        /* * ====================================================================================
+         * HERO & INTRO
+         * ====================================================================================
+         */
+        .hero-section { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding-top: 140px; padding-bottom: 60px; }
+        .hero-content { z-index: 10; position: relative; max-width: 960px; width: 100%; padding: 0 40px; }
+        .stat-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(13, 217, 196, 0.1); border: 1px solid rgba(13, 217, 196, 0.2); padding: 8px 16px; border-radius: 100px; font-size: 12px; color: var(--brand-cyan); font-weight: 600; margin-bottom: 32px; font-family: var(--font-mono); letter-spacing: 0.05em; }
+        .hero-content-block { display: none; animation: heroFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .hero-content-block.active { display: block; }
+        @keyframes heroFade { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .positioning-statement { font-size: 18px; color: var(--text-primary); font-weight: 500; max-width: 800px; margin: 0 auto 30px auto; border-left: 2px solid var(--brand-blue); padding-left: 20px; text-align: left; background: linear-gradient(90deg, rgba(46, 138, 255, 0.1) 0%, transparent 100%); padding: 16px 24px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        
+        .btn-container { display: flex; gap: 16px; align-items: center; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+        .btn-primary { background: var(--grad-ocean); color: white; padding: 16px 36px; font-weight: 600; font-size: 15px; border: none; border-radius: 100px; box-shadow: 0 10px 30px rgba(46, 138, 255, 0.3); cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-family: var(--font-btn); text-decoration: none; display: inline-block; }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1); padding: 16px 36px; border-radius: 100px; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.3s; font-family: var(--font-btn); text-decoration: none; display: inline-block; }
+
+        /* * ====================================================================================
+         * INVESTOR STRIP
+         * ====================================================================================
+         */
+        .investor-strip { width: 100vw; background: #020408;   margin-top: -30px;   /* pulls it up toward the hero */
+            margin-bottom: 40px; /* less gap below */ border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 12px 0; overflow: hidden; white-space: nowrap; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-bottom: 80px; display: flex; align-items: center; justify-content: center; }
+       /* 1. THE STRIP CONTAINER */
+ /* * ====================================================================================
+ * INVESTOR STRIP (Elite Final)
+ * ====================================================================================
+ */
+.investor-strip { 
+    width: 100vw; 
+    background: #020408; 
+    margin-top: -30px; 
+    margin-bottom: 40px; 
+    border-top: 1px solid var(--glass-border); 
+    border-bottom: 1px solid var(--glass-border); 
+    padding: 12px 0; 
+    overflow: hidden; 
+    position: relative; 
+    left: 50%; 
+    right: 50%; 
+    margin-left: -50vw; 
+    margin-right: -50vw; 
+    display: flex; 
+    align-items: center; 
+}
+
+/* THE CONTAINER */
+.investor-strip-inner { 
+    display: flex; 
+    align-items: center; 
+    width: max-content; 
+    gap: 0; /* Reset gap. We use margins. */
+    
+    /* ANIMATION */
+    animation: drift 60s linear infinite; 
+    will-change: transform;
+    transform: translate3d(0, 0, 0); 
+}
+
+/* THE LOGOS */
+.investor-strip-inner img {
+    /* SIZE: Auto width for perfect optical spacing */
+    width: auto !important; 
+    height: 30px !important; 
+    
+    /* LOADING STABILITY */
+    min-width: 50px; 
+    
+    /* SPACING: 150px (1.5x the previous 100px) */
+    margin-right: 150px !important;
+    margin-left: 0 !important;
+    
+    /* COLOR: Makes them pure white */
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.8; /* Slight transparency for elegance */
+    transition: opacity 0.3s ease;
+    
+    /* LAYOUT */
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.investor-strip-inner img:hover { 
+    opacity: 1; 
+}
+
+/* THE LOOP */
+@keyframes drift { 
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+        /* * ====================================================================================
+         * CORPORATE SUMMARY
+         * ====================================================================================
+         */
+        .corporate-summary { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-bottom: 100px; }
+        .summary-text p { font-size: 18px; color: var(--text-secondary); }
+        .summary-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .sum-stat-box { border-left: 2px solid var(--brand-blue); padding-left: 16px; }
+        .ss-val { font-family: var(--font-mono); font-size: 24px; color: white; font-weight: 700; }
+        .ss-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        
+        .validation-callout {
+            margin-top: 24px;
+            background: rgba(46, 138, 255, 0.1);
+            border: 1px solid rgba(46, 138, 255, 0.2);
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* * ====================================================================================
+         * STATS & COMPONENTS
+         * ====================================================================================
+         */
+        .stats-wrapper { margin-bottom: 120px; position: relative; z-index: 20; }
+        .market-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); }
+        .market-cell { background: rgba(5, 8, 16, 0.6); backdrop-filter: blur(20px); padding: 40px; display: flex; flex-direction: column; gap: 8px; transition: background 0.3s; position: relative; }
+        .market-cell:hover { background: rgba(10, 15, 30, 0.8); }
+        .m-stat { font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: white; letter-spacing: -0.03em; }
+        .m-desc { font-size: 14px; font-weight: 700; color: var(--brand-cyan); text-transform: uppercase; }
+        .m-context { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-top: 4px; }
+
+        .section-spacer { padding: 80px 0; position: relative; }
+        .glass-card { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.2); position: relative; overflow: hidden; transition: transform 0.4s, box-shadow 0.4s; height: 100%; }
+        .tech-corners::before, .tech-corners::after { content: ''; position: absolute; width: 12px; height: 12px; border: 1px solid rgba(255,255,255,0.3); transition: 0.3s; pointer-events: none; }
+        .tech-corners::before { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+        .tech-corners::after { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+        .glass-card:hover .tech-corners::before { border-color: var(--brand-cyan); width: 20px; height: 20px; }
+
+        .tab-nav { display: flex; gap: 4px; background: rgba(255,255,255,0.03); padding: 6px; border-radius: 12px; width: fit-content; margin-bottom: 50px; }
+        .tab-btn { background: transparent; border: none; padding: 12px 24px; color: var(--text-muted); font-size: 14px; font-weight: 600; cursor: pointer; position: relative; border-radius: 8px; transition: all 0.2s; font-family: var(--font-btn); }
+        .tab-btn.active { background: rgba(255,255,255,0.1); color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .tab-content { display: none; animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .tab-content.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* * ====================================================================================
+         * SCIENCE & PIPELINE
+         * ====================================================================================
+         */
+        .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+        .science-card { padding: 40px; display: flex; flex-direction: column; }
+        .data-grid-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: auto; padding-top: 30px; }
+        .data-point { background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .dp-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+        .dp-val { font-size: 15px; color: white; font-weight: 600; font-family: var(--font-mono); }
+        
+        .schematic-box { background: radial-gradient(circle at center, rgba(46, 138, 255, 0.05), transparent 70%); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); height: 100%; position: relative; display: flex; justify-content: center; align-items: center; min-height: 400px; }
+        .mech-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-mono); color: var(--brand-cyan); text-transform: uppercase; font-size: 13px; letter-spacing: 0.1em; text-align: center; z-index: 10; background: rgba(2, 4, 8, 0.7); backdrop-filter: blur(4px); padding: 10px 20px; border: 1px solid rgba(13, 217, 196, 0.3); border-radius: 4px; box-shadow: 0 0 20px rgba(13, 217, 196, 0.15); pointer-events: none; white-space: nowrap; }
+
+        .pipeline-wrapper { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: var(--bg-card); }
+        .pipeline-table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        .pipeline-table th { text-align: left; padding: 20px 24px; font-size: 12px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; border-bottom: 1px solid var(--glass-border); background: rgba(255,255,255,0.02); }
+        .pipeline-table td { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
+        .pipeline-table tr:last-child td { border-bottom: none; }
+        .pipeline-table tr:hover { background: rgba(255,255,255,0.02); }
+        .prog-name { font-weight: 700; color: var(--brand-blue); font-family: var(--font-mono); font-size: 15px; }
+        .prog-detail { color: white; font-weight: 500; font-size: 15px; }
+        .prog-meta { color: var(--text-secondary); font-size: 13px; }
+        
+        .status-pill { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono); }
+        .status-discovery { background: rgba(148, 163, 184, 0.1); color: #94A3B8; border: 1px solid rgba(148, 163, 184, 0.2); }
+        .status-ind { background: rgba(245, 158, 11, 0.1); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.2); }
+
+        /* BACE1 STRATEGY BOX */
+        .strategy-box { background: linear-gradient(90deg, rgba(46, 138, 255, 0.08) 0%, rgba(5, 8, 16, 0) 100%); border-left: 4px solid var(--brand-blue); padding: 24px; margin-top: 30px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        .strategy-title { font-family: var(--font-mono); font-size: 13px; color: var(--brand-blue); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em; }
+
+        /* * ====================================================================================
+         * BUSINESS MODEL & CHARTS
+         * ====================================================================================
+         */
+        .deal-bullets { list-style: none; margin-top: 24px; }
+        .deal-bullets li { position: relative; padding-left: 24px; margin-bottom: 16px; color: var(--text-secondary); font-size: 15px; }
+        .deal-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--brand-cyan); font-weight: bold; font-size: 20px; line-height: 18px; }
+        
+        .partner-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+        .p-stage-card { background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .p-stage-title { font-size: 13px; color: var(--brand-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+
+        .chart-container { padding: 50px; }
+        .chart-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+        .bar-group { margin-bottom: 30px; }
+        .bar-labels { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500; }
+        .bar-track { background: rgba(255,255,255,0.05); height: 40px; border-radius: 6px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.05); }
+        .bar-fill { height: 100%; border-radius: 4px; width: 0%; transition: width 1.5s cubic-bezier(0.2, 1, 0.3, 1); display: flex; align-items: center; padding-right: 16px; justify-content: flex-end; position: relative; }
+        .bar-fill::after { content:''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent); }
+        .fill-control { background: #334155; width: 2%; } 
+        .fill-active { background: var(--grad-ocean); width: 0%; box-shadow: 0 0 30px rgba(13, 217, 196, 0.4); } 
+        .bar-val { font-family: var(--font-mono); font-size: 13px; color: white; font-weight: 700; z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+
+        /* * ====================================================================================
+         * TEAM & INVESTOR LAYOUT
+         * ====================================================================================
+         */
+         .logo-white {
+  height: 22px;
+  width: auto;
+  filter: brightness(0) invert(1);  /* makes dark/colored text appear white */
+}
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .team-card { background: var(--bg-deep); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden; transition: transform 0.3s, border-color 0.3s; position: relative; }
+        .team-card:hover { transform: translateY(-8px); border-color: var(--brand-blue); }
+        .team-img-wrapper { width: 100%; height: 320px; background: #1a1f2e; position: relative; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); overflow: hidden; }
+        .team-img-wrapper::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,8,16,0.8), transparent); }
+        .team-content { padding: 24px 32px 32px 32px; position: relative; margin-top: -20px; }
+        .team-name { color: white; font-weight: 700; font-size: 20px; margin-bottom: 6px; }
+        .team-role { color: var(--brand-cyan); font-size: 12px; letter-spacing: 0.05em; margin-bottom: 16px; font-weight: 700; font-family: var(--font-mono); text-transform: uppercase; }
+        .team-bio { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* STANDALONE INVESTOR CARD */
+        .investor-access-card { 
+            background: linear-gradient(135deg, rgba(46, 138, 255, 0.05), rgba(13, 217, 196, 0.02)); 
+            padding: 50px; 
+            display: flex; flex-direction: column; justify-content: center; 
+            border: 1px solid rgba(46, 138, 255, 0.2);
+            margin-bottom: 60px; /* Space before news */
+        }
+
+        /* * ====================================================================================
+         * NEWS CAROUSEL (Beautiful Format)
+         * ====================================================================================
+         */
+        .news-card-innovative { padding: 60px 80px; text-align: center; display: flex; flex-direction: column; align-items: center; min-height: 400px; justify-content: center; position: relative; }
+        .news-slide { display: none; opacity: 0; transform: translateY(20px); flex-direction: column; align-items: center; transition: 0.5s ease; width: 100%; }
+        .news-slide.active { display: flex; opacity: 1; transform: translateY(0); }
+        
+        .news-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 12px; color: var(--brand-cyan); letter-spacing: 0.05em; }
+        .news-category { background: rgba(13, 217, 196, 0.1); padding: 4px 8px; border-radius: 4px; }
+        
+        .news-headline { font-size: 36px; font-weight: 600; color: white; margin-bottom: 24px; line-height: 1.2; max-width: 800px; }
+        .news-excerpt { font-size: 18px; color: var(--text-secondary); max-width: 650px; margin-bottom: 32px; line-height: 1.6; }
+
+        .news-link-btn { color: white; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--brand-blue); padding-bottom: 4px; transition: gap 0.2s; }
+        .news-link-btn:hover { gap: 12px; color: var(--brand-blue); }
+
+        .carousel-dots { display: flex; gap: 12px; justify-content: center; margin-top: 50px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--brand-blue); transform: scale(1.4); box-shadow: 0 0 10px var(--brand-blue); }
+        
+        /* * ====================================================================================
+         * FOOTER & MODAL
+         * ====================================================================================
+         */
+        footer { width: 100%; background: #020408; border-top: 1px solid var(--glass-border); padding: 80px 0 40px 0; margin-top: 100px; position: relative; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand .logo { margin-bottom: 20px; }
+        .footer-brand p { color: var(--text-muted); font-size: 14px; max-width: 280px; line-height: 1.6; }
+        .footer-head { font-family: var(--font-mono); font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; display: block; font-weight: 700; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; transition: 0.2s; }
+        .footer-links a:hover { color: var(--brand-cyan); padding-left: 4px; }
+        .footer-bottom { padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+
+        .modal-overlay { position: fixed; inset: 0; background: rgba(2, 4, 8, 0.85); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+        .modal-overlay.open { display: flex; opacity: 1; }
+        .modal-card { background: #0B111E; border: 1px solid var(--glass-border); width: 100%; max-width: 480px; padding: 40px; border-radius: var(--radius-lg); position: relative; transform: translateY(20px); transition: transform 0.3s; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .modal-overlay.open .modal-card { transform: translateY(0); }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 24px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .form-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 6px; color: white; font-family: var(--font-main); }
+        .form-input:focus { outline: none; border-color: var(--brand-blue); background: rgba(255,255,255,0.08); }
+
+        @media (max-width: 1024px) { .grid-2col { grid-template-columns: 1fr; gap: 60px; } .corporate-summary { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .nav-center { display: none; } .nav { padding: 0 20px; height: 64px; } h1 { font-size: 42px; margin-bottom: 20px; } .hero-content { padding: 0 20px; } .market-strip { grid-template-columns: 1fr; } .btn-container { flex-direction: column; width: 100%; } .btn-primary, .btn-secondary { width: 100%; } .pipeline-wrapper { margin: 0 -20px; width: calc(100% + 40px); border-radius: 0; border-left: 0; border-right: 0; } }
+        
+        .tech-diagram { position: relative; width: 220px; height: 220px; display: flex; justify-content: center; align-items: center; }
+        @media (max-width: 1024px) { 
+            .grid-2col { grid-template-columns: 1fr; gap: 60px; } 
+            .corporate-summary { grid-template-columns: 1fr; gap: 40px; } 
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
+            .summary-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .partner-stages { grid-template-columns: 1fr; gap: 16px; }
+            .chart-container { padding: 40px 30px; }
+            .chart-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+        }
+        
+        @media (max-width: 768px) { 
+            /* Container adjustments */
+            .container { width: 90vw; margin-left: 5vw; margin-right: 5vw; padding: 0 20px; }
+            
+            /* Navigation */
+            .nav-wrapper { top: 12px; padding: 0 16px; }
+            .nav { padding: 0 16px; height: 60px; }
+            .nav-center { display: none; } 
+            .logo { font-size: 18px; }
+            .logo-mark { width: 20px; height: 20px; }
+            .persona-pill { display: none; }
+            .cta-header { padding: 8px 16px; font-size: 12px; }
+            
+            /* Hero */
+            .hero-section { min-height: 80vh; padding-top: 100px; padding-bottom: 40px; }
+            h1 { font-size: 36px; margin-bottom: 20px; line-height: 1.2; } 
+            .hero-content { padding: 0 20px; }
+            .p-lead { font-size: 16px; margin-bottom: 24px; }
+            .positioning-statement { font-size: 16px; padding: 12px 16px; }
+            .stat-badge { font-size: 11px; padding: 6px 12px; margin-bottom: 24px; }
+            
+            /* Buttons */
+            .btn-container { flex-direction: column; width: 100%; gap: 12px; margin-top: 32px; } 
+            .btn-primary, .btn-secondary { width: 100%; padding: 14px 28px; font-size: 14px; text-align: center; }
+            
+            /* Investor strip */
+            .investor-strip { padding: 16px 0; margin-bottom: 60px; }
+            .investor-strip-inner { gap: 80px; }
+            .inv-logo { font-size: 16px; }
+            .inv-logo-img, .logo-white { height: 18px !important; }
+            
+            /* Corporate summary */
+            .corporate-summary { grid-template-columns: 1fr; gap: 30px; margin-bottom: 60px; }
+            .summary-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .ss-val { font-size: 20px; }
+            .validation-callout { padding: 12px 16px; font-size: 14px; }
+            
+            /* Market stats */
+            .stats-wrapper { margin-bottom: 80px; }
+            .market-strip { grid-template-columns: 1fr; gap: 0; } 
+            .market-cell { padding: 32px 24px; }
+            .m-stat { font-size: 28px; }
+            .m-desc { font-size: 13px; }
+            
+            /* Section spacing */
+            .section-spacer { padding: 60px 0; }
+            
+            /* Typography */
+            h2 { font-size: 28px; margin-bottom: 20px; }
+            h2::before { width: 3px; height: 24px; }
+            h3 { font-size: 18px; }
+            .eyebrow { font-size: 11px; margin-bottom: 12px; }
+            
+            /* Tabs */
+            .tab-nav { flex-wrap: wrap; width: 100%; margin-bottom: 30px; }
+            .tab-btn { padding: 10px 16px; font-size: 13px; flex: 1; min-width: fit-content; }
+            
+            /* Cards */
+            .glass-card { border-radius: 12px; }
+            .science-card { padding: 24px; }
+            .data-grid-mini { grid-template-columns: 1fr; gap: 12px; padding-top: 20px; }
+            .schematic-box { min-height: 300px; }
+            .mech-label { font-size: 11px; padding: 8px 16px; }
+            
+            /* Pipeline */
+            .pipeline-wrapper { margin: 0 -20px; width: calc(100% + 40px); border-radius: 0; border-left: 0; border-right: 0; overflow-x: auto; }
+            .pipeline-table { min-width: 700px; font-size: 13px; }
+            .pipeline-table th { padding: 16px 12px; font-size: 11px; }
+            .pipeline-table td { padding: 16px 12px; }
+            .prog-name { font-size: 14px; }
+            .prog-detail { font-size: 14px; }
+            .status-pill { font-size: 10px; padding: 3px 8px; }
+            .strategy-box { padding: 16px; margin-top: 20px; }
+            
+            /* Chart */
+            .chart-container { padding: 24px 20px; }
+            .chart-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 30px; }
+            .bar-group { margin-bottom: 24px; }
+            .bar-labels { font-size: 13px; margin-bottom: 10px; }
+            .bar-track { height: 36px; }
+            .bar-val { font-size: 12px; padding-right: 12px; }
+            .chart-container > div[style*="margin-top:32px"] { flex-direction: column !important; align-items: stretch !important; }
+            .chart-container .btn-secondary { width: 100%; margin-top: 8px; }
+            
+            /* Business model */
+            .deal-bullets { margin-top: 16px; }
+            .deal-bullets li { font-size: 14px; margin-bottom: 12px; padding-left: 20px; }
+            .partner-stages { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+            .p-stage-card { padding: 16px; }
+            .p-stage-title { font-size: 12px; }
+            
+            /* Team */
+            .team-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 30px; }
+            .team-card { border-radius: 12px; }
+            .team-img-wrapper { height: 280px; }
+            .team-content { padding: 20px 24px 24px 24px; margin-top: -16px; }
+            .team-name { font-size: 18px; }
+            .team-bio { font-size: 13px; }
+            
+            /* Investor card */
+            .investor-access-card { padding: 24px; margin-bottom: 40px; }
+            .investor-access-card .deal-bullets { grid-template-columns: 1fr; gap: 0; }
+            .investor-access-card > div[style*="flex"] { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .investor-access-card .btn-primary { width: 100%; }
+            
+            /* News carousel */
+            .news-card-innovative { padding: 32px 24px; min-height: auto; }
+            .news-meta { font-size: 11px; margin-bottom: 16px; flex-wrap: wrap; }
+            .news-headline { font-size: 24px; margin-bottom: 16px; }
+            .news-excerpt { font-size: 16px; margin-bottom: 24px; }
+            .carousel-dots { margin-top: 30px; gap: 10px; }
+            .news-card-innovative > div[style*="absolute"] { position: relative !important; bottom: auto !important; right: auto !important; margin-top: 20px; text-align: center; }
+            
+            /* Footer */
+            footer { padding: 60px 0 30px 0; margin-top: 60px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; }
+            .footer-brand p { max-width: 100%; }
+            .footer-bottom { flex-direction: column; gap: 20px; padding-top: 30px; align-items: flex-start; }
+            .footer-legal { flex-direction: column; gap: 12px; }
+            
+            /* Modal */
+            .modal-card { max-width: 90vw; padding: 28px 24px; margin: 0 16px; }
+            .close-modal { top: 16px; right: 16px; font-size: 28px; }
+            .form-group { margin-bottom: 16px; }
+            .form-input { padding: 10px; font-size: 15px; }
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div class="mesh-bg">
+        <div class="mesh-orb orb-1"></div>
+        <div class="mesh-orb orb-2"></div>
+        <div class="mesh-orb orb-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <div class="logo-mark"></div>
+                Dianoya
+            </a>
+            
+            <div class="nav-center">
+                <a href="#platform" class="nav-link">Platform</a>
+                <a href="#science" class="nav-link">Science</a>
+                <a href="#investors" class="nav-link">Investors</a>
+                <a href="#news" class="nav-link">News</a>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div class="persona-pill">
+                    <button class="persona-btn active" onclick="setPersona('investor', this)">Investors</button>
+                    <button class="persona-btn" onclick="setPersona('partner', this)">Partners</button>
+                </div>
+                <button onclick="openModal()" class="cta-header" style="border:none; cursor:pointer;">Investor Portal</button>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            
+            <div id="hero-investor" class="hero-content-block active">
+                <h1>
+                    Transferrin-shuttle platform delivering <br>
+                    <span class="text-gradient">40x higher brain exposure</span>
+                </h1>
+                
+                
+
+                <div class="btn-container">
+                    <a href="#platform" class="btn-primary">View Clinical Pipeline</a>
+                    <a href="#science" class="btn-secondary">Review NHP Data</a>
+                </div>
+            </div>
+
+            <div id="hero-partner" class="hero-content-block">
+                <h1>
+                    Rescue your <br>
+                    <span class="text-gradient">Large Molecule Assets</span> <br>
+                    stalled at the BBB
+                </h1>
+                <p class="p-lead">
+                    Our modular plug-and-play shuttle restores therapeutic concentrations in the CNS for antibodies, enzymes, and oligonucleotides.
+                </p>
+                <div class="btn-container">
+                    <button class="btn-primary">Schedule Technical Assessment</button>
+                    <button class="btn-secondary">Download Fact Sheet</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="investor-strip" font="inter" id="investor-strip">
+        <div class="investor-strip-inner" font="inter">
+            <img src="accel.svg" loading="eager" alt="Accel" class="logo-white" style="height:30px; width:auto;">
+            <img src="GV.svg" loading="eager" alt="GV" class="logo-white" style="height:30px; width:auto;">
+            <img src="arch-min.png" loading="eager" alt="Arch" class="logo-white" style="height:30px; width:auto;">
+            <img src="thrive.svg" loading="eager" alt="Thrive" class="logo-white" style="height:30px; width:auto;">
+            <img src="antler.svg" loading="eager" alt="Antler" class="logo-white" style="height:30px; width:auto;">
+
+            <img src="accel.svg" loading="eager" alt="Accel" class="logo-white" style="height:30px; width:auto;">
+            <img src="GV.svg" loading="eager" alt="GV" class="logo-white" style="height:30px; width:auto;">
+            <img src="arch-min.png" loading="eager" alt="Arch" class="logo-white" style="height:30px; width:auto;">
+            <img src="thrive.svg" loading="eager" alt="Thrive" class="logo-white" style="height:30px; width:auto;">
+            <img src="antler.svg" loading="eager"alt="Antler" class="logo-white" style="height:30px; width:auto;">
+        </div>
+    </div>
+
+    <div class="container corporate-summary">
+        <div class="summary-text">
+            <span class="eyebrow">What We Do</span>
+            <h3>Solving the Delivery Problem</h3>
+            <p>
+                Founded in 2021 and headquartered in Cambridge, UK, Dianoya is solving the fundamental challenge of neuro-drug development: the Blood-Brain Barrier. By hijacking the body's natural iron transport mechanism, we turn large molecule therapeutics into brain-penetrant precision medicines.
+            </p>
+        </div>
+        <div class="summary-stats">
+            <div class="sum-stat-box">
+                <div class="ss-val">$62M</div>
+                <div class="ss-label">Total Raised</div>
+            </div>
+            <div class="sum-stat-box">
+                <div class="ss-val">2021</div>
+                <div class="ss-label">Founded</div>
+            </div>
+            <div class="sum-stat-box">
+                <div class="ss-val">12</div>
+                <div class="ss-label">Patents Filed</div>
+            </div>
+            <div class="sum-stat-box">
+                <div class="ss-val">24</div>
+                <div class="ss-label">FTEs</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container stats-wrapper">
+        <div class="market-strip">
+            <div class="market-cell">
+                <div class="m-stat text-gradient">98%</div>
+                <div class="m-desc">Failure Rate</div>
+                <div class="m-context">Of biologics fail to cross the BBB in therapeutic concentrations.</div>
+            </div>
+            <div class="market-cell">
+                <div class="m-stat">$45B</div>
+                <div class="m-desc">Untapped TAM</div>
+                <div class="m-context">Neurodegenerative market potential if delivery is solved.</div>
+            </div>
+            <div class="market-cell">
+                <div class="m-stat">600M+</div>
+                <div class="m-desc">Patient Population</div>
+                <div class="m-context">Global prevalence of CNS disorders requiring biologic intervention.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-spacer" id="platform">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('pipeline', this)">Pipeline & Programmes</button>
+            <button class="tab-btn" onclick="switchTab('science', this)">Mechanism of Action</button>
+            <button class="tab-btn" onclick="switchTab('partner', this)">Business Model</button>
+        </div>
+
+        <div id="tab-pipeline" class="tab-content active">
+             <div class="glass-card science-card tech-corners" style="margin-bottom: 40px;">
+                <span class="eyebrow">Development Pipeline</span>
+                <h2>Proprietary & Partnered Programmes</h2>
+                
+                <div class="pipeline-wrapper">
+                    <table class="pipeline-table">
+                        <thead>
+                            <tr>
+                                <th>Programme</th>
+                                <th>Modality</th>
+                                <th>Target / Indication</th>
+                                <th>Status</th>
+                                <th>Rights</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="prog-name">DI-001</div>
+                                    <div class="prog-meta">Lead Asset</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">TfR-Antibody Fusion</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">BACE1 / Alzheimer's</div>
+                                </td>
+                                <td>
+                                    <span class="status-pill status-ind">IND Enabling</span>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">Wholly Owned</div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="prog-name">DI-101 (ASO)</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">TfR-Oligonucleotide</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">MAPT / Tauopathy</div>
+                                </td>
+                                <td>
+                                    <span class="status-pill status-discovery">Discovery</span>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">Wholly Owned</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="prog-name">Undisclosed</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">TfR-Antibody</div>
+                                </td>
+                                <td>
+                                    <div class="prog-detail">Neuro-Oncology</div>
+                                </td>
+                                <td>
+                                    <span class="status-pill status-discovery">Discovery</span>
+                                </td>
+                                <td>
+                                    <div class="prog-detail" style="color:var(--brand-cyan);">Active Discussions (3)</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="strategy-box">
+                    <div class="strategy-title">Why BACE1?</div>
+                    <p class="text-sm" style="margin-bottom:0; color:white;">
+                        Previous BACE inhibitors (Merck, Lilly, Janssen) failed due to peripheral target engagement causing cognitive decline. Our brain-selective delivery achieves 40:1 brain:plasma exposure, enabling CNS-specific Aβ reduction without systemic BACE1 inhibition. Pre-IND meeting scheduled Q1 2026.
+                    </p>
+                </div>
+             </div>
+        </div>
+
+        <div id="tab-science" class="tab-content">
+            <div class="grid-2col">
+                <div class="glass-card science-card tech-corners">
+                    <span class="eyebrow">The Mechanism</span>
+                    <h2>Engineered to escape <br>the Lysosome</h2>
+                    
+                    <p class="text-sm" style="color: white; margin-bottom: 24px;">
+                        Unlike high-affinity TfR binders that trigger lysosomal degradation, our bivalent shuttle uses moderate affinity (Kd ~0.3nM) with pH-dependent release kinetics, validated across three NHP studies showing consistent parenchymal distribution and no reticulocyte depletion at therapeutic doses.
+                    </p>
+                    
+                    <div class="data-grid-mini">
+                        <div class="data-point">
+                            <div class="dp-label">Affinity (Kd)</div>
+                            <div class="dp-val text-gradient">~0.3 nM</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="dp-label">Valency</div>
+                            <div class="dp-val">2:1 Bivalent</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="dp-label">Safety</div>
+                            <div class="dp-val" style="color:#4ade80">No Reticulocyte Loss</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="dp-label">IP Status</div>
+                            <div class="dp-val">Granted (US/EU)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schematic-box glass-card">
+                     <div class="mech-label">MECHANISM OF ACTION DEMONSTRATION</div>
+                     
+                     
+                     <div style="position:absolute; bottom:24px; right:32px; text-align:right;">
+                         <div style="font-size:11px; color:var(--brand-cyan); font-family:var(--font-mono); margin-bottom:4px;">MODEL: DI-001</div>
+                         <div style="font-size:11px; color:rgba(255,255,255,0.5); font-family:var(--font-mono);">STATUS: OPTIMISED</div>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-partner" class="tab-content">
+            <div class="glass-card science-card tech-corners">
+                <span class="eyebrow">Business Strategy</span>
+                <h2>Pipeline-First Growth</h2>
+                
+                <p class="p-lead" style="margin-bottom:0;">
+                    We focus wholly-owned development on high-value CNS targets where brain delivery is the primary failure mode. Platform partnerships are opportunistic and limited to indications outside our core focus (e.g., neuro-oncology).
+                </p>
+                
+                <div class="grid-2col" style="gap:40px; margin-top:40px;">
+                    <div>
+                        <h3>Proprietary Focus</h3>
+                        <ul class="deal-bullets">
+                            <li><strong>Neurodegeneration</strong> programmes focus on wholly-owned assets for Alzheimer's and Parkinson's.</li>
+                            <li><strong>Value Capture</strong> strategy retains full rights through clinical proof-of-concept.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Strategic Partnering</h3>
+                        <ul class="deal-bullets">
+                            <li><strong>Non-Core Indications</strong> are addressed by out-licensing the platform for rare disease & oncology.</li>
+                            <li><strong>Economics</strong> leverage upfront fees + milestones to fund the proprietary pipeline.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="partner-stages">
+                    <div class="p-stage-card">
+                        <div class="p-stage-title">01. MTA & Eval</div>
+                        <div class="text-sm">Partner ships antibody; Dianoya generates fusion in 4 weeks.</div>
+                    </div>
+                    <div class="p-stage-card">
+                        <div class="p-stage-title">02. In Vivo PoC</div>
+                        <div class="text-sm">12-week PK/PD study in humanized mouse or NHP model.</div>
+                    </div>
+                    <div class="p-stage-card">
+                        <div class="p-stage-title">03. Licence</div>
+                        <div class="text-sm">Negotiation of commercial terms and tech transfer.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-spacer" id="science">
+        <div class="glass-card chart-container tech-corners">
+            <div class="chart-header">
+                <div>
+                    <span class="eyebrow">DI-001 (LEAD PROGRAMME) DATA</span>
+                    <h2>Significantly Enhanced Brain Uptake</h2>
+                </div>
+                <div style="text-align:right;">
+                    <div class="text-sm" style="color: var(--text-secondary);">Cynomolgus Macaque (N=4)</div>
+                    <div class="text-sm" style="color: var(--text-secondary);">10 mg/kg IV (Single Bolus) • 48h Timepoint</div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-labels">
+                    <span>Standard IgG Antibody</span>
+                    <span>0.15% ID/g</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill fill-control"></div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-labels">
+                    <span style="color:white">DI-001 (Shuttle Fusion)</span>
+                    <span class="text-gradient" style="font-weight:700;">6.2% ID/g</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar-fill fill-active" id="anim-bar">
+                        <span class="bar-val">41x Increase</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; display:flex; gap:20px; align-items:center;">
+                <p class="text-sm" style="flex:1; color: var(--text-secondary);">
+                    DI-001 demonstrates broad parenchymal distribution with a favorable brain:plasma ratio of 38:1, confirming active transport rather than vascular pooling.
+                </p>
+                <button class="btn-secondary" style="padding:10px 20px; font-size:13px;">Download Data Supplement</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-spacer" id="team">
+        <h2>Leadership & SAB</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, #222, #333);"></div>
+                </div>
+                <div class="team-content">
+                    <div class="team-name">Dr. Elena Rostova</div>
+                    <div class="team-role">CEO & CO-FOUNDER</div>
+                    <div class="team-bio">Former VP Discovery at Biogen with 15+ years in CNS antibody development. Led IND-enabling studies for three BBB-crossing biologics.</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, #1e293b, #0f172a);"></div>
+                </div>
+                <div class="team-content">
+                    <div class="team-name">James Chen, MD, PhD</div>
+                    <div class="team-role">CHIEF MEDICAL OFFICER</div>
+                    <div class="team-bio">Ex-CMO at Denali Therapeutics (Stealth). oversaw 4 IND filings for BBB-crossing enzymes. Deep FDA neuroscience expertise.</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, #333, #444);"></div>
+                </div>
+                <div class="team-content">
+                    <div class="team-name">Scientific Team</div>
+                    <div class="team-role">R&D ORGANIZATION</div>
+                    <div class="team-bio">Lean executive team of 5 PhD scientists, supported by 6-member Scientific Advisory Board including world-renowned experts from UCSF and Harvard.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-spacer" id="investors">
+        <div class="glass-card investor-access-card tech-corners">
+            <span class="eyebrow">For Investors</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+                <h3 style="margin-bottom: 0;">Investment Thesis</h3>
+                <div class="stat-badge" style="margin:0;">SERIES B OPENING Q1 2026</div>
+            </div>
+            
+            <ul class="deal-bullets" style="margin-top: 0; display:grid; grid-template-columns: 1fr 1fr; gap:40px;">
+                <div>
+                    <li><strong>Proprietary Platform</strong> features a tunable affinity shuttle that solves the lysosomal trap with proven 40x brain uptake.</li>
+                    <li><strong>Lead Asset Ready</strong> status for DI-001 (BACE1), which is entering IND-enabling studies and solves prior BACE failures.</li>
+                </div>
+                <div>
+                    <li><strong>Top-Tier Syndicate</strong> backing is provided by Arch Venture Partners, Google Ventures and Accel.</li>
+                    <li><strong>Financials</strong> ensure a current runway through Q3 2026 that supports IND filing for DI-001.</li>
+                </div>
+            </ul>
+            <div style="margin-top: 40px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:24px;">
+                <p class="text-sm" style="margin-bottom: 0; flex:1; color:var(--text-secondary);">
+                    Qualified institutional investors may request access to our virtual data room containing full preclinical data packages, CMC overview, and IP landscape.
+                </p>
+                <button onclick="openModal()" class="btn-primary" style="white-space:nowrap;">Request Data Room Access</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section-spacer" id="news">
+        <div class="glass-card news-card-innovative tech-corners">
+            
+            <div class="news-slide active" id="news-1">
+                <div class="news-meta">
+                    <span class="news-category">CORPORATE</span>
+                    <span>•</span>
+                    <span>NOV 15, 2024</span>
+                </div>
+                <div class="news-headline">Dianoya closes $12M Series A extension led by OrbiMed</div>
+                <div class="news-excerpt">
+                    Funding will accelerate GLP toxicology studies for lead programme DI-001 and expand the platform to oligonucleotide payloads.
+                </div>
+                <a href="#" class="news-link-btn">Read Press Release &rarr;</a>
+            </div>
+
+            <div class="news-slide" id="news-2">
+                <div class="news-meta">
+                    <span class="news-category">SCIENCE</span>
+                    <span>•</span>
+                    <span>OCT 02, 2024</span>
+                </div>
+                <div class="news-headline">Publication in Nature Neuroscience titled "A Bivalent Shuttle"</div>
+                <div class="news-excerpt">
+                    Peer-reviewed validation of our 40x uptake data in non-human primates. Detailed mechanisms of lysosomal escape and pH-sensitivity.
+                </div>
+                <a href="#" class="news-link-btn">Read Full Paper &rarr;</a>
+            </div>
+
+            <div class="carousel-dots">
+                <div class="dot active" onclick="setSlide(1)"></div>
+                <div class="dot" onclick="setSlide(2)"></div>
+            </div>
+            
+            <div style="position:absolute; bottom:30px; right:40px;">
+                <a href="#" style="color:var(--text-muted); font-size:12px; text-decoration:none; font-family:var(--font-mono);">ARCHIVE &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark"></div>
+                        Dianoya
+                    </a>
+                    <p>Revolutionising CNS delivery through engineered pH-sensitive bivalent shuttles.</p>
+                    <div style="margin-top: 20px; color: var(--text-muted); font-size: 13px;">
+Cambridge Science Park<br>
+Cambridge<br> 
+CB4 0GF<br>
+United Kingdom
+                    </div>
+                </div>
+                <div>
+                    <span class="footer-head">Platform</span>
+                    <ul class="footer-links">
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Pipeline</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Partnering</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="footer-head">Company</span>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="footer-head">Connect</span>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">Email IR</a></li>
+                        <li><a href="#">Email BD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div style="font-size:12px; color:var(--text-muted);">© 2025 Dianoya Therapeutics. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="investor-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h3 style="margin-bottom: 8px;">Request Access</h3>
+            <p class="text-sm">Please provide your institutional details to access the Virtual Data Room.</p>
+            
+            <form style="margin-top: 24px;" onsubmit="event.preventDefault(); closeModal(); alert('Request Sent. Our IR team will contact you shortly.');">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Work Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Institution / Fund</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- PERSONA TOGGLE ---
+        function setPersona(persona, btn) {
+    document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.hero-content-block').forEach(block => block.classList.remove('active'));
+    setTimeout(() => {
+        document.getElementById(`hero-${persona}`).classList.add('active');
+    }, 100);
+
+    // Show strip only for investors
+    const strip = document.getElementById('investor-strip');
+    if (strip) {
+        strip.style.display = (persona === 'investor') ? 'flex' : 'none';
+    }
+}
+
+        // --- TAB SWITCH ---
+        function switchTab(target, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`tab-${target}`).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // --- DATA CHART ANIMATION ---
+        const animBar = document.getElementById('anim-bar');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => { animBar.style.width = '100%'; }, 200);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        if(document.querySelector('.chart-container')) {
+            observer.observe(document.querySelector('.chart-container'));
+        }
+
+        // --- MODAL LOGIC ---
+        function openModal() { document.getElementById('investor-modal').classList.add('open'); }
+        function closeModal() { document.getElementById('investor-modal').classList.remove('open'); }
+        document.getElementById('investor-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // --- NEWS CAROUSEL LOGIC ---
+        function setSlide(index) {
+            document.querySelectorAll('.news-slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            document.getElementById(`news-${index}`).classList.add('active');
+            document.querySelectorAll('.dot')[index-1].classList.add('active');
+        }
+    </script>
+    <script>
+        // CONTINUOUS LOOP FIX
+        // This duplicates the logos so there is never "blank space"
+        document.addEventListener("DOMContentLoaded", function() {
+            const strip = document.querySelector('.investor-strip-inner');
+            if (strip) {
+                // Clone the entire list of logos and append them to the end.
+                // This creates [Set 1] [Set 2], allowing the animation 
+                // to loop perfectly from the end of Set 1 back to the start.
+                strip.innerHTML += strip.innerHTML;
+            }
+        });
+    </script>
+</body>
+</html>
