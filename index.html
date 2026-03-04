@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALETHARA | The Web Partner for Private Clinics</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icons.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicons-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicons-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons-16x16.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="site.webmanifest">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
@@ -112,7 +112,6 @@
             overflow: hidden;
         }
 
-        /* --- YOUR ANIMATED BACKGROUND --- */
         .animated-bg {
             position: absolute;
             top: 0;
@@ -120,13 +119,9 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            /* Squeezing the percentages from 0-50-100 down to 45-50-55 is what 
-               forces it to look like a VISIBLE DIAGONAL LINE instead of a full screen blur.
-               Using #94A3B8 (a deeper slate grey) makes it impossible to miss.
-            */
             background: linear-gradient(135deg, #ffffff 0%, #f4fff6, #ffffff 100%);
             background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite; /* Sped up so you can see it moving */
+            animation: gradientShift 8s ease infinite; 
         }
         
         @keyframes gradientShift {
@@ -142,7 +137,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Kept your pulsing radial gradients */
             background: radial-gradient(circle at 20% 50%, rgba(148, 163, 184, 0.2) 0%, transparent 50%),
                         radial-gradient(circle at 80% 50%, rgba(148, 163, 184, 0.2) 0%, transparent 50%);
             animation: pulse 8s ease-in-out infinite;
@@ -174,26 +168,56 @@
         .process-number { font-family: var(--font-heading); font-size: 3rem; color: var(--bg-muted); line-height: 1; margin-bottom: 20px; font-weight: 700; }
 
         /* --- PORTFOLIO SECTION --- */
-/* Desktop: 2 columns, creating a 2x2 grid for 4 items */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem; /* Increased gap for better breathing room in 2x2 layout */
-    max-width: 1000px; /* Constrains the width so cards don't get too wide */
-    margin: 0 auto;
-}
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Updated to 3 in a row */
+            gap: 2.5rem; 
+            max-width: 1200px; /* Wider container for 3 columns */
+            margin: 0 auto;
+        }
 
-/* Mobile: 1 column */
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}        .portfolio-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; }
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }        
+        .portfolio-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; }
         .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
         .card-image { height: 240px; display: flex; align-items: center; justify-content: center; position: relative; }
         .card-image-inner { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; }
         .card-image-inner svg { width: 100%; height: 100%; }
+        
+        /* Badge/Sticker Styles */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+        .badge-client {
+            background: var(--accent-green);
+            color: #002814;
+        }
+        .badge-concept {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(4px);
+        }
+
         .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
         .card-category { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 10px; font-weight: 600; }
         .card-title { font-size: 1.5rem; margin-bottom: 10px; font-family: var(--font-heading); }
@@ -227,7 +251,7 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            .process-grid, .pricing-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .process-grid, .pricing-grid { grid-template-columns: 1fr; }
             nav .nav-links { display: none; }
             .hero { padding-top: 120px; }
         }
@@ -263,8 +287,6 @@
         </div>
     </section>
 
-
-
     <section id="process">
         <div class="container">
             <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -297,65 +319,83 @@
         <div class="container">
             <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <span class="eyebrow">Select Work</span>
-                <h2> Digital excellence in practice.</h2>
+                <h2>Digital excellence in practice.</h2>
                 <p style="margin: 0 auto;">Explore how we translate complex medical expertise into compelling, patient-focused digital experiences.</p>
                 <p> </p>
             </div>
 
             <div class="portfolio-grid reveal" style="transition-delay: 0.2s;">
-    <a href="/dianoya" class="portfolio-card">
-        <div class="card-image" style="background: linear-gradient(135deg, #020B1C, #1E88E5);">
-            <div class="card-image-inner">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="#0DD9C4" stroke-width="2" />
-                    <circle cx="12" cy="12" r="4" fill="#2E8AFF" />
-                </svg>
+                <a href="https://www.themindplace.co.uk" target="_blank" class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #EBE6E0, #D2C9BD);">
+                        <div class="card-badge badge-client">Client Work</div>
+                        <div class="card-image-inner" style="font-size: 3rem;">🪷</div>
+                    </div>                    
+                    <div class="card-content">
+                        <div class="card-category">Integrative Therapy</div>
+                        <h3 class="card-title">The Mind Place</h3>
+                        <p class="card-desc">A clean, modern site reflecting the authentic ethos and calming atmosphere of a new private practice.</p>
+                        <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Designed to feel exceptionally warm and approachable while ensuring effortless navigation for potential clients.</div>
+                    </div>
+                </a>
+
+                <a href="/dianoya" class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #020B1C, #1E88E5);">
+                        <div class="card-badge badge-concept">Concept Work</div>
+                        <div class="card-image-inner">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" fill="none" stroke="#0DD9C4" stroke-width="2" />
+                                <circle cx="12" cy="12" r="4" fill="#2E8AFF" />
+                            </svg>
+                        </div>
+                    </div>                    
+                    <div class="card-content">
+                        <div class="card-category">Biotech Innovation</div>
+                        <h3 class="card-title">Dianoya Therapeutics</h3>
+                        <p class="card-desc">Explaining complex science for non-technical investors.</p>
+                        <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Translating density into clarity to secure investment partnerships.</div>
+                    </div>
+                </a>
+
+                <a href="/dental-atelier" class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #1A1A1A, #333333);">
+                        <div class="card-badge badge-concept">Concept Work</div>
+                        <div class="card-image-inner" style="font-size: 3rem;">🦷</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Cosmetic & Implant Dentistry</div>
+                        <h3 class="card-title">Mayfair Dental Atelier</h3>
+                        <p class="card-desc">High-end medical platform featuring fluid liquid animations and a 'concierge' user flow.</p>
+                        <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Offset luxury "editorial" aesthetics with trust-building data matrices.</div>
+                    </div>
+                </a>
+
+                <a href="/cambridge-core-clinic" class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #ffffff, #f0f4f8);">
+                        <div class="card-badge badge-concept">Concept Work</div>
+                        <div class="card-image-inner" style="font-size: 3rem;">🏥</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Private Healthcare</div>
+                        <h3 class="card-title">Cambridge Core Clinic</h3>
+                        <p class="card-desc">Restructured GP site with services and booking emphasised.</p>
+                        <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Reduced admin friction by surfacing booking availability immediately.</div>
+                    </div>
+                </a>
+
+                <a href="/flourish" class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #2D5F5D, #4A8886);">
+                        <div class="card-badge badge-concept">Concept Work</div>
+                        <div class="card-image-inner" style="font-size: 3rem; color: white;">🌱</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Mental Health Practice</div>
+                        <h3 class="card-title">Flourish Wellbeing</h3>
+                        <p class="card-desc">A warm, welcoming platform for evidence-based therapy in Cambridge.</p>
+                        <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Balanced compassionate design with clinical authority and trust signals.</div>
+                    </div>
+                </a>
             </div>
-        </div>                    
-        <div class="card-content">
-            <div class="card-category">Biotech Innovation</div>
-            <h3 class="card-title">Dianoya Therapeutics</h3>
-            <p class="card-desc">Explaining complex science for non-technical investors.</p>
-            <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Translating density into clarity to secure investment partnerships.</div>
         </div>
-    </a>
-
-    <a href="/dental-atelier" class="portfolio-card">
-        <div class="card-image" style="background: linear-gradient(135deg, #1A1A1A, #333333);">
-            <div class="card-image-inner" style="font-size: 3rem;">🦷</div>
-        </div>
-        <div class="card-content">
-            <div class="card-category">Cosmetic & Implant Dentistry</div>
-            <h3 class="card-title">Mayfair Dental Atelier</h3>
-            <p class="card-desc">High-end medical platform featuring fluid liquid animations and a 'concierge' user flow.</p>
-            <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Offset luxury "editorial" aesthetics with trust-building data matrices.</div>
-        </div>
-    </a>
-
-    <a href="/cambridge-core-clinic" class="portfolio-card">
-        <div class="card-image" style="background: linear-gradient(135deg, #ffffff, #f0f4f8);">
-            <div class="card-image-inner" style="font-size: 3rem;">🏥</div>
-        </div>
-        <div class="card-content">
-            <div class="card-category">Private Healthcare</div>
-            <h3 class="card-title">Cambridge Core Clinic</h3>
-            <p class="card-desc">Restructured GP site with services and booking emphasised.</p>
-            <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Reduced admin friction by surfacing booking availability immediately.</div>
-        </div>
-    </a>
-
-    <a href="/flourish" class="portfolio-card">
-        <div class="card-image" style="background: linear-gradient(135deg, #2D5F5D, #4A8886);">
-            <div class="card-image-inner" style="font-size: 3rem; color: white;">🌱</div>
-        </div>
-        <div class="card-content">
-            <div class="card-category">Mental Health Practice</div>
-            <h3 class="card-title">Flourish Wellbeing</h3>
-            <p class="card-desc">A warm, welcoming platform for evidence-based therapy in Cambridge.</p>
-            <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Balanced compassionate design with clinical authority and trust signals.</div>
-        </div>
-    </a>
-</div>
     </section>
 
     <section id="testimonials" style="background: var(--bg-muted);">
@@ -365,17 +405,23 @@
                 <h2>What our partners say.</h2>
             </div>
             
-            <div class="process-grid reveal" style="grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto;">
-                <div class="process-card" style="padding: 40px;">
-                    <div style="color: #FFB400; font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; margin-bottom: 20px;">"The summary of salient points, expressed in language to attract the right audience without baffling them with the science, was amazing."</p>
-                    <div style="font-weight: 700; font-family: var(--font-heading);">- Vivian</div>
-                </div>
+            <div class="reveal" style="background: var(--bg-surface); border-radius: var(--radius-lg); padding: 50px 50px; max-width: 1000px; margin: 0 auto 0; position: relative;">
+                <div style="color: #FFB400; font-size: 1.5rem; margin-bottom: 20px;">★★★★★</div>
+                <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
+                    "Working with Joseph has been an absolute pleasure. As a therapist launching my private practice, <em>The Mind Place</em>, I wanted a website that felt warm, professional, and easy for potential clients to navigate. Joseph completely understood this vision and created a clean, modern site that reflects both the ethos of my practice and the calm, welcoming atmosphere I hope clients will experience."
+                </p>
+                <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
+                    "Joseph has a real talent for designing websites specifically for therapists. He took the time to understand my work as an integrative counsellor and translated that into a beautiful, thoughtful design that feels authentic to me. The process was smooth, collaborative, and surprisingly stress-free - something I was very grateful for whilst setting up a new practice."
+                </p>
+                <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
+                    "What also stood out was Joseph’s generosity and support. I would wholeheartedly recommend Joseph to any therapist looking for a clean, professional website that truly reflects their practice. His creativity, technical skill, and kindness make him wonderful to work with."
+                </p>
                 
-                <div class="process-card" style="padding: 40px;">
-                    <div style="color: #FFB400; font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; margin-bottom: 20px;">"Thoughtful, professional, and brilliant from start to finish."</p>
-                    <div style="font-weight: 700; font-family: var(--font-heading);">- James</div>
+                <div style="display: flex; align-items: center; gap: 15px; margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                    <div>
+                        <div style="font-weight: 700; font-family: var(--font-heading); font-size: 1.1rem;">Deborah Armiger</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">Founder, <a href="https://www.themindplace.co.uk" target="_blank" style="color: inherit; text-decoration: underline;">The Mind Place</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -459,7 +505,13 @@
                 <div style="background: var(--bg-surface); border-radius: var(--radius-lg); padding: 60px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-top: 40px;">
                     <div class="calendly-inline-widget" data-url="https://calendly.com/joseph-alethara/30min" style="min-width:320px;height:700px;"></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<p style="margin-bottom: 0;">Alternatively, connect with us directly via WhatsApp at <a href="https://wa.me/447429448533" target="_blank" style="color: var(--text-main); font-weight: 600;">07429 448533</a>.</p>                </div>
+                    <p style="margin-bottom: 0;">
+                        Alternatively, connect with us directly via WhatsApp at 
+                        <a href="https://wa.me/447429448533" target="_blank" style="color: var(--text-main); font-weight: 600;">07429 448533</a>, 
+                        or email at 
+                        <a href="mailto:joseph@alethara.com" style="color: var(--text-main); font-weight: 600;">joseph@alethara.com</a>.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
