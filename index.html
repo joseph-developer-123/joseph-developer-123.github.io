@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">    
     <title>ALETHARA | The Web Partner for Private Clinics</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icons.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons-32x32.png">
@@ -75,27 +75,25 @@
 
         nav {
             position: fixed; 
-            /* Use safe-area-inset to ensure it clears notches/dynamic islands */
-            top: calc(env(safe-area-inset-top, 0px) + 15px); 
-            left: 0;
-            right: 0;
-            /* Center using margins instead of transform */
-            margin-left: auto;
-            margin-right: auto;
+            /* Fixes the 'cut off' by respecting the phone's status bar/notch */
+            top: calc(env(safe-area-inset-top, 0px) + 20px); 
+            left: 50%; 
+            transform: translateX(-50%);
             width: 90%; 
             max-width: 1300px; 
             display: flex; 
             justify-content: space-between;
             align-items: center; 
-            padding: 12px 25px; 
+            padding: 15px 30px; 
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); /* Support for Safari/iOS */
+            -webkit-backdrop-filter: blur(20px); /* Vital for Safari/iPhone blur */
             border-radius: 100px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
             border: 1px solid rgba(255, 255, 255, 0.5);
             z-index: 1000; 
             transition: all 0.3s ease;
+            box-sizing: border-box; /* Ensures padding doesn't push the bar off-center */
         }
 
         .logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-main); text-decoration: none; }
@@ -267,30 +265,22 @@
 
        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            .process-grid, .pricing-grid { grid-template-columns: 1fr; }
-            nav .nav-links { display: none; }
-            
-            /* Give the hero more room so it doesn't hide behind the lower nav */
-            .hero { padding-top: 160px; }
-
             nav {
-                width: 94%; /* Slightly wider on mobile for better utility */
-                padding: 10px 15px;
-                /* Overriding any potential inherited transforms */
-                transform: none; 
+                width: 94%; /* Matches Dianoya mobile width */
+                padding: 10px 15px; /* Slimmer padding so content fits on one line */
             }
-
-            .logo {
-                font-size: 0.95rem;
-                letter-spacing: 0.05em;
-            }
-
-            /* Force the button to stay small enough to fit on one line */
+            nav .nav-links { display: none; }
+            .logo { font-size: 1rem; }
+            
+            /* Shrink the button so it doesn't force the bar to overflow/off-center */
             nav .btn-primary {
                 padding: 8px 16px !important;
                 font-size: 0.8rem !important;
                 white-space: nowrap;
             }
+
+            .process-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .hero { padding-top: 140px; }
         }
     </style>
 </head>
