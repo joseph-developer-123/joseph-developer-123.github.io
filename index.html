@@ -73,28 +73,18 @@
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
         section { padding: 120px 0; position: relative; }
 
-        nav {
-            position: fixed; 
-            /* Fixes the 'cut off' by respecting the phone's status bar/notch */
-            top: calc(env(safe-area-inset-top, 0px) + 20px); 
-            left: 50%; 
-            transform: translateX(-50%);
-            width: 90%; 
-            max-width: 1300px; 
-            display: flex; 
-            justify-content: space-between;
-            align-items: center; 
-            padding: 15px 30px; 
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); /* Vital for Safari/iPhone blur */
-            border-radius: 100px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            z-index: 1000; 
-            transition: all 0.3s ease;
-            box-sizing: border-box; /* Ensures padding doesn't push the bar off-center */
-        }
+         @media (max-width: 768px) { 
+            /* Container adjustments */
+            .container { width: 90vw; margin-left: 5vw; margin-right: 5vw; padding: 0 20px; }
+            
+            /* Navigation */
+            .nav-wrapper { top: 12px; padding: 0 16px; }
+            .nav { padding: 0 16px; height: 60px; }
+            .nav-center { display: none; } 
+            .logo { font-size: 18px; }
+            .logo-mark { width: 20px; height: 20px; }
+            .persona-pill { display: none; }
+            .cta-header { padding: 8px 16px; font-size: 12px; }
 
         .logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-main); text-decoration: none; }
         .nav-links { display: flex; gap: 30px; }
@@ -266,21 +256,25 @@
        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             nav {
-                width: 94%; /* Matches Dianoya mobile width */
-                padding: 10px 15px; /* Slimmer padding so content fits on one line */
+                /* Matches Dianoya's tighter mobile gap */
+                top: calc(env(safe-area-inset-top, 0px) + 10px); 
+                width: 94%; 
+                padding: 10px 16px;
             }
+            
             nav .nav-links { display: none; }
             .logo { font-size: 1rem; }
             
-            /* Shrink the button so it doesn't force the bar to overflow/off-center */
+            /* Shrink button so it doesn't force the bar to overflow/off-center */
             nav .btn-primary {
-                padding: 8px 16px !important;
-                font-size: 0.8rem !important;
+                padding: 8px 14px !important;
+                font-size: 0.75rem !important;
                 white-space: nowrap;
+                letter-spacing: 0;
             }
 
             .process-grid, .pricing-grid { grid-template-columns: 1fr; }
-            .hero { padding-top: 140px; }
+            .hero { padding-top: 140px; } /* Ensures hero text starts below the bar */
         }
     </style>
 </head>
@@ -360,7 +354,7 @@
                     <div class="card-content">
                         <div class="card-category">Integrative Therapy</div>
                         <h3 class="card-title">The Mind Place</h3>
-                        <p class="card-desc">A beautiful, modern site reflecting the authentic ethos and calming atmosphere of a new private practice.</p>
+                        <p class="card-desc">A clean, modern site reflecting the authentic ethos and calming atmosphere of a new private practice.</p>
                         <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Designed to feel exceptionally warm and approachable while ensuring effortless navigation for potential clients.</div>
                     </div>
                 </a>
