@@ -73,13 +73,35 @@
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
         section { padding: 120px 0; position: relative; }
 
+        /* 1. The Wrapper: Handles the 20px gap and the 3% side margins */
+        .nav-wrapper { 
+            position: fixed; 
+            top: 20px; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: center; 
+            padding: 0 3vw; /* This creates the consistent 3% gap from the screen edges */
+        }
+
+        /* 2. The Nav: The actual floating pill */
         nav {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 1300px; display: flex; justify-content: space-between;
-            align-items: center; padding: 15px 30px; background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px); border-radius: 100px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(255, 255, 255, 0.5);
-            z-index: 1000; transition: all 0.3s ease;
+            width: 100%; 
+            max-width: 1300px; /* Keeps it from getting too wide on desktop */
+            height: 72px; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 32px; 
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 100px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+            transition: all 0.3s ease;
         }
 
         .logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-main); text-decoration: none; }
@@ -258,7 +280,7 @@
     </style>
 </head>
 <body>
-
+    <div class="nav-wrapper">
     <nav>
         <a href="#" class="logo">ALETHARA</a>
         <div class="nav-links">
@@ -269,6 +291,7 @@
         </div>
         <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Book Strategy Call</a>
     </nav>
+    </div>    
 
     <section class="hero">
         
