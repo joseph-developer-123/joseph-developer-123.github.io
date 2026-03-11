@@ -249,11 +249,26 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- RESPONSIVE --- */
+       /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .process-grid, .pricing-grid { grid-template-columns: 1fr; }
             nav .nav-links { display: none; }
             .hero { padding-top: 120px; }
+            
+            /* --- Mobile Nav Fix --- */
+            nav {
+                /* Dynamically adds 15px to the device's hardware notch/status bar area */
+                top: calc(env(safe-area-inset-top, 0px) + 15px); 
+                width: 94%; 
+                padding: 12px 20px; /* Slimmer padding to prevent stretching */
+            }
+            nav .logo {
+                font-size: 1rem; /* Slightly smaller logo for mobile */
+            }
+            nav .btn {
+                padding: 8px 18px !important; /* Slimmer button to keep it on one line */
+                font-size: 0.85rem !important;
+            }
         }
     </style>
 </head>
