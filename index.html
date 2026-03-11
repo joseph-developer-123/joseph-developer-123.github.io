@@ -73,38 +73,42 @@
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 5%; }
         section { padding: 120px 0; position: relative; }
 
-        /* 1. The Wrapper: Exact Dianoya Logic */
-.nav-wrapper { 
-    position: fixed; 
-    /* Fixes clipping on iPhones with notches */
-    top: calc(env(safe-area-inset-top, 0px) + 20px); 
-    left: 0; 
-    width: 100%; 
-    z-index: 1000; 
-    display: flex; 
-    justify-content: center; 
-    padding: 0 3vw; 
-}
+        /* --- STRUCTURAL FIX (FROM DIANOYA) --- */
 
-/* 2. The Nav: The actual pill */
-nav {
-    width: 100%; 
-    max-width: 1300px; 
-    height: 72px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 0 32px; 
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px); 
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 100px; 
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
-    transition: all 0.3s ease;
-    /* Essential: ensures padding doesn't push the bar over the edge */
-    box-sizing: border-box; 
-}
+/* NAVIGATION: Exact Dianoya Logic */
+        .nav-wrapper { 
+            position: fixed; 
+            /* Fixes the 'cut off' by respecting the phone notch + 20px gap */
+            top: calc(env(safe-area-inset-top, 0px) + 20px); 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: center; 
+            padding: 0 3vw; 
+        }
+
+        nav { 
+            width: 100%; 
+            max-width: 1300px; /* Keeps it consistent with your site width */
+            height: 72px; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 32px; 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            border-radius: 100px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+            transition: all 0.3s ease; 
+            /* CRITICAL: Prevents the bar from expanding over the screen edge */
+            box-sizing: border-box; 
+        }
+
+
 
         .logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-main); text-decoration: none; }
         .nav-links { display: flex; gap: 30px; }
@@ -273,41 +277,35 @@ nav {
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-    
+   
+       /* --- RESPONSIVE (Matching Dianoya Breakpoints) --- */
         @media (max-width: 768px) { 
-            .hero { padding-top: 120px; }
+            /* Tighter gap and padding for mobile */
+            .nav-wrapper { 
+                top: calc(env(safe-area-inset-top, 0px) + 12px); 
+                padding: 0 16px; 
+            }
+            
+            nav { 
+                padding: 0 16px; 
+                height: 60px; 
+            }
 
-            .process-grid, .pricing-grid { grid-template-columns: 1fr; }
+            /* Hides the links to prevent the bar from over-expanding */
+            .nav-links { display: none; } 
+            
+            .logo { font-size: 18px; }
 
-    /* Adjust wrapper for tighter mobile screens */
-    .nav-wrapper { 
-        top: calc(env(safe-area-inset-top, 0px) + 12px); 
-        padding: 0 16px; 
-    }
-    
-    /* Shrink the bar height and padding */
-    nav { 
-        padding: 0 16px; 
-        height: 60px; 
-    }
-    
-    /* HIDE the middle links on mobile (Just like Dianoya) */
-    .nav-links { 
-        display: none; 
-    } 
-    
-    .logo { 
-        font-size: 16px; /* Slightly smaller for mobile */
-    }
-    
-    /* Shrink the button so it fits on one line */
-    .cta-header { 
-        padding: 8px 16px !important; 
-        font-size: 12px !important; 
-        min-height: auto !important;
-        white-space: nowrap;
-    }
-}
+            /* Shrinks the button to fit the smaller bar height */
+            nav .btn-primary { 
+                padding: 8px 16px !important; 
+                font-size: 12px !important; 
+                white-space: nowrap;
+            }
+
+            .process-grid, .pricing-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .hero { padding-top: 140px; }
+        }
     </style>
 </head>
 <body>
@@ -320,7 +318,7 @@ nav {
             <a href="#pricing">Pricing</a>
             <a href="#about">About</a>
         </div>
-        <a href="#" class="btn btn-primary cta-header">Book a Call</a>
+        <a href="#contact" class="btn btn-primary">Book Call</a>
     </nav>
 </div>
 
@@ -387,7 +385,7 @@ nav {
                     <div class="card-content">
                         <div class="card-category">Integrative Therapy</div>
                         <h3 class="card-title">The Mind Place</h3>
-                        <p class="card-desc">A clean, modern site reflecting the authentic ethos and calming atmosphere of a new private practice.</p>
+                        <p class="card-desc">A beautiful, modern site reflecting the authentic ethos and calming atmosphere of a new private practice.</p>
                         <div class="strategy-note"><span class="strategy-label">Strategic Rationale</span>Designed to feel exceptionally warm and approachable while ensuring effortless navigation for potential clients.</div>
                     </div>
                 </a>
