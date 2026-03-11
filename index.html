@@ -74,12 +74,28 @@
         section { padding: 120px 0; position: relative; }
 
         nav {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 1300px; display: flex; justify-content: space-between;
-            align-items: center; padding: 15px 30px; background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px); border-radius: 100px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(255, 255, 255, 0.5);
-            z-index: 1000; transition: all 0.3s ease;
+            position: fixed; 
+            /* Use safe-area-inset to ensure it clears notches/dynamic islands */
+            top: calc(env(safe-area-inset-top, 0px) + 15px); 
+            left: 0;
+            right: 0;
+            /* Center using margins instead of transform */
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%; 
+            max-width: 1300px; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center; 
+            padding: 12px 25px; 
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); /* Support for Safari/iOS */
+            border-radius: 100px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 1000; 
+            transition: all 0.3s ease;
         }
 
         .logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-main); text-decoration: none; }
@@ -253,21 +269,27 @@
         @media (max-width: 900px) {
             .process-grid, .pricing-grid { grid-template-columns: 1fr; }
             nav .nav-links { display: none; }
-            .hero { padding-top: 120px; }
             
-            /* --- Mobile Nav Fix --- */
+            /* Give the hero more room so it doesn't hide behind the lower nav */
+            .hero { padding-top: 160px; }
+
             nav {
-                /* Dynamically adds 15px to the device's hardware notch/status bar area */
-                top: calc(env(safe-area-inset-top, 0px) + 15px); 
-                width: 94%; 
-                padding: 12px 20px; /* Slimmer padding to prevent stretching */
+                width: 94%; /* Slightly wider on mobile for better utility */
+                padding: 10px 15px;
+                /* Overriding any potential inherited transforms */
+                transform: none; 
             }
-            nav .logo {
-                font-size: 1rem; /* Slightly smaller logo for mobile */
+
+            .logo {
+                font-size: 0.95rem;
+                letter-spacing: 0.05em;
             }
-            nav .btn {
-                padding: 8px 18px !important; /* Slimmer button to keep it on one line */
-                font-size: 0.85rem !important;
+
+            /* Force the button to stay small enough to fit on one line */
+            nav .btn-primary {
+                padding: 8px 16px !important;
+                font-size: 0.8rem !important;
+                white-space: nowrap;
             }
         }
     </style>
