@@ -8,21 +8,34 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CORE VARIABLES */
+        /* =========================================
+           1. PREMIUM DESIGN TOKENS
+           ========================================= */
         :root {
-            --bg-base: #F4F2EC;         /* Your requested clay/neutral background */
-            --bg-white: #FFFFFF;
-            --text-dark: #1A2421;       /* Deep forest/ink black for readability */
-            --text-muted: #4A5550;  
-            --cta-primary: #C05632;     /* High-conversion rust/terracotta */
-            --cta-hover: #A04526;
-            --cta-secondary: #2C423B;   /* Deep green for secondary actions */
-            --font-heading: 'Playfair Display', serif;
-            --font-ui: 'DM Sans', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* Colors */
+            --bg-base: #F4F2EC;         /* Client requested clay neutral */
+            --bg-surface: #FFFFFF;      /* Clean contrast layer */
+            --text-dark: #1C2321;       /* Deep forest/charcoal - softer than black */
+            --text-muted: #56635D;      /* Elegant reading grey */
+            
+            /* High-Conversion Palette */
+            --cta-primary: #B85332;     /* Refined, high-contrast Terracotta */
+            --cta-hover: #9A4226;
+            --cta-outline: #2C423B;     /* Deep grounding forest */
+            
+            /* Structural */
+            --border-delicate: rgba(28, 35, 33, 0.08);
+            --header-height: 80px;
+            
+            /* Typography */
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-ui: 'Manrope', system-ui, sans-serif;
+            
+            /* Easing */
+            --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         *, *::before, *::after {
@@ -31,46 +44,72 @@
             padding: 0;
         }
 
+        html { 
+            scroll-behavior: smooth; 
+            font-size: 16px;
+        }
+
         body {
             font-family: var(--font-ui);
             color: var(--text-dark);
             background-color: var(--bg-base);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        /* 1. STICKY NAVBAR (High Conversion) */
+        /* =========================================
+           2. ANIMATIONS (The "Premium" Feel)
+           ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s var(--ease-premium), transform 1s var(--ease-premium);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* =========================================
+           3. HIGH-CONVERSION NAVBAR
+           ========================================= */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 80px;
-            background-color: rgba(244, 242, 236, 0.95);
-            backdrop-filter: blur(12px);
+            height: var(--header-height);
+            background-color: rgba(244, 242, 236, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            border-bottom: 1px solid var(--border-delicate);
             display: flex;
             align-items: center;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 4vw;
+            padding: 0 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
             font-weight: 600;
             color: var(--text-dark);
             text-decoration: none;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
         .nav-links {
@@ -83,114 +122,137 @@
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
         }
 
         .nav-item:hover { color: var(--cta-primary); }
 
-        /* BUTTONS */
+        /* BUTTON ARCHITECTURE */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
             font-family: var(--font-ui);
             font-weight: 700;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.4s var(--ease-premium);
             cursor: pointer;
+            border-radius: 4px;
         }
 
         .btn-nav {
-            padding: 0.6rem 1.5rem;
+            padding: 0.7rem 1.5rem;
             background-color: var(--cta-primary);
-            color: var(--bg-white);
+            color: var(--bg-surface);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .btn-nav:hover { background-color: var(--cta-hover); transform: translateY(-2px); }
+        .btn-nav:hover { 
+            background-color: var(--cta-hover); 
+            transform: translateY(-2px); 
+        }
 
         .btn-primary {
-            padding: 1.1rem 2.2rem;
+            padding: clamp(1rem, 2vh, 1.2rem) clamp(2rem, 3vw, 2.5rem);
             background-color: var(--cta-primary);
-            color: var(--bg-white);
-            font-size: 1.05rem;
-            box-shadow: 0 4px 14px rgba(192, 86, 50, 0.25);
-            border: 2px solid var(--cta-primary);
+            color: var(--bg-surface);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid var(--cta-primary);
         }
 
         .btn-primary:hover {
             background-color: var(--cta-hover);
             border-color: var(--cta-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(192, 86, 50, 0.35);
+            color: var(--bg-surface);
         }
 
         .btn-secondary {
-            padding: 1.1rem 2.2rem;
+            padding: clamp(1rem, 2vh, 1.2rem) clamp(2rem, 3vw, 2.5rem);
             background-color: transparent;
-            color: var(--cta-secondary);
-            border: 2px solid var(--cta-secondary);
-            font-size: 1.05rem;
+            color: var(--cta-outline);
+            border: 1px solid var(--cta-outline);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .btn-secondary:hover {
-            background-color: var(--cta-secondary);
-            color: var(--bg-white);
+            background-color: var(--cta-outline);
+            color: var(--bg-surface);
         }
 
-        /* 2. 100VH ABOVE-THE-FOLD HERO WRAPPER */
-        .above-the-fold {
+        /* =========================================
+           4. STRICT 100VH HERO ARCHITECTURE
+           ========================================= */
+        .hero-wrapper {
             height: 100vh;
-            min-height: 700px; /* Prevents squishing on tiny screens */
+            min-height: 700px;
             display: flex;
             flex-direction: column;
-            padding-top: 80px; /* Offset for navbar */
+            padding-top: var(--header-height);
+            overflow: hidden;
         }
 
         .hero-main {
-            flex-grow: 1;
+            flex: 1;
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 4vw;
+            padding: 2vh 5vw;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4vw;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5vw;
             align-items: center;
         }
 
-        /* LEFT CONTENT: Copy & Actions */
+        /* Hero Text */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 650px;
+        }
+
         .hero-content h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-            line-height: 1.15;
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vh, 4rem);
+            font-weight: 500;
+            line-height: 1.05;
             color: var(--text-dark);
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.01em;
+            margin-bottom: clamp(1rem, 3vh, 1.5rem);
+            letter-spacing: -0.02em;
         }
 
         .hero-content p {
-            font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+            font-size: clamp(1.05rem, 2vh, 1.25rem);
             color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 95%;
-            line-height: 1.6;
+            margin-bottom: clamp(2rem, 4vh, 2.5rem);
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         .hero-actions {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
         }
 
         .trust-badges {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            font-size: 0.9rem;
+            gap: 2rem;
+            font-size: 0.85rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             color: var(--text-dark);
         }
 
@@ -203,29 +265,27 @@
             content: '✓';
             color: var(--cta-primary);
             margin-right: 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
-        /* RIGHT CONTENT: Image & Quote Overlay */
+        /* Hero Image - The "Pill / Oblong" Shape */
         .hero-visual {
             position: relative;
             height: 100%;
-            max-height: 65vh;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
         }
 
-        /* Stylized Image Frame (Arch) */
         .image-frame {
-            width: 90%;
+            width: 100%;
             height: 100%;
-            max-height: 600px;
-            background-color: #E6E3D8;
-            border-radius: 200px 200px 12px 12px;
+            max-height: 75vh;
+            background-color: #E2DFD6;
+            border-radius: 9999px; /* This creates the perfect rounded top and bottom oblong */
             overflow: hidden;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .image-frame img {
@@ -235,36 +295,37 @@
             object-position: center 20%;
         }
 
-        /* The specific requested quote overlay */
         .quote-badge {
             position: absolute;
-            bottom: 10%;
-            left: -10%;
-            background-color: var(--bg-white);
-            padding: 1.5rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            max-width: 320px;
-            border-left: 4px solid var(--cta-primary);
+            bottom: 12vh;
+            left: -15%;
+            background-color: var(--bg-surface);
+            padding: clamp(1.2rem, 2vh, 1.5rem) clamp(1.5rem, 3vw, 2.5rem);
+            border-left: 2px solid var(--cta-primary);
+            max-width: 340px;
+            z-index: 2;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .quote-badge p {
-            font-family: var(--font-heading);
-            font-size: 1.15rem;
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2vh, 1.2rem);
             font-style: italic;
             color: var(--text-dark);
             margin: 0;
             line-height: 1.4;
         }
 
-        /* 3. LOCATIONS BAR (Anchored to the absolute bottom of the fold) */
+        /* Locations Bar */
         .locations-bar {
             width: 100%;
-            background-color: var(--bg-white);
-            border-top: 1px solid rgba(0,0,0,0.06);
-            padding: 1.2rem 4vw;
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-delicate);
+            padding: clamp(1rem, 2vh, 1.5rem) 5vw;
             display: flex;
             justify-content: center;
+            flex-shrink: 0; 
         }
 
         .locations-inner {
@@ -278,20 +339,20 @@
         }
 
         .locations-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vh, 1.4rem);
+            font-weight: 500;
             color: var(--text-dark);
         }
 
         .locations-list {
             display: flex;
             gap: 2.5rem;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
         }
 
         .locations-list span {
@@ -301,22 +362,219 @@
         }
 
         .locations-list span::before {
-            content: '•';
+            content: '—';
             color: var(--cta-primary);
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 1024px) {
-            .hero-main { grid-template-columns: 1fr; gap: 2rem; padding-top: 2rem; }
-            .hero-visual { display: none; /* Hide image on small screens to ensure text/CTAs stay above fold */ }
-            .above-the-fold { height: auto; min-height: 100vh; }
+        /* =========================================
+           5. EDITORIAL CONTENT (Below Fold)
+           ========================================= */
+        .section {
+            padding: 10vw 5vw;
+            max-width: 1400px;
+            margin: 0 auto;
         }
+
+        .section-header {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--text-dark);
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .lead-text {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .grid-editorial {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 6vw;
+            align-items: center;
+        }
+
+        /* Practice Room Image Frame */
+        .practice-image-wrapper {
+            position: relative;
+        }
+
+        .practice-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background-color: #E2DFD6;
+            border-radius: 8px; /* Elegant, subtle rounding */
+            overflow: hidden;
+            border: 1px solid var(--border-delicate);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+
+        .practice-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-caption {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            text-align: right;
+            font-size: 1.1rem;
+        }
+
+        /* Beautiful Typographic List for Issues */
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            border-top: 1px solid var(--border-delicate);
+            border-left: 1px solid var(--border-delicate);
+        }
+
+        .issue-item {
+            padding: 2.5rem;
+            border-right: 1px solid var(--border-delicate);
+            border-bottom: 1px solid var(--border-delicate);
+            background-color: var(--bg-surface);
+            transition: background-color 0.3s ease;
+        }
+
+        .issue-item:hover { background-color: var(--bg-base); }
+
+        .issue-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        /* Premium Testimonial Layout */
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+        }
+
+        .review-editorial {
+            position: relative;
+        }
+
+        .review-editorial p {
+            font-family: var(--font-ui);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 0;
+            padding-left: 2rem;
+            border-left: 1px solid var(--cta-primary);
+        }
+
+        .review-editorial::before {
+            content: '“';
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--border-delicate);
+            position: absolute;
+            left: -1.5rem;
+            top: -2rem;
+            line-height: 1;
+        }
+
+        /* Practicalities & Fees Block */
+        .practicalities-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 6vw;
+            align-items: start;
+            border-top: 1px solid var(--border-delicate);
+            padding-top: 6rem;
+            margin-top: 6rem;
+        }
+
+        .q-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .q-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-delicate);
+            display: flex;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .fee-card {
+            background-color: var(--bg-surface);
+            padding: 3.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-delicate);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .price-tag {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--text-dark);
+            line-height: 1;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        /* Ultimate Final CTA */
+        .final-cta {
+            background-color: var(--cta-secondary);
+            color: var(--bg-surface);
+            text-align: center;
+            padding: 10vw 5vw;
+        }
+
+        .final-cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-cta .section-title {
+            color: var(--bg-surface);
+        }
+
+        .final-cta .lead-text {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* =========================================
+           6. RESPONSIVE OPTIMIZATION
+           ========================================= */
+        @media (max-width: 1024px) {
+            .hero-wrapper { height: auto; min-height: 100vh; }
+            .hero-main { grid-template-columns: 1fr; gap: 4rem; padding-top: 4rem; text-align: center; }
+            .hero-content { align-items: center; margin: 0 auto; }
+            .hero-actions, .trust-badges { justify-content: center; }
+            .quote-badge { left: 5%; bottom: -5%; }
+            .grid-editorial, .practicalities-grid { grid-template-columns: 1fr; gap: 4rem;}
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Focus strictly on the CTA button on mobile */
+            .nav-links { display: none; }
             .hero-actions { flex-direction: column; width: 100%; }
             .btn { width: 100%; }
-            .locations-inner { flex-direction: column; text-align: center; }
-            .locations-list { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .locations-inner { flex-direction: column; text-align: center; gap: 0.8rem; }
+            .locations-list { flex-wrap: wrap; justify-content: center; }
+            .issues-grid { border-left: none; }
+            .issue-item { border-right: none; border-left: none; padding: 2rem 0; background: transparent; }
+            .issue-item:hover { background: transparent; }
+            .quote-badge { display: none; }
+            .fee-card { padding: 2rem; }
         }
     </style>
 </head>
@@ -327,45 +585,41 @@
             <a href="#" class="logo">Jackie Golding.</a>
             <div class="nav-links">
                 <a href="#about" class="nav-item">About</a>
-                <a href="#approach" class="nav-item">Approach</a>
-                <a href="#reviews" class="nav-item">Reviews</a>
+                <a href="#issues" class="nav-item">Areas of Work</a>
+                <a href="#fees" class="nav-item">Fees</a>
             </div>
             <a href="mailto:jackie@jackiegoldingtherapy.com" class="btn btn-nav">Book Free Chat</a>
         </div>
     </header>
 
-    <section class="above-the-fold">
-        
+    <section class="hero-wrapper">
         <div class="hero-main">
-            
-            <div class="hero-content">
+            <div class="hero-content reveal">
                 <h1>If you’re reading this, something in your life feels too hard to face alone.</h1>
                 <p>I hold a compassionate, grounded space in Tonbridge and London Bridge to help you explore past patterns, painful relationships, and complex emotions so you can build a happier, more integrated life.</p>
                 
                 <div class="hero-actions">
                     <a href="mailto:jackie@jackiegoldingtherapy.com" class="btn btn-primary">Arrange a Free 20-Min Chat</a>
-                    <a href="#how-i-work" class="btn btn-secondary">Explore How I Work</a>
+                    <a href="#about" class="btn btn-secondary">Explore How I Work</a>
                 </div>
 
-                <div class="trust-badges">
+                
                     <span>BACP Accredited</span>
                     <span>Postgraduate Qualified</span>
-                </div>
+                
             </div>
 
-            <div class="hero-visual">
+            <div class="hero-visual reveal delay-1">
                 <div class="image-frame">
-                    <img src="/api/placeholder/600/800" alt="Jackie Golding, Psychotherapist">
+                    <img src="/api/placeholder/600/900" alt="Jackie Golding, Psychotherapist">
                 </div>
-                
-                <div class="quote-badge">
+                <div class="quote-badge reveal delay-2">
                     <p>“Unconditional acceptance, bringing empathy and deep understanding.”</p>
                 </div>
             </div>
-
         </div>
 
-        <div class="locations-bar">
+        <div class="locations-bar reveal delay-3">
             <div class="locations-inner">
                 <div class="locations-title">In-Person & Online Therapy</div>
                 <div class="locations-list">
@@ -375,8 +629,121 @@
                 </div>
             </div>
         </div>
-
     </section>
 
-    </body>
+    <main>
+        <section id="about" class="section">
+            <div class="grid-editorial">
+                <div class="reveal">
+                    <h2 class="section-title">Navigating your way through a difficult time can feel daunting on your own.</h2>
+                    <p class="lead-text" style="margin-bottom: 1.5rem;">Maybe it’s a difficult relationship, a stressful work life, painful family dynamics, or feeling overwhelmed by past events. Whatever you’re struggling with, therapy is a place to be fully heard.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">My path began many years ago in the corporate world, so I relate to the stresses of working life. After completing intensive postgraduate training, I now run a practice helping people integrate the challenges they face on their journey.</p>
+                    <p style="color: var(--text-muted);">Having had many years of personal psychotherapy myself, I fully appreciate how it feels to be a client stepping into the consulting room for the first time.</p>
+                </div>
+                
+                <div class="practice-image-wrapper reveal delay-1">
+                    <div class="practice-image">
+                        <img src="/api/placeholder/800/1000" alt="Jackie Golding Therapy Consulting Room">
+                    </div>
+                    <p class="image-caption">The Tonbridge Consulting Room</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="issues" class="section">
+            <div class="section-header reveal">
+                <h2 class="section-title">Areas of Exploration</h2>
+                <p class="lead-text">I have a particular interest in helping with relationship issues (troubled, broken, or abusive), as well as changing the way we relate to our own inner world.</p>
+            </div>
+            
+            <div class="issues-grid reveal delay-1">
+                <div class="issue-item"><h4>Childhood Trauma & PTSD</h4></div>
+                <div class="issue-item"><h4>Anxiety & Depression</h4></div>
+                <div class="issue-item"><h4>Disordered Eating</h4></div>
+                <div class="issue-item"><h4>Low Self-Esteem & Shame</h4></div>
+                <div class="issue-item"><h4>Codependency & Abuse</h4></div>
+                <div class="issue-item"><h4>ADHD Navigation</h4></div>
+                <div class="issue-item"><h4>Addiction & Compulsion</h4></div>
+                <div class="issue-item"><h4>Menopause Transitions</h4></div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section">
+            <div class="section-header reveal" style="text-align: center; margin: 0 auto 4rem auto;">
+                <h2 class="section-title">Client Experiences</h2>
+                <p class="lead-text">Transformations from our time together.</p>
+            </div>
+            
+            <div class="reviews-layout">
+                <div class="review-editorial reveal">
+                    <p>Jackie is a deeply competent and compassionate therapist who consistently manages to find the perfect balance between gently challenging my perspectives and offering genuine understanding. I’ve experienced a significant improvement in my overall quality of life.</p>
+                </div>
+                <div class="review-editorial reveal delay-1">
+                    <p>I worked with Jackie for over a year and it really transformed my way of thinking. Our sessions gave me the space to let out and work through my emotions, but also the support I needed to challenge my limiting beliefs.</p>
+                </div>
+                <div class="review-editorial reveal delay-2">
+                    <p>She holds our sessions with her full presence and an unjudgemental gaze that in itself is healing. Deep seated and destructive patterns are shifting in me because of these sessions with Jackie, and I am actually relishing the process.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fees" class="section" style="padding-top: 0;">
+            <div class="practicalities-grid">
+                <div class="reveal">
+                    <h2 class="section-title" style="margin-bottom: 0.5rem;">Qualifications</h2>
+                    <p class="lead-text">A rigorous foundation in psychotherapeutic practice.</p>
+                    <ul class="q-list">
+                        <li><span style="color: var(--cta-primary);"></span> <strong>Postgraduate Diploma</strong> in Psychosynthesis</li>
+                        <li><span style="color: var(--cta-primary);"></span> <strong>Certificate</strong> in Psychodynamic Counselling</li>
+                        <li><span style="color: var(--cta-primary);"></span> <strong>Transactional Analysis 101</strong> (UKATA)</li>
+                        <li><span style="color: var(--cta-primary);"></span> <strong>BACP Registered Member</strong></li>
+                    </ul>
+                </div>
+
+                <div class="fee-card reveal delay-1">
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--text-dark);">Session Fees</h3>
+                    <div class="price-tag">£60</div>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 600;">Per 50-minute session.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">I believe therapy should be accessible. I sometimes have low-cost places available for those experiencing financial hardship, so please feel free to ask during our initial chat.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta reveal">
+            <div class="final-cta-inner">
+                <h2 class="section-title" style="margin-bottom: 1rem; color: black;">Ready to take the first step?</h2>
+                <p class="lead-text" style="margin-bottom: 3rem; color: black;">Our first session is a chance to ask questions, explore your goals, and see if we are a good match. There is no obligation to continue.</p>
+                <a href="mailto:jackie@jackiegoldingtherapy.com" class="btn btn-primary" style="width: 100%; border-color: transparent;">Book Your Free Informal Chat</a>
+                <p style="margin-top: 2rem; font-family: var(--font-ui); color: black;">Or call / text: <strong style="color: black;">07850 692458</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--text-dark); color: black; text-align: center; padding: 4rem 5vw;">
+        <p style="opacity: 0.5; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: white;">© 2026 Jackie Golding Therapy. BACP Registered Psychotherapist.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
 </html>
