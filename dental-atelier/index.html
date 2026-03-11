@@ -663,53 +663,6 @@
             .mobile-cta-bar { display: flex; }
             footer { padding-bottom: 80px; }
         }
-
-        @media (max-width: 768px) {
-    /* 1. Enforce consistent left and right padding and contain widths */
-    .container {
-        padding: 0 24px !important;
-        box-sizing: border-box;
-    }
-
-    /* 2. Prevent flexbox elements from sitting side-by-side and overflowing the screen */
-    .section .flex-between, 
-    footer .flex-between {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
-    /* Reset text that was previously forced to the right margin */
-    .section .flex-between p, 
-    footer .flex-between p {
-        text-align: left !important;
-    }
-
-    /* 3. Scale down and break long words (like "Masterpiece?") that stretch the viewport */
-    .display-xl {
-        font-size: clamp(2rem, 10vw, 2.8rem) !important;
-        word-break: break-word;
-    }
-    
-    .display-lg {
-        font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
-        word-break: break-word;
-    }
-
-    /* 4. Fix the technology circle which was hardcoded to 300px, causing clipping on small phones */
-    .tech-visual-circle {
-        width: 100% !important;
-        max-width: 280px;
-        height: auto !important;
-        aspect-ratio: 1 / 1;
-    }
-
-    /* 5. Keep testimonial text comfortably within the padded area */
-    .slide-quote {
-        font-size: 1.2rem !important;
-        padding: 0 10px;
-    }
-}
     </style>
 </head>
 <body>
