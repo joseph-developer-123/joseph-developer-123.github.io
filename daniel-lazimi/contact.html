@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Book | Daniel Lazimi Therapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Daniel Lazimi <span>Modern Therapy</span></a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section bg-light">
+      <div class="container fade-in">
+        <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 80px;">
+          
+          <div>
+            <span class="badge">Get in Touch</span>
+            <h2>Start your <em>journey</em></h2>
+            
+            <div class="info-box" style="margin-top: 0; margin-bottom: 40px; background: transparent; border: none; box-shadow: none; padding: 0;">
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">What to Expect</h3>
+              <p>I offer a complimentary 20–30 minute telephone or video consultation. This is a no-pressure space to explore what you are seeking from therapy, outline how I work, and consider whether we would be a suitable fit before you commit to anything.</p>
+            </div>
+            
+            <div style="margin-top: 32px;">
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Contact Details</h3>
+              <p><strong>Phone:</strong> <a href="tel:07903229073" style="color: var(--color-accent); font-weight: 500;">07903229073</a></p>
+              <p class="microcopy">I aim to respond to all enquiries within 24 hours.</p>
+            </div>
+            
+            <div style="margin-top: 32px;">
+              <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Locations</h3>
+              <p><strong>Face-to-Face:</strong> Manchester (Prestwich M25 & Chorlton)</p>
+              <p><strong>Other Options:</strong> Online Therapy & Home Visits available</p>
+            </div>
+
+            <div class="emergency-box">
+              <h4 style="color: #C62828; font-size: 1rem; margin-bottom: 8px;">Not a Crisis Service</h4>
+              <p style="font-size: 0.9rem; margin-bottom: 0;">Please note that I am unable to provide emergency support. If you are in immediate distress or experiencing a crisis, please contact your GP, call NHS 111, or contact the Samaritans on 116 123.</p>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 40px;">
+            <form id="bookingForm">
+              <div class="form-group">
+                <label for="name">Name ✷</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email ✷</label>
+                <input type="email" id="email" name="email" required>
+                <span class="microcopy">Your email is kept strictly confidential.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              
+              <div class="form-group" style="display:none;">
+                <label>Contact Daniel</label>
+                <input type="text" name="honeypot" placeholder="Do not fill out this field">
+              </div>
+
+              <div class="form-group">
+                <label for="message">How can I help? (Brief summary)</label>
+                <textarea id="message" name="message" rows="4" maxlength="300"></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent" class="microcopy" style="font-weight: normal; margin-bottom: 0;">
+                  By ticking this box, you consent to this information being passed securely. For details of how your data will be processed, see the BACP privacy notice. *
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Send Message</button>
+              <div class="form-message"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h2>Daniel Lazimi Therapy</h2>
+      <p style="color: var(--color-accent); font-family: var(--font-heading); font-style: italic; font-size: 1.2rem;">Finding your ground.</p>
+      <hr>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; font-size: 0.9rem; color: #9CA3AF;">
+        <p>Registered Member MBACP | <a href="tel:07903229073" style="color: #E5E0D8; text-decoration: none;">07903229073</a></p>
+        <p>Therapy in Manchester (Prestwich & Chorlton) and Online.</p>
+        <p>&copy; 2026 Daniel Lazimi Therapy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
