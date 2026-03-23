@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anna Kenny-Ginard - High-End Psychotherapist in London. BPC and BACP accredited psychotherapist offering psychodynamic therapy, addiction counselling, anxiety and depression treatment in Central London, Oxford Circus, King's Cross, and online.">
+    <meta name="description" content="Anna Kenny-Ginard - High-End Psychotherapist in London. BPC and BACP accredited psychotherapist offering therapy, addiction counselling, anxiety and depression treatment in Central London, Oxford Circus, King's Cross, and online.">
     <title>Anna Kenny-Ginard | Private Psychotherapist London | Addiction & Trauma Therapist</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --teal: #147587; /* Theme Green / Teal */
+            --teal: #147587; 
             --coral: #fa7e5c;
             --cream: #f3ece5;
             --yellow: #fecb5f;
@@ -25,7 +25,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px; /* Ensures the fixed header doesn't cover content when sliding down */
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -35,6 +35,7 @@
             line-height: 1.8;
             font-size: 16px;
             font-weight: 400;
+            overflow-x: hidden; /* Prevents side-scrolling */
         }
 
         h1, h2, h3, h4 {
@@ -49,6 +50,8 @@
         /* --- NAVIGATION --- */
         header {
             position: fixed;
+            top: 0;      /* Glues to top */
+            left: 0;     /* Glues to left */
             width: 100%;
             padding: 2rem 5%;
             display: flex;
@@ -70,9 +73,17 @@
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--text-light);
+            z-index: 1001; /* Keeps above mobile dropdown */
         }
 
-        header.scrolled .logo, header.scrolled .nav-links a { color: var(--teal); }
+        header.scrolled .logo { color: var(--teal); }
+        
+        /* New wrapper for mobile menu organization */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
         .nav-links {
             display: flex;
@@ -80,18 +91,31 @@
             align-items: center;
         }
 
-        .nav-links a:not(.btn-primary) {
+        .nav-links a.nav-item {
             color: var(--text-light);
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 2px;
+            transition: color 0.3s ease;
         }
+
+        header.scrolled .nav-links a.nav-item { color: var(--teal); }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        header.scrolled .menu-toggle { color: var(--teal); }
 
         .btn-primary {
             background-color: var(--coral);
             color: var(--text-light) !important;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 2px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -99,6 +123,7 @@
             transition: background-color 0.3s ease;
             border: none;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .btn-primary:hover { background-color: var(--teal); }
@@ -114,7 +139,8 @@
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 100px 20px 20px 20px; /* Padding top ensures it's strictly under the header */
+            padding: 100px 20px 80px 20px;
+            position: relative; /* For anchoring the arrow */
         }
 
         .hero h1 {
@@ -140,6 +166,36 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 1.1s;
+        }
+
+        /* --- BOUNCING ARROW --- */
+        .arrow-container {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeUp 1s forwards 1.4s;
+        }
+
+        .bouncing-arrow {
+            display: block;
+            color: var(--text-light);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            opacity: 0.8;
+        }
+
+        .bouncing-arrow:hover {
+            color: var(--coral);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
         }
 
         /* --- LAYOUT UTILITIES --- */
@@ -193,7 +249,7 @@
         }
 
         .accreditation-logos img {
-            height: 70px; /* Fixed height for perfect vertical alignment */
+            height: 70px;
             width: auto;
             object-fit: contain;
             mix-blend-mode: multiply;
@@ -229,16 +285,8 @@
             margin: 0 auto 1.5rem auto;
         }
 
-        .diagram-step h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .diagram-step p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
+        .diagram-step h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+        .diagram-step p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
         /* --- EXPANDABLE LIST --- */
         .core-specialisms {
@@ -324,9 +372,7 @@
             width: 100%;
             margin-bottom: 5rem;
         }
-        .loc-img-container {
-            flex: 1;
-        }
+        .loc-img-container { flex: 1; }
         .loc-img-container img {
             width: 100%;
             height: 400px;
@@ -344,16 +390,16 @@
         }
         
         .map-card {
-            background: #ffffff; /* White Background */
-            color: var(--teal); /* Theme Green Text */
+            background: #ffffff; 
+            color: var(--teal); 
             border-radius: 10px; 
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
         }
-        .map-card h3 { color: var(--teal); } /* Theme Green Header */
-        .map-card p { color: var(--teal); } /* Theme Green Paragraphs */
+        .map-card h3 { color: var(--teal); } 
+        .map-card p { color: var(--teal); } 
         
         .map-info { padding: 40px; text-align: center; flex-grow: 1; }
         .map-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
@@ -451,18 +497,15 @@
         }
         .footer-logos {
             display: flex;
-            align-items: center; /* Perfect vertical alignment */
+            align-items: center; 
             justify-content: center;
             gap: 2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        .footer-logos a {
-            display: flex;
-            align-items: center;
-        }
+        .footer-logos a { display: flex; align-items: center; }
         .footer-logos img { 
-            height: 50px; /* Fixed height ensures exact vertical line level */
+            height: 50px; 
             width: auto;
             object-fit: contain;
             opacity: 0.7; 
@@ -477,58 +520,88 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-        /* Responsive */
+        /* --- RESPONSIVE LOGIC --- */
+        .break-mobile { display: none; }
+
         @media (max-width: 900px) {
             .grid-2, .locations-grid { grid-template-columns: 1fr; }
             .location-images-grid { flex-direction: column; }
             .service-diagram { grid-template-columns: 1fr; }
             .multi-column-list { column-count: 2; }
-            
-            /* Keeps the Book Consultation Button visible on mobile */
-            .nav-links a:not(.btn-primary) { display: none; }
-            
             .shadow-img { box-shadow: -10px -10px 0 var(--yellow); }
-            
-            /* Stacks the contact form on mobile */
             .contact-box-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+
+            /* Mobile Menu Setup */
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                gap: 0;
+                display: none; /* hidden until active */
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a.nav-item {
+                color: var(--teal) !important;
+                padding: 1.2rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(20, 117, 135, 0.1);
+            }
         }
+
         @media (max-width: 600px) {
+            header { padding: 1rem 20px; } /* Ensures safe right-edge spacing */
+            header.scrolled { padding: 1rem 20px; }
             .multi-column-list { column-count: 1; }
             .contact-box { padding: 3rem 1.5rem; }
-            /* Scaling hero text down for smaller phones to ensure button stays above the fold */
             .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
             .hero p { font-size: 1rem; margin-bottom: 1.5rem;}
+            h2 { font-size: 2.2rem; } /* Prevents overflow of headings */
+            .break-mobile { display: inline; }
+            
+            /* Shrink button slightly to fit with menu on very small phones */
+            .btn-primary { padding: 0.6rem 1rem; font-size: 0.75rem; }
+            .logo { font-size: 1.5rem; }
         }
-
-        .break-mobile {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .break-mobile {
-    display: inline;
-  }
-}
     </style>
 </head>
 <body>
 
     <header id="navbar">
         <div class="logo">AKG</div>
-        <nav class="nav-links">
-            <a href="#about">About me</a>
-            <a href="#services">Services</a>
-            <a href="#locations">Locations & Fees</a>
-            <a href="#contact">Contact</a>
+        
+        <div class="header-controls">
+            <nav class="nav-links" id="navLinks">
+                <a href="#about" class="nav-item">About me</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#locations" class="nav-item">Locations & Fees</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
             <a href="#contact" class="btn-primary">Book consultation</a>
-        </nav>
+            <div class="menu-toggle" id="mobileMenuToggle">☰</div>
+        </div>
     </header>
 
     <section class="hero">
-<h1>
-  ANNA <span class="break-mobile"><br></span>KENNY-GINARD
-</h1>        <p>A calm, confidential space to understand yourself more deeply - making sense of what feels overwhelming, and beginning meaningful, lasting change.</p>
+        <h1>
+          ANNA <span class="break-mobile"><br></span>KENNY-GINARD
+        </h1>        
+        <p>A calm, confidential space to understand yourself more deeply - making sense of what feels overwhelming, and beginning meaningful, lasting change.</p>
         <a href="#about" class="btn-primary">Discover More</a>
+        
+        <div class="arrow-container">
+            <a href="#about" class="bouncing-arrow">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </a>
+        </div>
     </section>
 
     <section id="about" class="container">
@@ -559,8 +632,8 @@
         <div class="container reveal">
             <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
                 <span class="section-number">.02 Services & Approach</span>
-                <h2>Psychodynamic Psychotherapy in London</h2>
-                <p>Psychodynamic therapy offers a powerful opportunity to discover who you really are and untangle the parts of yourself that challenge or confuse you the most.</p>
+                <h2>Therapy in London</h2>
+                <p>Therapy offers a powerful opportunity to discover who you really are and untangle the parts of yourself that challenge or confuse you the most.</p>
             </div>
 
             <div class="service-diagram">
@@ -580,8 +653,7 @@
 
             <div class="text-center" style="max-width: 900px; margin: 5rem auto 0 auto;">
                 <h3>What I Can Help With</h3>
-                <p style="margin-bottom: 2rem;">I specialise in providing in-person and online therapy in London for those facing complex mental health matters. Whether you require addiction therapy in Central London, trauma counselling, or support for high-functioning anxiety, I am here to help you rebuild and recover.
-                    </p>
+                <p style="margin-bottom: 2rem;">I specialise in providing in-person and online therapy in London for those facing complex mental health matters. Whether you require addiction therapy in Central London, trauma counselling, or support for high-functioning anxiety, I am here to help you rebuild and recover.</p>
                 
                 <div class="core-specialisms">
                     <span>Addiction & Recovery</span>
@@ -621,10 +693,10 @@
                 <span class="section-number">.03 Details</span>
                 <h2>Locations & Fees</h2>
                 <p>
-  Sessions are £120–£150 for 50 minutes, with concessions available.<br>
-  I work with adults (18+), older adults, and young people.<br>
-  I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.
-</p>
+                  Sessions are £120–£150 for 50 minutes, with concessions available.<br>
+                  I work with adults (18+), older adults, and young people.<br>
+                  I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.
+                </p>
             </div>
 
             <div class="location-images-grid">
@@ -725,6 +797,29 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Switch icon between hamburger and 'X'
+            if(navLinks.classList.contains('active')) {
+                menuToggle.innerHTML = '✕';
+            } else {
+                menuToggle.innerHTML = '☰';
+            }
+        });
+
+        // Close menu when a link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '☰';
+            });
         });
 
         // Scroll Reveal Animations
