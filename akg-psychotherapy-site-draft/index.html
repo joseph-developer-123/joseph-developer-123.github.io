@@ -8,17 +8,20 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --teal: #147587; 
-            --coral: #fa7e5c;
-            --cream: #f3ece5;
-            --yellow: #fecb5f;
-            --text-dark: #2c2c2c;
+            --dark: #1a1a1a; 
+            --mid-grey: #7a7a7a;
+            --light-grey: #fdfcfa; 
+            --off-white: #ffffff; 
+            --white: #ffffff;
+            --border: #eaeaea;
+            --text-dark: #333333;
             --text-light: #ffffff;
+            --accent: #147587; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,56 +32,62 @@
         }
 
         body {
-            font-family: 'Questrial', sans-serif;
-            background-color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            background-color: var(--white);
             color: var(--text-dark);
             line-height: 1.8;
             font-size: 16px;
-            font-weight: 400;
-            overflow-x: hidden; /* Prevents side-scrolling */
+            font-weight: 300;
+            overflow-x: hidden; 
         }
 
+        /* Headings set to Plus Jakarta Sans 100 */
         h1, h2, h3, h4 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            color: var(--teal);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 100;
+            color: var(--dark);
+            text-transform: uppercase;
         }
 
-        a { text-decoration: none; color: var(--teal); transition: color 0.3s ease; }
-        a:hover { color: var(--coral); }
+        a { text-decoration: none; color: var(--dark); transition: color 0.3s ease; }
+        a:hover { color: var(--accent); }
 
         /* --- NAVIGATION --- */
         header {
             position: fixed;
-            top: 0;      /* Glues to top */
-            left: 0;     /* Glues to left */
+            top: 0;      
+            left: 0;     
             width: 100%;
             padding: 2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: background-color 0.4s ease, padding 0.4s ease;
+            transition: background-color 0.4s ease, padding 0.4s ease, border-bottom 0.4s ease;
         }
 
         header.scrolled {
-            background-color: rgba(243, 236, 229, 0.98);
+            background-color: rgba(255, 255, 255, 0.98);
             padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            z-index: 1001; /* Keeps above mobile dropdown */
+            z-index: 1001; 
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 65px;
+            width: auto;
+            transition: filter 0.4s ease;
+            filter: brightness(0) invert(1); 
         }
 
-        header.scrolled .logo { color: var(--teal); }
+        header.scrolled .logo img { 
+            filter: brightness(0); 
+        }
         
-        /* New wrapper for mobile menu organization */
         .header-controls {
             display: flex;
             align-items: center;
@@ -95,12 +104,14 @@
             color: var(--text-light);
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-top: 2px;
             transition: color 0.3s ease;
+            font-weight: 400;
         }
 
-        header.scrolled .nav-links a.nav-item { color: var(--teal); }
+        header.scrolled .nav-links a.nav-item { color: var(--dark); }
+        header.scrolled .nav-links a.nav-item:hover { color: var(--accent); }
 
         .menu-toggle {
             display: none;
@@ -110,44 +121,63 @@
             user-select: none;
         }
 
-        header.scrolled .menu-toggle { color: var(--teal); }
+        header.scrolled .menu-toggle { color: var(--dark); }
 
         .btn-primary {
-            background-color: var(--coral);
+            background-color: transparent;
             color: var(--text-light) !important;
             padding: 0.8rem 1.5rem;
             border-radius: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-size: 0.8rem;
-            transition: background-color 0.3s ease;
-            border: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--text-light);
             cursor: pointer;
             white-space: nowrap;
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
         }
 
-        .btn-primary:hover { background-color: var(--teal); }
+        header.scrolled .btn-primary {
+            color: var(--dark) !important;
+            border-color: var(--dark);
+        }
+
+        .btn-primary:hover { 
+            background-color: var(--accent); 
+            border-color: var(--accent);
+            color: var(--white) !important;
+        }
+        
+        header.scrolled .btn-primary:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--white) !important;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(20, 117, 135, 0.5), rgba(44, 44, 44, 0.6)), url('oxfordcircus.jpg') center/cover no-repeat;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('kingscross.jpg') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 100px 20px 80px 20px;
-            position: relative; /* For anchoring the arrow */
+            padding: 100px 20px 60px 20px;
         }
 
         .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-light);
-            font-size: 3.8rem;
-            max-width: 900px;
+            font-size: 4.5rem;
+            font-weight: 100; 
+            max-width: 1000px;
             margin-bottom: 1.5rem;
+            letter-spacing: 6px; 
+            white-space: nowrap; 
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.5s;
@@ -157,6 +187,8 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.8s;
@@ -170,9 +202,7 @@
 
         /* --- BOUNCING ARROW --- */
         .arrow-container {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
+            margin-top: 50px; 
             width: 100%;
             display: flex;
             justify-content: center;
@@ -186,10 +216,11 @@
             font-size: 2rem;
             animation: bounce 2s infinite;
             opacity: 0.8;
+            border: none;
         }
 
         .bouncing-arrow:hover {
-            color: var(--coral);
+            color: var(--accent);
         }
 
         @keyframes bounce {
@@ -200,7 +231,7 @@
 
         /* --- LAYOUT UTILITIES --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 100px 5%; }
-        .bg-white { background-color: #ffffff; }
+        .bg-white { background-color: var(--white); }
         .text-center { text-align: center; }
         
         .grid-2 {
@@ -215,23 +246,27 @@
 
         .section-number {
             font-size: 0.8rem;
-            letter-spacing: 3px;
-            color: var(--coral);
+            letter-spacing: 4px;
+            color: var(--mid-grey);
             margin-bottom: 1rem;
             display: block;
             text-transform: uppercase;
-            font-family: 'Questrial', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
         }
 
-        h2 { font-size: 3rem; margin-bottom: 2rem; line-height: 1.1; }
-        h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--teal); }
+        /* Main Headings reduced by 20% from 3.5rem */
+        h2 { font-size: 2.8rem; margin-bottom: 2rem; line-height: 1; letter-spacing: 3px; font-weight: 100; }
+        h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--dark); letter-spacing: 2px; font-weight: 100; }
 
         /* --- IMAGES & LOGOS --- */
         .shadow-img {
-            width: 100%;
+            width: 80%; 
+            margin: 0 auto;
+            display: block;
             height: auto;
-            border-radius: 4px;
-            box-shadow: -15px -15px 0 var(--yellow); 
+            border-radius: 2px;
+            filter: grayscale(100%);
         }
 
         .accreditation-logos {
@@ -253,6 +288,8 @@
             width: auto;
             object-fit: contain;
             mix-blend-mode: multiply;
+            filter: grayscale(100%);
+            opacity: 0.7;
         }
 
         /* --- DIAGRAMMATIC SERVICES SECTION --- */
@@ -265,9 +302,10 @@
         }
 
         .diagram-step {
-            background: var(--cream);
+            background: var(--off-white);
             padding: 3rem 2rem;
-            border-radius: 10px;
+            border-radius: 2px;
+            border: 1px solid var(--dark); 
             position: relative;
             transition: transform 0.3s ease;
         }
@@ -280,12 +318,12 @@
             content: '';
             display: block;
             width: 40px;
-            height: 4px;
-            background: var(--coral);
+            height: 1px;
+            background: var(--accent);
             margin: 0 auto 1.5rem auto;
         }
 
-        .diagram-step h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+        .diagram-step h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 200; }
         .diagram-step p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
         /* --- EXPANDABLE LIST --- */
@@ -297,34 +335,40 @@
             margin-bottom: 2rem;
         }
         .core-specialisms span {
-            background: rgba(20, 117, 135, 0.1);
-            color: var(--teal);
+            background: var(--off-white);
+            color: var(--dark);
             padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--dark); 
         }
 
         details {
-            background: var(--cream);
+            background: var(--off-white);
             padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-radius: 2px;
+            border: 1px solid var(--dark); 
             max-width: 800px;
             margin: 0 auto;
         }
+        
         summary {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            color: var(--teal);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+            color: var(--dark);
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.75rem;
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; font-size: 1.5rem; color: var(--coral); font-family: 'Questrial', sans-serif;}
+        summary::after { content: '+'; font-size: 1.5rem; color: var(--dark); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 100;}
         details[open] summary::after { content: '-'; }
 
         .multi-column-list {
@@ -335,13 +379,13 @@
             margin-top: 1.5rem;
             text-align: left;
         }
-        .multi-column-list li { margin-bottom: 0.5rem; border-bottom: 1px solid rgba(20, 117, 135, 0.1); padding-bottom: 0.2rem;}
+        .multi-column-list li { margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem;}
 
         /* --- PARALLAX DIVIDER --- */
         .parallax-divider {
             height: 60vh; 
-            background-image: url('kingscross.jpg');
-            background-color: var(--teal); 
+            background-image: url('oxfordcircus.jpg'); 
+            background-color: var(--dark); 
             background-size: cover;
             background-position: center; 
             background-attachment: fixed; 
@@ -354,7 +398,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(44, 44, 44, 0.5);
+            background: rgba(0, 0, 0, 0.4);
         }
         .parallax-content {
             position: relative;
@@ -377,44 +421,59 @@
             width: 100%;
             height: 400px;
             object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 2px;
         }
         .loc-img-container h3 { margin-top: 1.5rem; text-align: center; }
 
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr); 
             gap: 2rem;
             margin-top: 3rem;
         }
         
         .map-card {
-            background: #ffffff; 
-            color: var(--teal); 
-            border-radius: 10px; 
+            background: var(--off-white); 
+            color: var(--dark); 
+            border-radius: 2px; 
+            border: 1px solid var(--border); 
+            /* Box-shadow removed for flat look */
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
         }
-        .map-card h3 { color: var(--teal); } 
-        .map-card p { color: var(--teal); } 
+        .map-card h3 { color: var(--dark); font-size: 1.5rem; } 
+        .map-card p { color: var(--dark); margin-bottom: 5px; } 
         
-        .map-info { padding: 40px; text-align: center; flex-grow: 1; }
-        .map-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
-        .map-info p { font-size: 0.95rem; margin-bottom: 5px; }
-        .map-iframe { width: 100%; height: 250px; border: none; filter: grayscale(80%) contrast(1.2); }
+        .map-iframe { 
+            width: calc(100% - 40px); 
+            height: 250px; 
+            margin: 20px 20px 0 20px; 
+            border: none; 
+            border-radius: 2px; 
+            background-color: var(--border);
+        } 
+        
+        .map-info { 
+            padding: 30px; 
+            text-align: center; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .map-info h3 { margin-bottom: 10px; }
+        .map-info p { font-size: 0.95rem; }
 
         /* --- CONTACT BOX & FORM --- */
         .contact-box {
-            background-color: var(--teal);
-            color: var(--text-light);
-            border-radius: 10px;
+            background-color: var(--white);
+            color: var(--dark);
+            border-radius: 2px;
+            border: 1px solid var(--dark); 
             padding: 5rem 4rem;
             max-width: 1100px;
             margin: 0 auto;
-            box-shadow: 0 15px 35px rgba(20, 117, 135, 0.2);
         }
         
         .contact-box-grid {
@@ -425,23 +484,29 @@
             text-align: left;
         }
 
-        .contact-box h2 { color: var(--text-light); margin-bottom: 1.5rem; }
-        .contact-box p { color: rgba(255, 255, 255, 0.9); }
+        .contact-box h2 { color: var(--dark); margin-bottom: 1.5rem; }
+        
+        /* Explicitly preserving the Let's Connect heading size */
+        .contact-info h2 { font-size: 3.5rem; } 
+        
+        .contact-box p { color: var(--mid-grey); }
         
         .contact-phone {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-top: 2rem !important;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 100;
+            letter-spacing: 2px;
         }
 
         .contact-phone a {
-            color: var(--text-light);
+            color: var(--dark);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .contact-phone a:hover {
-            color: var(--yellow);
+            color: var(--accent);
         }
 
         .contact-form {
@@ -458,40 +523,42 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-family: 'Questrial', sans-serif;
-            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            background: var(--white);
+            color: var(--dark);
+            font-family: 'Jost', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
         }
         .form-group input::placeholder, .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: #999;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--yellow);
-            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--dark);
         }
         
         .contact-box .btn-primary {
-            background-color: var(--coral);
-            color: var(--text-light) !important;
+            background-color: transparent;
+            color: var(--dark) !important;
+            border: 1px solid var(--dark);
             margin-top: 1rem;
-            font-weight: 600;
+            font-weight: 400;
             width: 100%;
             padding: 1rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .contact-box .btn-primary:hover {
-            background-color: var(--yellow);
-            color: var(--text-dark) !important;
+            background-color: var(--dark);
+            color: var(--white) !important;
+            border-color: var(--dark);
         }
 
         /* --- FOOTER --- */
         footer {
-            background: var(--text-dark);
-            color: #fff;
+            background: var(--white);
+            color: var(--mid-grey);
             padding: 4rem 5%;
             text-align: center;
         }
@@ -508,7 +575,8 @@
             height: 50px; 
             width: auto;
             object-fit: contain;
-            opacity: 0.7; 
+            opacity: 0.5; 
+            filter: grayscale(100%);
         }
 
         /* --- ANIMATIONS --- */
@@ -528,8 +596,8 @@
             .location-images-grid { flex-direction: column; }
             .service-diagram { grid-template-columns: 1fr; }
             .multi-column-list { column-count: 2; }
-            .shadow-img { box-shadow: -10px -10px 0 var(--yellow); }
             .contact-box-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .shadow-img { width: 100%; }
 
             /* Mobile Menu Setup */
             .menu-toggle { display: block; }
@@ -538,42 +606,54 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--cream);
+                background: var(--white);
                 flex-direction: column;
                 gap: 0;
-                display: none; /* hidden until active */
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                display: none; 
+                border-bottom: 1px solid var(--border);
             }
             .nav-links.active { display: flex; }
             .nav-links a.nav-item {
-                color: var(--teal) !important;
+                color: var(--dark) !important;
                 padding: 1.2rem;
                 width: 100%;
                 text-align: center;
-                border-bottom: 1px solid rgba(20, 117, 135, 0.1);
+                border-bottom: 1px solid var(--border);
             }
         }
 
         @media (max-width: 600px) {
-            header { padding: 1rem 20px; } /* Ensures safe right-edge spacing */
+            header { padding: 1rem 20px; } 
             header.scrolled { padding: 1rem 20px; }
             .multi-column-list { column-count: 1; }
             .contact-box { padding: 3rem 1.5rem; }
-            .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-            .hero p { font-size: 1rem; margin-bottom: 1.5rem;}
-            h2 { font-size: 2.2rem; } /* Prevents overflow of headings */
+            
+            /* Allow text to break on mobile screens */
+            .hero h1 { 
+                font-size: 2.8rem; 
+                margin-bottom: 1rem; 
+                white-space: normal; 
+                letter-spacing: 4px;
+            }
+            
+            /* Headings reduced by 20% from 2.2rem */
+            h2 { font-size: 1.8rem; } 
+            .contact-info h2 { font-size: 2.2rem; } /* Preserved size for mobile */
+            h3 { font-size: 1.4rem; }
+            
             .break-mobile { display: inline; }
             
-            /* Shrink button slightly to fit with menu on very small phones */
             .btn-primary { padding: 0.6rem 1rem; font-size: 0.75rem; }
-            .logo { font-size: 1.5rem; }
+            .logo img { height: 45px; }
         }
     </style>
 </head>
 <body>
 
     <header id="navbar">
-        <div class="logo">AKG</div>
+        <a href="#" class="logo">
+            <img src="AKG Psychotherapy Logo.png" alt="AKG Psychotherapy Logo">
+        </a>
         
         <div class="header-controls">
             <nav class="nav-links" id="navLinks">
@@ -596,7 +676,7 @@
         
         <div class="arrow-container">
             <a href="#about" class="bouncing-arrow">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <polyline points="19 12 12 19 5 12"></polyline>
                 </svg>
@@ -652,7 +732,7 @@
             </div>
 
             <div class="text-center" style="max-width: 900px; margin: 5rem auto 0 auto;">
-                <h3>What I Can Help With</h3>
+                <h3 style="font-family: 'Jost', sans-serif; font-size: 1.2rem; font-weight: 400; text-transform: none; letter-spacing: normal;">What I Can Help With</h3>
                 <p style="margin-bottom: 2rem;">I specialise in providing in-person and online therapy in London for those facing complex mental health matters. Whether you require addiction therapy in Central London, trauma counselling, or support for high-functioning anxiety, I am here to help you rebuild and recover.</p>
                 
                 <div class="core-specialisms">
@@ -682,8 +762,8 @@
 
     <div class="parallax-divider">
         <div class="parallax-content reveal">
-            <h2 style="color: var(--yellow); font-size: 3.5rem; margin-bottom: 1rem;">A Safe Space to Grow</h2>
-            <p style="font-size: 1.2rem; font-style: italic; font-family: 'Questrial', sans-serif;">Distance should not be a barrier to finding the right support.</p>
+            <h2 style="color: var(--white); font-size: 2.8rem; margin-bottom: 1rem; border: none;">A Safe Space to Grow</h2>
+            <p style="font-size: 1.2rem; font-style: italic; font-family: 'Jost', sans-serif; letter-spacing: 1px;">Distance should not be a barrier to finding the right support.</p>
         </div>
     </div>
 
@@ -711,6 +791,17 @@
             </div>
 
             <div class="locations-grid">
+                
+                <div class="map-card">
+                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.1648937084535!2d-0.12328208407386266!3d51.52856421696013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3ebba80e81%3A0xd63d81b83df3ce00!2s1%20Birkenhead%20St%2C%20London%20WC1H%208BA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240050000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Practice"></iframe>
+                    <div class="map-info">
+                        <h3>King's Cross</h3>
+                        <p>Talking Health</p>
+                        <p>1 Birkenhead Street</p>
+                        <p>London WC1H</p>
+                    </div>
+                </div>
+
                 <div class="map-card">
                     <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.723789058784!2d-0.1432426840742591!3d51.51829621772922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad5813f412f%3A0xc319114b097b6a4a!2s20%20Gt%20Portland%20St%2C%20London%20W1W%208LA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240000000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Oxford Circus Practice"></iframe>
                     <div class="map-info">
@@ -724,15 +815,15 @@
                 <div class="map-card">
                     <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.1648937084535!2d-0.12328208407386266!3d51.52856421696013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3ebba80e81%3A0xd63d81b83df3ce00!2s1%20Birkenhead%20St%2C%20London%20WC1H%208BA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240050000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Practice"></iframe>
                     <div class="map-info">
-                        <h3>King's Cross</h3>
-                        <p>Talking Health</p>
-                        <p>1 Birkenhead Street</p>
-                        <p>London WC1H</p>
+                        <h3>King's Cross (Second Location)</h3>
+                        <p><strong>(Opening in May)</strong></p>
+                        <p>344-354 Grays Inn Rd</p>
+                        <p>London WC1X 8BP</p>
                     </div>
                 </div>
 
                 <div class="map-card">
-                    <div class="map-info" style="display:flex; flex-direction:column; justify-content:center;">
+                    <div class="map-info">
                         <h3>Online & Telephone</h3>
                         <p>Secure, confidential therapy available for remote clients.</p>
                         <p style="margin-top: 1rem; font-style: italic;">Delivery: Face-to-face (short & long term), online, telephone.</p>
@@ -753,7 +844,7 @@
                 </div>
 
                 <div class="contact-form-wrapper">
-                    <form action="https://formsubmit.co/anna.kg@thepractice.org.uk" method="POST" class="contact-form">
+                    <form action="https://formsubmit.co/jn461@cam.ac.uk" method="POST" class="contact-form">
                         <input type="hidden" name="_subject" value="New Therapy Consultation Request">
                         <input type="hidden" name="_captcha" value="false">
                         
