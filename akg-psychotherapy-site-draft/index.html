@@ -174,12 +174,15 @@
         .hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-light);
-            font-size: 4.5rem;
+            /* Fluid typography: seamlessly scales between 2.5rem and 4.5rem */
+            font-size: clamp(2.5rem, 7vw, 4.5rem); 
             font-weight: 100; 
-            max-width: 1000px;
+            max-width: 100%;
             margin-bottom: 1.5rem;
-            letter-spacing: 6px; 
-            white-space: nowrap; 
+            /* Fluid letter spacing */
+            letter-spacing: clamp(3px, 1vw, 6px); 
+            white-space: normal; /* This allows it to wrap naturally! */
+            line-height: 1.2;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.5s;
@@ -374,7 +377,7 @@
         summary::after { 
             content: '+'; 
             font-size: 1.5rem; 
-            color: var(--accent-gold); 
+            color: var(--accent-coral); 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             font-weight: 100;
         }
@@ -446,6 +449,7 @@
             color: var(--dark); 
             border-radius: 2px; 
             border: 1px solid var(--border); 
+            border-bottom: 2px solid var(--accent-gold);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -463,29 +467,15 @@
         } 
         
         .map-info { 
-            padding: 30px 30px 60px 30px; /* Added extra padding at the bottom */
+            padding: 30px; 
             text-align: center; 
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            position: relative; /* Anchor for absolute positioning */
         }
         .map-info h3 { margin-bottom: 10px; }
         .map-info p { font-size: 0.95rem; }
-
-        .map-info::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: var(--accent-gold);
-            position: absolute;
-            bottom: 30px; /* Pins it safely exactly 30px from bottom, matching heights perfectly */
-            left: 50%;
-            transform: translateX(-50%);
-        }
 
         /* --- CONTACT BOX & FORM --- */
         .contact-box {
