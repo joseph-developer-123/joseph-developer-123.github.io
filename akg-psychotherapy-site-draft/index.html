@@ -174,14 +174,14 @@
         .hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-light);
-            /* Fluid typography: seamlessly scales between 2.5rem and 4.5rem */
-            font-size: clamp(2.5rem, 7vw, 4.5rem); 
+            /* Fluid sizing: dynamically adjusts based on screen width */
+            font-size: clamp(3rem, 6vw, 4.5rem); 
             font-weight: 100; 
-            max-width: 100%;
+            max-width: 1000px;
             margin-bottom: 1.5rem;
-            /* Fluid letter spacing */
             letter-spacing: clamp(3px, 1vw, 6px); 
-            white-space: normal; /* This allows it to wrap naturally! */
+            white-space: normal; 
+            word-wrap: break-word; /* Safety net so hyphenated words won't overflow */
             line-height: 1.2;
             opacity: 0;
             transform: translateY(30px);
