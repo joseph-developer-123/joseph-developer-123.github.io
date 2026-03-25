@@ -160,7 +160,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh;
+            min-height: 100dvh; /* Changed to dvh to keep above fold on mobile */
             background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('kingscross.jpg') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
@@ -168,7 +168,7 @@
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 180px 20px 40px 20px; 
+            padding: 120px 20px 20px 20px; /* Reduced top/bottom padding slightly */
         }
 
         .hero h1 {
@@ -187,10 +187,19 @@
             animation: fadeUp 1s forwards 0.5s;
         }
 
+        /* Added specific class to make PSYCHOTHERAPY smaller */
+        .hero h1 .sub-title {
+            display: block;
+            font-size: 0.55em; /* Significantly smaller */
+            margin-top: 5px;
+            font-weight: 200;
+            letter-spacing: clamp(4px, 1.5vw, 8px);
+        }
+
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
-            margin-bottom: 2rem; 
+            margin-bottom: 1.5rem; /* Reduced slightly to save vertical space */
             font-weight: 300;
             letter-spacing: 1px;
             opacity: 0;
@@ -206,7 +215,7 @@
 
         /* --- BOUNCING ARROW --- */
         .arrow-container {
-            margin-top: 40px; 
+            margin-top: 25px; /* Reduced from 40px to bring it closer to the button */
             width: 100%;
             display: flex;
             justify-content: center;
@@ -643,7 +652,7 @@
             }
 
             /* Adjust hero padding on mobile */
-            .hero { padding-top: 150px; }
+            .hero { padding-top: 100px; padding-bottom: 20px; }
 
             /* Mobile Menu Setup */
             .menu-toggle { display: block; }
@@ -667,13 +676,13 @@
                 border-bottom: 1px solid var(--border);
             }
             .footer-logos {
-        gap: 1.5rem; /* Reduces the large gap between logos */
-    }
-    
-    .footer-logos img {
-        height: 50px; /* Scales down the logos */
-        max-width: 100%; /* Prevents them from stretching past the screen edge */
-    }
+                gap: 1.5rem; /* Reduces the large gap between logos */
+            }
+            
+            .footer-logos img {
+                height: 50px; /* Scales down the logos */
+                max-width: 100%; /* Prevents them from stretching past the screen edge */
+            }
         }
 
         @media (max-width: 600px) {
@@ -722,7 +731,8 @@
 
     <section class="hero">
         <h1>
-          ANNA <span class="break-mobile"><br></span>KENNY-GINARD
+          ANNA <span class="break-mobile"><br></span>KENNY-GINARD 
+          <span class="sub-title">PSYCHOTHERAPY</span>
         </h1>        
         <p>Enter a calm, confidential space where you can begin to understand yourself more deeply, make sense of the overwhelm, and make meaningful and lasting changes.</p>
         <a href="#about" class="btn-primary">Discover More</a>
