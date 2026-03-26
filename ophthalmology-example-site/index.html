@@ -1,1 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert Private Eye Care. Consultant Ophthalmologist in London offering advanced cataract surgery and glaucoma treatments.">
+    <title>Consultant Ophthalmologist | London Eye Clinic</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEMING
+           ========================================================================== */
+        :root {
+            --primary: #06395c; 
+            --primary-light: #0a4f7e;
+            --primary-dark: #032136;
+            
+            --accent: #0d9488; 
+            --accent-hover: #0f766e;
+            
+            --bg-main: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-alt: #e2e8f0;
+            
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --text-light: #f8fafc;
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --transition-fast: 0.2s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -3px rgba(6, 57, 92, 0.1);
+            --shadow-lg: 0 20px 40px -5px rgba(6, 57, 92, 0.15);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ==========================================================================
+           3. UTILITY CLASSES
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        .section { padding: 8rem 0; position: relative; }
+        .section-light { background-color: var(--bg-surface); }
+        .text-center { text-align: center; }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .heading-lg { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+        .heading-md { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-smooth);
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+            color: var(--text-light);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary);
+        }
+        .btn-outline-dark {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        .btn-outline-dark:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+
+        /* ==========================================================================
+           4. NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--bg-alt);
+        }
+        header.scrolled .logo, 
+        header.scrolled .nav-links a { color: var(--primary); }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo i { color: var(--accent); }
+        
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0; width: 0; height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition-smooth);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION
+           ========================================================================== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6, 57, 92, 0.95) 0%, rgba(6, 57, 92, 0.7) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-top: 4rem;
+        }
+        .hero-content h1 { color: var(--text-light); }
+        .hero-content p { color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; max-width: 600px; }
+        .hero-btns { display: flex; gap: 1rem; margin-top: 2.5rem; }
+
+        /* ==========================================================================
+           6. TRUST BAR
+           ========================================================================== */
+        .trust-bar {
+            background-color: var(--bg-surface);
+            padding: 2rem 0;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 10;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .trust-item i {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .trust-item span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .trust-item small {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           7. ABOUT SECTION
+           ========================================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .about-image-wrapper {
+            position: relative;
+        }
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px;
+            width: 100%; height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: var(--border-radius-lg);
+            z-index: 0;
+        }
+        .about-img {
+            border-radius: var(--border-radius-lg);
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            background-color: var(--bg-alt);
+        }
+        .credentials-list {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .credential-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .credential-item i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+        .credential-item span {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           8. SERVICES / TREATMENTS
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            background: var(--bg-surface);
+            padding: 3rem 2.5rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--bg-alt);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 0;
+            background: var(--primary);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .service-card:hover::before { height: 100%; }
+        .service-card:hover h3, 
+        .service-card:hover p { color: var(--text-light); }
+        
+        .service-card h3 { 
+            margin-bottom: 1.5rem; 
+            font-size: 1.4rem; 
+            transition: var(--transition-smooth); 
+        }
+        .service-card p { 
+            margin-bottom: 0; 
+            font-size: 0.95rem; 
+            transition: var(--transition-smooth); 
+        }
+
+        /* ==========================================================================
+           9. PARALLAX BREAK
+           ========================================================================== */
+        .parallax-section {
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat fixed;
+        }
+        .parallax-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(6, 57, 92, 0.85);
+        }
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+            max-width: 800px;
+            padding: 0 5%;
+        }
+        .parallax-content h2 { color: var(--text-light); margin-bottom: 1rem; font-size: 2.5rem; }
+        .parallax-content p { color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2rem;}
+
+        /* ==========================================================================
+           10. TESTIMONIALS SLIDER
+           ========================================================================== */
+        .testimonials-container {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .quote-icon { font-size: 2rem; color: var(--bg-alt); margin-bottom: 1rem; }
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        .patient-name { font-weight: 700; color: var(--text-dark); }
+        .patient-surgery { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .dot.active { background: var(--accent); transform: scale(1.2); }
+
+        /* ==========================================================================
+           11. LOCATION & BOOKING
+           ========================================================================== */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Contact Info | Calendly Widget */
+            gap: 2rem;
+            background: var(--bg-surface);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            align-items: stretch;
+        }
+        .location-info { padding: 1rem 1rem 1rem 2rem; display: flex; flex-direction: column; justify-content: center; }
+        .location-info h3 { margin-bottom: 1.5rem; }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        
+        .calendly-container {
+            width: 100%; 
+            height: 100%; 
+            min-height: 450px;
+            border-radius: var(--border-radius-md); 
+            overflow: hidden; 
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        .calendly-container i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .calendly-container p {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================================================
+           12. FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--primary-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand p { color: rgba(255,255,255,0.7); font-size: 0.9rem; max-width: 400px; }
+        .footer-links h4 { color: var(--text-light); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .footer-links ul li { margin-bottom: 0.75rem; }
+        .footer-links ul li a:hover { color: var(--accent); }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           13. ANIMATIONS & RESPONSIVE DESIGN
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .location-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .location-info { padding: 1rem 0; }
+            .calendly-container { min-height: 400px; }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            header.scrolled .mobile-toggle { color: var(--primary); }
+            .mobile-toggle { display: block; color: var(--text-light); }
+            .nav-links {
+                position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: var(--bg-surface);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+            .nav-links a { color: var(--text-dark); }
+            .hero-btns { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-eye"></i>
+                London Vision
+            </a>
+            <div class="mobile-toggle"><i class="fa-solid fa-bars"></i></div>
+            <nav class="nav-links">
+                <a href="#about">About the Specialist</a>
+                <a href="#treatments">Treatments</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#location">Clinic Location</a>
+                <a href="#booking" class="btn btn-primary" style="color: white;">Book Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="badge">Central London Eye Clinic</span>
+                <h1 class="heading-lg">Restore Your Vision with Clinical Precision.</h1>
+                <p>Expert private eye care by our Lead Consultant Ophthalmologist. Specialising in advanced cataract surgery, premium lens implants, and comprehensive glaucoma management in the heart of London.</p>
+                <div class="hero-btns">
+                    <a href="#booking" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Schedule an Appointment</a>
+                    <a href="#treatments" class="btn btn-outline">Explore Treatments</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item">
+                <i class="fa-solid fa-star"></i>
+                <span>5-Star Patient Rated</span>
+                <small>Outstanding Patient Reviews</small>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-certificate"></i>
+                <span>RCOphth Member</span>
+                <small>Royal College of Ophthalmologists</small>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>5,000+ Procedures</span>
+                <small>Exceptional Safety Record</small>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-hospital"></i>
+                <span>Leading Consultant</span>
+                <small>London Teaching Hospital Lead</small>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="section">
+        <div class="container about-grid">
+            <div class="about-image-wrapper reveal">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Consultant Ophthalmologist" class="about-img">
+            </div>
+            <div class="about-content reveal">
+                <span class="badge">Meet the Surgeon</span>
+                <h2 class="heading-md">Leading London Consultant</h2>
+                <p>Appointed as a Consultant Ophthalmologist at a premier London Teaching Hospital, our lead specialist brings over 15 years of expertise to private practice. Leading regional glaucoma services and respected as an Academic Lead for Ophthalmology at the University of London Medical School.</p>
+                <p>Carrying out 600-800 clinical episodes annually in private practice alone, surgical complication rates remain significantly below the national average, ensuring patients receive the safest, most effective care possible.</p>
+                
+                <div class="credentials-list">
+                    <div class="credential-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Complex Cataract Specialist</span>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Glaucoma Regional Lead</span>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Premium EDOF/Toric Lenses</span>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Neuro-Ophthalmology</span>
+                    </div>
+                </div>
+                
+                <a href="#treatments" class="btn btn-outline-dark" style="margin-top: 2.5rem;">View Clinical Expertise</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="treatments" class="section section-light">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="badge">Specialist Care</span>
+                <h2 class="heading-md">Conditions & Treatments</h2>
+                <p style="max-width: 600px; margin: 0 auto;">The latest eye tests and careful surgeries planned just for your daily life and vision needs.</p>
+            </div>
+
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <h3>Advanced Cataract Surgery</h3>
+                    <p>Our tiny-cut cataract surgery safely brings back your clear eyesight. We use top-quality artificial lenses made just for your lifestyle. By picking the right lens, we help you need glasses less often, or even not at all. You will see better quickly and recover very fast.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Glaucoma Management</h3>
+                    <p>Glaucoma needs careful, ongoing checks to save your eyesight. We use the latest scanners to spot tiny changes early on. Your personalised treatment plan might include modern laser therapies or gentle surgeries. These treatments help keep the pressure in your eye at a safe level with as little discomfort as possible.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Dry Eye Diagnostics</h3>
+                    <p>Long-lasting dry eye can be very painful, causing red, itchy eyes and blurry vision. We do special tests to find out exactly why your eyes are dry. Your personalised care plan might include special eye drops, tiny tear duct plugs, or eyelid treatments to help your eyes stay moist and comfortable every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content reveal">
+            <h2>See the World Clearly Again.</h2>
+            <p>Don't let deteriorating vision limit your quality of life. Experience world-class, consultant-led care without the waiting lists.</p>
+            <a href="#booking" class="btn btn-primary" style="margin-top: 1rem;">Book Your Initial Consultation</a>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container text-center reveal">
+            <span class="badge">Patient Outcomes</span>
+            <h2 class="heading-md">What Our Patients Say</h2>
+            
+            <div class="testimonials-container">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="testimonial-slider" id="t-slider">
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"The consultant completely transformed my vision. The calm demeanour and thorough explanation of the premium lens options put me entirely at ease. The surgery was quick, painless, and the results are life-changing."</p>
+                        <h4 class="patient-name">Sarah Jenkins</h4>
+                        <span class="patient-surgery">Cataract Surgery (Multi-focal Lens)</span>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"After being diagnosed with glaucoma, I was incredibly anxious. The specialist's expertise and clear treatment plan gave me total confidence. I cannot recommend this clinic highly enough."</p>
+                        <h4 class="patient-name">David T.</h4>
+                        <span class="patient-surgery">Glaucoma Laser Treatment</span>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"Professional, pristine environment, and a surgeon who truly cares about the outcome. My astigmatism is gone and I no longer need glasses for driving."</p>
+                        <h4 class="patient-name">Michael R.</h4>
+                        <span class="patient-surgery">Complex Cataract Surgery (Toric Lens)</span>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <div class="dot active" onclick="goToSlide(0)"></div>
+                    <div class="dot" onclick="goToSlide(1)"></div>
+                    <div class="dot" onclick="goToSlide(2)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="section section-light">
+        <div class="container reveal">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="badge">Find Us & Book</span>
+                <h2 class="heading-md">Location & Consultation</h2>
+            </div>
+            
+            <div class="location-grid">
+                
+                <div class="location-info">
+                    <h3>Central London Private Clinic</h3>
+                    <p>We provide state-of-the-art facilities designed for maximum patient comfort right in the heart of London.</p>
+                    
+                    <div class="contact-detail" style="margin-top: 1rem;">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <strong>Address</strong><br>
+                            Harley Street,<br>
+                            London, W1G 9PF
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Direct Booking Line</strong><br>
+                            <a href="tel:08082964195" style="font-size: 1.1rem; color: var(--primary); font-weight: 700;">020 7946 0195</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <strong>Initial Consultation Fee</strong><br>
+                            £240
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendly-container" id="booking">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <h3>Booking Widget Placeholder</h3>
+                    <p>Your client's Calendly or appointment booking widget will appear here seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fa-solid fa-eye"></i>
+                        London Vision
+                    </div>
+                    <p>Expert private eye care in London. Restoring vision and improving quality of life with precision surgical techniques.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About the Specialist</a></li>
+                        <li><a href="#treatments">Cataract Surgery</a></li>
+                        <li><a href="#treatments">Glaucoma Management</a></li>
+                        <li><a href="#testimonials">Patient Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Patient Info</h4>
+                    <ul>
+                        <li><a href="#location">Clinic Location</a></li>
+                        <li><a href="#booking">Book Appointment</a></li>
+                        <li><a href="#">Paying for Treatment</a></li>
+                        <li><a href="#">Insurance Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 London Eye Clinic | Consultant Ophthalmologist. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Sticky Header Blur Effect on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Scroll Reveal Animation Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 3. Testimonial Slider Logic
+        let currentSlide = 0;
+        const slider = document.getElementById('t-slider');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => {
+            let next = (currentSlide + 1) % totalSlides;
+            goToSlide(next);
+        }, 6000);
+    </script>
+</body>
+</html>
