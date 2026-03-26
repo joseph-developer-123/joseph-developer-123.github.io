@@ -160,7 +160,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100dvh; /* Changed to dvh to keep above fold on mobile */
+            min-height: 100dvh; 
             background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('kingscross.jpg') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
@@ -168,7 +168,7 @@
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 120px 20px 20px 20px; /* Reduced top/bottom padding slightly */
+            padding: 120px 20px 20px 20px; 
         }
 
         .hero h1 {
@@ -187,10 +187,9 @@
             animation: fadeUp 1s forwards 0.5s;
         }
 
-        /* Added specific class to make PSYCHOTHERAPY smaller */
         .hero h1 .sub-title {
             display: block;
-            font-size: 0.55em; /* Significantly smaller */
+            font-size: 0.55em; 
             margin-top: 5px;
             font-weight: 200;
             letter-spacing: clamp(4px, 1.5vw, 8px);
@@ -199,7 +198,7 @@
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
-            margin-bottom: 1.5rem; /* Reduced slightly to save vertical space */
+            margin-bottom: 1.5rem; 
             font-weight: 300;
             letter-spacing: 1px;
             opacity: 0;
@@ -215,7 +214,7 @@
 
         /* --- BOUNCING ARROW --- */
         .arrow-container {
-            margin-top: 25px; /* Reduced from 40px to bring it closer to the button */
+            margin-top: 25px; 
             width: 100%;
             display: flex;
             justify-content: center;
@@ -272,6 +271,21 @@
         h2 { font-size: 2.8rem; margin-bottom: 2rem; line-height: 1; letter-spacing: 3px; font-weight: 100; }
         h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--dark); letter-spacing: 2px; font-weight: 100; }
 
+        /* Qualifications List */
+        .qualifications-list {
+            list-style-type: disc;
+            margin-left: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .qualifications-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+
         /* --- IMAGES & LOGOS --- */
         .shadow-img {
             width: 70%; 
@@ -279,7 +293,6 @@
             display: block;
             height: auto;
             border-radius: 4px;
-            /* Updated border and shadow for a cleaner, cohesive look */
             background-color: var(--white);
             border: 1px solid var(--border);
             padding: 12px;
@@ -290,7 +303,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 2.5rem; /* Increased spacing */
+            gap: 2.5rem; 
             margin-top: 2.5rem;
             flex-wrap: wrap;
         }
@@ -301,7 +314,7 @@
         }
 
         .accreditation-logos img {
-            height: 48px; /* Reduced size */
+            height: 48px; 
             width: auto;
             object-fit: contain;
             mix-blend-mode: multiply;
@@ -606,7 +619,7 @@
             display: flex;
             align-items: center; 
             justify-content: center;
-            gap: 4rem; /* Increased spacing */
+            gap: 4rem; 
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
@@ -644,17 +657,15 @@
             
             .shadow-img { 
                 width: 85%; 
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Updated mobile shadow */
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
             }
 
             .hero, .parallax-divider {
                 background-attachment: scroll !important;
             }
 
-            /* Adjust hero padding on mobile */
             .hero { padding-top: 100px; padding-bottom: 20px; }
 
-            /* Mobile Menu Setup */
             .menu-toggle { display: block; }
             .nav-links {
                 position: absolute;
@@ -676,12 +687,12 @@
                 border-bottom: 1px solid var(--border);
             }
             .footer-logos {
-                gap: 1.5rem; /* Reduces the large gap between logos */
+                gap: 1.5rem; 
             }
             
             .footer-logos img {
-                height: 50px; /* Scales down the logos */
-                max-width: 100%; /* Prevents them from stretching past the screen edge */
+                height: 50px; 
+                max-width: 100%; 
             }
         }
 
@@ -721,7 +732,8 @@
             <nav class="nav-links" id="navLinks">
                 <a href="#about" class="nav-item">About me</a>
                 <a href="#services" class="nav-item">Services</a>
-                <a href="#locations" class="nav-item">Locations & Fees</a>
+                <a href="#locations" class="nav-item">Locations</a>
+                <a href="#fees" class="nav-item">Fees</a>
                 <a href="#contact" class="nav-item">Contact</a>
             </nav>
             <a href="#contact" class="btn-primary">Book consultation</a>
@@ -734,7 +746,7 @@
           ANNA <span class="break-mobile"><br></span>KENNY-GINARD 
           <span class="sub-title">PSYCHOTHERAPY</span>
         </h1>        
-        <p>Enter a calm, confidential space where you can slow down, feel supported, and begin to understand yourself more deeply. Together, we begin to make sense of the overwhelm and create meaningful, lasting change.</p>
+        <p>Enter a calm, confidential space where you are invited to slow down, feel supported, and begin to understand yourself more deeply. Together, we can begin to explore the possibility of meaningful, lasting change.</p>
         <a href="#about" class="btn-primary">Discover More</a>
         
         <div class="arrow-container">
@@ -755,11 +767,18 @@
             
             <div class="editorial-text">
                 <span class="section-number">.01 About Me</span>
-                <h2>Bringing things back into focus.</h2>
-                <p>As a BPC accredited psychotherapist in London, I offer a warm, insightful, and collaborative space. Together, we can explore the patterns shaping your relationships and begin shifting what no longer serves you. Drawing on extensive experience, I bring clarity and steadiness to both times of crisis and the work of lasting change.</p>
+                <h2>My Approach</h2>
+                <p>As a BPC accredited and BAPC registered psychotherapist in Central London, I offer a warm, insightful, and collaborative space. Together, we can explore the patterns shaping your relationships and begin shifting what no longer serves you. Drawing on extensive experience, I bring clarity and steadiness to both times of crisis and the work of lasting change.</p>
                 <p>Seeking a private therapist in London takes courage, especially when things feel unclear. I work with successful professionals, individuals navigating life transitions, and those feeling disconnected or at odds with themselves.</p>
-                <p>Across my work in the NHS, private settings (including The Priory), and individual practice, I have supported clients through complex difficulties including anxiety, depression, trauma, and addiction counselling. The work unfolds at a pace that feels right for you.</p>
+                <p>Across my work in the NHS, private settings (including The Priory), and private practice, I have supported clients through complex difficulties including anxiety, depression, trauma, and addiction counselling. The work unfolds at a pace that feels right for you.</p>
                 
+                <h3 style="margin-top: 2.5rem; font-size: 1.3rem;">Qualifications & Registrations</h3>
+                <ul class="qualifications-list">
+                    <li>I'm a fully registered member of the British Association of Counsellors and Psychotherapists, the British Psychoanalytic Council, and Addiction Professionals.</li>
+                    <li>I hold an MSc in Psychodynamic Counselling and Psychotherapy from Birkbeck College, University of London, and further qualifications from CCPE and Tavistock Relationships.</li>
+                    <li>I have completed additional trainings in Mentalization Based Treatment, Group Dynamics, and Trauma-Focussed CBT.</li>
+                </ul>
+
                 <div class="accreditation-logos">
                     <a href="https://www.bacp.co.uk/therapists/404114/anna-kenny-ginard/" target="_blank" rel="noopener noreferrer">
                         <img src="BACPLogo-404114 - Anna Kenny-Ginard.png" alt="BACP registered psychotherapist London">
@@ -775,7 +794,7 @@
         <div class="container reveal">
             <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
                 <span class="section-number">.02 Services & Approach</span>
-                <h2>Therapy in London</h2>
+                <h2>Bringing things back into focus.</h2>
                 <p>Therapy offers a powerful opportunity to discover who you really are and untangle the parts of yourself that challenge or confuse you the most.</p>
             </div>
 
@@ -834,12 +853,7 @@
         <div class="container reveal">
             <div class="text-center" style="margin-bottom: 4rem;">
                 <span class="section-number">.03 Details</span>
-                <h2>Locations & Fees</h2>
-                <p>
-                  Sessions are £120–£150 for 50 minutes, with concessions available.<br>
-                  I work with adults (18+), older adults, and young people.<br>
-                  I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.
-                </p>
+                <h2>Locations</h2>
             </div>
 
             <div class="location-images-grid">
@@ -856,7 +870,7 @@
             <div class="locations-grid">
                 
                 <div class="map-card">
-                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.1648937084535!2d-0.12328208407386266!3d51.52856421696013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3ebba80e81%3A0xd63d81b83df3ce00!2s1%20Birkenhead%20St%2C%20London%20WC1H%208BA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240050000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Practice"></iframe>
+                    <iframe class="map-iframe" src="https://maps.google.com/maps?q=1+Birkenhead+Street,+London&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Practice"></iframe>
                     <div class="map-info">
                         <h3>King's Cross</h3>
                         <p>Talking Health</p>
@@ -866,7 +880,7 @@
                 </div>
 
                 <div class="map-card">
-                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.723789058784!2d-0.1432426840742591!3d51.51829621772922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad5813f412f%3A0xc319114b097b6a4a!2s20%20Gt%20Portland%20St%2C%20London%20W1W%208LA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240000000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Oxford Circus Practice"></iframe>
+                    <iframe class="map-iframe" src="https://maps.google.com/maps?q=20+Great+Portland+Street,+London&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Oxford Circus Practice"></iframe>
                     <div class="map-info">
                         <h3>Oxford Circus</h3>
                         <p>The Practice</p>
@@ -876,9 +890,9 @@
                 </div>
 
                 <div class="map-card">
-                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.1648937084535!2d-0.12328208407386266!3d51.52856421696013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3ebba80e81%3A0xd63d81b83df3ce00!2s1%20Birkenhead%20St%2C%20London%20WC1H%208BA%2C%20UK!5e0!3m2!1sen!2sus!4v1698240050000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Practice"></iframe>
+                    <iframe class="map-iframe" src="https://maps.google.com/maps?q=344-354+Grays+Inn+Rd,+London&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Kings Cross Grays Inn Road Practice"></iframe>
                     <div class="map-info">
-                        <h3>King's Cross (Second Location)</h3>
+                        <h3>King's Cross (Grays Inn Road)</h3>
                         <p><strong>(Opening in May)</strong></p>
                         <p>344-354 Grays Inn Rd</p>
                         <p>London WC1X 8BP</p>
@@ -886,8 +900,8 @@
                 </div>
 
                 <div class="map-card">
-<img class="map-iframe" src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=800" alt="Online and Telephone Therapy - Dark workspace with closed laptop">
-<div class="map-info">
+                    <img class="map-iframe" src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=800" alt="Online and Telephone Therapy - Dark workspace with closed laptop">
+                    <div class="map-info">
                         <h3>Online & Telephone</h3>
                         <p>Secure, confidential therapy available for remote clients.</p>
                         <p style="margin-top: 1rem; font-style: italic;">Delivery: Face-to-face (short & long term), online, telephone.</p>
@@ -897,7 +911,22 @@
         </div>
     </section>
 
-    <section id="contact" class="container reveal">
+    <section id="fees" class="bg-white">
+        <div class="container reveal" style="padding-top: 2rem; padding-bottom: 2rem;">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <span class="section-number">.04 Details</span>
+                <h2>Fees & Insurance</h2>
+                <div style="font-size: 1.1rem; line-height: 2; margin-top: 2rem; color: var(--text-dark);">
+                    <p>Sessions are £120-£150 for 50 minutes, with concessions available.</p>
+                    <p>I work with adults (18+), older adults, and young people.</p>
+                    <p>I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.</p>
+                    <p style="margin-top: 1rem; font-weight: 400; color: var(--accent);">Please contact me for current availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container reveal" style="padding-top: 4rem;">
         <div class="contact-box">
             <div class="contact-box-grid">
                 
