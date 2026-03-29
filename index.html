@@ -257,9 +257,10 @@
         .pricing-section { background-color: var(--text-main); color: var(--bg-surface); }
         .pricing-section h2, .pricing-section h3 { color: var(--bg-surface); }
         .pricing-section p { color: #8C9BAB; }
-        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 60px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 60px; max-width: 1100px; margin-left: auto; margin-right: auto; }
         .price-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: 60px; backdrop-filter: blur(10px); display: flex; flex-direction: column; }
-        .price-card.premium { background: var(--bg-surface); color: var(--text-main); }
+        .price-card.premium { background: var(--bg-surface); color: var(--text-main); grid-column: 1 / -1; }
+        .premium-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .price-card.premium h3 { color: var(--text-main); }
         .price-card.premium p { color: var(--text-muted); }
         .price-amount { font-family: var(--font-heading); font-size: 4rem; margin: 20px 0; display: flex; align-items: baseline; gap: 10px; font-weight: 700; }
@@ -279,6 +280,11 @@
 
    
        /* --- RESPONSIVE (Matching Dianoya Breakpoints) --- */
+        @media (max-width: 992px) {
+            .premium-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .premium-inner .feature-list { text-align: left; }
+        }
+
         @media (max-width: 700px) { 
             /* Tighter gap and padding for mobile */
             .nav-wrapper { 
@@ -306,6 +312,7 @@
 
             .process-grid, .pricing-grid, .portfolio-grid { grid-template-columns: 1fr; }
             .hero { padding-top: 140px; }
+            .premium-inner { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -409,7 +416,6 @@
 
                 <a href="/dianoya" class="portfolio-card">
                     <div class="card-image" style="background: linear-gradient(135deg, #020B1C, #1E88E5);">
-                        <div class="card-badge badge-concept">Concept Work</div>
                         <div class="card-image-inner">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12" cy="12" r="10" fill="none" stroke="#0DD9C4" stroke-width="2" />
@@ -427,7 +433,6 @@
 
                 <a href="/dental-atelier" class="portfolio-card">
                     <div class="card-image" style="background: linear-gradient(135deg, #1A1A1A, #333333);">
-                        <div class="card-badge badge-concept">Concept Work</div>
                         <div class="card-image-inner" style="font-size: 3rem;">🦷</div>
                     </div>
                     <div class="card-content">
@@ -440,7 +445,6 @@
 
                 <a href="/cambridge-core-clinic" class="portfolio-card">
                     <div class="card-image" style="background: linear-gradient(135deg, #ffffff, #f0f4f8);">
-                        <div class="card-badge badge-concept">Concept Work</div>
                         <div class="card-image-inner" style="font-size: 3rem;">🏥</div>
                     </div>
                     <div class="card-content">
@@ -453,7 +457,6 @@
 
                 <a href="/flourish" class="portfolio-card">
                     <div class="card-image" style="background: linear-gradient(135deg, #2D5F5D, #4A8886);">
-                        <div class="card-badge badge-concept">Concept Work</div>
                         <div class="card-image-inner" style="font-size: 3rem; color: white;">🌱</div>
                     </div>
                     <div class="card-content">
@@ -492,6 +495,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="reveal" style="background: var(--bg-surface); border-radius: var(--radius-lg); padding: 50px 50px; max-width: 1000px; margin: 40px auto 0; position: relative;">
+                <div style="color: #FFB400; font-size: 1.5rem; margin-bottom: 20px;">★★★★★</div>
+                <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
+                    "It was great working with Joseph. He was very professional, helpful, and responsive in his communication throughout. He worked swiftly to create a top-class website for my practice, making the whole process straightforward and stress-free. I am very happy with the end result!"
+                </p>
+                
+                <div style="display: flex; align-items: center; gap: 15px; margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                    <div>
+                        <div style="font-weight: 700; font-family: var(--font-heading); font-size: 1.1rem;">Daniel Lazimi</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">Founder, <a href="https://daniellazimitherapy.co.uk/" target="_blank" style="color: inherit; text-decoration: underline;">Daniel Lazimi Therapy</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -505,42 +522,70 @@
 
             <div class="pricing-grid">
                 <div class="price-card premium reveal">
-                    <div style="margin-bottom: 20px;">
-                        <span style="background: rgba(0, 230, 118, 0.1); color: var(--accent-green); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 4px; letter-spacing: 0.05em; border: 1px solid rgba(0, 230, 118, 0.2);">LIMITED AVAILABILITY AT THIS PRICE</span>
+                    <div class="premium-inner">
+                        <div>
+                            <div style="margin-bottom: 20px;">
+                                <span style="background: rgba(0, 230, 118, 0.1); color: var(--accent-green); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 4px; letter-spacing: 0.05em; border: 1px solid rgba(0, 230, 118, 0.2);">LIMITED AVAILABILITY AT THIS PRICE</span>
+                            </div>
+                            
+                            <h3>The Portfolio Build</h3>
+                            <p>A complete, bespoke practice website built from scratch to convert visitors into patients.</p>
+                            
+                            <div class="price-amount" style="display: flex; align-items: baseline; gap: 10px; margin: 30px 0;">
+                                <span style="font-size: 3.5rem; font-weight: 700; color: var(--text-main); line-height: 1;">£1500</span>
+                                <span style="font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; opacity: 0.6;">Valued at £3,000</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; justify-content: center;">
+                            <ul class="feature-list" style="margin-bottom: 30px;">
+                                <li><strong>Design.</strong> High-end, mobile-responsive layout.</li>
+                                <li><strong>Copy.</strong> Professional patient-facing narrative.</li>
+                                <li><strong>SEO.</strong> Foundational setup for local search.</li>
+                            </ul>
+                            
+                            <a href="#contact" class="btn btn-primary" style="width: 100%;">Discuss Your Project</a>
+                        </div>
                     </div>
-                    
-                    <h3>The Portfolio Build</h3>
-                    <p>A complete, bespoke practice website built from scratch to convert visitors into patients.</p>
-                    
-                    <div class="price-amount" style="display: flex; align-items: baseline; gap: 10px; margin: 30px 0;">
-                        <span style="font-size: 3.5rem; font-weight: 700; color: var(--text-main); line-height: 1;">£1500</span>
-                        <span style="font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; opacity: 0.6;">Valued at £3,000</span>
-                    </div>
-                    
-                    <ul class="feature-list" style="margin-bottom: 30px;">
-                        <li><strong>Design.</strong> High-end, mobile-responsive layout.</li>
-                        <li><strong>Copy.</strong> Professional patient-facing narrative.</li>
-                        <li><strong>SEO.</strong> Foundational setup for local search.</li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Discuss Your Project</a>
                 </div>
 
-                <div class="price-card reveal" style="transition-delay: 0.2s;">
-                    <h3 style="margin-top: 46px;">Concierge Management</h3>
+                <div class="price-card reveal" style="transition-delay: 0.1s;">
+                    <h3 style="margin-top: 20px;">Concierge Management</h3>
                     <p>Optional ongoing support for clinicians who want their digital presence handled entirely by experts.</p>
                     
                     <div class="price-amount" style="margin: 30px 0;">
-                        <span style="font-size: 3rem; font-weight: 700; color: var(--bg-surface); line-height: 1;">£100</span>
+                        <span style="font-size: 3rem; font-weight: 700; color: var(--bg-surface); line-height: 1;">£150</span>
                         <span style="font-size: 1rem; color: #8C9BAB; font-weight: 400;">/ Monthly</span>
                     </div>
                     
                     <ul class="feature-list" style="color: var(--bg-surface);">
-                        <li>Hosting & Content Updates.</li>
-                        <li>Monthly SEO & Performance Monitoring.</li>
-                        <li>Security & Software Patches.</li>
+                        <li>Hosting & Content Updates</li>
+                        <li>Monthly SEO & Performance Monitoring</li>
+                        <li>Security & Software Patches</li>
+                        <li>Privacy-friendly analytics (no cookie popups)</li>
+                        <li>Google Business Profile management</li>
+                        <li>AI search optimisation (AIO)</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" style="width: 100%; border-color: rgba(255,255,255,0.3); color: var(--bg-surface);">Explore Maintenance</a>
+                </div>
+
+                <div class="price-card reveal" style="transition-delay: 0.2s;">
+                    <h3 style="margin-top: 20px;">Google Ads Management</h3>
+                    <p>We put your practice in front of patients who are actively searching for exactly what you offer at the exact moment they are ready to book.</p>
+                    
+                    <div class="price-amount" style="margin: 30px 0;">
+                        <span style="font-size: 3rem; font-weight: 700; color: var(--bg-surface); line-height: 1;">£300</span>
+                        <span style="font-size: 1rem; color: #8C9BAB; font-weight: 400;">/ Monthly</span>
+                    </div>
+                    
+                    <ul class="feature-list" style="color: var(--bg-surface);">
+                        <li>Bespoke campaign architecture built around your specialism</li>
+                        <li>Precision keyword targeting for high-intent local patients</li>
+                        <li>Continuous bid optimisation to eliminate wasted spend</li>
+                        <li>Monthly performance reporting with full transparency</li>
+                        <li>Exclusively for private medical practices</li>
+                    </ul>
+                    <a href="mailto:joseph@alethara.com" class="btn btn-outline" style="width: 100%; border-color: rgba(255,255,255,0.3); color: var(--bg-surface);">Schedule a Strategy Call</a>
                 </div>
             </div>
 
