@@ -650,7 +650,7 @@
         }
 
         @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; text-align: center; }
             .location-images-grid { flex-direction: column; }
             .service-diagram { grid-template-columns: 1fr; }
             .multi-column-list { column-count: 2; }
@@ -696,6 +696,15 @@
                 height: 50px; 
                 max-width: 100%; 
             }
+
+            /* Ensure qualifications list is still legible when centered */
+    .editorial-text .qualifications-list {
+        text-align: left;
+        display: inline-block;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
         }
 
         @media (max-width: 600px) {
@@ -723,7 +732,31 @@
             
             .btn-primary { padding: 0.6rem 1rem; font-size: 0.75rem; }
             .logo img { height: 90px; } 
+
+            #fees {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    #fees h2 {
+        margin-bottom: 0.5rem !important;
+    }
+    #fees .text-center > div {
+        margin-top: 0.5rem !important;
+        line-height: 1.5 !important;
+    }
+    #fees .text-center > div p {
+        margin-bottom: 0.5rem !important;
+    }
         }
+
+
+
+        .portrait-wrapper.sticky {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
     </style>
 </head>
 <body>
@@ -784,13 +817,6 @@
                     <li>I have completed additional trainings in Mentalization Based Treatment, Group Dynamics, and Trauma-Focussed CBT.</li>
                 </ul>
 
-                <div class="accreditation-logos">
-                    <a href="https://www.bacp.co.uk/therapists/404114/anna-kenny-ginard/" target="_blank" rel="noopener noreferrer">
-                        <img src="BACPLogo-404114 - Anna Kenny-Ginard.png" alt="BACP registered psychotherapist London">
-                    </a>
-                    <img src="IMG_6885 - Anna Kenny-Ginard Copy.jpeg" alt="BPC accredited psychotherapist London">
-                    <img src="IMG_6886 - Anna Kenny-Ginard - Copy.jpeg" alt="Addiction Professionals accredited therapist">
-                </div>
             </div>
         </div>
     </section>
@@ -799,16 +825,13 @@
         <div class="container reveal">
             <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
     <span class="section-number">.02 Services & Approach</span>
-    <h2 style="white-space: nowrap;">Clarity. Connection. Meaning.</h2>
-    <p>Therapy offers a powerful opportunity to discover who you really are and untangle the parts of yourself that challenge or confuse you the most.</p>
-</div>
+    </div>
 
             <div class="service-diagram">
                 <div class="diagram-step">
                     <h3>The Space</h3>
-                    <p>A collaborative, safe environment grounded in empathy. We take account of your real-world experiences, including the impact of trauma, identity, and cultural background.</p>
-                </div>
-                <div class="diagram-step">
+<p>A safe, collaborative setting where identity, experiences, and challenges can begin to make sense.</p>                
+</div><div class="diagram-step">
                     <h3>The Work</h3>
                     <p>Deep and impactful. We use the relationship that develops between us to gain insight into unconscious patterns, leading to profound self-awareness.</p>
                 </div>
@@ -921,7 +944,6 @@
                 <h2>Fees & Insurance</h2>
                 <div style="font-size: 1.1rem; line-height: 2; margin-top: 2rem; color: var(--text-dark);">
                     <p>Sessions are £120-£150 for 50 minutes, with concessions available.</p>
-                    <p>I work with adults (18+), older adults, and young people.</p>
                     <p>I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.</p>
                     <p style="margin-top: 1rem; font-weight: 400; color: var(--accent);">Please contact me for current availability.</p>
                 </div>
