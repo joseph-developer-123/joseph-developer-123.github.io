@@ -325,20 +325,21 @@
 
         /* --- DIAGRAMMATIC SERVICES SECTION --- */
         .service-diagram {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    padding: 0 5%; /* Added: Creates padding/margin at either side of the 3 boxes */
+}
         .diagram-step {
             background: var(--off-white);
             padding: 3rem 2rem;
             border-radius: 2px;
             border: 1px solid var(--border); 
             position: relative;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Added slight shading */
         }
 
         .diagram-step:hover {
@@ -377,27 +378,28 @@
         }
 
         details {
-            background: var(--off-white);
-            padding: 1.5rem;
-            border-radius: 2px;
-            border: 1px solid var(--border); 
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    background: var(--off-white);
+    padding: 1.5rem;
+    border-radius: 2px;
+    border: 1px solid var(--border); 
+    max-width: 800px;
+    margin: 0 auto 4rem auto; /* Changed: Added 4rem margin to the bottom to create space underneath */
+}
         
         summary {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 200;
-            color: var(--dark);
-            cursor: pointer;
-            font-size: 1.75rem;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 200;
+    color: var(--dark);
+    cursor: pointer;
+    font-size: 1.75rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This ensures both text and '+' are on the same vertical level */
+    gap: 1.5rem; /* Added: Ensures there is always a clear gap between the sentence and the '+' sign */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
         summary::-webkit-details-marker { display: none; }
         summary::after { 
             content: '+'; 
@@ -757,6 +759,30 @@
     display: flex;
     justify-content: center;
 }
+
+/* --- ABOUT SECTION ALIGNMENT GRID --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    align-items: start;
+}
+
+.about-header { grid-column: 2; }
+.about-image { grid-column: 1; grid-row: 2; }
+.about-text { grid-column: 2; grid-row: 2; }
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0;
+    }
+    /* Stacks them back into the original mobile order */
+    .about-image { grid-column: 1; grid-row: 1; margin-bottom: 2rem; }
+    .about-header { grid-column: 1; grid-row: 2; }
+    .about-text { grid-column: 1; grid-row: 3; }
+}
     </style>
 </head>
 <body>
@@ -797,44 +823,49 @@
     </section>
 
     <section id="about" class="container">
-        <div class="grid-2 reveal">
-            <div class="portrait-wrapper sticky">
-                <img src="anna-portrait-2.jpg" alt="Anna Kenny-Ginard, Central London Therapist" class="shadow-img">
-            </div>
-            
-            <div class="editorial-text">
-    <span class="section-number">About Me</span>
-    <h2>My Approach</h2>
-    <p>As an accredited and highly experienced psychotherapist practising in Central London, I offer a warm, insightful and collaborative space where personal growth can become possible.</p>
-    <p>Choosing to begin therapy is an act of real courage. It means turning towards what is difficult rather than avoiding it, and allowing yourself to be seen, understood, and supported.</p>
-    <p>Across my work in both the NHS and private settings such as the Priory, I’ve had the privilege of supporting people at all stages of life, each bringing their own unique complexities. I’ve worked alongside individuals facing anxiety, trauma, addiction and relationship difficulties, as well as those experiencing a more indefinable sense that something just doesn’t feel quite right.</p>
-    <p>Together, we can make space to explore what’s going on beneath the surface for you, at a pace that feels right. Through this work, it becomes possible to find greater clarity, steadiness, and a renewed sense of hope.</p>
-
-                <h3 style="margin-top: 2.5rem; font-size: 1.3rem;">Qualifications & Registrations</h3>
-                <ul class="qualifications-list">
-                    <li>I'm a fully registered member of the British Association of Counsellors and Psychotherapists, the British Psychoanalytic Council, and Addiction Professionals.</li>
-                    <li>I hold an MSc in Psychodynamic Counselling and Psychotherapy from Birkbeck College, University of London, and further qualifications from CCPE and Tavistock Relationships.</li>
-                    <li>I have completed additional trainings in Mentalization Based Treatment, Group Dynamics, and Trauma-Focussed CBT.</li>
-                </ul>
-
-            </div>
+    <div class="about-grid reveal">
+        
+        <div class="about-header">
+            <span class="section-number">About Me</span>
+            <h2>My Approach</h2>
         </div>
-    </section>
 
-    <section id="services" class="bg-white">
-        <div class="container reveal">
-            <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
-    <span class="section-number">Services & Approach</span>
+        <div class="portrait-wrapper sticky about-image">
+            <img src="anna-portrait-2.jpg" alt="Anna Kenny-Ginard, Central London Therapist" class="shadow-img">
+        </div>
+        
+        <div class="editorial-text about-text">
+            <p>As an accredited and highly experienced psychotherapist practising in Central London, I offer a warm, insightful and collaborative space where personal growth can become possible.</p>
+            <p>Choosing to begin therapy is an act of real courage. It means turning towards what is difficult rather than avoiding it, and allowing yourself to be seen, understood, and supported.</p>
+            <p>Across my work in both the NHS and private settings such as the Priory, I’ve had the privilege of supporting people at all stages of life, each bringing their own unique complexities. I’ve worked alongside individuals facing anxiety, trauma, addiction and relationship difficulties, as well as those experiencing a more indefinable sense that something just doesn’t feel quite right.</p>
+            <p>Together, we can make space to explore what’s going on beneath the surface for you, at a pace that feels right. Through this work, it becomes possible to find greater clarity, steadiness, and a renewed sense of hope.</p>
+
+            <h3 style="margin-top: 2.5rem; font-size: 1.3rem;">Qualifications & Registrations</h3>
+            <ul class="qualifications-list">
+                <li>I'm a fully registered member of the British Association of Counsellors and Psychotherapists, the British Psychoanalytic Council, and Addiction Professionals.</li>
+                <li>I hold an MSc in Psychodynamic Counselling and Psychotherapy from Birkbeck College, University of London, and further qualifications from CCPE and Tavistock Relationships.</li>
+                <li>I have completed additional trainings in Mentalization Based Treatment, Group Dynamics, and Trauma-Focussed CBT.</li>
+            </ul>
+        </div>
+
     </div>
+</section>
+
+    <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0;">MAKING A START</h3>
+            </div>
 
             <div class="service-diagram">
                 <div class="diagram-step">
-                    <h3>1. Free Call</h3>
-                    <p>A complimentary initial phone call to understand your goals and briefly discuss what brings you to therapy.</p>
-                </div>
+    <h3>1. Free Call</h3>
+    <p>A complimentary initial phone call to understand your goals and briefly discuss what brings you to therapy.</p>
+    <p style="margin-top: 1rem;">
+        <a href="#contact" style="color: var(--accent); font-weight: 400; text-decoration: underline;">Contact me</a> and arrange a call at a time which suits you.
+    </p>
+</div>
                 <div class="diagram-step">
                     <h3>2. First Session</h3>
-                    <p>A 50-minute exploratory session to experience how we might work together and ensure we are the right fit for your journey.</p>
+                    <p>An exploratory session to experience how we might work together and ensure we are the right fit for your journey.</p>
                 </div>
                 <div class="diagram-step">
                     <h3>3. The Work</h3>
@@ -843,8 +874,8 @@
             </div>
 
             <div class="text-center" style="max-width: 900px; margin: 5rem auto 0 auto;">
-                <h3 style="font-family: 'Jost', sans-serif; font-size: 1.2rem; font-weight: 400; text-transform: none; letter-spacing: normal;">What I Can Help With</h3>
-<p style="margin-bottom: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">I specialise in providing in-person and online therapy in London for those facing complex mental health matters. Whether you require addiction therapy, trauma counselling, or support for anxiety, I am here to help you rebuild and recover.</p>                
+                <span class="section-number">How I Can Help</span>
+                <p style="margin-bottom: 2rem; max-width: 750px; margin-left: auto; margin-right: auto; margin-top: 1rem;">I specialise in providing in-person and online therapy in London for those facing complex mental health matters. Whether you require addiction therapy, trauma counselling, or support for anxiety, I am here to help you rebuild and recover.</p>                
                 <div class="core-specialisms">
                     <span>Addiction & Recovery</span>
                     <span>Anxiety & Stress</span>
@@ -855,7 +886,7 @@
                 </div>
 
                 <details>
-                    <summary>View all areas of therapeutic focus</summary>
+                    <summary style="font-size: 1.2rem; text-transform: none; letter-spacing: 1px;">I additionally work with a broad range of issues beyond these specialisms.</summary>
                     <ul class="multi-column-list">
                         <li>Abuse</li><li>ADD / ADHD</li><li>Adoption</li><li>Anger management</li>
                         <li>Bereavement</li><li>Cancer</li><li>Child related issues</li><li>Chronic fatigue / ME</li>
@@ -941,15 +972,14 @@
     </section>
 
     <section id="fees" class="bg-white">
-        <div class="container reveal" style="padding-top: 2rem; padding-bottom: 2rem;">
-            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-                <h2>Fees & Insurance</h2>
-                <div style="font-size: 1.1rem; line-height: 2; margin-top: 2rem; color: var(--text-dark);">
-                    <p>Sessions are £120-£150 for 50 minutes, with concessions available.</p>
-                    <p>I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.</p>
+        <div class="container reveal " style="padding-top: 2rem; padding-bottom: 2rem;">
+            <div style="font-size: 1.1rem; line-height: 2; margin-top: 2rem; color: var(--text-dark); text-align: center;">
+                    <p>Session fees are £120–£150 for 50 minutes.</p>
+                    <p>Sessions usually take place weekly, with the option of twice-weekly work where appropriate.</p>
+                    <p>A limited number of concessionary spaces are available.</p>
+                    <p style="margin-top: 1rem;">I accept insurance from Aviva, Cigna, Evernorth, Healix, and WPA.</p>
                     <p style="margin-top: 1rem; font-weight: 400; color: var(--accent);">Please contact me for current availability.</p>
                 </div>
-            </div>
         </div>
     </section>
 
