@@ -358,6 +358,8 @@
         .diagram-step h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 200; }
         .diagram-step p { font-size: 0.95rem; line-height: 1.6; margin: 0; text-align: justify; }
 
+        
+
         /* --- EXPANDABLE LIST --- */
         .core-specialisms {
             display: flex;
@@ -421,8 +423,10 @@
         .multi-column-list li { margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem;}
 
         /* --- PARALLAX DIVIDER --- */
-        .parallax-divider {
-    height: 60vh; 
+        /* Update the parallax divider to fit the boxes */
+.parallax-divider {
+    min-height: 80vh; /* Changed from fixed height to min-height */
+    padding: 6rem 0;  /* Added padding so the boxes don't touch the edges */
     background-image: url('sunrise.jpeg');
     background-color: var(--dark); 
     background-size: cover;
@@ -439,14 +443,16 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4);
         }
-        .parallax-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: #fff;
-            max-width: 800px;
-            padding: 0 20px;
-        }
+        /* Widen the content container inside the parallax */
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 1200px; /* Widened to fit the 3 grid boxes */
+    padding: 0 20px;
+    width: 100%;
+}
 
         /* --- LOCATIONS & MAPS --- */
         .location-images-grid {
@@ -644,6 +650,26 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
+        /* Fully transparent boxes with faint white outlines */
+.parallax-divider .diagram-step {
+    background: transparent; /* Makes the box completely see-through */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Faint white outline */
+    box-shadow: none; /* Removes any shadow that might muddy the image */
+    color: var(--white);
+}
+
+/* Forces all text and links inside the boxes to be white */
+.parallax-divider .diagram-step h3, 
+.parallax-divider .diagram-step p,
+.parallax-divider .diagram-step a {
+    color: var(--white) !important;
+}
+
+/* Changes the little divider line under the numbers to a faint white */
+.parallax-divider .diagram-step::before {
+    background: rgba(255, 255, 255, 0.5); 
+}
+
         /* --- RESPONSIVE LOGIC --- */
         .break-mobile { display: none; }
 
@@ -666,6 +692,36 @@
             .hero, .parallax-divider {
                 background-attachment: scroll !important;
             }
+
+            .qualifications-wrapper .qualifications-list {
+        text-align: center;
+        list-style-position: inside; /* Keeps the bullet points attached to the centered text */
+        margin-left: 0;
+        padding-left: 0;
+        display: block; /* Allows it to stack cleanly */
+    }
+
+            /* Styling the boxes for the dark background */
+.parallax-divider .service-diagram {
+    margin-top: 6rem;
+    margin-bottom: 0;
+}
+
+.parallax-divider .diagram-step {
+    background: rgba(255, 255, 255, 0.1); /* Transparent glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: var(--white);
+}
+
+.parallax-divider .diagram-step h3, 
+.parallax-divider .diagram-step p {
+    color: var(--white);
+}
+
+.parallax-divider .diagram-step::before {
+    background: var(--white); /* Change the little divider line to white */
+}
 
             /* Increased padding to account for fixed header overlaying flexbox */
             .hero { padding-top: 180px; padding-bottom: 40px; }
@@ -708,6 +764,21 @@
         margin-right: auto;
     }
         }
+
+        .qualifications-wrapper {
+    grid-column: 1 / -1; /* Keeps it spanning the full width */
+    margin-top: 1rem;    /* Reduced from 3rem to pull it way closer */
+    padding-top: 1.5rem; /* Reduced from 3rem for a tighter connection */
+    border-top: 1px solid var(--border); /* Keeps the subtle dividing line */
+    text-align: center;
+}
+
+.qualifications-wrapper .qualifications-list {
+    text-align: left;
+    display: inline-block;
+    max-width: 800px;
+    margin-top: 1.5rem;
+}
 
         @media (max-width: 600px) {
             header { padding: 1rem 20px; } 
@@ -839,8 +910,10 @@
             <p>Choosing to begin therapy is an act of real courage. It means turning towards what is difficult rather than avoiding it, and allowing yourself to be seen, understood, and supported.</p>
             <p>Across my work in both the NHS and private settings such as the Priory, I’ve had the privilege of supporting people at all stages of life, each bringing their own unique complexities. I’ve worked alongside individuals facing anxiety, trauma, addiction and relationship difficulties, as well as those experiencing a more indefinable sense that something just doesn’t feel quite right.</p>
             <p>Together, we can make space to explore what’s going on beneath the surface for you, at a pace that feels right. Through this work, it becomes possible to find greater clarity, steadiness, and a renewed sense of hope.</p>
+        </div>
 
-            <h3 style="margin-top: 2.5rem; font-size: 1.3rem;">Qualifications & Registrations</h3>
+        <div class="qualifications-wrapper">
+            <h3 style="margin-top: 0.5rem; font-size: 1.3rem; border: none;">Qualifications & Registrations</h3>
             <ul class="qualifications-list">
                 <li>I'm a fully registered member of the British Association of Counsellors and Psychotherapists, the British Psychoanalytic Council, and Addiction Professionals.</li>
                 <li>I hold an MSc in Psychodynamic Counselling and Psychotherapy from Birkbeck College, University of London, and further qualifications from CCPE and Tavistock Relationships.</li>
@@ -877,35 +950,27 @@
             </ul>
         </details>
     </div>
-
-    <div class="text-center" style="max-width: 800px; margin: 0 auto 4rem auto;">
-        <h2>Making a Start</h2>
-    </div>
-
-    <div class="service-diagram">
-        <div class="diagram-step">
-            <h3>1. Free Call</h3>
-            <p>A complimentary initial phone call to understand your goals and briefly discuss what brings you to therapy. <a href="#contact" style="color: var(--accent); font-weight: 400; text-decoration: underline;">Contact me</a> and arrange a call at a time which suits you.</p>
-        </div>
-        <div class="diagram-step">
-            <h3>2. First Session</h3>
-            <p>An exploratory initial session, offering you the chance to experience what it feels like to work together and ensure the fit is right for your journey.</p>
-        </div>
-        <div class="diagram-step">
-            <h3>3. The Work</h3>
-            <p>Deep and impactful. We use the relationship that develops between us to gain insight into unconscious patterns, leading to profound self-awareness.</p>
-        </div>
-    </div>
 </section>
 
     <div class="parallax-divider">
-        <div class="parallax-content reveal">
-            <h2 style="color: var(--white); font-size: 2.8rem; margin-bottom: 1rem; border: none; text-transform: uppercase;">A Safe Space</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300;">A collaborative setting where identity, experiences, and challenges can begin to make sense.</p>
-            <p style="font-size: 1.2rem; font-style: italic; font-family: 'Jost', sans-serif; letter-spacing: 1px;">In person, remote, and hybrid sessions available.</p>
+    <div class="parallax-content reveal">
+<h2 style="color: var(--white); font-size: 2.8rem; margin-bottom: 4rem; border: none; text-transform: uppercase;">Making a Start</h2>        
+        <div class="service-diagram">
+            <div class="diagram-step">
+                <h3>1. Free Call</h3>
+                <p>A complimentary initial phone call to understand your goals and briefly discuss what brings you to therapy. <a href="#contact" style="color: var(--white); font-weight: 400; text-decoration: underline;">Contact me</a> and arrange a call at a time which suits you.</p>
+            </div>
+            <div class="diagram-step">
+                <h3>2. First Session</h3>
+                <p>An extended exploratory session in a safe, collaborative space, offering you the chance to experience what it feels like to work together and ensure the fit is right for your journey.</p>
+            </div>
+            <div class="diagram-step">
+                <h3>3. The Work</h3>
+                <p>Deep and impactful. We use the relationship that develops between us to gain insight into unconscious patterns, leading to profound self-awareness.</p>
+            </div>
         </div>
     </div>
-    </div>
+</div>
 
     <section id="locations">
         <div class="container reveal">
