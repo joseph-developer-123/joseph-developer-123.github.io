@@ -12,7 +12,7 @@
     
     <style>
         /* ==========================================================================
-           1. CSS VARIABLES & TOKENS (Black, White, Alethara Green)
+           1. CSS VARIABLES & TOKENS
            ========================================================================== */
         :root {
             --color-bg-primary: #FFFFFF;
@@ -205,36 +205,50 @@
         .site-header.inverse .nav-link:hover { color: var(--color-text-inverse); }
 
         /* ==========================================================================
-           5. HERO SECTION (100VH ABOVE THE FOLD)
+           5. HERO SECTION
            ========================================================================== */
-        /* Update the Hero section to handle vertical spacing better */
-.hero {
-    position: relative; 
-    height: 100vh; 
-    min-height: 600px;
-    display: flex; 
-    align-items: flex-start; /* Changed from center to start at the top */
-    overflow: hidden;
-    padding-top: 18vh; /* This creates the consistent gap from the navbar */
-}
+        .hero {
+            position: relative;
+            padding-top: calc(100px + 4vh); 
+            padding-bottom: 12vh; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-.hero-content {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: flex-start;
-    max-width: 900px;
-    /* Remove padding-top: 5vh; from here as it's now on the parent .hero */
-}
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            padding-top: 0;
+        }
 
-/* Ensure the mega text doesn't push elements off-screen on shorter laptops */
-.hero h1 { 
-    font-size: clamp(3rem, 6.5vw, 6.5rem); /* Added clamp to prevent overflow */
-    line-height: 1.05; 
-    margin-bottom: var(--space-sm); 
-    letter-spacing: -0.03em; 
-}
+        /* REFINED ELITE TYPOGRAPHY */
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 6.5rem); 
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.04em;
+            font-weight: 800;
+        }
 
-       
+        .hero-desc {
+            font-size: clamp(1rem, 2vw, 1.25rem); 
+            color: var(--color-text-secondary);
+            max-width: 55ch; 
+            margin: 0 auto var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .hero-actions { 
+            display: flex; 
+            gap: var(--space-sm); 
+            align-items: center; 
+            justify-content: center; 
+        }
 
         .hero h1 .block-line { display: block; overflow: hidden; }
         .hero h1 .word { display: inline-block; transform: translateY(110%) rotate(2deg); opacity: 0; animation: textReveal 1.2s var(--ease-out-expo) forwards; }
@@ -243,9 +257,6 @@
             0% { transform: translateY(110%) rotate(2deg); opacity: 0; }
             100% { transform: translateY(0) rotate(0deg); opacity: 1; }
         }
-
-        .hero-desc { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 50ch; margin-bottom: var(--space-md); line-height: 1.5; }
-        .hero-actions { display: flex; gap: var(--space-sm); align-items: center; }
 
         .hero-bg {
             position: absolute; top: -50%; right: -20%; width: 80vw; height: 80vw;
@@ -276,7 +287,7 @@
         .process-content p { font-size: var(--text-base); margin: 0; max-width: 45ch;}
 
         /* ==========================================================================
-           8. PORTFOLIO SECTION (Image Ready & Animated)
+           8. PORTFOLIO SECTION
            ========================================================================== */
         .portfolio-section { background-color: var(--color-bg-secondary); }
         .portfolio-header { margin-bottom: var(--space-xl); display: flex; justify-content: space-between; align-items: flex-end; }
@@ -285,30 +296,27 @@
 
         .project-card { display: block; group: project; }
         
-        /* Update these specific rules in your <style> tag */
+        .project-visual {
+            aspect-ratio: 16 / 7.48; 
+            background-color: #f0f0f0; 
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-sm); 
+            position: relative; 
+            overflow: hidden;
+            display: block; 
+        }
 
-.project-visual {
-    aspect-ratio: 16 / 7.48; /* Changed from 16/10 to make the box shorter vertically */
-    background-color: #f0f0f0; 
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-sm); 
-    position: relative; 
-    overflow: hidden;
-    display: block; 
-}
-
-/* Ensure the image class still has these properties from our last step */
-.portfolio-img {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
-    object-position: center; 
-    transition: transform 0.8s var(--ease-out-expo);
-    display: block;
-}
+        .portfolio-img {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            object-position: center; 
+            transition: transform 0.8s var(--ease-out-expo);
+            display: block;
+        }
 
         .project-card:hover .portfolio-img { transform: scale(1.05); }
 
@@ -405,7 +413,9 @@
             .price-card.premium { grid-column: span 1; }
             .nav-links { display: none; }
             .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
-            .hero h1 { font-size: var(--text-2xl); }
+            /* REMOVED: .hero h1 { font-size: var(--text-2xl); } to allow the clamp to do its magic fluidly */
+            .hero-actions { flex-direction: column; width: 100%; }
+            .hero-actions .btn { width: 100%; }
         }
     </style>
 </head>
@@ -700,14 +710,14 @@
                     <h2>Ready to scale your practice?</h2>
                     <p style="margin: 0 auto 2rem; font-size: var(--text-lg); max-width: 50ch;">Schedule a complimentary strategy call. We will discuss your current patient acquisition bottlenecks and outline the exact framework to increase your bookings.</p>
                     
-                    <a href="https://calendly.com/joseph-alethara/30min" target="_blank" class="btn btn-primary cursor-hover-target" style="padding: 1.25rem 2.5rem; font-size: var(--text-base);">
+                    <a href="https://calendly.com/jn461-cam/30min" target="_blank" class="btn btn-primary cursor-hover-target" style="padding: 1.25rem 2.5rem; font-size: var(--text-base);">
                         Schedule Strategy Call
                     </a>
                     
                     <div class="contact-links">
                         <a href="https://wa.me/447429448533" target="_blank" class="cursor-hover-target">WhatsApp: 07429 448533</a>
                         <span>|</span>
-                        <a href="mailto:joseph@alethara.com" class="cursor-hover-target">Email: joseph@alethara.com</a>
+                        <a href="mailto:founders@alethara.com" class="cursor-hover-target">Email: founders@alethara.com</a>
                     </div>
                 </div>
             </div>
@@ -723,7 +733,7 @@
                     <p style="color: var(--color-text-inverse); font-size: var(--text-base); font-weight: 500; margin-bottom: 0.5rem;">The web partner for private clinics ready to grow.</p>
                     <p>Sites engineered in Cambridge.</p>
                 </div>
-                <div style="text-align: right; opacity: 0.6;">
+                <div style="text-align: right; opacity: 0.9;">
                     <p>Reg: 128 City Road, London, EC1V 2NX, UK</p>
                     <p>CRN: 16945616</p>
                     <p style="margin-top: 0.5rem;">&copy; 2026 ALETHARA. All rights reserved.</p>
