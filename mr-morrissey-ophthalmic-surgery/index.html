@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Morrissey | Consultant Ophthalmic Surgeon</title>
+    <meta name="description" content="Elite ophthalmic and oculoplastic surgery. Specialising in cataract, refractive lens exchange, glaucoma management, and premium eyelid surgery.">
+    <meta name="theme-color" content="#050505">
+    
+    <meta property="og:title" content="Mr. Morrissey | Consultant Ophthalmic Surgeon">
+    <meta property="og:description" content="Advanced vision correction and functional aesthetic eyelid surgery in London.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Questrial&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Am I suitable for Refractive Lens Exchange?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RLE is generally ideal for patients over 50 who wear reading glasses, have early cataracts, or have a high prescription that makes laser eye surgery unsuitable. A comprehensive consultation and advanced scans will confirm your exact eligibility and the best premium lens for your lifestyle."
+        }
+      },{
+        "@type": "Question",
+        "name": "Is cataract surgery painful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Cataract surgery is performed under local anaesthetic drops, meaning your eye is completely numb. You will be awake, but most patients report feeling only mild pressure or seeing bright lights. The procedure itself typically takes just 15-20 minutes per eye."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the recovery time for blepharoplasty?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Initial swelling and bruising typically peak within the first 48 hours and resolve significantly by day 7-10 when your fine sutures are removed in the clinic. Most patients feel very comfortable returning to work, zoom calls, and social activities after 1-2 weeks."
+        }
+      },{
+        "@type": "Question",
+        "name": "Will I still need glasses after surgery?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you opt for premium multifocal or Extended Depth of Focus (EDOF) lenses during cataract or RLE surgery, the primary goal is to provide independence from glasses for the vast majority of daily tasks, including driving and reading. Standard monofocal lenses usually still require reading glasses post-surgery."
+        }
+      },{
+        "@type": "Question",
+        "name": "What are the risks of lens replacement surgery?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As with any surgical procedure, there are minor risks including infection, inflammation, or visual halos at night. However, lens replacement is one of the most common and safest procedures performed globally. Mr. Morrissey uses advanced micro-incisional techniques to minimise risks to an absolute fraction of a percent."
+        }
+      },{
+        "@type": "Question",
+        "name": "How long do premium intraocular lenses last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Intraocular lenses (IOLs) used in cataract surgery and Refractive Lens Exchange are designed to last a lifetime. They do not degrade or require replacement over time, meaning your corrected vision should remain stable for the rest of your life, barring other age-related eye conditions."
+        }
+      },{
+        "@type": "Question",
+        "name": "Can I have both eyes operated on at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, bilateral surgery (operating on both eyes on the same day) is becoming increasingly common and is perfectly safe for many patients. Mr. Morrissey will discuss whether immediate sequential bilateral surgery is appropriate for your specific case during your consultation."
+        }
+      },{
+        "@type": "Question",
+        "name": "What happens during the initial consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your initial consultation is a comprehensive 45-60 minute appointment. It includes high-definition ocular coherence tomography (OCT) scans, biometry measurements, a thorough medical history review, and a direct discussion with Mr. Morrissey regarding your surgical options, expected outcomes, and transparent pricing."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & DESIGN SYSTEM (DARK THEME)
+           ========================================================================== */
+        :root {
+            --bg-base: #050505;
+            --bg-surface: #121212;
+            --bg-surface-elevated: #1e1e1e;
+            --bg-overlay: rgba(5, 5, 5, 0.85);
+            
+            --text-primary: #f8f9fa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #b5952f;
+            
+            --doctify-green: #00d6a4;
+            
+            --font-display: 'Questrial', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --text-xs: clamp(0.7rem, 1vw, 0.8rem);
+            --text-sm: clamp(0.8rem, 1vw, 0.95rem);
+            --text-base: clamp(0.95rem, 1.2vw, 1.1rem);
+            --text-lg: clamp(1.1rem, 1.5vw, 1.3rem);
+            --text-xl: clamp(1.5rem, 2.5vw, 2.2rem);
+            --text-2xl: clamp(2.2rem, 4vw, 3rem);
+            --text-3xl: clamp(2.5rem, 5vw, 4rem);
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-2xl: 8rem;
+            
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 0.3s var(--ease-out-expo);
+            
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+            --border-thin: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE ELEMENTS
+           ========================================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-base); }
+        body { font-family: var(--font-body); color: var(--text-primary); background-color: var(--bg-base); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-surface-elevated); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+        ::selection { background-color: var(--accent-gold); color: var(--bg-base); }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; margin-bottom: var(--space-sm); }
+        h1 { font-size: var(--text-3xl); letter-spacing: -0.02em; }
+        h2 { font-size: var(--text-2xl); letter-spacing: -0.01em; }
+        h3 { font-size: var(--text-xl); }
+        h4 { font-size: var(--text-lg); }
+
+        p { color: var(--text-secondary); font-weight: 300; margin-bottom: var(--space-sm); max-width: 65ch; }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ==========================================================================
+           3. LAYOUT UTILITIES
+           ========================================================================== */
+        .container { width: 100%; max-width: 1500px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+        .section-padding { padding: var(--space-xl) 0; }
+        .section-padding-lg { padding: var(--space-2xl) 0; }
+        .text-center { text-align: center; }
+
+        .eyebrow {
+            display: inline-block; font-family: var(--font-body); font-size: var(--text-xs);
+            text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-gold);
+            margin-bottom: var(--space-sm); font-weight: 500;
+            border-bottom: 1px solid var(--accent-gold); padding-bottom: 4px;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+        @media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+        /* ==========================================================================
+           4. COMPONENTS & UI
+           ========================================================================== */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.8rem 1.4rem; font-family: var(--font-body); font-size: 0.85rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+            border-radius: var(--border-radius-md); cursor: pointer; transition: all 0.4s var(--ease-out-expo);
+            position: relative; overflow: hidden; z-index: 1; border: none; outline: none; white-space: nowrap;
+        }
+
+        .btn::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1; transition: transform 0.4s var(--ease-out-expo);
+            transform: scaleX(0); transform-origin: right;
+        }
+
+        .btn:hover::before { transform: scaleX(1); transform-origin: left; }
+        .btn-primary { background-color: var(--accent-gold); color: var(--bg-base); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        .btn-primary::before { background-color: var(--text-primary); }
+        .btn-primary:hover { color: var(--bg-base); box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4); }
+
+        .btn-outline { background-color: transparent; color: var(--text-primary); border: 1px solid rgba(255,255,255,0.4); font-weight: 500; }
+        .btn-outline::before { background-color: rgba(255,255,255,0.1); transform: scaleY(0); transform-origin: bottom; }
+        .btn-outline:hover::before { transform: scaleY(1); transform-origin: top; }
+        .btn-outline:hover { border-color: var(--text-primary); }
+
+        .btn-group { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 0.8rem; align-items: center; }
+
+        /* Modal Structure */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); z-index: 9999;
+            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: var(--bg-surface); border: 1px solid var(--accent-gold); padding: var(--space-lg);
+            border-radius: var(--border-radius-md); max-width: 600px; width: 90%; position: relative;
+            transform: translateY(50px); transition: all 0.5s var(--ease-out-expo);
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-close { position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; color: var(--text-primary); font-size: 2rem; cursor: pointer; }
+        .modal-close:hover { color: var(--accent-gold); }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.4rem; font-size: var(--text-sm); color: var(--text-secondary); }
+        .form-control {
+            width: 100%; padding: 0.8rem; background: var(--bg-base); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary); border-radius: var(--border-radius-sm); font-family: var(--font-body);
+        }
+        .form-control:focus { outline: none; border-color: var(--accent-gold); }
+
+        /* ==========================================================================
+           5. HEADER & NAVIGATION
+           ========================================================================== */
+        .site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 1.2rem 0; transition: all 0.4s ease; border-bottom: 1px solid transparent;
+            background: linear-gradient(180deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 80%, rgba(5,5,5,0) 100%);
+        }
+        .site-header.scrolled {
+            background-color: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px);
+            padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; display: flex; flex-direction: column; line-height: 1; white-space: nowrap; }
+        .logo span { font-family: var(--font-body); font-size: 0.55rem; letter-spacing: 0.2em; color: var(--accent-gold); margin-top: 0.3rem; }
+
+        .nav-links { display: none; }
+        @media (min-width: 1024px) {
+            .nav-links { display: flex; align-items: center; gap: 1.2rem; list-style: none; }
+            .nav-link { 
+                display: inline-block;
+                font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; 
+                font-weight: 600; color: var(--text-primary); transition: all 0.3s ease; 
+            }
+            .nav-link:hover { 
+                color: var(--accent-gold); 
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+                transform: translateY(-2px);
+            }
+        }
+
+        .nav-actions { display: flex; align-items: center; gap: 1rem; }
+        .contact-info { display: none; }
+        @media (min-width: 1200px) {
+            .contact-info { display: flex; flex-direction: column; text-align: right; font-size: 0.75rem; color: var(--text-secondary); }
+            .contact-info a { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; }
+            .contact-info a:hover { color: var(--accent-gold); }
+        }
+
+        .menu-toggle { display: block; background: none; border: none; cursor: pointer; width: 30px; height: 20px; position: relative; z-index: 1001; }
+        @media (min-width: 1024px) { .menu-toggle { display: none; } }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background-color: var(--text-primary); position: absolute; transition: var(--transition-fast); }
+        .menu-toggle span:nth-child(1) { top: 0; } .menu-toggle span:nth-child(2) { top: 9px; } .menu-toggle span:nth-child(3) { bottom: 0; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
+
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--bg-base);
+            z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: right 0.5s var(--ease-out-expo);
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu ul { list-style: none; text-align: center; }
+        .mobile-menu li { margin-bottom: var(--space-md); }
+        .mobile-menu a { font-size: var(--text-lg); font-family: var(--font-display); }
+
+        /* ==========================================================================
+           6. HERO SECTION
+           ========================================================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            padding-top: 80px; 
+            background-image: url('lookingbg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(5,5,5,0) 0%, rgba(5,5,5,0.7) 40%, rgba(5,5,5,0.98) 80%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            margin-left: 55%; 
+            width: 45%;       
+            padding-right: 4vw;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content { margin-left: 0; width: 80%; min-width: 0; margin: 0 auto; background: rgba(5,5,5,0.8); padding: 2rem; border-radius: var(--border-radius-lg); }
+            .hero::before { background: rgba(5,5,5,0.6); }
+            .btn-group { flex-direction: column; align-items: stretch; }
+        }
+
+        .credentials-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 0.8rem; }
+        
+        .hero-avatar {
+            width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .doctify-badge {
+            display: inline-flex; align-items: center; gap: 4px; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); padding: 0.4rem 0.8rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .doctify-stars { display: flex; color: var(--doctify-green); }
+        .doctify-stars svg { width: 14px; height: 14px; fill: currentColor; }
+        .doctify-text { font-size: 0.7rem; font-weight: 600; color: var(--text-primary); }
+        .doctify-logo { font-weight: bold; color: var(--doctify-green); margin-left: 2px; }
+
+        .gmc-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+
+        .hero h1 { margin-bottom: 0.5rem; line-height: 1.05; }
+        .hero-sub { font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 0.5rem; line-height: 1.4; max-width: 100%; }
+
+        .hero-location { font-size: 0.85rem; color: var(--accent-gold); font-weight: 500; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+        .hero-location svg { width: 16px; height: 16px; }
+
+        .pricing-note { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.8rem; margin-bottom: 0.2rem; display: block; }
+        .availability-note { font-size: 0.75rem; color: var(--doctify-green); font-weight: 500; display: flex; align-items: center; gap: 4px; }
+
+        /* ==========================================================================
+           7. ACCREDITATIONS & ABOUT
+           ========================================================================== */
+        .badges-section { background-color: var(--bg-surface); border-top: var(--border-thin); border-bottom: var(--border-thin); padding: 1.5rem 0; overflow: hidden; position: relative; }
+        .badges-track { display: flex; align-items: center; justify-content: center; gap: var(--space-xl); opacity: 0.6; transition: opacity 0.3s; }
+        .badges-track:hover { opacity: 1; }
+        .badges-track img { height: 35px; object-fit: contain; filter: grayscale(100%) brightness(200%); }
+
+        .about-section { background-color: var(--bg-base); position: relative; overflow: hidden; }
+        .about-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); align-items: center; }
+        @media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .about-image-wrapper { position: relative; border-radius: var(--border-radius-lg); overflow: hidden; }
+        .about-image-wrapper::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--accent-gold); border-radius: var(--border-radius-lg); transform: translate(15px, 15px); z-index: -1; transition: transform 0.5s ease; }
+        .about-image-wrapper:hover::after { transform: translate(5px, 5px); }
+        .about-image-wrapper img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; border-radius: var(--border-radius-lg); transition: transform 0.8s ease; }
+        .about-image-wrapper:hover img { transform: scale(1.03); }
+
+        .stat-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--border-thin); }
+        @media (min-width: 768px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+        .stat-item h4 { color: var(--accent-gold); font-size: var(--text-lg); margin-bottom: 0.2rem; }
+        .stat-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0; }
+
+        .portrait-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 2rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+        .portrait-caption span {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           8. SERVICES SECTION
+           ========================================================================== */
+        .services-section { background-color: var(--bg-surface); position: relative; }
+        .service-card { background: var(--bg-base); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--border-radius-md); overflow: hidden; transition: all 0.5s var(--ease-out-expo); height: 100%; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .service-img { width: 100%; height: 200px; overflow: hidden; position: relative; }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: brightness(0.8); }
+        .service-card:hover .service-img img { transform: scale(1.05); filter: brightness(1); }
+        .service-content { padding: var(--space-md); flex-grow: 1; display: flex; flex-direction: column; }
+        .service-title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-xs); }
+        .service-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); font-weight: 600; margin-top: auto; padding-top: var(--space-sm); }
+        .service-link svg { width: 16px; height: 16px; transition: transform 0.3s ease; }
+        .service-card:hover .service-link svg { transform: translateX(5px); }
+
+        /* ==========================================================================
+           9. GALLERY
+           ========================================================================== */
+        .gallery-section { background-color: var(--bg-base); text-align: center; overflow: hidden; }
+        .slider-container { position: relative; max-width: 900px; margin: var(--space-xl) auto var(--space-lg) auto; aspect-ratio: 16/9; border-radius: var(--border-radius-md); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease; display: flex; align-items: center; justify-content: center; }
+        .slide.active { opacity: 1; z-index: 2; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slider-controls { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; pointer-events: none; padding: 0 var(--space-sm); }
+        .control-btn { background: rgba(5,5,5,0.6); backdrop-filter: blur(5px); border: 1px solid var(--accent-gold); color: var(--accent-gold); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; transition: all 0.3s; }
+        .control-btn:hover { background: var(--accent-gold); color: var(--bg-base); }
+
+        /* ==========================================================================
+           10. TESTIMONIALS SLIDER
+           ========================================================================== */
+        .testimonials-section { background-color: var(--bg-surface); padding: var(--space-xl) 0; text-align: center; position: relative; }
+        
+        .doctify-embed-mock {
+            display: inline-flex; flex-direction: column; align-items: center;
+            padding: 1.5rem 3rem; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-md); background: var(--bg-base);
+            margin-bottom: var(--space-xl);
+        }
+
+        .testi-slider { max-width: 800px; margin: 0 auto; position: relative; min-height: 250px; }
+        
+        /* Fully centered absolute slides */
+        .testi-slide { 
+            position: absolute; top: 0; left: 50%; width: 100%; 
+            opacity: 0; transform: translate(-50%, 20px); 
+            transition: all 0.6s var(--ease-out-expo); pointer-events: none; 
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .testi-slide.active { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+        
+        .testi-quote { font-size: var(--text-lg); font-family: var(--font-display); color: var(--text-primary); line-height: 1.5; margin-bottom: var(--space-md); font-style: italic; position: relative; max-width: 800px; text-align: center; }
+        .testi-quote::before { content: '“'; font-size: 3.5rem; color: var(--accent-gold); line-height: 0; display: block; margin-bottom: 15px; transform: translateY(-5px); }
+        
+        .testi-author { font-size: var(--text-sm); font-weight: bold; color: var(--text-primary); display: block; margin-bottom: 2px; }
+        .testi-meta { font-size: var(--text-xs); color: var(--text-secondary); display: block; margin-bottom: 8px;}
+        
+        /* Inline Verified Badge */
+        .verified-badge { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 0.65rem; color: var(--doctify-green); text-transform: uppercase; letter-spacing: 0.1em; background: rgba(0, 214, 164, 0.1); padding: 4px 10px; border-radius: 20px; }
+        .verified-badge svg { width: 12px; height: 12px; fill: currentColor; }
+
+        .testi-dots { display: flex; justify-content: center; gap: 10px; margin-top: var(--space-lg); }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: var(--accent-gold); transform: scale(1.3); }
+
+        /* ==========================================================================
+           11. FAQ SECTION (Rendered Indexable Grid)
+           ========================================================================== */
+        .faq-section { background-color: var(--bg-base); border-top: var(--border-thin); }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        @media (min-width: 768px) {
+            .faq-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .faq-card {
+            background: var(--bg-surface);
+            padding: var(--space-md);
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: border-color 0.3s;
+        }
+        .faq-card:hover {
+            border-color: var(--accent-gold);
+        }
+        .faq-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+        }
+        .faq-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           12. FEES SECTION
+           ========================================================================== */
+        .fees-section { background-color: var(--bg-surface); border-top: var(--border-thin); }
+        .fee-card {
+            background: var(--bg-base);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .fee-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+        .fee-title { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-display); }
+        .fee-price { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem; font-family: var(--font-display); }
+        .fee-features { list-style: none; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .fee-features li { margin-bottom: 0.6rem; display: flex; gap: 0.5rem; }
+        .fee-features li::before { content: '✓'; color: var(--doctify-green); }
+
+        /* ==========================================================================
+           13. LOCATION SECTION
+           ========================================================================== */
+        .location-section { background-color: var(--bg-base); border-top: var(--border-thin); }
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ==========================================================================
+           14. BOOK NOW SECTION
+           ========================================================================== */
+        .book-section { 
+            position: relative; 
+            background: url('lookingbg.png') center/cover no-repeat fixed; 
+            border-top: var(--border-thin);
+        }
+        .book-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5,5,5,0.92); z-index: 0;
+        }
+        .book-content {
+            position: relative; z-index: 1;
+            max-width: 600px; margin: 0 auto;
+        }
+        .inline-form {
+            background: var(--bg-surface); padding: 2.5rem; 
+            border-radius: var(--border-radius-md); 
+            border: 1px solid var(--accent-gold);
+            text-align: left;
+        }
+
+        /* ==========================================================================
+           15. FOOTER
+           ========================================================================== */
+        .site-footer { background-color: var(--bg-surface); border-top: var(--border-thin); padding: var(--space-xl) 0 var(--space-md); }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-bottom: var(--space-xl); }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+        .footer-logo { font-family: var(--font-display); font-size: var(--text-xl); color: var(--text-primary); margin-bottom: var(--space-sm); display: block; }
+        .footer-heading { font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); margin-bottom: var(--space-md); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: var(--space-xs); }
+        .footer-links a { color: var(--text-secondary); font-size: var(--text-sm); }
+        .footer-links a:hover { color: var(--text-primary); padding-left: 5px; }
+        .footer-bottom { display: flex; flex-direction: column; gap: var(--space-xs); justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-tertiary); border-top: var(--border-thin); padding-top: var(--space-md); }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; } }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                Mr. Morrissey
+                <span>Ophthalmic Surgeon</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Treatments</a></li>
+                    <li><a href="#gallery" class="nav-link">Results</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#fees" class="nav-link">Fees</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="contact-info">
+                    <span>Questions? Call us</span>
+                    <a href="tel:02030000000">020 3000 0000</a>
+                </div>
+                <button class="btn btn-primary" onclick="openModal()">Book Now</button>
+                
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMobileMenu()">Treatments</a></li>
+            <li><a href="#gallery" onclick="closeMobileMenu()">Results</a></li>
+            <li><a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a></li>
+            <li><a href="#fees" onclick="closeMobileMenu()">Fees</a></li>
+            <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+            <li><a href="#location" onclick="closeMobileMenu()">Location</a></li>
+            <li><a href="tel:02030000000" onclick="closeMobileMenu()" style="color: var(--accent-gold); font-size: 1.2rem;">020 3000 0000</a></li>
+            <li><button class="btn btn-primary" onclick="closeMobileMenu(); openModal();" style="margin-top: 1rem;">Book Consultation</button></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                
+                <div class="credentials-bar">
+                    <img src="Eyesurgeon.png" alt="Mr. Morrissey Profile" class="hero-avatar">
+                    <div class="doctify-badge">
+                        <div class="doctify-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <span class="doctify-text">5.0 on Doctify</span>
+                    </div>
+                    <span class="gmc-badge">MBBS, FRCOphth | GMC: 7001234</span>
+                </div>
+
+                <h1>Restoring Vision,<br>Refining Aesthetics.</h1>
+                
+                <p class="hero-sub">Specialist in premium cataract surgery, refractive lens exchange, and eyelid surgery - practising at Harley Street with 10,000+ procedures and a 5.0 Doctify rating.</p>
+                <div class="hero-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Harley Street Clinic, London
+                </div>
+
+                <div class="btn-group">
+                    <a href="#book-now" class="btn btn-primary">Book a consultation</a>
+                    <a href="#services" class="btn btn-outline">Explore Treatments</a>
+                </div>
+                
+                <p class="pricing-note">Consultations from £250 - full treatment pricing discussed at your appointment.</p>
+                <span class="availability-note">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    Appointments typically available within 1-2 weeks.
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <div class="badges-section reveal">
+        <div class="container">
+            <div class="badges-track">
+                <img src="badges.png" alt="Accreditations and Affiliations: Royal College of Ophthalmologists, GMC, Doctify">
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="about-grid">
+                
+                <div class="about-content reveal">
+                    <span class="eyebrow">The Surgeon</span>
+                    <h2>Excellence in Ophthalmic Innovation</h2>
+                    
+                    <p>Mr. Morrissey trained at Moorfields Eye Hospital and Western Eye Hospital, performing over 10,000 procedures across cataract surgery, refractive lens exchange, and eyelid surgery. He consults personally with every patient and his 5.0 Doctify rating across 512 reviews reflects that commitment.</p>
+                    
+                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; padding: 0.6rem 1.2rem; font-size: 0.75rem;">Read Full Biography</a>
+
+                    <div class="stat-grid">
+                        <div class="stat-item reveal delay-1">
+                            <h4>15+ Years</h4>
+                            <p>Experience including fellowships at Moorfields Eye Hospital and Western Eye Hospital.</p>
+                        </div>
+                        <div class="stat-item reveal delay-2">
+                            <h4>10,000+</h4>
+                            <p>Procedures including premium cataract, RLE, and blepharoplasty.</p>
+                        </div>
+                        <div class="stat-item reveal delay-3">
+                            <h4>500+</h4>
+                            <p>Verified 5-star patient reviews on independent medical platforms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image-wrapper reveal delay-2">
+                    <img src="Eyesurgeon.png" alt="Professional Portrait of Mr. Morrissey, Consultant Ophthalmic Surgeon">
+                    <div class="portrait-caption">
+                        <span>Mr. Morrissey, FRCOphth</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="eyebrow">Clinical Expertise</span>
+                <h2>Comprehensive Eye Care</h2>
+                <p style="margin: 0 auto;">Pioneering treatments tailored to restore visual clarity and functional harmony.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="service-card reveal">
+                    <div class="service-img"><img src="Visioncorrection.png" alt="Cataract Surgery"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Premium Cataract Surgery</h3>
+                        <p>Advanced micro-incision techniques utilising premium multifocal and toric lenses and advanced biometry to restore vibrant, clear vision.</p>
+                        <a href="#cataract" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal delay-1">
+                    <div class="service-img"><img src="Eyecross.png" alt="Refractive Lens Exchange"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Refractive Lens Exchange</h3>
+                        <p>Achieve freedom from glasses and contact lenses with bespoke lens implants designed to correct myopia, hyperopia, and astigmatism.</p>
+                        <a href="#rle" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal delay-2">
+                    <div class="service-img"><img src="Surgery2.png" alt="Blepharoplasty"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Blepharoplasty</h3>
+                        <p>Functional and cosmetic eyelid surgery to address hooding, remove excess skin, and rejuvenate the periocular area.</p>
+                        <a href="#blepharoplasty" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-img"><img src="Operationroom.png" alt="Glaucoma Management"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Glaucoma Management</h3>
+                        <p>Comprehensive screening utilising OCT, alongside medical management and minimally invasive glaucoma surgeries (MIGS).</p>
+                        <a href="#glaucoma" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal delay-1">
+                    <div class="service-img"><img src="Eyedrop.png" alt="Dry Eye Clinic"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Advanced Dry Eye Clinic</h3>
+                        <p>Targeted diagnostic assessments and bespoke management plans for chronic dry eye, blepharitis, and ocular surface disease.</p>
+                        <a href="#dry-eye" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal delay-2">
+                    <div class="service-img"><img src="Drawing.png" alt="Minor Eyelid Procedures"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Minor Eyelid Procedures</h3>
+                        <p>Swift, effective removal of cysts, chalazia, and eyelid lesions within a state-of-the-art clinical environment.</p>
+                        <a href="#minor-procedures" class="service-link">Procedure Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section section-padding-lg">
+        <div class="container text-center">
+            <div class="reveal">
+                <span class="eyebrow">Visual Evidence</span>
+                <h2>Transformative Outcomes</h2>
+                <p style="margin: 0 auto;">Explore the natural, harmonious results achieved through meticulous surgical precision.</p>
+            </div>
+
+            <div class="slider-container reveal delay-1" id="gallery-slider">
+                <div class="slide active"><img src="Beforeafter.png" alt="Upper Blepharoplasty Before and After"></div>
+                <div class="slide"><img src="Beforeafter2.png" alt="Lower Blepharoplasty Before and After"></div>
+                <div class="slide"><img src="Beforeafter3.png" alt="Cataract Surgery Visual Outcome Simulation"></div>
+                <div class="slide"><img src="Beforeafter4.png" alt="Minor Eyelid Lesion Removal"></div>
+                
+                <div class="slider-controls">
+                    <button class="control-btn" onclick="prevGallerySlide()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button class="control-btn" onclick="nextGallerySlide()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="reveal delay-2" style="margin-top: var(--space-md);">
+                <a href="#full-gallery" class="btn btn-outline">View Unrestricted Public Gallery</a>
+                <p style="font-size: 0.75rem; color: var(--text-tertiary); max-width: 600px; margin: var(--space-sm) auto 0 auto; text-align: center;">*Patient anonymity preserved. Individual results may vary. Compliant with GCC standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <span class="eyebrow reveal">Patient Stories</span>
+            <h2 class="reveal delay-1" style="margin-bottom: var(--space-md);">In Their Own Words</h2>
+            
+            <div class="doctify-embed-mock reveal delay-1">
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.2rem;">Rated Excellent</h4>
+                <div class="doctify-stars" style="margin-bottom: 0.5rem; justify-content: center;">
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-secondary);">Based on <strong>512 verified reviews</strong> on Doctify.</p>
+                <a href="#" style="color: var(--doctify-green); font-size: 0.85rem; font-weight: 600;">Read live widget reviews →</a>
+            </div>
+            
+            <div class="testi-slider reveal delay-2" id="testi-container">
+                <div class="testi-slide active">
+                    <p class="testi-quote">Mr. Morrissey completely transformed my vision. The cataract surgery was quick, painless, and the care I received was second to none. I can finally read without glasses.</p>
+                    <span class="testi-author">James T.</span>
+                    <span class="testi-meta">Premium Cataract Surgery • October 2025</span>
+                    <div class="verified-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Doctify</div>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-quote">I had functional blepharoplasty done to help my peripheral vision. The cosmetic improvement was an added bonus, but the precision and reassurance Mr. Morrissey provided was what truly stood out.</p>
+                    <span class="testi-author">Sarah P.</span>
+                    <span class="testi-meta">Upper Blepharoplasty • January 2026</span>
+                    <div class="verified-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Doctify</div>
+                </div>
+                <div class="testi-slide">
+                    <p class="testi-quote">An absolute professional. From the initial consultation to the post-op care, the entire process for my refractive lens exchange felt premium, safe, and tailored exactly to my lifestyle.</p>
+                    <span class="testi-author">Richard W.</span>
+                    <span class="testi-meta">Refractive Lens Exchange • December 2025</span>
+                    <div class="verified-badge"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Doctify</div>
+                </div>
+            </div>
+
+            <div class="testi-dots reveal delay-3" id="testi-dots">
+                <div class="dot active" onclick="setTestiSlide(0)"></div>
+                <div class="dot" onclick="setTestiSlide(1)"></div>
+                <div class="dot" onclick="setTestiSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fees" class="fees-section section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="eyebrow">Clear Pricing</span>
+                <h2>Consultation & Surgery Fees</h2>
+                <p style="margin: 0 auto; max-width: 700px;">We believe in transparent, upfront pricing with zero hidden costs. A full customised quote encompassing surgery, facility fees, and aftercare will be provided during your consultation.</p>
+            </div>
+
+            <div class="grid-3 reveal delay-1" style="margin-top: var(--space-xl);">
+                <div class="fee-card">
+                    <h3 class="fee-title">Initial Consultation</h3>
+                    <div class="fee-price">£250</div>
+                    <ul class="fee-features">
+                        <li>Comprehensive 45-min assessment</li>
+                        <li>High-definition OCT scans</li>
+                        <li>Advanced eye biometry measurements</li>
+                        <li>Direct discussion with Mr. Morrissey</li>
+                    </ul>
+                    <a href="#book-now" class="btn btn-outline" style="width: 100%;">Book Assessment</a>
+                </div>
+                
+                <div class="fee-card" style="border-color: var(--accent-gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);">
+                    <h3 class="fee-title">Premium Cataract & RLE</h3>
+                    <div class="fee-price"><span style="font-size: 1.2rem;">from</span> £3,500 <span style="font-size: 0.9rem;">/eye</span></div>
+                    <ul class="fee-features">
+                        <li>Bespoke premium IOL implant</li>
+                        <li>Micro-incisional surgical technique</li>
+                        <li>State-of-the-art facility fees included</li>
+                        <li>Comprehensive 12-month aftercare</li>
+                    </ul>
+                    <a href="#book-now" class="btn btn-primary" style="width: 100%;">Discuss Surgery</a>
+                </div>
+
+                <div class="fee-card">
+                    <h3 class="fee-title">Eyelid Surgery</h3>
+                    <div class="fee-price"><span style="font-size: 1.2rem;">from</span> £2,800</div>
+                    <ul class="fee-features">
+                        <li>Upper or lower blepharoplasty</li>
+                        <li>Local anaesthetic day-case procedure</li>
+                        <li>Suture removal & follow-up care</li>
+                        <li>Natural, harmonious aesthetic results</li>
+                    </ul>
+                    <a href="#book-now" class="btn btn-outline" style="width: 100%;">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="eyebrow">Patient Resources</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-grid reveal delay-1">
+                <div class="faq-card">
+                    <h4>Am I suitable for Refractive Lens Exchange?</h4>
+                    <p>RLE is generally ideal for patients over 50 who wear reading glasses, have early cataracts, or have a high prescription that makes laser eye surgery unsuitable. A comprehensive consultation and advanced scans will confirm your exact eligibility and the best premium lens for your lifestyle.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Is cataract surgery painful?</h4>
+                    <p>No. Cataract surgery is performed under local anaesthetic drops, meaning your eye is completely numb. You will be awake, but most patients report feeling only mild pressure or seeing bright lights. The procedure itself typically takes just 15-20 minutes per eye.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>What is the recovery time for blepharoplasty?</h4>
+                    <p>Initial swelling and bruising typically peak within the first 48 hours and resolve significantly by day 7-10 when your fine sutures are removed in the clinic. Most patients feel very comfortable returning to work, zoom calls, and social activities after 1-2 weeks.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Will I still need glasses after surgery?</h4>
+                    <p>If you opt for premium multifocal or Extended Depth of Focus (EDOF) lenses during cataract or RLE surgery, the primary goal is to provide independence from glasses for the vast majority of daily tasks, including driving and reading. Standard monofocal lenses usually still require reading glasses post-surgery.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>What are the risks of lens replacement surgery?</h4>
+                    <p>As with any surgical procedure, there are minor risks including infection, inflammation, or visual halos at night. However, lens replacement is one of the most common and safest procedures performed globally. Mr. Morrissey uses advanced micro-incisional techniques to minimise risks to an absolute fraction of a percent.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>How long do premium intraocular lenses last?</h4>
+                    <p>Intraocular lenses (IOLs) used in cataract surgery and Refractive Lens Exchange are designed to last a lifetime. They do not degrade or require replacement over time, meaning your corrected vision should remain stable for the rest of your life, barring other age-related eye conditions.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Can I have both eyes operated on at the same time?</h4>
+                    <p>Yes, bilateral surgery (operating on both eyes on the same day) is becoming increasingly common and is perfectly safe for many patients. Mr. Morrissey will discuss whether immediate sequential bilateral surgery is appropriate for your specific case during your consultation.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>What happens during the initial consultation?</h4>
+                    <p>Your initial consultation is a comprehensive 45-60 minute appointment. It includes high-definition ocular coherence tomography (OCT) scans, biometry measurements, a thorough medical history review, and a direct discussion with Mr. Morrissey regarding your surgical options, expected outcomes, and transparent pricing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location-section section-padding">
+        <div class="container">
+            <div class="grid-2 align-items-center">
+                <div class="reveal">
+                    <span class="eyebrow">Clinic Details</span>
+                    <h2>Harley Street Clinic</h2>
+                    <p>Mr. Morrissey consults and operates from world-class private facilities in the heart of London's esteemed medical district, utilising the latest in diagnostic and surgical technology.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.2rem;">Address</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">123 Harley Street<br>Marylebone, London<br>W1G 8BJ</p>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.2rem;">Transport Links</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                            🚇 <strong>Regent's Park</strong> (Bakerloo) - 5 min walk<br>
+                            🚇 <strong>Oxford Circus</strong> (Victoria, Central, Bakerloo) - 10 min walk<br>
+                            🚗 Nearby Q-Park car parking available.
+                        </p>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline" style="margin-top: 1.5rem;">Get Directions</a>
+                </div>
+                <div class="map-container reveal delay-1">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.686520188046!2d-0.15049368422964952!3d51.51897397963692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad581335cdb%3A0x6b447a16e788c1b6!2sHarley%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book-now" class="book-section section-padding-lg text-center">
+        <div class="container book-content reveal">
+            <span class="eyebrow" style="color: var(--text-primary); border-bottom-color: var(--text-primary);">Take the next step</span>
+            <h2 style="color: var(--accent-gold);">Ready to transform your vision?</h2>
+            <p style="margin: 0 auto 2.5rem auto; color: var(--text-primary);">Secure your consultation with Mr. Morrissey today. Our clinical team will contact you within 24 hours to confirm your preferred appointment time.</p>
+            
+            <form class="inline-form" onsubmit="event.preventDefault(); alert('Thank you. The clinic will contact you shortly to confirm your booking.');">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" required placeholder="e.g. Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" required placeholder="07000 000000">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" required placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Area of Interest</label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>Select procedure</option>
+                        <option value="Premium Cataract Surgery">Premium Cataract Surgery</option>
+                        <option value="Refractive Lens Exchange">Refractive Lens Exchange</option>
+                        <option value="Eyelid Surgery / Blepharoplasty">Eyelid Surgery / Blepharoplasty</option>
+                        <option value="Dry Eye Assessment">Dry Eye Assessment</option>
+                        <option value="General Ophthalmology">General Ophthalmology</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm); padding: 1.2rem;">Request Appointment</button>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: 1rem; margin-bottom: 0;">Your information is kept strictly confidential.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div>
+                    <span class="footer-logo">Mr. Morrissey</span>
+                    <p style="font-size: 0.8rem; color: var(--text-tertiary);">
+                        Consultant Ophthalmic Surgeon.<br>
+                        Setting the standard for premium eye care and surgical excellence in London.
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 1rem;">
+                        <strong>GMC Registered Specialist:</strong> 7001234
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Specialties</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Premium Cataract Surgery</a></li>
+                        <li><a href="#services">Refractive Lens Exchange</a></li>
+                        <li><a href="#services">Blepharoplasty</a></li>
+                        <li><a href="#services">Dry Eye Clinic</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Clinic Information</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about">About the Surgeon</a></li>
+                        <li><a href="#fees" id="footer-fees">Pricing & Fees</a></li>
+                        <li><a href="#location" id="footer-location">Harley Street Clinic</a></li>
+                        <li><a href="#book-now">Book an Appointment</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <ul class="footer-links">
+                        <li><a href="tel:02030000000">020 3000 0000</a></li>
+                        <li><a href="mailto:enquiries@mrmorrissey.co.uk">enquiries@mrmorrissey.co.uk</a></li>
+                    </ul>
+                    <a href="https://gmc-uk.org" target="_blank" style="display: inline-block; margin-top: 1rem; font-size: 0.75rem; color: var(--text-secondary); text-decoration: underline;">Verify on GMC register →</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Mr. Morrissey. All rights reserved.</div>
+                <div>Harley Street Medical Area | London, UK</div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <span class="eyebrow">Harley Street Clinic</span>
+            <h3 style="margin-bottom: var(--space-xs);">Book a Consultation</h3>
+            <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">Schedule your comprehensive assessment with Mr. Morrissey. Consultations start from £250.</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Thank you. The clinic will contact you shortly to confirm your booking.'); closeModal();">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" required placeholder="e.g. Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" required placeholder="07000 000000">
+                </div>
+                <div class="form-group">
+                    <label>Area of Interest</label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>Select procedure</option>
+                        <option value="Premium Cataract Surgery">Premium Cataract Surgery</option>
+                        <option value="Refractive Lens Exchange">Refractive Lens Exchange</option>
+                        <option value="Eyelid Surgery / Blepharoplasty">Eyelid Surgery / Blepharoplasty</option>
+                        <option value="Dry Eye Assessment">Dry Eye Assessment</option>
+                        <option value="General Ophthalmology">General Ophthalmology</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm);">Request Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Sticky Header
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // 2. Mobile Menu Toggle
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            window.closeMobileMenu = () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            };
+
+            // 3. Scroll Reveal Observer
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            reveals.forEach(el => observer.observe(el));
+
+            // 4. Gallery Slider Logic
+            const gallerySlides = document.querySelectorAll('#gallery-slider .slide');
+            let currentGalleryIdx = 0;
+
+            window.nextGallerySlide = () => {
+                gallerySlides[currentGalleryIdx].classList.remove('active');
+                currentGalleryIdx = (currentGalleryIdx + 1) % gallerySlides.length;
+                gallerySlides[currentGalleryIdx].classList.add('active');
+            };
+
+            window.prevGallerySlide = () => {
+                gallerySlides[currentGalleryIdx].classList.remove('active');
+                currentGalleryIdx = (currentGalleryIdx - 1 + gallerySlides.length) % gallerySlides.length;
+                gallerySlides[currentGalleryIdx].classList.add('active');
+            };
+
+            // 5. Testimonials Slider Logic
+            const testiSlides = document.querySelectorAll('.testi-slide');
+            const testiDots = document.querySelectorAll('.dot');
+            let currentTestiIdx = 0;
+            let testiInterval;
+
+            window.setTestiSlide = (idx) => {
+                testiSlides[currentTestiIdx].classList.remove('active');
+                testiDots[currentTestiIdx].classList.remove('active');
+                
+                currentTestiIdx = idx;
+                
+                testiSlides[currentTestiIdx].classList.add('active');
+                testiDots[currentTestiIdx].classList.add('active');
+                resetTestiTimer();
+            };
+
+            const nextTestiSlide = () => {
+                let nextIdx = (currentTestiIdx + 1) % testiSlides.length;
+                setTestiSlide(nextIdx);
+            };
+
+            const resetTestiTimer = () => {
+                clearInterval(testiInterval);
+                testiInterval = setInterval(nextTestiSlide, 6000);
+            };
+            
+            resetTestiTimer();
+
+            // 6. Modal Logic
+            const modal = document.getElementById('booking-modal');
+            
+            window.openModal = () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; 
+            };
+
+            window.closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+        });
+    </script>
+</body>
+</html>
