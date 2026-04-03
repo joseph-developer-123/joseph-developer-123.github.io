@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Psychiatry | Private Mental Health Clinic Manchester</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>  
+/* ==========================================================================
+           THEME VARIABLES (BRIGHTENED)
+           ========================================================================== */
+:root {
+    --color-topbar-bg: #f0fdfa; /* Light teal */
+    --color-topbar-text: #0f172a;
+    --color-nav-bg: #ffffff; /* Brightened to white */
+    --color-nav-text: #334155;
+    --color-nav-hover: #0d9488;
+    --color-primary-green: #10b981; /* Brighter, fresher green */
+    --color-primary-green-hover: #059669;
+    --color-hero-bg-dark: #0d9488; /* Vibrant Teal */
+    --color-hero-bg-light: #ccfbf1;
+    --color-btn-teal: #0d9488;
+    --color-btn-teal-hover: #0f766e;
+    
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Inter Tight', sans-serif;
+    --font-family-base: 'Inter Tight', sans-serif; 
+    --max-width-container: 1280px;
+}
+
+/* ==========================================================================
+           RESET & BASE STYLES
+           ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, body {
+    overflow-x: hidden; 
+}
+
+body { 
+    font-family: var(--font-family-base); 
+    line-height: 1.5; 
+    color: #334155; /* Default text dark for bright layout */
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: var(--font-heading); 
+    letter-spacing: -0.03em;
+    color: #0f172a; /* Dark headings */
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+button { 
+    cursor: pointer; 
+    font-family: inherit; 
+    border: none; 
+    outline: none; 
+}
+
+.container { 
+    max-width: var(--max-width-container); 
+    margin: 0 auto; 
+    padding: 0 2rem; 
+    width: 100%; 
+}
+
+/* ==========================================================================
+           HEADER (STICKY)
+           ========================================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: var(--color-nav-bg);
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separation */
+}
+
+.top-banner {
+    background-color: var(--color-topbar-bg);
+    color: var(--color-topbar-text);
+    text-align: center;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    font-size: 0.875rem;
+    position: relative;
+    font-weight: 600;
+}
+
+.top-banner a {
+    text-decoration: underline;
+    color: var(--color-btn-teal);
+}
+
+.top-banner .close-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #64748b;
+    padding: 0.5rem;
+}
+
+/* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+.navbar {
+    background-color: var(--color-nav-bg);
+    padding: 0.75rem 0; 
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--color-nav-text);
+    transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+    color: var(--color-nav-hover);
+}
+
+.nav-cta {
+    background-color: var(--color-primary-green);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem; 
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem; 
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.nav-cta:hover {
+    background-color: var(--color-primary-green-hover);
+}
+
+/* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+.hero {
+    position: relative;
+    display: flex;
+    background-color: #f1f5f9;
+    overflow: hidden;
+    min-height: auto; 
+    align-items: center; 
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url('psych9.jpg');
+    background-size: cover;
+    background-position: 50% top;    
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* Brightened gradient to a white/light overlay */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.95) 45%,
+        rgba(255, 255, 255, 0.6) 75%,
+        transparent 100%
+    );
+}
+
+.hero-overlay::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 70%;
+    height: 200%;
+    background: rgba(13, 148, 136, 0.05); /* Subtle teal accent */
+    border-radius: 50%;
+    transform: rotate(-15deg);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 680px;
+}
+
+.reviews-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.reviews-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.hero h1 {
+    font-size: 3.75rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #475569;
+    max-width: 90%;
+    font-weight: 500;
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.primary-action-btn, .whatsapp-btn {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary-action-btn {
+    background-color: var(--color-btn-teal);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.primary-action-btn:hover {
+    background-color: var(--color-btn-teal-hover);
+    transform: translateY(-2px);
+}
+
+.whatsapp-btn {
+    background-color: transparent;
+    border: 2px solid var(--color-btn-teal);
+    color: var(--color-btn-teal);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.whatsapp-btn:hover {
+    background-color: var(--color-btn-teal);
+    color: #ffffff;
+}
+
+.phone-text {
+    font-size: 1.05rem;
+    color: #334155;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* ==========================================================================
+           SECTION GLOBALS
+           ========================================================================== */
+section { padding: 8rem 0; }
+
+.section-header {
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: #0f172a;
+    font-weight: 800;
+    line-height: 1.05;
+    max-width: 60%;
+}
+
+.section-header-meta {
+    max-width: 35%;
+    padding-bottom: 0.5rem;
+}
+
+.section-header-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-btn-teal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-header-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-btn-teal);
+}
+
+.section-header p {
+    font-size: 1.125rem;
+    color: #64748b;
+}
+
+.theme-teal { 
+    background-color: var(--color-hero-bg-dark); 
+    color: white; 
+}
+
+.theme-teal .section-header h2 { 
+    color: white; 
+}
+
+.theme-teal .section-header p { 
+    color: #ccfbf1; 
+}
+
+.theme-teal .section-header-tag {
+    color: white;
+}
+.theme-teal .section-header-tag::before {
+    background-color: white;
+}
+
+/* ==========================================================================
+           STATS MARQUEE (TOP)
+           ========================================================================== */
+.stats-ticker-wrapper {
+    background: var(--color-btn-teal); /* Bright Teal */
+    color: white;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    display: flex;
+    white-space: nowrap;
+}
+
+.stats-ticker {
+    display: flex;
+    gap: 5rem;
+    animation: ticker 80s linear infinite; 
+    padding-right: 5rem;
+}
+
+.stats-ticker:hover { 
+    animation-play-state: paused; 
+}
+
+.ticker-item {
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ticker-item span {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: #ccfbf1; /* Soft contrast teal */
+    font-size: 1.75rem;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ==========================================================================
+           WELCOME SECTION
+           ========================================================================== */
+.welcome-section {
+    background-color: #ffffff;
+    padding: 7rem 0;
+    text-align: center;
+}
+
+.welcome-header {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.welcome-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.welcome-header p {
+    font-size: 1.25rem;
+    color: #475569;
+}
+
+.welcome-quote-box {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.welcome-quote-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 15px 35px -5px rgba(0,0,0,0.1);
+}
+
+.welcome-quote-content {
+    flex: 1;
+}
+
+.welcome-quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #334155;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.welcome-quote-author {
+    font-weight: 800;
+    color: var(--color-btn-teal);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.welcome-quote-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+           SERVICES
+           ========================================================================== */
+.services-section { 
+    background-color: #f8fafc; /* Softer contrast background */
+}
+
+.split-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.split-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1rem; 
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.split-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -15px rgba(13, 148, 136, 0.15); /* Teal shadow on hover */
+    border-color: rgba(13, 148, 136, 0.2);
+}
+
+.split-card-img {
+    width: 100%;
+    height: 260px; 
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+    transition: transform 0.6s ease;
+}
+
+.split-card:hover .split-card-img { 
+    transform: scale(0.98); 
+}
+
+.split-card-content {
+    padding: 0 1rem 1rem 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.split-card h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.split-card p {
+    color: #64748b;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    flex-grow: 1;
+}
+
+.btn-card-link {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-btn-teal);
+    padding: 1.25rem 0;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.3s ease;
+}
+
+.btn-card-link:hover { 
+    color: var(--color-btn-teal-hover); 
+}
+
+/* ==========================================================================
+           TESTIMONIALS (OVERLAPPING)
+           ========================================================================== */
+.testimonials-overlapping {
+    padding: 10rem 0;
+    background-color: #ffffff;
+}
+
+.testimonial-focus-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.testimonial-focus { 
+    position: sticky; 
+    top: 150px; 
+}
+
+.testimonial-focus h2 {
+    font-size: 4rem;
+    color: #0f172a;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.overlap-card {
+    background: #ffffff;
+    color: #0f172a;
+    padding: 3.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(0,0,0,0.06);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.overlap-card:nth-child(even) {
+    background-color: var(--color-btn-teal); /* Vibrant contrast */
+    color: white;
+    border: none;
+    transform: translateX(-3rem);
+    box-shadow: 0 20px 40px rgba(13, 148, 136, 0.2);
+}
+
+.overlap-card:nth-child(odd):hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+.overlap-card:nth-child(even):hover { transform: translateY(-5px) translateX(-3rem); box-shadow: 0 30px 50px rgba(13, 148, 136, 0.3); }
+
+.testimonial-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.testimonial-author { 
+    font-family: var(--font-heading); 
+    font-weight: 800; 
+    font-size: 1.1rem; 
+    display: block;
+}
+
+.testimonial-source { 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    opacity: 0.8;
+}
+
+.overlap-card:nth-child(even) .testimonial-source {
+    opacity: 0.9;
+    color: #ccfbf1;
+}
+
+/* ==========================================================================
+           VIDEOS SECTION
+           ========================================================================== */
+.video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    height: 600px;
+}
+
+.video-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.video-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover::after { 
+    opacity: 0.9; 
+}
+
+.video-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    z-index: 2;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-card:hover .video-content { 
+    transform: translateY(0); 
+}
+
+.video-content h4 { 
+    font-size: 1.5rem; 
+    margin-bottom: 0.5rem; 
+}
+
+.video-card.large .video-content h4 { 
+    font-size: 2.5rem; 
+    line-height: 1.1;
+}
+
+.video-content p { 
+    color: #ccfbf1; 
+}
+
+.play-btn {
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover .play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--color-primary-green);
+}
+
+.play-btn svg { 
+    width: 24px; 
+    height: 24px; 
+    fill: white; 
+    margin-left: 5px; 
+}
+
+/* ==========================================================================
+           BLOG/INSIGHTS SECTION
+           ========================================================================== */
+.blog-section { 
+    background-color: #f8fafc; 
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blog-img {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.blog-img-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.blog-card:hover .blog-img { 
+    transform: scale(1.05); 
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-btn-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.blog-card h4 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    line-height: 1.3;
+    font-weight: 800;
+    transition: color 0.3s ease;
+}
+
+.blog-card:hover h4 { 
+    color: var(--color-btn-teal); 
+}
+
+/* ==========================================================================
+           PREMIUM CONTACT FORM
+           ========================================================================== */
+.contact-section {
+    background-color: #f0fdfa; /* Brightened to light teal */
+    color: #0f172a;
+    padding: 8rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.contact-info h2 { 
+    font-size: 4rem; 
+    line-height: 1.05; 
+    margin-bottom: 2rem; 
+    color: #0f172a;
+}
+
+.contact-info p { 
+    color: #475569; 
+    font-size: 1.25rem; 
+    margin-bottom: 3rem; 
+    max-width: 400px; 
+}
+
+.contact-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-detail-item { 
+    border-left: 3px solid var(--color-btn-teal); 
+    padding-left: 1.5rem; 
+}
+
+.contact-detail-item h6 { 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    color: #64748b; 
+    font-weight: 700;
+    margin-bottom: 0.5rem; 
+}
+
+.contact-detail-item a { 
+    font-size: 1.5rem; 
+    font-family: var(--font-heading); 
+    font-weight: 800; 
+    color: #0f172a; 
+    transition: color 0.3s ease; 
+}
+
+.contact-detail-item a:hover { 
+    color: var(--color-btn-teal); 
+}
+
+.contact-form-card {
+    background: white;
+    padding: 4rem;
+    border-radius: 24px;
+    color: #0f172a;
+    box-shadow: 0 20px 50px rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.1);
+}
+
+.form-group { 
+    margin-bottom: 2rem; 
+    position: relative; 
+}
+
+.form-control {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 1rem 0;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: #0f172a;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus { 
+    outline: none; 
+    border-color: var(--color-btn-teal); 
+}
+
+.form-control::placeholder { 
+    color: #94a3b8; 
+}
+
+textarea.form-control { 
+    resize: none; 
+    height: 100px; 
+}
+
+.btn-submit {
+    background: var(--color-btn-teal);
+    color: white;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover { 
+    background: var(--color-btn-teal-hover); 
+}
+
+/* ==========================================================================
+           FOOTER SECTION
+           ========================================================================== */
+.site-footer {
+    background-color: #ffffff;
+    color: #475569;
+    padding: 4rem 0 2rem;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+
+.site-footer h3 {
+    color: #0f172a;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.site-footer p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.footer-links a {
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--color-btn-teal);
+}
+
+.footer-bottom {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+           RESPONSIVE REFINEMENTS
+           ========================================================================== */
+
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) {
+    .container { padding: 0 1.5rem; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 2rem; }
+    .section-header h2 { max-width: 100%; font-size: 3rem; }
+    .section-header-meta { max-width: 100%; }
+    .split-card-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-focus-grid, .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .testimonial-focus { position: static; }
+    .video-grid { grid-template-columns: 1fr; height: auto; }
+    .video-card { height: 400px; }
+    .video-card.large { grid-column: span 1; }
+    
+    .overlap-card:nth-child(even) { transform: translateX(0); }
+    .overlap-card:nth-child(even):hover { transform: translateY(-5px) translateX(0); }
+    
+    .nav-links { gap: 1rem; }
+    .hero h1 { font-size: 2.75rem; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    section { padding: 5rem 0; }
+    .container { padding: 0 1rem; }
+    .split-card-grid, .blog-grid { grid-template-columns: 1fr; }
+    .contact-form-card { padding: 2rem; }
+    .contact-info h2 { font-size: 2.75rem; }
+    
+    .navbar .container { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .nav-links { display: none; }
+    .nav-cta { width: 100%; }
+    
+    .hero { padding-top: 3rem; padding-bottom: 3rem; }
+    .hero-overlay {
+        /* Kept light for mobile */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 100%);
+    }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.15rem; max-width: 100%; }
+    
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .primary-action-btn, .whatsapp-btn { width: 100%; }
+    
+    .welcome-quote-box { flex-direction: column; text-align: center; gap: 1.5rem; }
+    .welcome-quote-img { width: 180px; height: 180px; }
+    .welcome-header h2 { font-size: 2.25rem; }
+    
+    .section-header h2 { font-size: 2.5rem; }
+    
+    .overlap-card { padding: 2.5rem 1.5rem; }
+    .testimonial-focus h2 { font-size: 2.75rem; }
+    
+    .video-card { height: 300px; }
+    .video-content { padding: 1.5rem; transform: translateY(0); }
+    .video-content h4 { font-size: 1.25rem; }
+    .video-card.large .video-content h4 { font-size: 1.5rem; }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    section { padding: 4rem 0; }
+    .hero h1 { font-size: 2.15rem; }
+    .welcome-header h2 { font-size: 2rem; }
+    .section-header h2 { font-size: 2.25rem; }
+    .contact-info h2 { font-size: 2.25rem; }
+    .testimonial-focus h2 { font-size: 2.25rem; }
+    .welcome-quote-text { font-size: 1.2rem; }
+    
+    .stats-ticker-wrapper { padding: 1rem 0; }
+    .ticker-item { font-size: 1rem; }
+    .ticker-item span { font-size: 1.2rem; }
+    
+    .contact-form-card { padding: 1.5rem; }
+    .footer-links { gap: 1rem; flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="top-banner" id="topBanner">
+            We are excited to announce our move to 42 Deansgate, Manchester, M3 2AY.
+            <button class="close-btn" aria-label="Close banner" id="closeBannerBtn">✕</button>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-left">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="nova-removebg-preview.png" alt="Nova Psychiatry Logo" style="height: 64px; filter: brightness(0.15);">
+                        <span style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #0f172a; letter-spacing: -0.5px;">Nova Psychiatry</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#">ADHD</a></li>
+                    <li><a href="#">Anxiety & Depression</a></li>
+                    <li><a href="#">Child & Young People</a></li>
+                    <li><a href="#">Workplace Wellbeing</a></li>
+                </ul>
+
+                <button class="nav-cta">Book an Appointment</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                
+                <div class="reviews-badge">
+                    <div style="color: #00b67a; font-size: 1.5rem;">★★★★★</div>
+                    <span class="reviews-text">4.9 stars on Trustpilot</span>
+                </div>
+
+                <h1>Find Clarity and Fast, Professional Support for Your Mental Health Journey</h1>
+                
+                <p>No waiting lists. Expert, private care, online or face-to-face. GP referral not required.</p>
+
+                <div class="hero-actions">
+                    <button class="primary-action-btn">Book a Free 15-Minute Consultation</button>
+                    <button class="whatsapp-btn">Find out more</button>
+                </div>
+                
+                <div>
+                    <span class="phone-text">Or call us: +44 161 555 0199</span>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="stats-ticker-wrapper">
+        <div class="stats-ticker">
+            <div class="ticker-item"><span>5,200+</span> Patients Trusted Us</div>
+            <div class="ticker-item"><span>2,600+</span> ADHD Patients Helped</div>
+            <div class="ticker-item"><span>125+</span> rTMS Provided</div>
+            <div class="ticker-item"><span>5,200+</span> Patients Trusted Us</div>
+            <div class="ticker-item"><span>2,600+</span> ADHD Patients Helped</div>
+            <div class="ticker-item"><span>125+</span> rTMS Provided</div>
+             <div class="ticker-item"><span>5,200+</span> Patients Trusted Us</div>
+            <div class="ticker-item"><span>2,600+</span> ADHD Patients Helped</div>
+            <div class="ticker-item"><span>125+</span> rTMS Provided</div>
+        </div>
+    </div>
+
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-header">
+                <h2>Welcome to Nova Psychiatry & Wellness</h2>
+                <p>Our extensive network of specialized psychiatrists and psychologists offers both online and face-to-face assessments at our Manchester and Cheshire clinics.</p>
+            </div>
+            
+            <div class="welcome-quote-box">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Dr Sarah Jenkins" class="welcome-quote-img">
+                <div class="welcome-quote-content">
+                    <p class="welcome-quote-text">"We pride ourselves on our diverse, multi-disciplinary team, dedicated to providing rapid, holistic, and evidence-based mental health care."</p>
+                    <p class="welcome-quote-author">Dr. Sarah Jenkins</p>
+                    <p class="welcome-quote-title">Founder and Medical Director</p>
+                    <button class="primary-action-btn" style="margin-top: 1rem;">Meet Our Team</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialist Consultations</h2>
+                <div class="section-header-meta">
+                    <span class="section-header-tag">Clinical Expertise</span>
+                    <p>Access exceptional private psychiatrists, psychologists, and specialists online or in-person in Manchester and Cheshire.</p>
+                </div>
+            </div>
+
+            <div class="split-card-grid">
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>ADHD Services</h3>
+                        <p>Private ADHD assessments, diagnosis, medication, and holistic therapy for adults and children (Aged 6+).</p>
+                        <a href="#" class="btn-card-link"><span>Explore Pathway</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>Depression Care</h3>
+                        <p>Expert evaluation and compassionate treatment plans for depression, anxiety, and complex mood disorders.</p>
+                        <a href="#" class="btn-card-link"><span>See How We Help</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>Medication Management</h3>
+                        <p>Our psychiatrists assess, prescribe, and monitor medication for optimal clinical outcomes and safety.</p>
+                        <a href="#" class="btn-card-link"><span>Learn More</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>rTMS Treatment</h3>
+                        <p>A non-invasive, breakthrough treatment for treatment-resistant depression and anxiety disorders.</p>
+                        <a href="#" class="btn-card-link"><span>Explore rTMS</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>Talking Therapies</h3>
+                        <p>Private psychologists providing CBT, EMDR, and tailored therapy for trauma, grief, and life challenges.</p>
+                        <a href="#" class="btn-card-link"><span>Book Therapy</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="split-card">
+                    <div class="split-card-img" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="split-card-content">
+                        <h3>Occupational Health</h3>
+                        <p>Specialist mental health reports, corporate consultations, and medicolegal assessments for wellness.</p>
+                        <a href="#" class="btn-card-link"><span>Business Services</span> <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="theme-teal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Patient Stories</h2>
+                <div class="section-header-meta">
+                    <span class="section-header-tag">Real Experiences</span>
+                    <p>Hear directly from the individuals whose lives have been transformed through our specialized pathways.</p>
+                </div>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card large" style="background-image: url('https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div class="video-content">
+                        <h4>Navigating Adult ADHD</h4>
+                        <p>James shares his journey to clarity and focus.</p>
+                    </div>
+                </div>
+                <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div class="video-content">
+                        <h4>rTMS Recovery</h4>
+                        <p>Overcoming treatment resistance.</p>
+                    </div>
+                </div>
+                <div class="video-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div class="video-content">
+                        <h4>Talking Therapy</h4>
+                        <p>Finding a safe space to speak.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-overlapping">
+        <div class="container">
+            <div class="testimonial-focus-grid">
+                <div class="testimonial-focus">
+                    <h2>Exceptional Care.<br>Lifesaving Results.</h2>
+                    <p style="font-size: 1.15rem; color: #475569; margin-top: 1.5rem;">Patient trust is at the heart of our practice. Here are the experiences of real people we have helped.</p>
+                </div>
+                
+                <div class="testimonial-cards-grid">
+                    <div class="overlap-card">
+                        <p class="testimonial-text">"My daughter and myself are patients of Dr Jenkins for ADHD. Both of our lives have improved significantly since our assessments and ongoing medical care. I highly recommend their services."</p>
+                        <div>
+                            <span class="testimonial-author">Josh Yung</span>
+                            <span class="testimonial-source">Google Review</span>
+                        </div>
+                    </div>
+
+                    <div class="overlap-card">
+                        <p class="testimonial-text">"Since I began medication in January, my mental health has significantly improved across almost all areas of my life. The difference has been night and day. The psychiatrist was tremendously knowledgeable."</p>
+                        <div>
+                            <span class="testimonial-author">Lewis Smith</span>
+                            <span class="testimonial-source">NHS Review</span>
+                        </div>
+                    </div>
+
+                    <div class="overlap-card">
+                        <p class="testimonial-text">"Given how challenging it can be to find the right place to get help with mental health, Nova has been a breath of fresh air. Without this service I would have had to wait possibly years."</p>
+                        <div>
+                            <span class="testimonial-author">Isabel Monta</span>
+                            <span class="testimonial-source">Google Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Clinical Insights</h2>
+                <div class="section-header-meta">
+                    <span class="section-header-tag">Latest Articles</span>
+                    <p>Read expert perspectives, mental health guides, and clinic updates from our specialists.</p>
+                </div>
+            </div>
+
+            <div class="blog-grid">
+                <a href="#" class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    </div>
+                    <div class="blog-meta">
+                        <span>Mental Health</span>
+                        <span>Mar 28, 2026</span>
+                    </div>
+                    <h4>Understanding the New Frontiers of rTMS Treatment</h4>
+                </a>
+
+                <a href="#" class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    </div>
+                    <div class="blog-meta">
+                        <span>ADHD</span>
+                        <span>Mar 22, 2026</span>
+                    </div>
+                    <h4>Adult ADHD: Recognising the Signs in the Workplace</h4>
+                </a>
+
+                <a href="#" class="blog-card">
+                    <div class="blog-img-wrapper">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    </div>
+                    <div class="blog-meta">
+                        <span>Therapy</span>
+                        <span>Mar 15, 2026</span>
+                    </div>
+                    <h4>How to Prepare for Your First Psychotherapy Session</h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Let's Start Your Transformation.</h2>
+                    <p>Don't wait months. Book a consult today and see a specialist in days. Reach out to our team to map out your care journey.</p>
+                    
+                    <div class="contact-details-list">
+                        <div class="contact-detail-item">
+                            <h6>Speak with Us</h6>
+                            <a href="tel:+441615550199">0161 555 0199</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h6>Message on WhatsApp</h6>
+                            <a href="https://wa.me/447700900123">07700 900 123</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h6>General Enquiry</h6>
+                            <a href="mailto:hello@novapsychiatry.co.uk">hello@novapsychiatry.co.uk</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit Enquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>Nova Psychiatry & Wellness</h3>
+            <p>Providing expert, private mental healthcare.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Nova Psychiatry. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('closeBannerBtn').addEventListener('click', function() {
+            document.getElementById('topBanner').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
