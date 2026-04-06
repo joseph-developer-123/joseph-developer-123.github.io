@@ -417,11 +417,16 @@
             column-gap: 2rem;
             list-style: none;
             font-size: 0.9rem;
-            margin-top: 1.5rem;
-            text-align: left;
+            margin-top: 0;
+            text-align: center; /* Changed to center */
         }
-        .multi-column-list li { margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem;}
-
+        .multi-column-list li { 
+            margin-bottom: 0.5rem; 
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 0.2rem;
+            word-wrap: break-word;
+            text-align: center; /* Ensures the items are centered in the column */
+        }
         /* --- PARALLAX DIVIDER --- */
         /* Update the parallax divider to fit the boxes */
 .parallax-divider {
@@ -695,7 +700,6 @@
             .grid-2 { grid-template-columns: 1fr; text-align: center; }
             .location-images-grid { flex-direction: column; }
             .service-diagram { grid-template-columns: 1fr; }
-            .multi-column-list { column-count: 2; }
             .contact-box-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
             
             .shadow-img { 
@@ -797,7 +801,6 @@
         @media (max-width: 600px) {
             header { padding: 1rem 20px; } 
             header.scrolled { padding: 1rem 20px; }
-            .multi-column-list { column-count: 1; }
             .contact-box { padding: 3rem 1.5rem; }
             .locations-grid { grid-template-columns: 1fr; }
             
@@ -957,8 +960,11 @@
             <span>Self-Esteem</span>
         </div>
 
-        <details>
-<summary style="font-family: 'Jost', sans-serif; font-size: 16px !important; font-weight: 300 !important; text-transform: none; letter-spacing: normal;">I additionally work with a broad range of issues beyond these specialisms, including...</summary>                <li>Abuse</li><li>ADD / ADHD</li><li>Adoption</li><li>Anger management</li>
+ <p style="font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300; margin-top: 3rem; margin-bottom: 1.5rem;">I additionally work with a broad range of issues beyond these specialisms, including...</p>
+        
+        <div style="background: var(--off-white); padding: 1.5rem; border-radius: 2px; border: 1px solid var(--border); max-width: 800px; margin: 0 auto 4rem auto;">
+            <ul class="multi-column-list">
+                <li>Abuse</li><li>ADD / ADHD</li><li>Adoption</li><li>Anger management</li>
                 <li>Bereavement</li><li>Cancer</li><li>Child related issues</li><li>Chronic fatigue / ME</li>
                 <li>Coercive control</li><li>Cultural issues</li><li>Identity issues</li><li>Infertility</li>
                 <li>Loss</li><li>Menopause</li><li>Men's issues</li><li>Mood disorder</li>
@@ -966,7 +972,7 @@
                 <li>Pregnancy related</li><li>Redundancy</li><li>Self-harm</li><li>Sexual identity</li>
                 <li>Spirituality</li><li>Women's issues</li><li>Work related issues</li>
             </ul>
-        </details>
+        </div>
     </div>
 </section>
 
