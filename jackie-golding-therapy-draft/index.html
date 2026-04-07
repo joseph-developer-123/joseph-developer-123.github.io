@@ -1,1 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jackie Golding Therapy. A compassionate, grounded space for transformation. Top-rated therapist online and in-person across London, Tonbridge, Manchester, Birmingham, Tunbridge Wells, and Sevenoaks.">
+    <title>Jackie Golding Therapy | Therapist Online, London & Tonbridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           VARIABLES & RESET
+           ========================================= */
+        :root {
+            --bg-main: #fdfcfb;
+            --bg-quote: #faebe2;
+            --box-peach-dark: #f8cbad;
+            --box-pink: #f4d0d6;
+            --box-peach-light: #fce2ce;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --font-main: 'Urbanist', sans-serif;
+            --max-width: 1100px;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 0; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           NAVIGATION (Transparent to Solid on Scroll)
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            background-color: transparent;
+            box-shadow: none;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(253, 252, 251, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav-logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+
+        header.scrolled .nav-logo {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff; 
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--box-peach-dark) !important;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1001;
+        }
+
+        .btn-book {
+            background-color: var(--box-peach-dark);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-book:hover {
+            background-color: var(--text-dark);
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 2px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .hamburger .bar {
+            background-color: var(--text-dark);
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('hero img.jpeg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ffffff; 
+            font-weight: 500;
+            max-width: 700px;
+            margin-bottom: 35px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .btn-chat {
+            background-color: #ffffff;
+            color: var(--text-gray);
+            padding: 14px 35px;
+            border: 1px solid #eee;
+            font-size: 0.85rem;
+            font-family: var(--font-main);
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background-color: var(--bg-quote);
+        }
+
+        /* =========================================
+           WELCOME SECTION
+           ========================================= */
+        .welcome {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .welcome p {
+            max-width: 700px;
+            margin: 0 auto 15px auto;
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* =========================================
+           PARALLAX QUOTE SECTION
+           ========================================= */
+        .parallax-quote {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .parallax-quote::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .parallax-text {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-style: italic;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.6;
+        }
+
+        .bg-img-1 { background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+        .bg-img-2 { background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+        .bg-img-3 { background-image: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+
+
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        .about {
+            padding: 100px 0; 
+            background-color: var(--bg-quote);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            gap: 100px;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            background-color: #ddd;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blob {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.85;
+            transition: all 0.5s ease;
+        }
+        
+        .blob-pink { 
+            background-color: #fce2e8; 
+            top: -15px; 
+            left: -15px; 
+            width: 160px; height: 140px;
+            border-radius: 35% 65% 75% 25% / 45% 45% 65% 55%; 
+        }
+        .blob-yellow { 
+            background-color: #fef4cd; 
+            bottom: -30px; 
+            right: -20px; 
+            width: 150px; height: 120px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .blob-blue { 
+            background-color: #e2f0f9; 
+            bottom: 20px; 
+            left: -40px; 
+            width: 180px; height: 150px;
+            border-radius: 30% 70% 50% 50% / 50% 40% 60% 50%;
+        }
+        .blob-peach { 
+            background-color: #f8cbad; 
+            top: -10px; 
+            right: -40px; 
+            width: 130px; height: 100px;
+            border-radius: 65% 35% 55% 45% / 35% 55% 55% 65%; 
+        }
+
+        .about-text {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .qual-list-about {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .qual-list-about h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        .qual-list-about ul {
+            list-style-type: none;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 2;
+        }
+
+        .qual-list-about li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .qual-list-about li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--box-peach-dark);
+            font-size: 0.8rem;
+        }
+
+        /* =========================================
+           MY APPROACH SECTION
+           ========================================= */
+        .approach-section-wrapper {
+            position: relative;
+            padding: 100px 0;
+            background-color: var(--bg-main); 
+            overflow: hidden; 
+        }
+
+        .bg-shape-beige {
+            position: absolute;
+            top: -50px;
+            left: -150px;
+            width: 400px;
+            height: 600px;
+            background-color: #fdf3eb;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
+        .bg-shape-pink {
+            position: absolute;
+            top: 20%;
+            right: -100px;
+            width: 450px;
+            height: 500px;
+            background-color: #fcf1f3;
+            border-radius: 50% 40% 30% 70% / 60% 30% 70% 40%;
+            z-index: 0;
+        }
+
+        .approach-content {
+            position: relative;
+            z-index: 1; 
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            padding: 35px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 20px;
+        }
+
+        .grid-item h4 {
+            margin-bottom: 10px;
+            margin-top: 15px; 
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .grid-item p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .bg-peach-dark { background-color: var(--box-peach-dark); }
+        .bg-pink { background-color: var(--box-pink); }
+        .bg-peach-light { background-color: var(--box-peach-light); }
+
+
+        /* =========================================
+           TESTIMONIALS SECTION
+           ========================================= */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--bg-main);
+        }
+
+        .testimonial-flex {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-box {
+            background-color: #ffffff; 
+            padding: 40px 30px;
+            flex: 1;
+            position: relative;
+            text-align: left;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-radius: 20px; 
+        }
+
+        .quote-icon {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: var(--box-pink); 
+            line-height: 0;
+            position: absolute;
+            top: 40px;
+            left: 20px;
+        }
+
+        .testimonial-box p {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--box-peach-dark);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 30px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+        .dot.active { background-color: var(--box-peach-dark); }
+
+
+        /* =========================================
+           CONTACT & LOCATIONS SECTION
+           ========================================= */
+        .contact {
+            background-color: var(--box-pink); 
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #ffffff;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            outline: none;
+            border-radius: 15px; 
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .contact-btn {
+            background-color: var(--bg-quote);
+            color: var(--text-dark);
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            width: max-content;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+            border-radius: 30px; 
+        }
+
+        .contact-btn:hover {
+            opacity: 0.8;
+        }
+
+        .contact-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            color: #ffffff; 
+            font-size: 1.2rem;
+        }
+
+        .availability-info {
+            background-color: rgba(255,255,255,0.4);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 0px;
+            display: flex;
+            flex-direction: column; 
+            gap: 15px;
+            text-align: left; 
+            align-items: flex-start;
+        }
+
+        .availability-info div {
+             max-width: 100%; 
+             font-size: 0.9rem;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--bg-main);
+            color: var(--text-gray);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+            .nav-container { 
+                padding: 10px 20px;
+            }
+            .nav-logo {
+                font-size: 1rem;
+            }
+            .nav-links { 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fdfcfb;
+                flex-direction: column;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-links a { 
+                color: var(--text-dark) !important;
+                padding: 10px 0;
+            }
+            .hamburger {
+                display: flex;
+            }
+            header { padding: 15px 0; } 
+            header.scrolled .nav-links a:hover { color: var(--box-peach-dark) !important; }
+            .hero h1 { font-size: 2.5rem; }
+            .about-content, .testimonial-flex, .contact-content {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .grid-container { grid-template-columns: 1fr; }
+            .about-text { text-align: center; }
+            .qual-list-about li { padding-left: 0; }
+            .qual-list-about li::before { display: none; }
+            .bg-shape-beige, .bg-shape-pink { display: none; } 
+        }
+
+        @media (max-width: 480px) {
+            .nav-right {
+                gap: 10px;
+            }
+            .btn-book {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Jackie Golding Therapy</a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Approach</a>
+                <a href="#">Contact</a>
+            </nav>
+            
+            <div class="nav-right">
+                <a href="#" class="btn-book">Book Now</a>
+                <div class="hamburger" id="hamburger-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>JACKIE GOLDING<br>THERAPY</h1>
+        <p>A compassionate, grounded space for transformation and healing.<br>Your dedicated therapist online, and face-to-face in London and Tonbridge.</p>
+        <button class="btn-chat">Free Informal Chat</button>
+    </section>
+
+    <section class="welcome">
+        <div class="container">
+            <h2>WELCOME</h2>
+            <p>If you’re reading this... then I imagine something in your life feels too hard to face alone. Whatever you’re struggling with, therapy is a place to be fully heard, understood, and supported.</p>
+            <p>I work from a place of unconditional acceptance, bringing empathy and understanding to help you find balance and build a happier life experience moving forward.</p>
+        </div>
+    </section>
+
+    <div class="parallax-quote bg-img-1">
+        <div class="parallax-text">
+            "And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom."<br>– Anaïs Nin
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image-wrapper">
+                    <div class="blob blob-blue"></div>
+                    <div class="blob blob-pink"></div>
+                    <div class="blob blob-yellow"></div>
+                    <div class="blob blob-peach"></div>
+                    <div class="about-image">
+                        <img src="jackie.jpg" alt="Jackie Golding, Therapist">
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3>ABOUT JACKIE</h3>
+                    <p>My path began many years ago in the corporate world, so I can relate to the stresses that come with working life. After feeling unfulfilled for some time, I felt the pull towards a vocation where I could be in service to others. After completing intensive training at postgraduate level, I now run a therapy practice helping people explore and integrate the challenges they are dealing with on their own journey.</p>
+                    <p>I have a particular interest in helping with relationship issues whether they are troubled, broken, or abusive. Having worked with a diverse range of people, I also specialize in childhood trauma, PTSD, anxiety, depression, ADHD, addiction, low self-esteem, shame, and women's issues including menopause.</p>
+                    
+                    <div class="qual-list-about">
+                        <h4>Qualifications & Memberships</h4>
+                        <ul>
+                            <li>Registered Member BACP (MBACP)</li>
+                            <li>Postgraduate Diploma in Psychosynthesis Counselling (Level 7)</li>
+                            <li>Graduate Certificate in Psychosynthesis Foundations</li>
+                            <li>Certificate in Psychodynamic Counselling</li>
+                            <li>Certificate in Humanistic Counselling Concepts</li>
+                            <li>Transactional Analysis 101 (UKATA certified)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-quote bg-img-2">
+        <div class="parallax-text">
+            "Every person bears within himself his underworld: it is merely a question whether he has the underworld or it has him."<br>– Wilhelm Stekel
+        </div>
+    </div>
+
+    <section class="approach-section-wrapper">
+        <div class="bg-shape-beige"></div>
+        <div class="bg-shape-pink"></div>
+
+        <div class="container approach-content">
+            <h2>MY APPROACH</h2>
+            <div class="grid-container">
+                <div class="grid-item bg-peach-dark">
+                    <h4>Psychosynthesis</h4>
+                    <p>Working together to explore and integrate the varied challenges you are dealing with on your unique personal journey.</p>
+                </div>
+                <div class="grid-item bg-pink">
+                    <h4>Transactional Analysis</h4>
+                    <p>Understanding the limiting beliefs and deep-seated, destructive patterns to foster healthier relationships with yourself and others.</p>
+                </div>
+                <div class="grid-item bg-peach-light">
+                    <h4>Psychodynamic Focus</h4>
+                    <p>Providing a safe space to recognize how early life events, childhood trauma, and past impacts shape present relational difficulties.</p>
+                </div>
+                <div class="grid-item bg-peach-light">
+                    <h4>Transpersonal & Spiritual</h4>
+                    <p>Embracing personal growth, the search for meaning, existential exploration, and making sense of profound life experiences.</p>
+                </div>
+                <div class="grid-item bg-pink">
+                    <h4>Humanistic Care</h4>
+                    <p>A place of unconditional acceptance and genuine positive regard, allowing you to explore your authentic self without judgement.</p>
+                </div>
+                <div class="grid-item bg-peach-dark">
+                    <h4>Mindfulness & Presence</h4>
+                    <p>Holding a compassionate, grounded space with my full presence, ensuring we work at a pace that is comfortable and validating for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>TESTIMONIALS</h2>
+            <div class="testimonial-flex">
+                <div class="testimonial-box">
+                    <div class="quote-icon">“</div>
+                    <p>Jackie is a deeply competent and compassionate therapist who consistently manages to find the perfect balance between gently challenging my perspectives and offering genuine understanding. Her insight and empathy have played a huge part in helping me understand and accept myself.</p>
+                    <div class="testimonial-author">Former Client</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="quote-icon">“</div>
+                    <p>Jackie provided a space that was both safe and non-judgemental, allowing me to speak openly and honestly... Her support was instrumental in helping me establish and maintain healthy boundaries — a shift that has significantly enhanced my confidence and overall wellbeing.</p>
+                    <div class="testimonial-author">Former Client</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="quote-icon">“</div>
+                    <p>I am so grateful to be working with Jackie... She holds our sessions with her full presence and an unjudgemental gaze that in itself is healing. Deep seated and destructive patterns are shifting in me because of these sessions, and I am actually relishing the process.</p>
+                    <div class="testimonial-author">Current Client</div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-quote bg-img-3">
+        <div class="parallax-text">
+            "I am not what happened to me,<br>I am what I choose to become."<br>– Carl Jung
+        </div>
+    </div>
+
+    <section class="contact">
+        <div class="container">
+            <h2>LOCATIONS & CONTACT</h2>
+            <div class="contact-content">
+                <div class="contact-details">
+                    <div class="availability-info">
+                        <div>
+                            <strong>Face-to-Face:</strong> London Bridge (Tues).
+                        </div>
+                        <div>
+                            <strong>Available Mon-Thurs PM.</strong> Perfect if you're looking for a therapist across London, Manchester, Birmingham, Tunbridge Wells, Sevenoaks, or beyond.
+                        </div>
+                        <div>
+                            <strong>Fee:</strong> £60 per 50-minute session.
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 10px; font-weight: 500; color: var(--text-dark);">
+                        Reach out to arrange a free, no-obligation informal chat to discuss how we might work together.
+                    </p>
+
+                    <p>Email: jackie@jackiegoldingtherapy.com</p>
+                    <p>Phone: 07850 692458</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea placeholder="How can I help you?"></textarea>
+                    <button type="submit" class="contact-btn">Contact Jackie</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jackie Golding Therapy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
