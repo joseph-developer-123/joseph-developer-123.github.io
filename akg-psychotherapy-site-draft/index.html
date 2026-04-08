@@ -3,8 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Anna Kenny-Ginard - Central London Psychodynamic Psychotherapist. BPC and BACP accredited, offering psychotherapy, counselling, addiction therapy, and trauma treatment in Oxford Circus, King's Cross, and online.">
-    <title>Anna Kenny-Ginard | Psychodynamic Psychotherapist Central London | Addiction & Trauma</title>
+<meta name="description" content="Anna Kenny-Ginard - Central London Psychodynamic Psychotherapist. BPC and BACP accredited, offering psychotherapy, counselling, anxiety treatment, addiction therapy, and trauma treatment in Oxford Circus, King's Cross, and online.">
+    <link rel="canonical" href="https://www.akgpsychotherapy.com/">
+    
+    <meta property="og:title" content="Anna Kenny-Ginard | Psychodynamic Psychotherapist Central London | Addiction & Trauma">
+    <meta property="og:description" content="Anna Kenny-Ginard - Central London Psychodynamic Psychotherapist. BPC and BACP accredited, offering psychotherapy, counselling, anxiety treatment, addiction therapy, and trauma treatment in Oxford Circus, King's Cross, and online.">
+    <meta property="og:url" content="https://www.akgpsychotherapy.com/">
+    <meta property="og:image" content="https://www.akgpsychotherapy.com/anna-portrait-2.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.akgpsychotherapy.com/#person",
+          "name": "Anna Kenny-Ginard",
+          "jobTitle": "Psychodynamic Psychotherapist",
+          "image": "https://www.akgpsychotherapy.com/anna-portrait-2.jpg",
+          "url": "https://www.akgpsychotherapy.com/",
+          "memberOf": [
+            { "@type": "Organization", "name": "British Association of Counsellors and Psychotherapists" },
+            { "@type": "Organization", "name": "British Psychoanalytic Council" }
+          ],
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Birkbeck College, University of London"
+          }
+        },
+        {
+          "@type": ["LocalBusiness", "MedicalClinic"],
+          "@id": "https://www.akgpsychotherapy.com/#business",
+          "name": "Anna Kenny-Ginard Psychotherapy",
+          "image": "https://www.akgpsychotherapy.com/anna-portrait-2.jpg",
+          "url": "https://www.akgpsychotherapy.com/",
+          "telephone": "02038380880",
+          "priceRange": "££",
+          "medicalSpecialty": "Psychotherapy",
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Birkenhead Street",
+              "addressLocality": "London",
+              "postalCode": "WC1H",
+              "addressCountry": "UK"
+            },
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "20 Great Portland Street",
+              "addressLocality": "London",
+              "postalCode": "W1W",
+              "addressCountry": "UK"
+            }
+          ]
+        }
+      ]
+    }
+    </script>    <title>Anna Kenny-Ginard | Psychodynamic Psychotherapist Central London | Addiction & Trauma</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -379,38 +436,7 @@
             border: 1px solid var(--border); 
         }
 
-        details {
-    background: var(--off-white);
-    padding: 1.5rem;
-    border-radius: 2px;
-    border: 1px solid var(--border); 
-    max-width: 800px;
-    margin: 0 auto 4rem auto; /* Changed: Added 4rem margin to the bottom to create space underneath */
-}
-        
-        summary {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 200;
-    color: var(--dark);
-    cursor: pointer;
-    font-size: 1.75rem;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* This ensures both text and '+' are on the same vertical level */
-    gap: 1.5rem; /* Added: Ensures there is always a clear gap between the sentence and the '+' sign */
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-        summary::-webkit-details-marker { display: none; }
-        summary::after { 
-            content: '+'; 
-            font-size: 1.5rem; 
-            color: var(--accent-gold); 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            font-weight: 100;
-        }
-        details[open] summary::after { content: '-'; }
+       
 
         .multi-column-list {
             column-count: 3;
@@ -680,6 +706,9 @@
 
         @media (max-width: 1024px) {
             .locations-grid { grid-template-columns: repeat(2, 1fr); }
+            .break-mobile { 
+        display: inline; 
+    }
         }
 
         /* 1. Update your existing @media (max-width: 1024px) block for the hero section */
@@ -697,6 +726,7 @@
 }
 
         @media (max-width: 900px) {
+            
             .grid-2 { grid-template-columns: 1fr; text-align: center; }
             .location-images-grid { flex-direction: column; }
             .service-diagram { grid-template-columns: 1fr; }
@@ -799,6 +829,9 @@
 }
 
         @media (max-width: 600px) {
+            .multi-column-list {
+        column-count: 2;
+    }
             header { padding: 1rem 20px; } 
             header.scrolled { padding: 1rem 20px; }
             .contact-box { padding: 3rem 1.5rem; }
@@ -871,6 +904,8 @@
     .about-header { grid-column: 1; grid-row: 2; }
     .about-text { grid-column: 1; grid-row: 3; }
 }
+
+
     </style>
 </head>
 <body>
@@ -895,9 +930,9 @@
 
     <section class="hero">
         <h1>
-          ANNA <span class="break-mobile"><br></span>KENNY-GINARD 
-          <span class="sub-title">PSYCHOTHERAPY</span>
-        </h1>        
+  ANNA <span class="break-mobile"><br></span><span style="white-space: nowrap;">KENNY-GINARD</span> 
+  <span class="sub-title">PSYCHOTHERAPY</span>
+</h1>        
 <p>Enter a calm, confidential space where you are invited to slow down, feel supported, and begin to understand yourself more deeply. Together, we can explore the possibility of meaningful, lasting change in your life.</p>        <a href="#about" class="btn-primary">Discover More</a>
         
         <div class="arrow-container">
@@ -1055,7 +1090,6 @@
 </div>
             </div>
         </div>
-    </section>
 
     </section>
 
@@ -1091,7 +1125,7 @@
                 </div>
 
                 <div class="contact-form-wrapper">
-                    <form action="https://formsubmit.co/jn461@cam.ac.uk" method="POST" class="contact-form">
+                    <form action="https://formsubmit.co/anna@akgpsychotherapy.com" method="POST" class="contact-form">
                         <input type="hidden" name="_subject" value="New Therapy Consultation Request">
                         <input type="hidden" name="_captcha" value="false">
                         
