@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Jackie Golding Therapy. Information on GDPR, data protection, and client confidentiality.">
+    <title>Privacy Policy | Jackie Golding Therapy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* SHARED SITE VARIABLES & CSS */
+        :root { --bg-main: #fdfcfb; --bg-quote: #faebe2; --box-peach-dark: #f8cbad; --box-pink: #f4d0d6; --box-peach-light: #fce2ce; --text-dark: #333333; --text-gray: #666666; --font-main: 'Urbanist', sans-serif; --max-width: 1100px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text-dark); background-color: var(--bg-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { color: var(--text-dark); }
+        h2 { font-size: 1.6rem; font-weight: 400; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; text-align: center; }
+        
+        /* HEADER */
+        header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 0; z-index: 1000; background-color: rgba(253, 252, 251, 0.95); box-shadow: 0 2px 15px rgba(0,0,0,0.05); backdrop-filter: blur(5px); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; width: 100%; gap: 20px;}
+        .nav-logo { font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dark); z-index: 1002; white-space: nowrap; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; transition: all 0.3s ease;}
+        .nav-links a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dark); font-weight: 600; transition: color 0.3s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--box-peach-dark) !important; }
+        
+        .nav-actions { display: flex; align-items: center; gap: 15px; z-index: 1002; }
+        .btn-book { background-color: var(--box-peach-dark); color: #fff !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap;}
+        .btn-book:hover { background-color: var(--text-dark); transform: translateY(-1px); }
 
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--text-dark); transition: 0.3s; }
+
+        /* PAGE CONTENT */
+        /* Updated Page Header for perfect vertical centering */
+        .page-header { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 130px 20px 70px; background-color: var(--bg-quote); text-align: center; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: 2px; color: var(--text-dark); margin: 0; }
+        
+        .section-pad { padding: 80px 0; }
+        .text-content { max-width: 800px; margin: 0 auto; background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .text-content p { color: var(--text-gray); margin-bottom: 20px; font-size: 1.05rem; }
+        .text-content a { color: var(--box-peach-dark); text-decoration: underline; }
+        
+        footer { background-color: var(--bg-main); color: var(--text-gray); text-align: center; padding: 30px 20px; font-size: 0.85rem; border-top: 1px solid rgba(0,0,0,0.05); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1050px) {
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 250px; background-color: var(--bg-main); flex-direction: column; justify-content: center; align-items: center; transition: right 0.3s ease; box-shadow: -2px 0 15px rgba(0,0,0,0.1); z-index: 1001; gap: 40px; }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
+            .text-content { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="solid-header">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Jackie Golding</a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/testimonials/">Testimonials</a>
+                <a href="/fees/">Fees & Availability</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="/contact/" class="btn-book">Book Now</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>PRIVACY POLICY</h1>
+        </div>
+    </div>
+
+    <section class="section-pad">
+        <div class="container">
+            <div class="text-content">
+                <h2>GDPR</h2>
+                <p>According to the General Data Protection Regulation (GDPR) legislation I am obliged to inform you regarding personal information that I obtain, store & process/share which may be used in our work and to plan therapy sessions.</p>
+                <p>I collect essential data only from you e.g. name, gender, sexuality, date of birth, address, next of kin details, emergency contact, email & information that will be relevant to our work such as GP’s details, medical history, mental health treatment, therapy history, session notes & payment information. All of this information remains confidential & would not be shared with anyone except if I am legally required to do so or after seeking your permission.</p>
+                <p>Although I do not store your contact number in my phone, any messages/call history is retained. I store your contact number on my laptop and both my phone and laptop are password protected. Email correspondence is kept on my email account which I use to set up our first meeting, notify you of payment details and/or confirm future sessions. My email account and laptop are both password protected. Electronic records such as your Client Agreement are also stored on my laptop which is password protected.</p>
+                <p>When we have finished working together, all emails etc will be deleted after one month. Electronic records will be retained for seven years after the last session in accordance with the requirements of my insurance provider. Following this, all personal information will be destroyed.</p>
+
+                <h2 style="margin-top: 50px;">Confidentiality</h2>
+                <p>In accordance with the British Association for Counselling & Psychotherapy ethical framework requirements (<a href="https://www.bacp.co.uk/events-and-resources/ethics-and-standards/ethical-framework-for-the-counselling-professions/" target="_blank">link to framework</a>), I receive professional supervision in my work. Your identity remains confidential throughout these sessions and my supervisor is also bound by a confidentiality agreement.</p>
+                <p>In exceptional circumstances I might find myself in a position where I feel it is necessary to break our confidentiality agreement. In such circumstances I follow the Ethical Framework of the British Association of Counselling and Psychotherapy. These extreme circumstances concern any situation where either yourself or a close relative or friend might be in serious and immediate danger (this includes physical and sexual abuse of children and any serious criminal act). Under those circumstances, ‘where possible’ I will discuss my concerns with you and keep the breach of confidentiality to a minimum. I am also bound by any legal requests (formally made) to break confidentiality.</p>
+                <p>As part of my duty of care to all clients, in the event of my death or sudden incapacity to work I have a clinical will in place. This is a password protected document that my clinical executor has access to. This means that should the situation arise, you will be contacted by my clinical executor, informed of the situation and appropriate support (e.g. an alternative therapist) can be provided for you.</p>
+                <p>My practice is registered with the Information Commissioners Office. Data Protection Registration Certificate reference ZC111541.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jackie Golding Therapy. All rights reserved. | <a href="/privacy-policy/" style="text-decoration: underline;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    </script>
+</body>
+</html>
