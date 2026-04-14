@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jackie Golding is a BACP registered counsellor. Find out how she works, what to expect from therapy, and her areas of expertise.">
+    <title>About Jackie Golding & How Therapy Works | Tonbridge & London</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* SHARED SITE VARIABLES & CSS */
+        :root { --bg-main: #fdfcfb; --bg-quote: #faebe2; --box-peach-dark: #f8cbad; --box-pink: #f4d0d6; --box-peach-light: #fce2ce; --text-dark: #333333; --text-gray: #666666; --font-main: 'Urbanist', sans-serif; --max-width: 1100px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text-dark); background-color: var(--bg-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { color: var(--text-dark); }
+        h2 { text-align: center; font-size: 1.6rem; font-weight: 400; letter-spacing: 2px; margin-bottom: 40px; text-transform: uppercase; }
+        
+        /* HEADER */
+        header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 0; z-index: 1000; background-color: rgba(253, 252, 251, 0.95); box-shadow: 0 2px 15px rgba(0,0,0,0.05); backdrop-filter: blur(5px); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; width: 100%; gap: 20px; }
+        .nav-logo { font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dark); z-index: 1002; white-space: nowrap; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; transition: all 0.3s ease; }
+        .nav-links a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dark); font-weight: 600; transition: color 0.3s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--box-peach-dark) !important; }
+        
+        .nav-actions { display: flex; align-items: center; gap: 15px; z-index: 1002; }
+        .btn-book { background-color: var(--box-peach-dark); color: #fff !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap;}
+        .btn-book:hover { background-color: var(--text-dark); transform: translateY(-1px); }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--text-dark); transition: 0.3s; }
+
+        /* PAGE CONTENT */
+.page-header { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 130px 20px 70px; background-color: var(--bg-quote); text-align: center; }
+.page-header h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: 2px; color: var(--text-dark); margin: 0; }        .section-pad { padding: 80px 0; }
+        
+        .about-flex { display: flex; align-items: center; justify-content: center; gap: 80px; margin-bottom: 60px; }
+        .about-image { width: 300px; height: 300px; border-radius: 20px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .about-text { max-width: 600px; }
+        .about-text p { margin-bottom: 15px; color: var(--text-gray); }
+
+        .text-content { max-width: 800px; margin: 0 auto 60px; }
+        .text-content p { color: var(--text-gray); margin-bottom: 15px; font-size: 1.05rem; }
+
+        .conditions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 900px; margin: 0 auto 60px; }
+        .condition-tag { background: var(--bg-main); border: 1px solid #eee; padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; color: var(--text-gray); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+
+        .qual-list { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .qual-list ul { list-style: none; }
+        .qual-list li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-gray); font-size: 0.95rem; }
+        .qual-list li::before { content: '-'; position: absolute; left: 0; color: var(--box-peach-dark); }
+        
+        .parallax-quote { background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3') center/cover fixed; padding: 120px 20px; text-align: center; position: relative; }
+        .parallax-quote::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+        .parallax-text { position: relative; color: #fff; font-size: 1.4rem; font-style: italic; max-width: 800px; margin: 0 auto; margin-bottom: 20px;}
+        
+        .cta-strip { background-color: var(--box-pink); padding: 60px 20px; text-align: center; margin-top: 60px; }
+        .btn-chat { background-color: #ffffff; color: var(--text-gray); padding: 14px 35px; border: 1px solid #eee; font-size: 0.85rem; border-radius: 30px; display: inline-block; margin-top: 15px; font-weight: 600; text-transform: uppercase;}
+
+        footer { background-color: var(--bg-main); color: var(--text-gray); text-align: center; padding: 30px 20px; font-size: 0.85rem; border-top: 1px solid rgba(0,0,0,0.05); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1050px) {
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 250px; background-color: var(--bg-main); flex-direction: column; justify-content: center; align-items: center; transition: right 0.3s ease; box-shadow: -2px 0 15px rgba(0,0,0,0.1); z-index: 1001; gap: 40px; }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
+            .about-flex { flex-direction: column; gap: 40px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="solid-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Jackie Golding</a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="fees.html">Fees & Availability</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-book">Book Now</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>ABOUT & HOW I WORK</h1>
+        </div>
+    </div>
+
+    <section class="section-pad">
+        <div class="container">
+            <div class="about-flex">
+                <img src="jackie.JPG" alt="Jackie Golding, BACP registered therapist in Tonbridge" class="about-image">
+                <div class="about-text">
+                    <p style="font-weight: bold; color: var(--text-dark);">About me</p>
+                    <p>My path began many years ago in the corporate world as an account manager so I have lived experience of the stresses that come with office life. After feeling unfulfilled for some time, I felt the pull towards a vocation where I could be in service to others.</p>
+                    <p>After completing intensive training at postgraduate level, I now run a therapy practice helping people explore and integrate the challenges they are dealing with on their own journey. As a therapist I am passionate about professional development and regularly attend further training.</p>
+                    <p>I am currently working towards the UKCP qualification of Psychotherapeutic Counsellor which I will complete in 2026. On a personal level I have also had many years of individual therapy so I fully appreciate how it feels to be sitting in the client’s chair.</p>
+                </div>
+            </div>
+
+            <div class="text-content">
+                <h2>WHAT HAPPENS NEXT</h2>
+                <p>After you reach out to me, we will arrange a convenient time to have an initial chat. This is free of charge and can be either on the phone or a video call – whichever you prefer.</p>
+                <p>I will ask about your reasons for seeking therapy and what you are looking for from me. If for some reason I am unable to help then I will do my best to suggest an alternative therapist/organisation.</p>
+                <p>Our first session is an opportunity for us both to ask questions and look at your hopes and goals for our work. It’s a chance for us to get a feel for whether we would be a good match. If we decide to proceed, we would normally have a further 6 sessions and then review how our work is going.</p>
+                <p>I believe in the client-therapist relationship as the primary container for change and as with any relationship, this takes a little time and trust to build.</p>
+            </div>
+
+            <div class="text-content">
+                <h2>HOW I WORK</h2>
+                <p>Primarily I work in the here and now, looking at your thoughts and feelings as well as retrospectively to consider where patterns may have originated, such as in childhood and family dynamics.</p>
+                <p>Every client is an individual with a unique history and I have found that a flexible approach serves and honours our needs best. Having trained in various modalities I can draw on a range of skills to offer the most beneficial support.</p>
+                <p>Paramount to all of this is that you are fully accepted as you are with kindness, understanding and empathy.</p>
+            </div>
+
+            <h2>AREAS I WORK WITH</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-gray);">I work with a diverse range of people from all walks of life and have helped people with:</p>
+            <div class="conditions-grid">
+                <div class="condition-tag">Anxiety and intrusive thoughts</div>
+                <div class="condition-tag">Depression and general low mood</div>
+                <div class="condition-tag">Emotional dysregulation disorder</div>
+                <div class="condition-tag">Low self-esteem & shame</div>
+                <div class="condition-tag">Codependency and controlling relationships</div>
+                <div class="condition-tag">Sexual abuse and violence</div>
+                <div class="condition-tag">Dysfunctional family dynamics</div>
+                <div class="condition-tag">Feeling stuck and trapped in dysfunctional patterns</div>
+                <div class="condition-tag">Addiction & compulsive behaviour</div>
+                <div class="condition-tag">ADHD & Autism</div>
+                <div class="condition-tag">Childhood trauma</div>
+                <div class="condition-tag">Eating problems</div>
+                <div class="condition-tag">Menstrual/menopause problems</div>
+                <div class="condition-tag">Work-related stress</div>
+                <div class="condition-tag">Loss of meaning & purpose in life</div>
+                <div class="condition-tag">Suicidal ideation</div>
+            </div>
+
+            <h2>QUALIFICATIONS & MEMBERSHIPS</h2>
+            <div class="qual-list">
+                <p style="margin-bottom: 20px; color: var(--text-gray);">I am a registered member of the British Association of Counselling & Psychotherapy (MBACP) and I hold the following qualifications:</p>
+                <ul>
+                    <li>Postgraduate Diploma in Psychosynthesis Counselling. Level 7. BACP accredited.</li>
+                    <li>Graduate Certificate in Psychosynthesis Foundations. BACP accredited.</li>
+                    <li>Certificate in Psychodynamic Counselling. BACP accredited.</li>
+                    <li>Transactional Analysis 101. UKATA certified.</li>
+                    <li>Certificate in Humanistic Counselling Concepts. BACP accredited.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-quote">
+        <div class="parallax-text">
+            “And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom.”<br>– Anaïs Nin
+        </div>
+        <div class="parallax-text" style="margin-top: 40px; font-size: 1.2rem;">
+            “Every person bears within himself his underworld: it is merely a question whether he has the underworld or it has him.”<br>– Wilhelm Stekel
+        </div>
+    </div>
+
+    <section class="cta-strip">
+        <div class="container">
+            <h2>READY TO TAKE THE FIRST STEP?</h2>
+            <a href="contact.html" class="btn-chat">Arrange your free chat</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jackie Golding Therapy. All rights reserved. | <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    </script>
+</body>
+</html>
