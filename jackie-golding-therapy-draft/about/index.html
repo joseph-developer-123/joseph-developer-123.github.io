@@ -90,6 +90,18 @@
             .nav-links.active { right: 0; }
             .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
             .about-flex { flex-direction: column; gap: 40px; text-align: left; }
+            @media (max-width: 1050px) {
+    .about-text p:first-of-type { 
+        text-align: center !important; 
+        font-size: 1.6rem !important; 
+        font-weight: 300 !important;       
+        letter-spacing: 2px !important; 
+        text-transform: uppercase !important;
+        margin-bottom: 40px !important;
+        color: var(--text-dark) !important;
+        font-family: var(--font-main) !important;
+    }
+}
         }
 
         @media (max-width: 600px) {
