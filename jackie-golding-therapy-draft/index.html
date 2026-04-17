@@ -88,7 +88,19 @@
         .text-center { text-align: center; }
         .welcome p { max-width: 700px; margin: 0 auto 15px auto; font-size: 1.05rem; color: var(--text-gray); line-height: 1.8; }
         
-        .home-profile-img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 6px solid var(--bg-quote); margin: 0 auto 30px; display: block; }
+        .home-profile-img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 6px solid var(--bg-quote); margin: 0 auto 30px; display: block;
+                          display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Gives the text room to breathe so it doesn't touch the circle edges */
+    box-sizing: border-box; /* Ensures padding doesn't stretch your circle */
+    
+    /* Optional: Style the alt text to match your site */
+    font-family: var(--font-main);
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.4;}
 
         .conditions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 900px; margin: 40px auto 0; }
         .condition-tag { background: #fff; border: 1px solid #eee; padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; color: var(--text-gray); transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.02); white-space: nowrap; }
