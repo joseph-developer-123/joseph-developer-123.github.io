@@ -109,10 +109,66 @@
         .bg-img-1 { background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
 
         /* TESTIMONIALS & CTA */
+        /* TESTIMONIALS & CTA */
         .testimonial-flex { display: flex; gap: 20px; max-width: 1100px; margin: 0 auto; }
-        .testimonial-box { background-color: #ffffff; padding: 40px 30px; flex: 1; position: relative; border: 1px solid #f0f0f0; border-radius: 20px; }
-        .quote-icon { font-family: Georgia, serif; font-size: 4rem; color: var(--box-pink); line-height: 0; position: absolute; top: 40px; left: 20px; }
-        .testimonial-box p { font-size: 0.9rem; margin-top: 15px; color: var(--text-gray); font-style: italic; }
+        
+        .testimonial-box { 
+            background-color: #ffffff; 
+            padding: 40px 35px; 
+            flex: 1; 
+            position: relative; 
+            border: 1px solid rgba(244, 208, 214, 0.3); 
+            border-radius: 24px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; 
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .testimonial-box:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            border-color: transparent;
+        }
+
+        .quote-icon { 
+            font-family: Georgia, serif; 
+            font-size: 140px; 
+            color: rgba(244, 208, 214, 0.6); 
+            line-height: 1; 
+            position: absolute; 
+            top: -10px; 
+            right: 15px; 
+            z-index: -1;
+            user-select: none;
+        }
+        
+        .testimonial-box p { 
+            font-size: 1.05rem; 
+            color: var(--text-gray); 
+            line-height: 1.8; 
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .testimonial-author { 
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 25px; 
+            padding: 8px 18px;
+            background-color: #ffffff;
+            border: 1px solid #d17547;
+            border-radius: 30px;
+            font-weight: 700; 
+            font-size: 0.8rem; 
+            color: #d17547; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: all 0.3s ease;
+        }
+
         .cta-strip { background-color: var(--box-pink); padding: 60px 20px; text-align: center; }
         .cta-strip p { max-width: 600px; margin: 0 auto 20px; font-size: 1.1rem; color: var(--text-dark); }
         
@@ -222,14 +278,18 @@
             <div class="testimonial-flex">
                 <div class="testimonial-box">
                     <div class="quote-icon">“</div>
-                                        <p>My journey through therapy, accompanied by Jacky has been positively life-changing. I always felt at ease and, more importantly, listened to and supported by her. I will never be thankful enough for the help she brings me</p>
-                    <div style="margin-top: 15px; font-weight: 600; font-size: 0.85rem; color: var(--box-peach-dark);">Current Client</div>
+                    <p>My journey through therapy, accompanied by Jacky has been positively life-changing. I always felt at ease and, more importantly, listened to and supported by her. I will never be thankful enough for the help she brings me.</p>
+                    <div class="testimonial-author">Current Client</div>
                 </div>
                 <div class="testimonial-box">
                     <div class="quote-icon">“</div>
                     <p>I am so grateful to be working with Jackie. I have had bits of counselling before but it’s never worked out for me. She has a wealth of knowledge and it’s clear that it’s applied knowledge. She holds our sessions with her full presence and an unjudgemental gaze that in itself is healing.</p>                    
-                    <div style="margin-top: 15px; font-weight: 600; font-size: 0.85rem; color: var(--box-peach-dark);">Current Client</div>
+                    <div class="testimonial-author">Current Client</div>
                 </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="https://alethara.com/jackie-golding-therapy-draft/testimonials/" style="color: var(--text-gray); font-weight: 600; border-bottom: 1px solid var(--box-peach-dark);">Read more client testimonials →</a>
             </div>
         </div>
     </section>
