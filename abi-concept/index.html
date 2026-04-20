@@ -373,8 +373,8 @@
             min-height: 110vh;
             background-color: var(--color-bg-dark);
             background-image: 
-                linear-gradient(to right, rgba(240, 237, 230, 0.95) 0%, rgba(240, 237, 230, 0.7) 100%),
-                url('https://images.unsplash.com/photo-1587585642283-7c85246dc2f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+                linear-gradient(to right, rgba(240, 237, 230, 0.8) 0%, rgba(240, 237, 230, 0.2) 100%),
+                url('abilecturing2.jpg'); /* Switched to using the image directly as the background */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -394,23 +394,9 @@
         }
 
         .hero-content {
-            width: 55%;
+            width: 60%;
             color: var(--color-text-dark);
             padding-right: 50px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(58, 90, 128, 0.1);
-            border: 1px solid rgba(58, 90, 128, 0.3);
-            color: var(--color-gold);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            border-radius: 50px;
-            margin-bottom: 30px;
         }
 
         .hero-content h1 {
@@ -433,14 +419,6 @@
             margin-bottom: 45px;
             line-height: 1.7;
             font-weight: 500;
-        }
-
-        .hero-graphic {
-            width: 45%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         /* ==========================================================================
@@ -528,38 +506,6 @@
             filter: grayscale(10%) contrast(1.05); /* Softened filter */
         }
 
-        .about-experience-badge {
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            background: var(--color-gold);
-            color: var(--color-white); /* White text for contrast on blue */
-            padding: 40px;
-            border-radius: 50%;
-            width: 160px;
-            height: 160px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(10, 25, 47, 0.1);
-        }
-
-        .badge-num {
-            font-size: 36px;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .badge-text {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
         .about-content h2 {
             font-size: 48px;
             color: var(--color-text-dark);
@@ -580,24 +526,6 @@
             margin-bottom: 20px;
             line-height: 1.8;
             font-weight: 500;
-        }
-        
-        .credentials-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 40px;
-        }
-        
-        .credential-tag {
-            background: rgba(10, 25, 47, 0.05);
-            border: 1px solid rgba(10, 25, 47, 0.1);
-            color: var(--color-text-dark);
-            padding: 10px 20px;
-            border-radius: 2px;
-            font-size: 13px;
-            letter-spacing: 1px;
-            font-weight: 600;
         }
 
         /* ==========================================================================
@@ -759,25 +687,15 @@
         .checklist {
             margin-top: 30px;
             margin-bottom: 40px;
+            padding-left: 20px;
+            list-style-type: disc; /* Replaced ticks with standard bullets */
         }
 
         .checklist li {
-            position: relative;
-            padding-left: 30px;
             margin-bottom: 15px;
             font-size: 16px;
             color: var(--color-text-dark);
             font-weight: 500;
-        }
-
-        .checklist li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--color-gold);
-            font-weight: bold;
-            font-size: 18px;
         }
 
         /* ==========================================================================
@@ -1159,6 +1077,7 @@
         @media (max-width: 768px) {
             :root { --section-padding: var(--section-padding-mobile); }
             .hero-content h1 { font-size: 42px; }
+            .hero-content { width: 100%; padding-right: 0; }
             .cards-container { grid-template-columns: 1fr; }
             .logos-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
@@ -1197,13 +1116,6 @@
                         <a href="#specialisms" class="btn btn-outline" style="border-color: rgba(10, 25, 47, 0.3); color: var(--color-text-dark);">Explore Specialisms</a>
                     </div>
                 </div>
-                
-                <div class="hero-graphic reveal" style="transition-delay: 0.2s;">
-                    <div style="position: relative; width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);">
-                        <img src="abilecturing.jpg" alt="Dr Abi Lecturing" style="width: 100%; display: block;">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(240, 237, 230, 0.35);"></div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1211,15 +1123,12 @@
             <div class="container">
                 <div class="awards-grid reveal">
                     <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-3 3h6l-3-3z"/><path d="M12 2v13"/></svg></div>
                         <div class="award-text">BHF Professional Hero <span>British Heart Foundation</span></div>
                     </div>
                     <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
                         <div class="award-text">NIHR Best Research <span>Clinical Excellence</span></div>
                     </div>
                     <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
                         <div class="award-text">Rare Disease Fellow <span>NIHR Recognition</span></div>
                     </div>
                 </div>
@@ -1231,15 +1140,11 @@
                 <div class="about-grid">
                     <div class="about-image-container reveal">
                         <img src="abi.jpg" alt="Dr. Al-Hussaini in clinic" class="about-image">
-                        <div class="about-experience-badge">
-                            <span class="badge-num">15+</span>
-                            <span class="badge-text">Years of<br>Excellence</span>
-                        </div>
                     </div>
                     
                     <div class="about-content reveal">
                         <span class="section-subtitle">Biography</span>
-                        <h2>Dr. Abtehale (Abi) Al-Hussaini</h2>
+                        <h2>Dr Abi Al-Hussaini</h2>
                         <h3>MBBS BSc MRCP PhD</h3>
                         <p>Dr. Al-Hussaini is a Consultant Interventional and General Cardiologist with dual accreditation in General Medicine. She completed her medical studies at Imperial College London before undertaking prestigious interventional fellowships.</p>
                         <p>Her dedication to SCAD began when, as a final year Specialist Registrar, she treated a 32-year-old woman suffering from a post-partum SCAD. Witnessing the systemic lack of understanding and prolonged hospitalization this patient faced inspired Dr. Al-Hussaini to dedicate her career to this specialist niche.</p>
@@ -1249,12 +1154,9 @@
                 
                 <div class="qualifications-wrapper reveal" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(10, 25, 47, 0.1);">
                     <h3 style="font-size: 20px; color: var(--color-gold); margin-bottom: 20px; font-weight: 600;">Qualifications & Affiliations</h3>
-                    <div class="credentials-list" style="margin-top: 0; justify-content: flex-start;">
-                        <span class="credential-tag">Chelsea and Westminster Hospital</span>
-                        <span class="credential-tag">Royal Brompton Hospital</span>
-                        <span class="credential-tag">Imperial College London</span>
-                        <span class="credential-tag">LSE Alumni</span>
-                    </div>
+                    <p style="font-size: 16px; color: var(--color-text-gray); line-height: 1.8;">
+                        Dr. Al-Hussaini is proud to hold ongoing affiliations and practice privileges at both Chelsea and Westminster Hospital and the Royal Brompton Hospital. She is also a distinguished alumna of Imperial College London and the London School of Economics (LSE).
+                    </p>
                 </div>
             </div>
         </section>
@@ -1269,7 +1171,7 @@
 
                 <div class="cards-container reveal">
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5fe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cardiology" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cardiology" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
                         <h4>SCAD</h4>
                         <p class="subtext">Spontaneous Coronary Artery Dissection</p>
                         <p class="maintext">Leading expertise in identifying SCAD tears versus traditional heart attacks, shaping global diagnosis and management. Dr. Al-Hussaini is instrumental in the UK SCAD registry and formulating international guidelines.</p>
@@ -1277,7 +1179,7 @@
                     </div>
 
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1584982751601-97d8cb0f6669?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fibromuscular Dysplasia" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
+                        <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fibromuscular Dysplasia" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
                         <h4>FMD</h4>
                         <p class="subtext">Fibromuscular Dysplasia</p>
                         <p class="maintext">Advanced screening and comprehensive care for this rare blood vessel disorder, frequently linked with SCAD and requiring expert oversight.</p>
@@ -1307,7 +1209,7 @@
             <div class="container">
                 <div class="split-grid">
                     <div class="image-wrapper reveal">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cardiology Diagnostic Equipment" class="split-image">
+                        <img src="abi_talking2.jpg" alt="Cardiology Consultation" class="split-image">
                     </div>
                     
                     <div class="split-text reveal">
