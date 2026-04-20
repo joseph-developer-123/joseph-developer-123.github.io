@@ -374,7 +374,7 @@
             background-color: var(--color-bg-dark);
             background-image: 
                 linear-gradient(to right, rgba(240, 237, 230, 0.8) 0%, rgba(240, 237, 230, 0.2) 100%),
-                url('abilecturing2.jpg'); /* Switched to using the image directly as the background */
+                url('abilecturing3.png'); /* Switched to using the image directly as the background */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -434,16 +434,15 @@
         }
 
         .awards-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            align-items: start;
         }
 
         .award-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
             color: var(--color-white);
         }
@@ -456,6 +455,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .award-icon svg {
@@ -465,19 +465,21 @@
         }
 
         .award-text {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             letter-spacing: 0.5px;
             line-height: 1.3;
         }
         
         .award-text span {
             display: block;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+            margin-top: 6px;
+            line-height: 1.4;
         }
 
         /* ==========================================================================
@@ -557,7 +559,7 @@
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             position: relative;
             z-index: 1;
@@ -763,61 +765,6 @@
 
         .accordion-content p {
             padding-top: 20px;
-        }
-
-        /* ==========================================================================
-           11. PRESTIGE LOGOS & INSTITUTIONS
-           ========================================================================== */
-        .institutions-section {
-            padding: 80px 0;
-            background-color: var(--color-white);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .logos-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 40px;
-            align-items: center;
-            justify-items: center;
-        }
-
-        .logo-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.5;
-            filter: grayscale(100%) brightness(0.6);
-            transition: var(--transition-smooth);
-            text-align: center;
-        }
-
-        .logo-item:hover {
-            opacity: 1;
-            filter: grayscale(0%) brightness(1);
-            transform: translateY(-5px);
-        }
-
-        .logo-item svg {
-            height: 45px;
-            margin-bottom: 15px;
-            color: var(--color-gold);
-        }
-
-        .logo-text-large {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--color-text-dark);
-            line-height: 1.2;
-        }
-
-        .logo-text-small {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--color-text-dark);
-            text-transform: uppercase;
         }
 
         /* ==========================================================================
@@ -1070,7 +1017,7 @@
             .split-grid, .about-grid { grid-template-columns: 1fr; gap: 50px; }
             .split-image { height: 500px; }
             .aio-grid { grid-template-columns: 1fr; }
-            .logos-grid { grid-template-columns: repeat(3, 1fr); }
+            .awards-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
@@ -1079,7 +1026,6 @@
             .hero-content h1 { font-size: 42px; }
             .hero-content { width: 100%; padding-right: 0; }
             .cards-container { grid-template-columns: 1fr; }
-            .logos-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-brand p { margin: 0 auto; }
             .booking-form-container { padding: 40px 30px; }
@@ -1110,7 +1056,7 @@
             <div class="container hero-container">
                 <div class="hero-content reveal">
                     <h1>Expert Care for SCAD & FMD.</h1>
-                    <p>One of the world's very few recognized experts in SCAD and FMD. For patients who have been searching for answers, find the clarity and specialized care you deserve.</p>
+                    <p>One of the world's very few recognized experts in SCAD and FMD. For patients who have been searching for answers, find the clarity and specialized care you deserve. Consultations available in English, French, Persian, and Arabic.</p>
                     <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-start;">
                         <a href="#booking" class="btn btn-gold">Secure Consultation</a>
                         <a href="#specialisms" class="btn btn-outline" style="border-color: rgba(10, 25, 47, 0.3); color: var(--color-text-dark);">Explore Specialisms</a>
@@ -1123,13 +1069,16 @@
             <div class="container">
                 <div class="awards-grid reveal">
                     <div class="award-item">
-                        <div class="award-text">BHF Professional Hero <span>British Heart Foundation</span></div>
+                        
+                        <div class="award-text">BHF Professional Hero <span>Awarded by the British Heart Foundation for transforming patient care and fighting for rare disease recognition.</span></div>
                     </div>
                     <div class="award-item">
-                        <div class="award-text">NIHR Best Research <span>Clinical Excellence</span></div>
+                        
+                        <div class="award-text">NIHR Best Research <span>Awarded for clinical excellence and translating research into life-saving national protocols.</span></div>
                     </div>
                     <div class="award-item">
-                        <div class="award-text">Rare Disease Fellow <span>NIHR Recognition</span></div>
+                        
+                        <div class="award-text">Rare Disease Fellow <span>NIHR Recognition for dedicated clinical expertise in overlooked and rare coronary conditions.</span></div>
                     </div>
                 </div>
             </div>
@@ -1161,6 +1110,27 @@
             </div>
         </section>
 
+        <section class="research-section" style="padding: 80px 0; background-color: var(--color-white); border-top: 1px solid var(--color-border);">
+            <div class="container reveal">
+                <span class="section-subtitle">Clinical Leadership & Academia</span>
+                <h2 style="font-size: 42px; margin-bottom: 40px; letter-spacing: -1px;">Setting the Global Standard.</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div style="padding-right: 20px;">
+                        <h4 style="font-size: 18px; color: var(--color-gold); margin-bottom: 12px;">UK SCAD Registry Lead</h4>
+                        <p style="font-size: 15px; color: var(--color-text-gray);">Instrumental in leading the UK SCAD registry and phenotyping study, directly shaping how this rare condition is tracked, understood, and treated nationwide.</p>
+                    </div>
+                    <div style="padding-right: 20px;">
+                        <h4 style="font-size: 18px; color: var(--color-gold); margin-bottom: 12px;">International Guidelines Formulation</h4>
+                        <p style="font-size: 15px; color: var(--color-text-gray);">Contributes to the pan-European registry and collaborates heavily with international partners to formulate the definitive clinical guidelines for SCAD management.</p>
+                    </div>
+                    <div style="padding-right: 20px;">
+                        <h4 style="font-size: 18px; color: var(--color-gold); margin-bottom: 12px;">Translational PhD Research</h4>
+                        <p style="font-size: 15px; color: var(--color-text-gray);">Dedicated years to PhD-themed research backed by the NIHR, translating raw academic discovery regarding rare coronary conditions into actionable, life-saving patient care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="services-section" id="specialisms">
             <div class="container">
                 <div class="section-header reveal">
@@ -1187,14 +1157,6 @@
                     </div>
 
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="HIV Cardiology" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
-                        <h4>HIV Cardiology</h4>
-                        <p class="subtext">Unique Specialist Clinic</p>
-                        <p class="maintext">Running a unique specialist clinic and research portfolio in London dedicated to the intersection of HIV and cardiovascular disease.</p>
-                        <a href="#booking" class="btn btn-outline" style="padding: 10px 20px; font-size: 11px; margin-top: 20px; display: inline-block;">See more</a>
-                    </div>
-
-                    <div class="card">
                         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Women's Heart Health" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 20px; border-radius: 4px;">
                         <h4>Women's Heart Health</h4>
                         <p class="subtext">Gender-Specific Cardiology</p>
@@ -1215,13 +1177,13 @@
                     <div class="split-text reveal">
                         <span class="section-subtitle">A Systemic Gap</span>
                         <h2>Why Women's Heart Disease is Different.</h2>
-                        <p>Historically, cardiovascular research and diagnostic criteria were based predominantly on male cohorts. As a result, women presenting with cardiac events—especially rare ones like SCAD—are routinely misdiagnosed.</p>
+                        <p>Historically, cardiovascular research and diagnostic criteria were based predominantly on male cohorts. As a result, women presenting with cardiac events - especially rare ones like SCAD - are routinely misdiagnosed.</p>
                         <p><strong>You are not just having anxiety.</strong> Dr. Al-Hussaini understands the distinct pathophysiology of female heart disease, including microvascular dysfunction and hormone-related coronary events.</p>
                         
                         <ul class="checklist">
                             <li>Recognizing atypical presentation of chest pain</li>
                             <li>Diagnostic protocols specific to female arterial anatomy</li>
-                            <li>Post-partum cardiac emergency specialization</li>
+                            <li>Post-partum cardiac emergency specialisation</li>
                             <li>Hormonal transition (menopause) cardiac risk assessment</li>
                         </ul>
                         
@@ -1250,7 +1212,7 @@
                                 </div>
                                 <div class="accordion-content">
                                     <p>SCAD is a rare, emergency condition that occurs when a tear forms in a blood vessel in the heart. Unlike typical heart attacks caused by plaque buildup, SCAD is a structural tear. It disproportionately affects women, particularly those who are pregnant, post-partum, or experiencing hormonal shifts.</p>
-                                    <p>Because traditional heart disease risk factors (like high cholesterol or obesity) are often absent, patients presenting to A&E with SCAD are frequently misdiagnosed with anxiety. Dr. Al-Hussaini's specialized diagnostic protocol ensures rapid, accurate identification and tailored management.</p>
+                                    <p>Because traditional heart disease risk factors (like high cholesterol or obesity) are often absent, patients presenting to A&E with SCAD are frequently misdiagnosed with anxiety. Dr. Al-Hussaini's specialised diagnostic protocol ensures rapid, accurate identification and tailored management.</p>
                                 </div>
                             </div>
                             
@@ -1264,44 +1226,7 @@
                                     <p>Dr. Al-Hussaini utilizes advanced vascular imaging to detect FMD, ensuring a holistic view of the patient's arterial health to prevent future cardiovascular events.</p>
                                 </div>
                             </div>
-                            
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    Why specialized care for HIV and Cardiovascular Disease?
-                                    <span class="accordion-icon">+</span>
-                                </div>
-                                <div class="accordion-content">
-                                    <p>People living with HIV face a uniquely elevated risk of cardiovascular disease, often due to chronic inflammation and the metabolic side effects of certain antiretroviral therapies. Managing heart health in this population requires a nuanced understanding of both virology and cardiology.</p>
-                                    <p>Dr. Al-Hussaini runs a dedicated clinic in London specifically for this intersection, providing tailored risk assessments and preventative strategies that general cardiologists may overlook.</p>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="institutions-section">
-            <div class="container">
-                <div class="logos-grid reveal">
-                    <div class="logo-item">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 5 L35 15 L35 25 L20 35 L5 25 L5 15 Z"></path><circle cx="20" cy="20" r="5"></circle></svg>
-                        <span class="logo-text-small">Royal Brompton<br>Hospital</span>
-                    </div>
-                    <div class="logo-item">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="10" y="10" width="20" height="20"></rect><line x1="10" y1="20" x2="30" y2="20"></line><line x1="20" y1="10" x2="20" y2="30"></line></svg>
-                        <span class="logo-text-small">Chelsea &<br>Westminster</span>
-                    </div>
-                    <div class="logo-item">
-                        <span class="logo-text-large" style="font-family: serif; font-size: 24px;">مستشفى لندن</span>
-                        <span class="logo-text-small" style="margin-top: 10px;">Multilingual Care</span>
-                    </div>
-                    <div class="logo-item">
-                        <span class="logo-text-large" style="line-height: 1.1;">Imperial College<br>London</span>
-                    </div>
-                    <div class="logo-item">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 30 Q20 10 30 30 M15 20 L25 20"></path></svg>
-                        <span class="logo-text-small">London School<br>of Economics</span>
                     </div>
                 </div>
             </div>
@@ -1327,13 +1252,27 @@
                     <div class="testimonial-slide">
                         <p class="testimonial-text">"Being able to explain my symptoms in Arabic to a leading London cardiologist removed a huge barrier for me and my family. Her expertise in FMD screening is unmatched."</p>
                         <div class="testimonial-author">Fatima K.</div>
-                        <div class="testimonial-condition">FMD Screening Patient</div>
+                        <div class="testimonial-condition">Multilingual Consultation Patient</div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"I was misdiagnosed for three years, bouncing from specialist to specialist. One consultation with Dr. Al-Hussaini, and her detailed vascular screening found the underlying FMD immediately."</p>
+                        <div class="testimonial-author">Rachel L.</div>
+                        <div class="testimonial-condition">Fibromuscular Dysplasia Patient</div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The emotional weight of finally finding a doctor who knows exactly what post-partum SCAD is cannot be overstated. She didn't just treat my heart; she gave me my peace of mind back."</p>
+                        <div class="testimonial-author">Anna P.</div>
+                        <div class="testimonial-condition">SCAD Survivor</div>
                     </div>
 
                     <div class="slider-dots">
                         <span class="dot active" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
                         <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
                     </div>
                 </div>
             </div>
@@ -1375,29 +1314,46 @@
                     </div>
                     
                     <div class="booking-form-container reveal">
-                        <h3>Book Consultation</h3>
-                        <form onsubmit="event.preventDefault(); alert('Booking submitted. A member of the team will contact you shortly.');">
+                        <h3>Book Your Consultation.</h3>
+                        <form id="bookingForm" onsubmit="event.preventDefault(); document.getElementById('booking-success').style.display='block'; this.style.display='none';">
+                            <div class="form-group" style="display: flex; gap: 15px;">
+                                <input type="date" class="form-input" required style="flex: 1;" min="2026-04-21">
+                                <select class="form-select" required style="flex: 1;">
+                                    <option value="" disabled selected>Preferred Time</option>
+                                    <option>Morning (09:00 - 12:00)</option>
+                                    <option>Afternoon (13:00 - 16:00)</option>
+                                    <option>Evening (16:00 - 18:00)</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <select class="form-select" required>
                                     <option value="" disabled selected>Reason for Consultation</option>
                                     <option value="scad">SCAD Management / Follow-up</option>
                                     <option value="fmd">FMD Screening</option>
                                     <option value="women">Women's Heart Health</option>
-                                    <option value="hiv">HIV Cardiology Clinic</option>
                                     <option value="general">General Cardiology</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-input" placeholder="Full Name" required>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-input" placeholder="Email Address" required>
+                            <div class="form-group" style="display: flex; gap: 15px;">
+                                <input type="email" class="form-input" placeholder="Email Address" required style="flex: 1;">
+                                <input type="tel" class="form-input" placeholder="Phone Number" required style="flex: 1;">
                             </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-input" placeholder="Phone Number" required>
-                            </div>
-                            <button type="submit" class="btn btn-gold btn-full">Book Now</button>
+                            
+                            <!--div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.5); border-radius: 4px; border-left: 3px solid var(--color-gold);">
+                                <p style="font-size: 13px; color: var(--color-text-gray); margin: 0; line-height: 1.5;"><strong>⚡ Immediate Action:</strong> Once submitted, our medical secretary will review your request and confirm your exact appointment slot and patient portal link <strong>within 2 hours</strong>.</p>
+                            </div-->
+
+                            <button type="submit" class="btn btn-gold btn-full">Book Consultation</button>
                         </form>
+
+                        <div id="booking-success" style="display: none; text-align: center; padding: 40px 20px; background: var(--color-white); border-radius: 4px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(10,25,47,0.05);">
+                            <svg style="width: 60px; height: 60px; color: var(--color-gold); margin-bottom: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <h4 style="font-size: 24px; margin-bottom: 15px; color: var(--color-text-dark);">Request Received</h4>
+                            <p style="color: var(--color-text-gray); font-size: 15px; line-height: 1.6;">Your preferred slot has been logged in our system. Our medical secretary will contact you via email or phone within the next <strong>2 hours</strong> to confirm the final details and complete your registration.</p>
+                        </div>
                     </div>
                 </div>
             </div>
