@@ -32,25 +32,27 @@
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--text-dark); transition: 0.3s; }
 
-        /* PAGE CONTENT */
-.page-header { 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 130px 20px 70px; 
-background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../hero-img-3.jpg') center/cover no-repeat;    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center; 
-}
-.page-header h1 { 
-    font-size: 2.5rem; 
-    font-weight: 300; 
-    letter-spacing: 2px; 
-    color: #ffffff; 
-    margin: 0; 
-}
+        .page-header { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 130px 20px 70px; 
+            /* Fix: changed to .jpeg to match the working testimonials page */
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.42)), url('../jackie-hero.webp') center/cover no-repeat;    
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center; 
+        }
+        .page-header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 300; 
+            letter-spacing: 2px; 
+            color: #ffffff; /* Fix: Makes text white to read over the image */
+            margin: 0; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6);
+        }
 
 .page-header p {
     color: #ffffff !important;
