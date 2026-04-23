@@ -592,6 +592,8 @@
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
+
+        
     </style>
 </head>
 <body>
@@ -614,15 +616,19 @@
             </ul>
 
             <div class="nav-actions">
-                <div class="contact-info">
-                    <span>Book a Consultation</span>
-                    <a href="tel:02030000000">020 3000 0000</a>
+                    <div class="contact-info">
+                        <span>For appointments</span>
+                        <a href="tel:02030000000">020 3000 0000</a>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="openModal()">Book Now</button>
+
+                    <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-                <button class="btn btn-primary" onclick="openModal()" style="display: none;">Book Now</button>
-                <button class="menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
         </div>
     </header>
 
