@@ -94,7 +94,7 @@
             border: 2px solid var(--navy-light);
             color: var(--navy-light);
             padding: 0.75rem 2.5rem;
-            border-radius: 9999px;
+            border-radius: 0.75rem; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 500;
             display: inline-block;
@@ -147,7 +147,7 @@
             width: 100%;
             background-color: var(--white);
             z-index: 50;
-            border-bottom: 2px solid var(--navy-deep);
+            border-bottom: 1px solid var(--navy-deep); 
             height: 5rem;
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
@@ -234,8 +234,8 @@
             align-items: center;
             justify-content: center;
             gap: 2rem;
-            border-bottom-left-radius: 1.5rem;
-            border-bottom-right-radius: 1.5rem;
+            border-bottom-left-radius: 1rem; 
+            border-bottom-right-radius: 1rem; 
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
@@ -292,30 +292,51 @@
             transition: transform 0.5s ease-out;
         }
 
-        .hero {
+       .hero {
             position: relative;
-            height: 100vh;
-            padding-top: 5rem;
+            min-height: 80vh; 
+            height: auto;
+            padding-top: 5rem; /* Reduced to move content up */
+            padding-bottom: 0; /* Removed to allow flush touching */
             display: flex;
-            align-items: center;
+            align-items: stretch; 
             overflow: hidden;
             background-color: var(--white);
-        }
-
-        .hero-container {
-            display: grid;
-            gap: 1rem;
-            height: 100%;
         }
 
         .hero-image-wrapper {
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: flex-end; /* Anchors image to bottom */
+            height: auto;
+            order: 1; 
+            padding-bottom: 0; /* Ensures touching */
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Moves text up */
+            order: 2; 
+            padding: 2rem 0.5rem 2rem 0.5rem; /* Top padding pushes it slightly from very top edge */
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 10;
+            width: 100%; /* Resizes naturally with grid */
+            max-width: 56rem; 
+            max-height: 90vh; 
+            object-fit: contain;
+            object-position: bottom; /* Anchors inside the object box to the bottom */
+            display: block;
+        }
+
+        .hero-container {
+            display: grid;
+            gap: 1rem;
             height: 100%;
-            order: 2;
-            padding-bottom: 0;
         }
 
         .hero-circle-light {
@@ -334,22 +355,31 @@
             transform: translate(25%, -50%);
         }
 
-        .hero-image {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 24rem;
-            object-fit: contain;
-            object-position: bottom;
-            height: 95%;
+        .hero-dot-grid-side, .hero-dot-grid-bottom {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 0;
         }
 
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            order: 1;
-            padding: 0 0.5rem 2.5rem 0.5rem;
+        .hero-dot-grid-side {
+            background-image: radial-gradient(#D1D9E6 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+            width: 6rem;
+            height: 24rem;
+            top: 50%;
+            right: 0;
+            transform: translate(2rem, -50%);
+        }
+
+        .hero-dot-grid-bottom {
+            background-image: radial-gradient(#D1D9E6 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+            width: 24rem;
+            height: 6rem;
+            bottom: 0;
+            left: 0;
+            transform: translate(-2rem, 2rem);
         }
 
         .hero-title {
@@ -441,10 +471,6 @@
             width: 100%;
         }
 
-        .about-image-wrapper-reverse {
-            order: 1;
-        }
-
         .about-circle-light {
             width: 14rem;
             height: 14rem;
@@ -465,40 +491,46 @@
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 28rem;
+            max-width: 44rem; 
+            aspect-ratio: 1 / 1.15; 
+            max-height: 90vh; 
             object-fit: cover;
+            object-position: top; /* Prevents top of heads from being cut off */
         }
 
         .about-content {
             padding: 0 0.5rem;
         }
 
-        .about-content-reverse {
-            order: 2;
-        }
-
         .about-title {
             font-size: 1.875rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem; /* Adjusted to match gap between paragraphs */
         }
 
         .about-text {
             font-size: 1.125rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem; /* Decreased to tighten up but match title gap */
             line-height: 1.625;
+        }
+
+        .about-content a.btn-pill {
+            margin-top: 1rem; 
         }
 
         .parallax-section {
             min-height: 450px;
-            background: transparent;
+            background-attachment: fixed; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 3rem 1.5rem;
-            border-radius: 2rem;
+            border-radius: 0.75rem; 
         }
 
         .parallax-bg {
@@ -621,9 +653,9 @@
         }
 
         .service-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 1.5rem;
+            background: var(--soft-neutral); 
+            padding: 0; 
+            border-radius: 0.75rem; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
@@ -631,6 +663,7 @@
             flex-direction: column;
             position: relative;
             z-index: 20;
+            overflow: hidden; 
         }
 
         .service-card:hover {
@@ -639,19 +672,17 @@
         }
 
         .service-img-container {
-            background: var(--white);
-            padding: 0.25rem;
-            margin-bottom: 1.5rem;
-            border-radius: 1.25rem;
-            overflow: hidden;
+            display: none; 
         }
 
         .service-img {
-            border-radius: 1rem;
+            border-top-left-radius: 0.75rem; 
+            border-top-right-radius: 0.75rem; 
             width: 100%;
-            height: 200px;
+            height: 250px; 
             object-fit: cover;
             transition: transform 0.5s ease;
+            margin-bottom: 0; 
         }
 
         .service-card:hover .service-img {
@@ -663,6 +694,7 @@
             flex-direction: column;
             flex-grow: 1;
             color: var(--navy-deep);
+            padding: 1.5rem; 
         }
 
         .service-card-title {
@@ -740,7 +772,7 @@
             margin: 0 auto;
             border: 1px solid var(--gray-100);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-radius: 2rem;
+            border-radius: 1rem; 
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -839,7 +871,7 @@
             width: 100%;
             padding: 1rem;
             border: 1px solid var(--gray-200);
-            border-radius: 0.75rem;
+            border-radius: 0.5rem; 
             outline: none;
             transition: all 0.3s ease;
             background-color: var(--white);
@@ -867,8 +899,8 @@
         .footer {
             padding-top: 5rem;
             padding-bottom: 2rem;
-            border-top-left-radius: 3rem;
-            border-top-right-radius: 3rem;
+            border-top-left-radius: 1.5rem; 
+            border-top-right-radius: 1.5rem; 
             margin-top: 2rem;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
@@ -930,7 +962,7 @@
             height: 4rem;
             background-color: var(--white);
             padding: 0.5rem;
-            border-radius: 0.75rem;
+            border-radius: 0.5rem; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
@@ -1069,12 +1101,6 @@
                 width: 16rem;
                 height: 16rem;
             }
-            .about-content-reverse {
-                order: 1;
-            }
-            .about-image-wrapper-reverse {
-                order: 2;
-            }
             .about-title {
                 font-size: 2.25rem;
             }
@@ -1117,7 +1143,7 @@
 
         @media (min-width: 1024px) {
             .hero-image {
-                max-width: 32rem;
+                max-width: 72rem; 
             }
             .hero-title {
                 font-size: 4.5rem;
@@ -1129,7 +1155,7 @@
                 font-size: 1rem;
             }
             .about-image {
-                max-width: 32rem;
+                max-width: 44rem; 
             }
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -1205,10 +1231,10 @@
         <div class="container hero-container">
             
             <div class="hero-image-wrapper" data-aos="fade-right">
-                <div class="circle-light hero-circle-light"></div>
-                <div class="circle-navy hero-circle-navy"></div>
+                <div class="hero-dot-grid-side"></div>
+                <div class="hero-dot-grid-bottom"></div>
                 
-                <img src="edilia4.png" alt="Edília Rodrigues" class="hero-image">
+                <img src="edilia8.png" alt="Edília Rodrigues" class="hero-image">
             </div>
 
             <div class="hero-content" data-aos="fade-left">
@@ -1253,14 +1279,7 @@
     <section class="about-section about-section-white">
         <div class="container about-container">
             
-            <div class="about-image-wrapper" data-aos="fade-right">
-                <div class="circle-light about-circle-light"></div>
-                <div class="circle-navy about-circle-navy"></div>
-                
-                <img src="edilia5.png" alt="Edília Consulting" class="about-image">
-            </div>
-
-            <div class="about-content" data-aos="fade-left">
+            <div class="about-content" data-aos="fade-right">
                 <h2 class="about-title">A Safe Space for Deep Healing</h2>
                 <p class="about-text">
                     I provide trauma-informed psychological support tailored for individuals experiencing depression, anxiety, and complex emotional difficulties. My practice is fundamentally built on understanding the profound impacts of discrimination, migration, and systemic marginalisation.
@@ -1270,13 +1289,22 @@
                 </p>
                 <a href="#contact" class="btn-pill">Book a Consultation</a>
             </div>
+
+            <div class="about-image-wrapper" data-aos="fade-left">
+                <img src="edilia5.png" alt="Edília Consulting" class="about-image">
+            </div>
+
         </div>
     </section>
 
     <section class="about-section about-section-gray">
         <div class="container about-container">
             
-            <div class="about-content about-content-reverse" data-aos="fade-right">
+            <div class="about-image-wrapper" data-aos="fade-right">
+                <img src="edilia2.png" alt="Edília Professional" class="about-image">
+            </div>
+
+            <div class="about-content" data-aos="fade-left">
                 <h2 class="about-title">Expertise with Empathy</h2>
                 <p class="about-text">
                     I bring a unique intersection of mental health, justice, and social change. My approach bridges the gap between clinical excellence and the lived reality of systemic issues like inequality and marginalisation.
@@ -1287,26 +1315,21 @@
                 <a href="#contact" class="btn-pill btn-outline-white btn-dark">Read My Full Story</a>
             </div>
             
-            <div class="about-image-wrapper about-image-wrapper-reverse" data-aos="fade-left">
-                <div class="circle-light about-circle-light"></div>
-                <div class="circle-navy about-circle-navy"></div>
-                
-                <img src="edilia2.png" alt="Edília Professional" class="about-image">
-            </div>
         </div>
     </section>
 
-    <div class="parallax-section">
-        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dac3adaf471?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="parallax-content" data-aos="zoom-in">
-            <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <h2 class="parallax-quote">
-                "Healing isn't just about moving on—it's about rebuilding a sense of safety in a world that felt unsafe."
-            </h2>
-        </div>
+    <div class="parallax-section" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1920&auto=format&fit=crop');">
+    <div class="parallax-content" data-aos="zoom-in">
+        <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+        <h2 class="parallax-quote">
+            "Healing isn't just about moving on—it's about rebuilding a sense of safety in a world that felt unsafe."
+        </h2>
     </div>
+</div>
+
+
 
     <section id="services" class="services-section">
         
@@ -1325,9 +1348,8 @@
             <div class="services-grid">
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-img-container">
-                        <img src="https://images.unsplash.com/photo-1573497620053-ea5310f94a17?auto=format&fit=crop&q=80&w=600" alt="Trauma Support" class="service-img">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600" alt="Trauma Support" class="service-img">
+                    
                     <div class="service-info">
                         <h3 class="service-card-title">Complex Trauma</h3>
                         <p class="service-card-text">Specialised CBT for domestic abuse recovery, managing triggers, and cultivating long-term survival and thriving strategies.</p>
@@ -1339,9 +1361,8 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-img-container">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" alt="Cultural Awareness" class="service-img">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" alt="Cultural Awareness" class="service-img">
+                    
                     <div class="service-info">
                         <h3 class="service-card-title">Migration & Identity</h3>
                         <p class="service-card-text">Understanding the unique psychological impact of cultural adjustment, intergenerational trauma, and systemic racism.</p>
@@ -1353,9 +1374,8 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-img-container">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" alt="Consultancy" class="service-img">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" alt="Consultancy" class="service-img">
+                    
                     <div class="service-info">
                         <h3 class="service-card-title">Consultancy</h3>
                         <p class="service-card-text">High-level, trauma-informed training packages for international organisations, social services, and justice systems.</p>
@@ -1367,9 +1387,8 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-img-container">
-                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600" alt="Focused Groups" class="service-img">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600" alt="Focused Groups" class="service-img">
+                    
                     <div class="service-info">
                         <h3 class="service-card-title">Focused Groups</h3>
                         <p class="service-card-text">Small, community-driven therapy pods recovering from coercive control in safe-space environments (LGBTQ+ inclusive).</p>
@@ -1388,15 +1407,13 @@
         </div>
     </section>
 
-    <div class="parallax-section" style="margin-top: 5rem;">
-        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="parallax-content" data-aos="zoom-in">
-            <h2 class="parallax-quote" style="font-style: normal;">
-                Bridging the gap between policy, practice, and lived reality.
-            </h2>
-        </div>
+    <div class="parallax-section" style="margin-top: 5rem; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+    <div class="parallax-content" data-aos="zoom-in">
+        <h2 class="parallax-quote" style="font-style: normal;">
+            Bridging the gap between policy, practice, and lived reality.
+        </h2>
     </div>
-
+</div>
     <section id="contact" class="contact-section">
         <div class="container">
             
