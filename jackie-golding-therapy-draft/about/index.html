@@ -33,13 +33,12 @@
         .hamburger span { width: 25px; height: 2px; background-color: var(--text-dark); transition: 0.3s; }
 
         /* PAGE CONTENT */
-.page-header { 
+        .page-header { 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             padding: 130px 20px 70px; 
-            /* Fix: changed to .jpeg to match the working testimonials page */
             background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../spiral2.jpg') center/cover no-repeat;    
             background-size: cover;
             background-position: center;
@@ -50,17 +49,17 @@
             font-size: 2.5rem; 
             font-weight: 300; 
             letter-spacing: 2px; 
-            color: #ffffff; /* Fix: Makes text white to read over the image */
+            color: #ffffff; 
             margin: 0; 
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6);
         }
         
         .section-pad { padding: 80px 0; }
         
-        /* Fix: Added margin-top: 50px to perfectly match the visual gap from the testimonials page */
         .about-flex { display: flex; justify-content: center; align-items: center; gap: 80px; margin-top: 50px; margin-bottom: 60px; }
-          .about-image { width: 300px; height: 300px; border-radius: 20px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .about-image { width: 300px; height: 300px; border-radius: 20px; object-fit: cover; object-position: top; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .about-text { max-width: 600px; }
+        .about-text h2 { text-align: left; margin-bottom: 30px; }
         .about-text p { margin-bottom: 15px; color: var(--text-gray); }
 
         .text-content { max-width: 800px; margin: 0 auto 60px; }
@@ -90,18 +89,7 @@
             .nav-links.active { right: 0; }
             .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
             .about-flex { flex-direction: column; gap: 40px; text-align: left; }
-            @media (max-width: 1050px) {
-    .about-text p:first-of-type { 
-        text-align: center !important; 
-        font-size: 1.6rem !important; 
-        font-weight: 300 !important;       
-        letter-spacing: 2px !important; 
-        text-transform: uppercase !important;
-        margin-bottom: 40px !important;
-        color: var(--text-dark) !important;
-        font-family: var(--font-main) !important;
-    }
-}
+            .about-text h2 { text-align: center; margin-bottom: 40px; }
         }
 
         @media (max-width: 600px) {
@@ -113,7 +101,7 @@
 
     <header class="solid-header">
         <div class="nav-container">
-<a href="https://alethara.com/jackie-golding-therapy-draft/" class="nav-logo">Jackie Golding <span class="hide-mobile">Therapy</span></a>            
+            <a href="https://alethara.com/jackie-golding-therapy-draft/" class="nav-logo">Jackie Golding <span class="hide-mobile">Therapy</span></a>            
             <nav class="nav-links" id="nav-links">
                 <a href="https://alethara.com/jackie-golding-therapy-draft/">Home</a>
                 <a href="https://alethara.com/jackie-golding-therapy-draft/about/">About</a>
@@ -135,7 +123,7 @@
 
     <div class="page-header">
         <div class="container">
-            <h1>ABOUT & HOW I WORK</h1>
+            <h1>ABOUT ME & HOW I WORK</h1>
         </div>
     </div>
 
@@ -144,11 +132,18 @@
             <div class="about-flex">
                 <img src="../jackie3.jpg" alt="Jackie Golding, BACP registered therapist in Tonbridge" class="about-image">
                 <div class="about-text">
-                    <p style="font-weight: bold; color: var(--text-dark);">About me</p>
+                    <h2>ABOUT ME</h2>
                     <p>My path began many years ago in the corporate world as an account manager so I have lived experience of the stresses that come with office life. After feeling unfulfilled for some time, I felt the pull towards a vocation where I could be in service to others.</p>
                     <p>After completing intensive training at postgraduate level, I now run a therapy practice helping people explore and integrate the challenges they are dealing with on their own journey. As a therapist I am passionate about professional development and regularly attend further training.</p>
                     <p>I am currently working towards the UKCP qualification of Psychotherapeutic Counsellor which I will complete in 2026. On a personal level I have also had many years of individual therapy so I fully appreciate how it feels to be sitting in the client’s chair.</p>
                 </div>
+            </div>
+
+            <div class="text-content">
+                <h2>HOW I WORK</h2>
+                <p>Primarily I work in the here and now, looking at your thoughts and feelings as well as retrospectively to consider where patterns may have originated, such as in childhood and family dynamics.</p>
+                <p>Every client is an individual with a unique history and I have found that a flexible approach serves and honours our needs best. Having trained in various modalities I can draw on a range of skills to offer the most beneficial support.</p>
+                <p>Paramount to all of this is that you are fully accepted as you are with kindness, understanding and empathy.</p>
             </div>
 
             <div class="text-content">
@@ -157,13 +152,6 @@
                 <p>I will ask about your reasons for seeking therapy and what you are looking for from me. If for some reason I am unable to help then I will do my best to suggest an alternative therapist/organisation.</p>
                 <p>Our first session is an opportunity for us both to ask questions and look at your hopes and goals for our work. It’s a chance for us to get a feel for whether we would be a good match. If we decide to proceed, we would normally have a further 6 sessions and then review how our work is going.</p>
                 <p>I believe in the client-therapist relationship as the primary container for change and as with any relationship, this takes a little time and trust to build.</p>
-            </div>
-
-            <div class="text-content">
-                <h2>HOW I WORK</h2>
-                <p>Primarily I work in the here and now, looking at your thoughts and feelings as well as retrospectively to consider where patterns may have originated, such as in childhood and family dynamics.</p>
-                <p>Every client is an individual with a unique history and I have found that a flexible approach serves and honours our needs best. Having trained in various modalities I can draw on a range of skills to offer the most beneficial support.</p>
-                <p>Paramount to all of this is that you are fully accepted as you are with kindness, understanding and empathy.</p>
             </div>
 
             <h2>AREAS I WORK WITH</h2>
@@ -205,9 +193,6 @@
         <div class="parallax-text">
             “And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom.”<br>– Anaïs Nin
         </div>
-        <div class="parallax-text" style="margin-top: 40px; font-size: 1.2rem;">
-            “Every person bears within himself his underworld: it is merely a question whether he has the underworld or it has him.”<br>– Wilhelm Stekel
-        </div>
     </div>
 
     <section class="cta-strip">
@@ -217,7 +202,7 @@
         </div>
     </section>
 
-       <footer>
+    <footer>
         <div class="container">
             <p style="margin-bottom: 8px;">&copy; 2026 Jackie Golding Therapy. All rights reserved.</p>
             
