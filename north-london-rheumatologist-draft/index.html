@@ -347,47 +347,65 @@ body {
         }
 
        @media (max-width: 768px) {
-            header { height: 90px; }
-            .hero { margin-top: 90px; min-height: calc(100vh - 90px); flex-direction: column; padding-bottom: 0; align-items: center; }
+            /* 1. HEADER & LOGO FIXES */
+            header { height: 80px; }
+            .header-container { padding: 0 15px; }
             
-            /* FIX: Stop the logo from squishing or disappearing */
-            .logo { flex-shrink: 0; }
-            .logo-text { display: none; }
-            .logo img { height: 50px; width: auto; margin-right: 0; display: block; flex-shrink: 0; }
+            /* Show logo perfectly, hide text */
+            .logo { flex-shrink: 0; max-width: 60%; } 
+            .logo img { height: 45px; width: auto; object-fit: contain; margin: 0; display: block; }
+            .logo-text { display: none; } 
             
-            .header-right-actions { gap: 10px !important; flex-shrink: 0; }
-            .header-right-actions .btn { padding: 8px 16px !important; font-size: 0.95rem; }
+            /* Override inline styles for header actions */
+            .header-right-actions { gap: 12px !important; flex-shrink: 0; }
+            .header-right-actions .btn { padding: 8px 12px !important; font-size: 0.9rem; }
             
-            /* Adjust mobile menu drop down positioning */
-            .nav-links { top: 90px; height: calc(100vh - 90px); }
+            .nav-links { top: 80px; height: calc(100vh - 80px); }
+
+            /* 2. OVERALL LAYOUT & CROPPING */
+            .hero { margin-top: 80px; min-height: auto; flex-direction: column; padding-bottom: 0; }
+            .hero-image-wrapper { position: relative; width: 100%; height: 40vh; }
+            .hero-content { width: 100%; padding: 40px 15px 20px 15px; text-align: center; margin-bottom: 10px; }
             
-            .hero-content { width: 100%; padding: 40px 20px 20px 20px; text-align: center; margin-bottom: 20px; }
-            .hero-content h1 { font-size: 2.2rem; }
-            /* FIX: Allow buttons to wrap to the next line if needed */
-            .hero-cta { justify-content: center; flex-wrap: wrap; } 
-            .hero-image-wrapper { position: relative; width: 100%; height: 50vh; }
-            
-            /* FIX: Let the review box grow to fit the text and make text smaller */
+            /* Stack buttons on mobile to prevent overflow */
+            .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
+            .hero-cta .btn { width: 100%; }
+
+            /* 3. REDUCE TEXT SIZES */
+            .hero-content h1 { font-size: 2rem; margin-bottom: 15px; }
+            h2 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
+            .stat-title { font-size: 1.2rem; }
+
+            /* 4. FIX CARDS TO FIT SCREEN */
             .review-card { 
                 position: relative; bottom: auto; right: auto; 
-                margin: -20px auto 40px; width: 90%; 
-                height: auto; /* Allows box to stretch */
-                min-height: 160px;
-                padding: 15px;
+                margin: -25px auto 30px; width: 92%; 
+                min-height: auto; height: auto; padding: 15px;
             }
             .review-card .text { font-size: 0.85rem; }
             
-            /* FIX: Let testimonial cards grow to fit text */
-            .testimonial-card {
-                height: auto; /* Removes the fixed 420px height */
-                min-height: 300px;
-            }
+            .testimonial-card { height: auto; min-height: auto; padding: 20px; }
             .testimonial-card .text { font-size: 0.95rem; }
             
-            .services-section { margin: 0 0 40px 0; border-radius: 0; padding: 60px 20px; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .services-section { margin: 0 0 40px 0; border-radius: 0; padding: 50px 15px; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
             .testimonials-track { grid-template-columns: 1fr; }
             .carousel-arrow { display: none; }
+            .section-padding { padding: 60px 0; }
+
+            /* 5. REDUCE CONTACT FORM FIELDS & PADDING */
+            .contact-parallax { padding: 60px 0; }
+            .contact-info-panel, .contact-form-panel { padding: 40px 20px; }
+            
+            .contact-info-panel h2 { font-size: 1.8rem; }
+            .contact-info-panel h3 { font-size: 1.2rem; margin-bottom: 25px; }
+            .contact-form-panel h2 { font-size: 1.8rem; margin-bottom: 20px; }
+            
+            /* Shrink form inputs for phone screens */
+            .form-control { padding: 12px 15px; font-size: 0.95rem; }
+            textarea.form-control { min-height: 100px; }
+            .form-group { margin-bottom: 15px; }
         }
            
     </style>
