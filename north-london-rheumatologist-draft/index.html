@@ -353,7 +353,7 @@ body {
             
             /* Show logo perfectly, hide text */
             .logo { flex-shrink: 0; max-width: 60%; } 
-            .logo img { height: 45px; width: auto; object-fit: contain; margin: 0; display: block; }
+            .logo img { height: 60px; width: auto; object-fit: contain; margin: 0; display: block; }
             .logo-text { display: none; } 
             
             /* Override inline styles for header actions */
@@ -369,7 +369,6 @@ body {
             
             /* Stack buttons on mobile to prevent overflow */
             .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
-            .hero-cta .btn { width: 100%; }
 
             /* 3. REDUCE TEXT SIZES */
             .hero-content h1 { font-size: 2rem; margin-bottom: 15px; }
@@ -396,16 +395,48 @@ body {
 
             /* 5. REDUCE CONTACT FORM FIELDS & PADDING */
             .contact-parallax { padding: 60px 0; }
-            .contact-info-panel, .contact-form-panel { padding: 40px 20px; }
             
             .contact-info-panel h2 { font-size: 1.8rem; }
             .contact-info-panel h3 { font-size: 1.2rem; margin-bottom: 25px; }
             .contact-form-panel h2 { font-size: 1.8rem; margin-bottom: 20px; }
             
             /* Shrink form inputs for phone screens */
-            .form-control { padding: 12px 15px; font-size: 0.95rem; }
             textarea.form-control { min-height: 100px; }
             .form-group { margin-bottom: 15px; }
+
+            /* 1. FIX: Prevent services cards from overflowing the right edge */
+    /* Overrides the 350px minmax which forces overflow on small screens */
+    .panel-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    /* 2. FIX: Ensure hero buttons are exactly the same size */
+    .hero-cta .btn { 
+        width: 100%; 
+        box-sizing: border-box; 
+        justify-content: center; 
+        text-align: center; 
+    }
+
+    /* 3. FIX: Push contact box closer to screen edges */
+    /* Overrides the default container 90% width just for this section */
+    .contact-parallax .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* Reduce internal padding so content isn't cramped in the wider box */
+    .contact-info-panel, .contact-form-panel { 
+        padding: 30px 15px; 
+    }
+
+    /* 4. FIX: Shrink form fields and reduce text size by ~15% (from 1rem to 0.85rem) */
+    .form-control { 
+        padding: 12px 15px; 
+        font-size: 0.85rem; 
+        width: 100%; 
+        box-sizing: border-box; /* Ensures padding doesn't add to the width */
+    }
         }
            
     </style>
