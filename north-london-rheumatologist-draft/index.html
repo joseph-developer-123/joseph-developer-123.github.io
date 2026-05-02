@@ -350,7 +350,7 @@ body {
             
             /* Show logo perfectly, hide text */
             .logo { flex-shrink: 0; max-width: 60%; } 
-            .logo img { height: 60px; width: auto; object-fit: contain; margin: 0; display: block; }
+            .logo img { height: 80px; width: auto; object-fit: contain; margin: 0; display: block; }
             .logo-text { display: none; } 
             
             /* Override inline styles for header actions */
@@ -382,6 +382,17 @@ body {
             }
             .review-card .text { font-size: 0.85rem; }
             .review-card .logo { height: 28px; } 
+
+           /* Forces the header to take up the full width of the box */
+            .review-card .header { 
+                width: 100%; 
+            }
+            
+            /* Forces the logos to push all the way to the right edge */
+            .review-card .header-right { 
+                margin-left: auto; 
+                justify-content: flex-end; 
+            }
             
             .testimonial-card { height: auto; min-height: auto; padding: 20px; }
             .testimonial-card .text { font-size: 0.95rem; }
