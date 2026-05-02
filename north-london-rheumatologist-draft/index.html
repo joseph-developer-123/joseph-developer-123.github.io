@@ -377,7 +377,8 @@ body {
             .review-card { 
                 position: relative; bottom: auto; right: auto; 
                 margin: -25px auto 30px; width: 92%; 
-                min-height: auto; height: auto; padding: 15px;
+                height: 180px; /* Locks the height strictly on mobile */
+                padding: 15px;
             }
             .review-card .text { font-size: 0.85rem; }
             
@@ -522,7 +523,10 @@ body {
     <section class="section-padding" id="about">
         <div class="container about-grid">
             <div class="about-image fade-up">
-                <img src="anna3.JPG" alt="Dr Anna Nuttall consulting" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'">
+                <picture>
+        <source media="(max-width: 768px)" srcset="anna4.JPG">
+        <img src="anna3.JPG" alt="Dr Anna Nuttall consulting" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'">
+    </picture>
             </div>
             <div class="about-content fade-up delay-1">
                 <h2>Expert care across London and beyond</h2>
