@@ -68,6 +68,8 @@ body {
             letter-spacing: -0.02em; 
         }
 
+        .mobile-br { display: none; }
+
         .mobile-doctor-name { 
     display: none; 
 }
@@ -419,10 +421,26 @@ body {
             .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
 
             /* 3. REDUCE TEXT SIZES TO MAINTAIN HERO HEIGHT */
-            .hero-content h1 { font-size: 1.7rem; margin-bottom: 10px; }
+            /* 3. REDUCE TEXT SIZES TO MAINTAIN HERO HEIGHT */
+            .mobile-br { display: block; } /* Turns on the line break for phones */
+            
+            .hero-content h1 { 
+                font-size: 1.45rem; /* Reduced from 1.7rem */
+                margin-bottom: 8px; /* Tighter spacing */
+                line-height: 1.2; 
+            }
             h2 { font-size: 1.8rem; }
-            p { font-size: 0.9rem; }
-            .hero-content p { margin-bottom: 15px; }
+            p { font-size: 0.85rem; } /* Global phone paragraph size reduced slightly */
+            
+            .hero-content p { 
+                margin-bottom: 12px; /* Tighter spacing */
+                line-height: 1.4; 
+            }
+            
+            .mobile-doctor-name { 
+                font-size: 0.8rem; /* Shrinks the doctor name above the heading */
+                margin-bottom: 5px; 
+            }
             
             /* Stack buttons */
             .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
@@ -502,7 +520,7 @@ body {
             
             <div class="mobile-doctor-name">Dr Anna Nuttall</div>
             
-            <h1>Expert Rheumatology Care in London</h1>
+            <h1>Expert Rheumatology Care <br class="mobile-br">in London</h1>
             <p>Dr Anna Nuttall is a highly qualified, approachable, and patient-focused Private Consultant Rheumatologist, building trust and connection with potential patients seeking rheumatology care across London.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">Send a Message</a>
