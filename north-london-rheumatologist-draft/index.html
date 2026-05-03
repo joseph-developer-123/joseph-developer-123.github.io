@@ -74,6 +74,8 @@ body {
     display: none; 
 }
 
+
+
         
         
         h1 { 
@@ -122,8 +124,20 @@ body {
         .logo:hover { transform: scale(1.02); }
         .logo img { height: 75px; margin-right: 20px; } 
         .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-        .logo-subtext { font-family: 'Figtree', sans-serif; font-size: 0.85rem; color: #167889; letter-spacing: 0.05em; font-weight: 600; text-transform: uppercase; margin-top: 4px; }
-        
+.logo-subtext { 
+    font-family: 'Figtree', sans-serif; 
+    font-size: 0.85rem; 
+    color: #167889; 
+    letter-spacing: 0.05em; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    margin-top: 4px; 
+    
+    /* ADDED THESE 3 LINES */
+    display: flex; 
+    align-items: baseline; /* This perfectly locks their bottoms together */
+    gap: 6px; /* Creates a clean space between the name and the degrees */
+}        
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: var(--transition); font-size: 1rem; }
 .nav-links a:hover { color: var(--primary); }
@@ -191,7 +205,7 @@ body {
         .review-card {
             position: absolute; bottom: 1.5rem; right: 2rem;
             width: 280px; 
-            height: 160px; /* Locks the height */
+            height: 180px; /* Locks the height */
             background: #fff; border-radius: 12px;
             padding: 12px 16px; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.18); z-index: 10;
@@ -397,10 +411,20 @@ body {
             .mobile-hero-logos img { height: 24px; width: auto; object-fit: contain; }
             
             .mobile-doctor-name {
-                display: block; font-family: 'Figtree', sans-serif; font-size: 0.8rem;
-                color: var(--primary); letter-spacing: 0.05em; font-weight: 600;
-                text-transform: uppercase; margin-bottom: 5px;
-            }
+    font-family: 'Figtree', sans-serif; 
+    font-size: 0.8rem;
+    color: var(--primary); 
+    letter-spacing: 0.05em; 
+    font-weight: 600;
+    text-transform: uppercase; 
+    margin-bottom: 5px;
+
+    /* UPDATED THESE 4 LINES */
+    display: flex; 
+    align-items: baseline; /* Locks the bottoms together */
+    justify-content: center; /* Keeps it centered on mobile */
+    gap: 6px;
+}
 
             .review-card {
                 position: relative; bottom: auto; right: auto;
@@ -461,6 +485,13 @@ body {
         }
         
 
+        .post-nominals {
+    font-size: 1.0em; /* Makes it 25% smaller than the name */
+    font-weight: 400;  /* Removes the bold */
+    opacity: 0.75;     /* Softens the color */
+    letter-spacing: 0.02em; /* Keeps the smaller text legible */
+}
+
     </style>
 </head>
 <body>
@@ -471,7 +502,7 @@ body {
                 <img src="nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
                 <span class="logo-text">
                     North London Rheumatologist
-                    <span class="logo-subtext">Dr Anna Nuttall BA (OXON), MBBS, MRCP, MD</span>
+                    <span class="logo-subtext">Dr Anna Nuttall <span class="post-nominals">BA (OXON), MBBS, MRCP, MD</span></span>
                 </span>
             </a>
             
@@ -505,7 +536,7 @@ body {
                 <img src="5-stars-display.png" alt="5 Stars" onerror="this.style.display='none'">
             </div>
             
-            <div class="mobile-doctor-name">Dr Anna Nuttall BA (OXON), MBBS, MRCP, MD</div>
+            <div class="mobile-doctor-name">Dr Anna Nuttall<span class="post-nominals">BA (OXON), MBBS, MRCP, MD</span></div>
             
             <h1>Expert Rheumatology Care <br class="mobile-br">in London</h1>
             <p>Dr Anna Nuttall is a highly qualified, approachable, and patient-focused Private Consultant Rheumatologist, building trust and connection with potential patients seeking rheumatology care across London.</p>
