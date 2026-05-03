@@ -133,11 +133,12 @@ body {
     text-transform: uppercase; 
     margin-top: 4px; 
     
-    /* ADDED THESE 3 LINES */
+    /* THE FIXES */
     display: flex; 
-    align-items: baseline; /* This perfectly locks their bottoms together */
-    gap: 6px; /* Creates a clean space between the name and the degrees */
-}        
+    align-items: flex-end; /* Aligns to the literal bottom */
+    line-height: 1; /* Strips out invisible web-font padding */
+    gap: 6px; 
+}      
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: var(--transition); font-size: 1rem; }
 .nav-links a:hover { color: var(--primary); }
@@ -475,16 +476,16 @@ body {
         }
 
         @media (min-width: 500px) and (max-width: 768px) {
-            .hero-image-wrapper { height: 55vh; min-height: 400px; }
+            .hero-image-wrapper { height: 65vh; min-height: 400px; }
             .hero-image-wrapper img { object-position: center 10%; } 
         }
         
 
         .post-nominals {
-    font-size: 1.0em; /* Makes it 25% smaller than the name */
-    font-weight: 400;  /* Removes the bold */
-    opacity: 0.75;     /* Softens the color */
-    letter-spacing: 0.02em; /* Keeps the smaller text legible */
+    font-weight: 400;  
+    opacity: 0.75;     
+    letter-spacing: 0.02em; 
+    
 }
 
     </style>
