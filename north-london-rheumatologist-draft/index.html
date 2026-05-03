@@ -306,11 +306,6 @@ body {
             flex-grow: 1; /* Ensures the text block stretches to fill the card */
             padding-right: 5px; /* Tiny padding so the scrollbar doesn't clip the text */
         }
-        .testimonial-card {
-            background: var(--white); border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(0,0,0,0.05); transition: opacity 0.3s ease, transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;
-            min-height: 280px;
-        }
 
         /* ==========================================================================
            CONTACT SECTION 
@@ -864,21 +859,19 @@ body {
                     const card = document.createElement('div');
                     card.className = 'testimonial-card';
                     card.innerHTML = `
-                        <div>
-                            <div class="header">
-                                <div class="header-info">
-                                    <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
-                                    <div>
-                                        <p class="name">${data.name}</p>
-                                        <p class="time">${data.time}</p>
-                                    </div>
-                                </div>
-                                ${getLogoHTML(data.type)}
-                            </div>
-                            ${getStarsHTML(data.type)}
-                            <p class="text">"${data.text}"</p>
-                        </div>
-                    `;
+    <div class="header">
+        <div class="header-info">
+            <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
+            <div>
+                <p class="name">${data.name}</p>
+                <p class="time">${data.time}</p>
+            </div>
+        </div>
+        ${getLogoHTML(data.type)}
+    </div>
+    ${getStarsHTML(data.type)}
+    <p class="text">"${data.text}"</p>
+`;
                     track.appendChild(card);
                 }
             };
