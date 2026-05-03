@@ -121,7 +121,6 @@ body {
         }
         .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 40px; height: 100%; }
         .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.6rem; color: var(--text-dark); transition: var(--transition); }
-        .logo:hover { transform: scale(1.02); }
         .logo img { height: 75px; margin-right: 20px; } 
         .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
 .logo-subtext { 
@@ -345,7 +344,7 @@ body {
         /* ==========================================================================
            RESPONSIVE
            ========================================================================== */
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             /* Trigger the hamburger menu early before links wrap to 2 lines */
             .nav-links { 
                 position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); 
@@ -498,7 +497,8 @@ body {
                 <img src="nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
                 <span class="logo-text">
                     North London Rheumatologist
-                    <span class="logo-subtext">Dr Anna Nuttall <span class="post-nominals">BA (OXON), MBBS, MRCP, MD</span></span>
+                    <span class="logo-subtext" style="position: relative; top: 8px;"">Dr Anna Nuttall <span style="font-weight: 400;  
+    opacity: 0.75;  position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></span>
                 </span>
             </a>
             
@@ -532,7 +532,8 @@ body {
                 <img src="5-stars-display.png" alt="5 Stars" onerror="this.style.display='none'">
             </div>
             
-            <div class="mobile-doctor-name">Dr Anna Nuttall<span class="post-nominals">BA (OXON), MBBS, MRCP, MD</span></div>
+            <div class="mobile-doctor-name">Dr Anna Nuttall <span style="font-weight: 400;  
+    opacity: 0.75;  position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></div>
             
             <h1>Expert Rheumatology Care <br class="mobile-br">in London</h1>
             <p>Dr Anna Nuttall is a highly qualified, approachable, and patient-focused Private Consultant Rheumatologist, building trust and connection with potential patients seeking rheumatology care across London.</p>
