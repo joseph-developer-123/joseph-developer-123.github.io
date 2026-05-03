@@ -346,112 +346,93 @@ body {
             .mobile-menu-btn { display: block; }
         }
 
-       @media (max-width: 1024px) {
-            /* 1. Prevent Header Overlap */
+      @media (max-width: 1024px) {
+            /* 1. Header Fixes: Hide text, keep "Book Now" on one line */
             .header-container { padding: 0 20px; }
-            .logo { flex-shrink: 0; max-width: 60%; }
-            .logo img { height: 75px; margin-right: 0; }
-            .logo-text { display: none; } /* Hides long text to fit buttons nicely */
+            .logo-text { display: none; }
+            .logo img { margin-right: 0; }
             .header-right-actions { gap: 15px !important; }
-            .header-right-actions .btn { padding: 10px 14px !important; font-size: 1.1rem; }
-
-            /* 2. Fix Hero Squish by Stacking Earlier */
-            .hero { margin-top: 110px; min-height: auto; flex-direction: column; padding-bottom: 0; }
-            .hero-image-wrapper { position: relative; width: 100%; height: 40vh; }
-            .hero-content { width: 100%; padding: 40px 20px 20px 20px; text-align: center; margin-bottom: 10px; }
-            
-            /* Show Mobile Identity Elements on Tablets too */
-            .mobile-hero-logos { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
-            .mobile-hero-logos img { height: 24px; width: auto; object-fit: contain; }
-            .mobile-doctor-name {
-                display: block;
-                font-family: 'Figtree', sans-serif;
-                font-size: 0.9rem;
-                color: var(--primary);
-                letter-spacing: 0.05em;
-                font-weight: 600;
-                text-transform: uppercase;
-                margin-bottom: 10px;
+            .header-right-actions .btn { 
+                padding: 10px 16px !important; 
+                font-size: 1rem !important; 
+                white-space: nowrap; 
             }
 
-            /* Fix Review Card positioning */
-            .review-card {
-                position: relative;
-                bottom: auto; right: auto;
-                margin: 0px auto 30px;
-                width: 80%;
-                max-width: 400px;
-                height: 180px;
-            }
-            .review-card .header { width: 100%; }
-            .review-card .header-right { margin-left: auto; justify-content: flex-end; }
-
-            /* Grid Adjustments */
+            /* 2. Contact Form: Stack vertically (Info top, form bottom) */
             .merged-contact-box { grid-template-columns: 1fr; }
             .contact-info-panel, .contact-form-panel { padding: 50px 40px; }
+
+            /* 3. Testimonials: Shrink to 2 columns */
             .testimonials-track { grid-template-columns: repeat(2, 1fr); }
         }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* 1. Keep Hero Text Left & Photo Right */
+            .hero-content { width: 50%; padding-left: 20px; padding-right: 20px; }
+            .hero-image-wrapper { width: 50%; }
+            
+            /* 2. Hero Buttons: Smaller padding & text to fit on one line */
+            .hero-cta { gap: 10px; flex-wrap: nowrap; }
+            .hero-cta .btn { 
+                padding: 12px 16px; 
+                font-size: 0.95rem; 
+                white-space: nowrap; 
+            }
+            
+            /* 3. Review Card: Adjust slightly so it doesn't overflow */
+            .review-card { right: 20px; width: 250px; }
+        }
+    
 
         @media (max-width: 768px) {
             header { height: 100px; }
             .nav-links { top: 100px; height: calc(100vh - 100px); }
             
-            /* Tighter Spacing for Smaller Phones */
-            .hero { margin-top: 100px; }
+            /* --- RESTORED HERO STACKING & CARD POSITIONING --- */
+            .hero { margin-top: 100px; min-height: auto; flex-direction: column; padding-bottom: 0; }
             .hero-image-wrapper { position: relative; width: 100%; height: 40vh; }
-            
-            /* Show the mobile logos */
-            .mobile-hero-logos {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                margin-bottom: 12px;
-            }
-            .mobile-hero-logos img {
-                height: 24px;
-                width: auto;
-                object-fit: contain;
-            }
-            
-            /* Reduced padding to fit the new logos */
             .hero-content { width: 100%; padding: 25px 15px 15px 15px; text-align: center; margin-bottom: 10px; }
+            
+            .mobile-hero-logos { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+            .mobile-hero-logos img { height: 24px; width: auto; object-fit: contain; }
+            
+            .mobile-doctor-name {
+                display: block; font-family: 'Figtree', sans-serif; font-size: 0.8rem;
+                color: var(--primary); letter-spacing: 0.05em; font-weight: 600;
+                text-transform: uppercase; margin-bottom: 5px;
+            }
+
+            .review-card {
+                position: relative; bottom: auto; right: auto;
+                margin: 0px auto 30px; width: 92%; max-width: 400px; height: auto; padding: 15px;
+            }
+            .review-card .header { width: 100%; }
+            .review-card .header-right { margin-left: auto; justify-content: flex-end; }
+            .review-card .text { font-size: 0.85rem; }
+            .review-card .logo { height: 26px; }
+            /* ------------------------------------------------- */
             
             /* Stack buttons on mobile to prevent overflow */
             .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
+            .hero-cta .btn { width: 100%; justify-content: center; box-sizing: border-box; }
 
-            /* 3. REDUCE TEXT SIZES TO MAINTAIN HERO HEIGHT */
-            /* 3. REDUCE TEXT SIZES TO MAINTAIN HERO HEIGHT */
+            /* REDUCE TEXT SIZES TO MAINTAIN HERO HEIGHT */
             .mobile-br { display: block; } /* Turns on the line break for phones */
             
             .hero-content h1 { 
-                font-size: 1.7rem; /* Reduced from 1.7rem */
-                margin-bottom: 10px; /* Tighter spacing */
+                font-size: 1.7rem; 
+                margin-bottom: 10px; 
                 line-height: 1.2; 
             }
             h2 { font-size: 1.8rem; }
             p { font-size: 1.0rem; } 
             
             .hero-content p { 
-                margin-bottom: 16px; /* Tighter spacing */
+                margin-bottom: 16px; 
                 line-height: 1.4; 
             }
             
-            .mobile-doctor-name { 
-                font-size: 0.8rem; /* Shrinks the doctor name above the heading */
-                margin-bottom: 5px; 
-            }
-            
-            /* Stack buttons */
-            .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
-            .hero-cta .btn { width: 100%; justify-content: center; box-sizing: border-box; }
-
-            
-            
-            /* Shrink Cards */
-            .review-card { width: 92%; padding: 15px; }
-            .review-card .text { font-size: 0.85rem; }
-            .review-card .logo { height: 26px; }
+            /* Shrink Testimonial Cards */
             .testimonial-card { height: auto; min-height: auto; padding: 20px; }
             .testimonial-card .text { font-size: 0.95rem; }
             
@@ -472,6 +453,11 @@ body {
             textarea.form-control { min-height: 100px; }
             .form-group { margin-bottom: 15px; }
             .form-control { padding: 12px 15px; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
+        }
+
+        @media (min-width: 500px) and (max-width: 768px) {
+            .hero-image-wrapper { height: 55vh; min-height: 400px; }
+            .hero-image-wrapper img { object-position: center 10%; } 
         }
         
 
