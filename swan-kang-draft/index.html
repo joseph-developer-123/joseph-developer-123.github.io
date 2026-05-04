@@ -214,7 +214,7 @@
     visibility: hidden;
     position: relative;
     width: 75vw; 
-    min-height: 100vh; /* Matches the hero height */
+    max-height: 100vh; /* Matches the hero height */
     object-fit: cover;
     display: block;
     pointer-events: none;
@@ -1106,40 +1106,103 @@
             
             footer { grid-template-columns: 1fr; }
         }
+
+        /* =========================================
+   MOBILE & LAYOUT OVERRIDES 
+   ========================================= */
+
+/* 1. Navbar Mobile Fixes & Logo Swap */
+.nav-logo.mobile-logo { display: none; }
+@media (max-width: 1150px) {
+    .nav-logo.desktop-logo { display: none; }
+    .nav-logo.mobile-logo { display: block; max-height: 40px; }
+    .navbar { background: var(--warm-champagne) !important; } /* Always visible on mobile */
+}
+
+/* 2. Trust Bar - Disable Animation */
+.trust-bar {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* 3. Treatments - 4 Card Staggered Grid & Friendly Dark Glassmorphism */
+.procedures-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (min-width: 769px) {
+    .proc-card:nth-child(even) { margin-top: 60px; }
+}
+.proc-overlay {
+    background-color: rgba(60, 50, 45, 0.55) !important; /* Friendly dark warm tone */
+}
+
+/* 4. Testimonials (Kind Words) Simple Grid */
+.testi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 5. Substantial Mobile Tweaks */
+@media (max-width: 768px) {
+    /* Headings reduced substantially */
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    h3 { font-size: 1.3rem !important; }
+
+    /* CTAs stacked */
+    .hero-actions { flex-direction: column; width: 100%; align-items: flex-start; gap: 1rem; }
+    .hero-cta { width: 100%; text-align: center; margin-top: 0; }
+
+    /* About Section Mobile (Image on top, full visibility, solid light bg) */
+    .about-strip { background: var(--hero-bg) !important; padding: 3rem 4% !important; flex-direction: column !important; }
+    .about-image-container { position: relative !important; width: 100% !important; height: auto !important; transform: none !important; left: 0 !important; margin-bottom: 2rem !important; box-shadow: none !important; }
+    .about-image-container img { height: auto !important; max-height: 400px !important; display: block !important; object-position: top !important; }
+    .about-content { width: 100% !important; margin-left: 0 !important; padding: 0 !important; }
+    
+    /* Video Right Eye */
+    .parallax-video-section video { object-position: 85% center !important; }
+
+    /* Grids to single column */
+    .procedures-grid { grid-template-columns: 1fr !important; }
+    .testi-grid { grid-template-columns: 1fr !important; }
+}
     </style>
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
-        <div class="nav-logo-container">
-            <img src="swankanglogo.png" alt="Swan Kang Logo" class="nav-logo">
-        </div>
-        
-        <div class="nav-links-wrapper">
-            <ul class="nav-links">
-                <li><a href="https://about.swankang.co.uk">About</a></li>
-                <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
-                <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
-                <li><a href="https://cosmetic.swankang.co.uk">Cosmetic</a></li>
-                <li class="nav-break"></li>
-                <li><a href="https://functional.swankang.co.uk">Functional</a></li>
-                <li><a href="https://gallery.swankang.co.uk">Gallery</a></li>
-                <li><a href="https://blog.swankang.co.uk">Blog</a></li>
-                <li><a href="https://contact.swankang.co.uk">Contact</a></li>
-            </ul>
-        </div>
-        
-        <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Consultation</a>
-        
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <div class="nav-logo-container">
+        <img src="swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
+        <img src="swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
+    </div>
+    
+    <div class="nav-links-wrapper">
+        <ul class="nav-links">
+            <li><a href="https://about.swankang.co.uk">About</a></li>
+            <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
+            <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
+            <li><a href="https://cosmetic.swankang.co.uk">Cosmetic</a></li>
+            <li class="nav-break"></li>
+            <li><a href="https://functional.swankang.co.uk">Functional</a></li>
+            <li><a href="https://gallery.swankang.co.uk">Gallery</a></li>
+            <li><a href="https://blog.swankang.co.uk">Blog</a></li>
+            <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+        </ul>
+    </div>
+    
+    <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
+    
+    <div class="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
 
     <header class="hero">
-        <img src="hero-eyes-2.png" alt="" class="hero-spacer-image">
+        <img src="hero-eyes-3.png" alt="" class="hero-spacer-image">
         
         <div class="hero-visual">
             <img src="hero-eyes-2.png" alt="Dr Swan Kang Hero">
@@ -1156,9 +1219,9 @@
             <p class="mixed-case-heading">Board-certified excellence in precise, natural-looking functional and cosmetic eyelid surgery.</p>
             
             <div class="hero-actions">
-                <a href="https://contact.swankang.co.uk" class="btn-gold hero-cta">Book Consultation</a>
-                <a href="https://about.swankang.co.uk" class="btn-outline hero-cta">Discover Her Approach</a>
-            </div>
+    <a href="https://contact.swankang.co.uk" class="btn-gold hero-cta">Book Now</a>
+    <a href="#about-strip" class="btn-outline hero-cta">See More</a>
+</div>
         </div>
     </header>
 
@@ -1179,21 +1242,21 @@
 </section>
 
     <section class="about-strip" id="about-strip">
-        <div class="about-image-container">
-            <img src="swankangimg.png" alt="Dr Swan Kang">
-        </div>
-        <div class="about-content">
-            <h2 class="mixed-case-heading">Expertise & Precision</h2>
-            <p>Miss Swan Kang is a highly regarded Consultant Oculoplastic Surgeon based in Central London. With dual training from Oxford University and Moorfields Eye Hospital, she brings unparalleled anatomical expertise to every procedure.</p>
-            <p>Her approach combines meticulous surgical precision with an innate understanding of natural aesthetics, ensuring results that enhance without appearing altered. Having refined her techniques internationally, including specialized training in South Korea, she offers bespoke treatments.</p>
-            <p>Dedicated to patient care, Miss Kang prioritizes a thorough, empathetic consultation process to align expectations and achieve outstanding outcomes.</p>
-            
-            <a href="https://about.swankang.co.uk" class="about-link">
-                Discover Her Approach
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-        </div>
-    </section>
+    <div class="about-image-container">
+        <img src="swankangimg.png" alt="Dr Swan Kang">
+    </div>
+    <div class="about-content">
+        <h2 class="mixed-case-heading">Expertise & Precision</h2>
+        <p>Miss Swan Kang is a Consultant Oculoplastic Surgeon offering specialized, world-class care in Central London. With extensive, dual training at Oxford University and Moorfields Eye Hospital, she combines profound anatomical knowledge with an empathetic, patient-centered approach.</p>
+        <p>Her goal is to help you feel confident and comfortable in your own skin, delivering subtle, natural results through meticulous surgical precision. Having refined her craft internationally, she tailors every treatment specifically to your unique features.</p>
+        <p>Whether you are seeking functional relief or aesthetic refinement, you can feel assured that Miss Kang will guide you through every step of your journey with warmth, clarity, and exceptional expertise.</p>
+        
+        <a href="https://about.swankang.co.uk" class="about-link">
+            Discover Her Approach
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
 
     <section class="parallax-video-section">
         <video src="woman-blinking.mp4" autoplay loop muted playsinline></video>
@@ -1203,73 +1266,49 @@
     </section>
 
     <section class="procedures" id="procedures">
-        <div class="section-header">
-            <h2>SPECIALIST TREATMENTS</h2>
-            <p>Advanced Surgical & Non-Surgical Solutions</p>
+    <div class="section-header">
+        <h2>TREATMENTS</h2>
+        <p class="mixed-case-heading" style="color: var(--deep-teal); font-size: 1.1rem; margin-top: 1rem;">Enhancing your natural beauty with gentle, expert care.</p>
+    </div>
+    
+    <div class="procedures-grid">
+        <div class="proc-card">
+            <img src="blepharoplasty (1).jpg" alt="Blepharoplasty" class="proc-bg">
+            <div class="proc-overlay"></div>
+            <div class="proc-glass-edge"></div>
+            <div class="proc-content">
+                <h3>Upper & Lower Blepharoplasty</h3>
+            </div>
         </div>
         
-        <div class="procedures-grid">
-            <div class="proc-card">
-                <img src="blepharoplasty (1).jpg" alt="Blepharoplasty" class="proc-bg">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Upper & Lower Blepharoplasty</h3>
-                    <p>Natural-looking results through meticulous technique.</p>
-                </div>
-            </div>
-            
-            <div class="proc-card">
-                <<img src="asianblepharoplasty.png" alt="Asian Blepharoplasty" class="proc-bg" style="object-position: right center;">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Asian Blepharoplasty</h3>
-                    <p>Tailored surgery refined through training in South Korea.</p>
-                </div>
-            </div>
-            
-            <div class="proc-card">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Ptosis Correction" class="proc-bg">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Ptosis Correction</h3>
-                    <p>Precise surgical correction of droopy eyelids.</p>
-                </div>
-            </div>
-            
-            <div class="proc-card">
-                <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Lump Removal" class="proc-bg">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Eyelid Lump & Lesion Removal</h3>
-                    <p>Chalazion and stye removal, same-day procedures available.</p>
-                </div>
-            </div>
-            
-            <div class="proc-card">
-                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Watery Eye" class="proc-bg">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Watery Eye & Tear Duct Surgery</h3>
-                    <p>Specialist lacrimal surgery and epiphora management.</p>
-                </div>
-            </div>
-            
-            <div class="proc-card">
-                <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=800&q=80" alt="Non-Surgical" class="proc-bg">
-                <div class="proc-overlay"></div>
-                <div class="proc-glass-edge"></div>
-                <div class="proc-content">
-                    <h3>Non-Surgical Treatments</h3>
-                    <p>Botox injections with same-day appointments available.</p>
-                </div>
+        <div class="proc-card">
+            <img src="asianblepharoplasty.png" alt="Asian Blepharoplasty" class="proc-bg" style="object-position: right center;">
+            <div class="proc-overlay"></div>
+            <div class="proc-glass-edge"></div>
+            <div class="proc-content">
+                <h3>Asian Blepharoplasty</h3>
             </div>
         </div>
-    </section>
+        
+        <div class="proc-card">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Cosmetic Treatments" class="proc-bg">
+            <div class="proc-overlay"></div>
+            <div class="proc-glass-edge"></div>
+            <div class="proc-content">
+                <h3>Cosmetic Eyelid Surgery</h3>
+            </div>
+        </div>
+        
+        <div class="proc-card">
+            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Functional Treatments" class="proc-bg">
+            <div class="proc-overlay"></div>
+            <div class="proc-glass-edge"></div>
+            <div class="proc-content">
+                <h3>Functional Eyelid Correction</h3>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section class="before-after-section">
         <div class="section-header">
@@ -1407,59 +1446,60 @@
             </div>
             
             <div class="locations-container">
-                <div class="location-card">
-                    <h4>Central London Clinic</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1481766840748117!3d51.51939871804245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c672b1!2sNew%20Cavendish%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" loading="lazy"></iframe>
-                    <p>New Cavendish Street<br>Marylebone, London</p>
-                    <a href="#">Get Directions</a>
-                </div>
-                
-                <div class="location-card">
-                    <h4>Moorfields Area Clinic</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6853755331393!2d-0.093498884074668!3d51.52766871767664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca607b973f7%3A0x6b5a3cb5b9c0889!2sBath%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000001!5m2!1sen!2suk" loading="lazy"></iframe>
-                    <p>Bath Street<br>Islington, London</p>
-                    <a href="#">Get Directions</a>
-                </div>
-            </div>
+    <div class="location-card">
+        <h4>Moorfields Private Eye Centre</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1481766840748117!3d51.51939871804245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c672b1!2sNew%20Cavendish%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" loading="lazy"></iframe>
+        <p>50–52 New Cavendish Street<br>London W1G 8TL</p>
+        <a href="#">Get Directions</a>
+    </div>
+    
+    <div class="location-card">
+        <h4>Moorfields Private Outpatient Centre</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6853755331393!2d-0.093498884074668!3d51.52766871767664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca607b973f7%3A0x6b5a3cb5b9c0889!2sBath%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000001!5m2!1sen!2suk" loading="lazy"></iframe>
+        <p>9–11 Bath Street<br>London EC1V 9LF</p>
+        <a href="#">Get Directions</a>
+    </div>
+</div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-col">
-            <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 50px; margin-bottom: 20px;">
-            <p>Consultant Oculoplastic Surgeon specialising in bespoke eyelid and facial aesthetic treatments.</p>
-        </div>
-        
-        <div class="footer-col">
-            <h5>Quick Links</h5>
-            <ul>
-                <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
-                <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
-                <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
-                <li><a href="https://cosmetic.swankang.co.uk">Cosmetic Gallery</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-col">
-            <h5>Contact</h5>
-            <ul>
-                <li>Email: info@swankang.co.uk</li>
-                <li>Phone: 020 7123 4567</li>
-            </ul>
-        </div>
-        
-        <div class="footer-col">
-            <h5>Locations</h5>
-            <ul>
-                <li>New Cavendish Street, London</li>
-                <li>Bath Street, London</li>
-            </ul>
-        </div>
-        
-        <div class="footer-bottom">
-            &copy; 2026 Dr. Swan Kang. All Rights Reserved. General Medical Council Registered.
-        </div>
-    </footer>
+   <footer>
+    <div class="footer-col">
+        <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 50px; margin-bottom: 20px;">
+        <p>Consultant Oculoplastic Surgeon specialising in bespoke eyelid and facial aesthetic treatments.</p>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+            <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
+            <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
+            <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
+            <li><a href="https://cosmetic.swankang.co.uk">Cosmetic Gallery</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+            <li>Practice Manager: Robyn Waya</li>
+            <li>Email: moorfields.skang@nhs.net</li>
+            <li>Tel: +44 (0)7353 760 871</li>
+        </ul>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Locations</h5>
+        <ul>
+            <li>50–52 New Cavendish Street, London</li>
+            <li>9–11 Bath Street, London</li>
+        </ul>
+    </div>
+    
+    <div class="footer-bottom">
+        © 2026 Dr. Swan Kang. All Rights Reserved. General Medical Council Registered.
+    </div>
+</footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
