@@ -103,7 +103,9 @@
         .section-pad { padding: 80px 0; }
 
         .contact-content { display: flex; justify-content: center; gap: 60px; max-width: 900px; margin: 40px auto 0; }
-        .contact-form { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+        
+        .contact-form-wrapper { flex: 1; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid #eee; background-color: #ffffff; font-family: var(--font-main); font-size: 0.9rem; outline: none; border-radius: 15px; }
         .contact-form textarea { height: 120px; resize: none; }
         .contact-btn { background-color: var(--box-peach-dark); color: #fff; border: none; padding: 14px 35px; cursor: pointer; width: max-content; font-size: 0.85rem; font-weight: 600; border-radius: 30px; transition: opacity 0.3s; text-transform: uppercase;}
@@ -177,24 +179,29 @@
                     <p>Tue. In Person at London Bridge</p>
                 </div>
                 
-                <!-- UPDATED CONTACT FORM -->
-                <form class="contact-form" id="contact-form">
-                    <!-- Honeypot field to stop spam bots -->
-                    <input type="text" name="_honey" style="display:none">
-                    <!-- Disable FormSubmit captcha for a seamless user experience -->
-                    <input type="hidden" name="_captcha" value="false">
+                <div class="contact-form-wrapper">
+                    <script>let formSubmitted = false;</script>
+                    
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formSubmitted) { document.getElementById('contact-form').style.display='none'; document.getElementById('thank-you-message').style.display='flex'; }"></iframe>
+                    
+                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/jn461@cam.ac.uk" method="POST" target="hidden_iframe" onsubmit="formSubmitted=true;">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+    
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                        <textarea name="message" placeholder="How can I help you?" required></textarea>
+                        
+                        <button type="submit" class="contact-btn" id="submit-btn">Send Message</button>
+                    </form>
+    
+                    <div id="thank-you-message" style="display: none; padding: 40px 30px; border-radius: 20px; font-size: 1.1rem; text-align: center; background-color: var(--box-peach-light); color: var(--text-dark); flex-direction: column; align-items: center; justify-content: center; height: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                        <strong style="font-size: 1.5rem; margin-bottom: 10px; display: block;">Thank you!</strong>
+                        <p style="color: var(--text-gray); font-size: 1rem;">Your message has been sent successfully. I will be in touch shortly.</p>
+                    </div>
+                </div>
 
-                    <!-- Added name attributes to map data correctly in the email -->
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                    <textarea name="message" placeholder="How can I help you?" required></textarea>
-                    
-                    <button type="submit" class="contact-btn" id="submit-btn">Send Message</button>
-                    
-                    <!-- Dynamic Success/Error Message Container -->
-                    <div id="form-message" style="display: none; padding: 15px; border-radius: 15px; font-size: 0.95rem; text-align: center; margin-top: 5px;"></div>
-                </form>
             </div>
         </div>
     </section>
@@ -222,60 +229,6 @@
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-        // Form Submit Logic
-        const contactForm = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const formMessage = document.getElementById('form-message');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevents the default page reload
-            
-            // Visual feedback that the form is processing
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = 'Sending...';
-            submitBtn.style.opacity = '0.7';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(contactForm);
-
-            // Fetch request to FormSubmit's AJAX endpoint
-            fetch("https://formsubmit.co/ajax/jn461.cam.ac.uk", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.success === "true" || data.success === true) {
-                    // Success state styling (using your existing peach-light variable)
-                    formMessage.style.display = 'block';
-                    formMessage.style.backgroundColor = 'var(--box-peach-light)';
-                    formMessage.style.color = 'var(--text-dark)';
-                    formMessage.innerHTML = '<strong>Thank you!</strong> Your message has been sent successfully.';
-                    contactForm.reset(); // Clear the form fields
-                } else {
-                    throw new Error('Submission failed');
-                }
-            })
-            .catch(error => {
-                // Error state styling (using your existing box-pink variable)
-                formMessage.style.display = 'block';
-                formMessage.style.backgroundColor = 'var(--box-pink)';
-                formMessage.style.color = 'var(--text-dark)';
-                formMessage.innerHTML = '<strong>Oops!</strong> Something went wrong. Please try again or email directly.';
-            })
-            .finally(() => {
-                // Reset button state
-                submitBtn.innerText = originalBtnText;
-                submitBtn.style.opacity = '1';
-                submitBtn.disabled = false;
-                
-                // Hide the message after 8 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 8000);
-            });
-        });
     </script>
 </body>
 </html>
