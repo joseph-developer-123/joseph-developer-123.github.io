@@ -125,8 +125,17 @@
             .contact-content { flex-direction: column; }
         }
 
-        @media (max-width: 600px) {
+         @media (max-width: 600px) {
             .hide-mobile { display: none; }
+            .top-bar { font-size: 0.75rem; }
+            .nav-logo { font-size: 0.8rem; }
+            .btn-book { font-size: 0.8rem; padding: 6px 14px; }
+        }
+
+        @media (max-width: 400px) {
+            .top-bar { font-size: 0.65rem; } /* Further reduces phone and email text */
+            .contact-pill { padding: 4px 10px; } /* Shrinks the width/padding of the box */
+            .contact-divider { margin: 0 8px; } /* Tightens the gap between the phone and email */
         }
     </style>
 </head>
