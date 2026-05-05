@@ -36,6 +36,8 @@
             padding: 0;
         }
 
+        
+
         body {
             font-family: var(--font-body);
             color: var(--charcoal);
@@ -62,6 +64,11 @@
         }
 
         /* Typography Global Rules */
+        /* Specific rule for natural-height elements in the About section */
+        .natural-alignment {
+            align-items: flex-start; /* Aligns items to the top for a cleaner feel */
+        }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-head-thin);
             font-weight: 100;
@@ -113,7 +120,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            padding: 4px;
+            padding: 16px;
         }
         .nav-logo {
             max-height: calc(100% - 8px); /* As large as possible with ~4px padding */
@@ -199,7 +206,7 @@
             transition: 0.3s;
         }
 
-        /* ==========================================================================
+       /* ==========================================================================
            HERO SECTION
            ========================================================================== */
         .hero {
@@ -262,27 +269,40 @@
             gap: 10px;
             margin-bottom: 2rem;
             opacity: 0;
-            animation: fadeIn 1s ease 1.2s forwards;
+            animation: fadeIn 1s ease 0.5s forwards; /* 1. Doctify first */
         }
         .hero-doctify img {
             height: 30px;
         }
 
-        /* Remove min-height from hero h1 since typewriter is gone */
+        /* Hero Text Animation */
         .hero h1 {
             font-size: clamp(2.5rem, 4vw, 5rem);
             color: #000;
             margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards; /* 2. Hero text after Doctify */
+        }
+        
+        /* Hero Subtext Animation */
+        .hero p {
+            font-family: var(--font-head-reg);
+            font-size: 1.2rem;
+            color: #000;
+            margin-bottom: 2.5rem;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards; /* 3. Hero subtext after Hero text */
         }
 
-        /* Update hero actions layout and reduce the animation delay since text doesn't type anymore */
+        /* Hero Actions Animation */
         .hero-actions {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
             gap: 1.5rem;
             opacity: 0;
-            animation: fadeIn 1s ease 1.5s forwards; /* Reduced delay from 4s */
+            animation: fadeIn 1s ease 2s forwards; /* 4. Buttons last */
         }
 
         /* Shared CTA styling for the hero */
@@ -294,6 +314,16 @@
         }
 
         /* New Outline Button Style */
+.btn-outline, .btn-gold {
+    min-width: 220px;
+    padding: 16px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
         .btn-outline {
             background-color: transparent;
             color: var(--charcoal);
@@ -310,19 +340,20 @@
             background-color: var(--charcoal);
             color: #FFFFFF;
         }
-        
-        
 
-        .hero p {
+         .btn-gold {
+            background-color: var(--soft-gold);
+            color: var(--charcoal);
+            padding: 18px;
+            border: none;
             font-family: var(--font-head-reg);
-            font-size: 1.2rem;
-            color: #000;
-            margin-bottom: 2.5rem;
-            max-width: 80%;
-            opacity: 0;
-            animation: fadeIn 1s ease 3.5s forwards;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-
+        .btn-gold:hover { background-color: #FFFFFF; }
 
        
 
@@ -353,7 +384,7 @@
         }
 
         .trust-logo {
-            height: 40px;
+            height: 50px;
             object-fit: contain;
         }
         
@@ -373,34 +404,33 @@
             color: var(--warm-champagne);
         }
 
-        /* ==========================================================================
+       /* ==========================================================================
            ABOUT STRIP
            ========================================================================== */
         .about-strip {
             display: flex;
             width: 100%;
-            position: relative;
-            background: linear-gradient(to right, #EAE3D9 20%, var(--warm-champagne) 20%);
-            padding: 6rem 0;
+            padding: 8rem 6% 6rem 6%; /* balanced padding */
+            justify-content: space-between;
             overflow: hidden;
+            background-color: var(--hero-bg); /* Solid lighter beige */
         }
 
         .about-image-container {
-            position: absolute;
-            left: 5%; /* Starts offscreen, managed by JS */
-            top: 50%;
-            transform: translateY(-50%) translateX(-150%);
-            height: 70%; /* Shorter than full height to show split background */
-            width: 30%;
-            z-index: 2;
-            transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-            background-color: #D3C5B5; /* Darker than both bgs */
+            width: 48%; /* Same size as text block */
+            height: 450px; /* Consistent height with services cards */
+            border-radius: 4px; /* subtle rounding */
+            color: var(--soft-gold);
+            overflow: hidden;
             box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
         .about-strip.visible .about-image-container {
-            transform: translateY(-50%) translateX(0);
-            left: 10%; /* Rests exactly on the 20% boundary (approx center of image) */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .about-image-container img {
@@ -411,12 +441,19 @@
         }
 
         .about-content {
-            width: 80%;
-            margin-left: 20%;
-            padding: 0 8% 0 25%; /* Pushed right */
+            width: 48%; /* Same size as image block */
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-top: 60px; /* "one a little lower than the left" - creates offset */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+        }
+
+        .about-strip.visible .about-content {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .about-content h2 {
@@ -430,6 +467,8 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             color: var(--charcoal);
+              text-align: justify;
+  text-justify: inter-word;
         }
 
         .about-link {
@@ -742,7 +781,7 @@
         /* Make cards white with a softer shadow to pop against the beige background */
         .testi-card {
             flex: 0 0 calc(33.333% - 20px);
-            background-color: #FFFFFF; /* Pure white for high contrast */
+            background-color: var(--warm-champagne);
             color: var(--charcoal);
             padding: 40px 30px;
             border-radius: 4px;
@@ -750,7 +789,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            height: 450px;
+            height: 400px;
         }
 
         /* Update carousel arrows for light background */
@@ -766,6 +805,9 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s, color 0.3s;
+            padding: 0; 
+            flex-shrink: 0; 
+            box-sizing: border-box;
         }
         
         .carousel-btn:hover {
@@ -828,7 +870,7 @@
         }
 
         .testi-stars {
-            color: var(--soft-gold);
+            color: #0076D6;
             font-size: 1.2rem;
             letter-spacing: 2px;
         }
@@ -884,20 +926,22 @@
         .booking-content {
             position: relative;
             z-index: 2;
-            max-width: 1200px;
+            max-width: 900px; /* Reduced width so the centered form doesn't stretch too far */
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 60px;
-            align-items: start;
+            align-items: center; /* Centers the form and locations */
         }
 
+        /* Limit the width of the form so it looks neat when centered */
         .booking-form-container {
             position: relative;
             padding: 50px;
             border-radius: 8px;
+            width: 100%;
+            max-width: 700px; 
         }
-
         /* Form Glassmorphism - Edge only */
         .form-glass-edge {
             position: absolute;
@@ -944,40 +988,34 @@
             color: #FFFFFF;
         }
 
-        .btn-gold {
-            background-color: var(--soft-gold);
-            color: var(--charcoal);
-            padding: 18px;
-            border: none;
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-        .btn-gold:hover { background-color: #FFFFFF; }
+       
 
         .locations-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Forces them side-by-side */
             gap: 30px;
+            width: 100%;
         }
 
+        /* Ensure each card takes exactly half the space */
         .location-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.2);
             padding: 20px;
             border-radius: 4px;
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            text-align: center; /* Centers the text inside the cards */
         }
 
         .location-card iframe {
             width: 100%;
-            height: 150px;
+            height: 200px; /* Slightly taller to look better side-by-side */
             border: none;
             border-radius: 4px;
             margin-bottom: 15px;
+            margin-top: 10px;
         }
 
         .location-card h4 {
@@ -1070,10 +1108,23 @@
            MEDIA QUERIES
            ========================================================================== */
         @media (max-width: 1150px) {
+
             .nav-links-wrapper { display: none; } /* Hide full links */
             .hamburger { display: flex; }
             .nav-logo { max-height: 60px; } /* Smaller on mobile */
             .navbar { padding: 0 20px; }
+            .logo {
+            margin-right: auto;
+        }
+        .nav-logo-container {
+                margin-right: auto;
+            }
+        
+        .nav-cta {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+        
             
             .hero-content { width: 100%; padding-right: 6%; z-index: 5; }
             /* Image sits behind text, so text must change to contrast */
@@ -1090,8 +1141,15 @@
             
             footer { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (max-width: 900px) {
+
+                    .testi-card { flex: 0 0 100%; }
+}
 
         @media (max-width: 768px) {
+            .about-image-container {
+            background-color: #F9F6F0; /* Lighter beige/off-white */
+        }
             .hero h1 { font-size: 2.5rem; }
             .about-strip { flex-direction: column; padding: 4rem 4%; }
             .about-image-container { position: relative; width: 100%; height: 300px; transform: none; left: 0; margin-bottom: 2rem; }
@@ -1113,9 +1171,9 @@
 
 /* 1. Navbar Mobile Fixes & Logo Swap */
 .nav-logo.mobile-logo { display: none; }
-@media (max-width: 1150px) {
+@media (max-width: 768px) {
     .nav-logo.desktop-logo { display: none; }
-    .nav-logo.mobile-logo { display: block; max-height: 40px; }
+    .nav-logo.mobile-logo { display: block; max-height: 25px; }
     .navbar { background: var(--warm-champagne) !important; } /* Always visible on mobile */
 }
 
@@ -1148,6 +1206,9 @@
 
 /* 5. Substantial Mobile Tweaks */
 @media (max-width: 768px) {
+    .locations-container {
+                flex-direction: column;
+            }
     /* Headings reduced substantially */
     h1 { font-size: 2.2rem !important; }
     h2 { font-size: 1.8rem !important; }
@@ -1202,21 +1263,23 @@
 </nav>
 
     <header class="hero">
-        <img src="hero-eyes-3.png" alt="" class="hero-spacer-image">
+        <img src="img6.png" alt="" class="hero-spacer-image">
         
         <div class="hero-visual">
-            <img src="hero-eyes-2.png" alt="Dr Swan Kang Hero">
+            <img src="img6.png" alt="Dr Swan Kang Hero">
         </div>
         
         <div class="hero-content">
             <div class="hero-doctify">
-                <img src="Doctify.png" alt="Doctify">
+                <img src="doctify-logo.png" alt="Doctify">
                 <img src="Doctify-score-stars.png" alt="5 Stars">
             </div>
             
-            <h1>REFINING BEAUTY,<br>RESTORING CONFIDENCE.</h1>
+            <h1>EXCEPTIONAL<br>EYELID SURGERY.</h1>
             
-            <p class="mixed-case-heading">Board-certified excellence in precise, natural-looking functional and cosmetic eyelid surgery.</p>
+            <p class="mixed-case-heading">Consultant oculoplastic surgeon bringing fellowship-trained expertise and a reputation for natural, 
+                balanced outcomes to every patient - whether functional or cosmetic, simple or complex.
+</p>
             
             <div class="hero-actions">
     <a href="https://contact.swankang.co.uk" class="btn-gold hero-cta">Book Now</a>
@@ -1243,25 +1306,27 @@
 
     <section class="about-strip" id="about-strip">
     <div class="about-image-container">
-        <img src="swankangimg.png" alt="Dr Swan Kang">
+        <img src="swankangimg2.png" alt="Dr Swan Kang">
     </div>
     <div class="about-content">
         <h2 class="mixed-case-heading">Expertise & Precision</h2>
-        <p>Miss Swan Kang is a Consultant Oculoplastic Surgeon offering specialized, world-class care in Central London. With extensive, dual training at Oxford University and Moorfields Eye Hospital, she combines profound anatomical knowledge with an empathetic, patient-centered approach.</p>
-        <p>Her goal is to help you feel confident and comfortable in your own skin, delivering subtle, natural results through meticulous surgical precision. Having refined her craft internationally, she tailors every treatment specifically to your unique features.</p>
-        <p>Whether you are seeking functional relief or aesthetic refinement, you can feel assured that Miss Kang will guide you through every step of your journey with warmth, clarity, and exceptional expertise.</p>
-        
+        I am a Consultant Oculoplastic Surgeon practising in Central London, with specialist training at Oxford University and Moorfields Eye Hospital. 
+        Oculoplastic surgery demands absolute precision - the margins are small, 
+        the anatomy complex, and the results permanent. That standard of exactness is what drew me to this field, and it underpins everything I do.</p>
+<p>My practice covers both functional and cosmetic eyelid surgery. 
+    Whether you are referred for a clinical need or come seeking aesthetic refinement, 
+    the surgical approach is the same: meticulous planning, conservative technique, and beautiful outcomes.</p>
         <a href="https://about.swankang.co.uk" class="about-link">
-            Discover Her Approach
+            Discover My Approach
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
     </div>
 </section>
 
     <section class="parallax-video-section">
-        <video src="woman-blinking.mp4" autoplay loop muted playsinline></video>
+        <video src="woman-blinking-2.mp4" autoplay loop muted playsinline></video>
         <div class="video-overlay-text">
-            <h2>REFINING BEAUTY,<br>RESTORING CONFIDENCE</h2>
+            <h2>PRECISION OCULOPLASTICS</h2>
         </div>
     </section>
 
@@ -1291,7 +1356,7 @@
         </div>
         
         <div class="proc-card">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Cosmetic Treatments" class="proc-bg">
+            <img src="hero-eyes-3.png" alt="Cosmetic Treatments" class="proc-bg">
             <div class="proc-overlay"></div>
             <div class="proc-glass-edge"></div>
             <div class="proc-content">
@@ -1300,7 +1365,7 @@
         </div>
         
         <div class="proc-card">
-            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Functional Treatments" class="proc-bg">
+            <img src="visioncorrection.png" alt="Functional Treatments" class="proc-bg">
             <div class="proc-overlay"></div>
             <div class="proc-glass-edge"></div>
             <div class="proc-content">
@@ -1359,7 +1424,7 @@
                             <div class="testi-date">24 Sep 2025</div>
                         </div-->
                         
-                        <div class="testi-card">
+                        <!--div class="testi-card">
                             <div class="testi-header">
                                 <div class="testi-stars">★★★★★</div>
                                 <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
@@ -1367,7 +1432,7 @@
                             <p class="testi-quote">"Dr Swan Kang was very thorough with all my eye issues and went further to track down my glaucoma history with Moorfields NHS. She was friendly, highly professional, and explained clearly what would be involved with upper eyelid surgery. She spent a lot of time understanding my full health history. I was very happy with my first consultation."</p>
                             <div class="testi-author">Patient</div>
                             <div class="testi-date">21 Nov 2025</div>
-                        </div>
+                        </div-->
 
                         <div class="testi-card">
                             <div class="testi-header">
@@ -1421,6 +1486,25 @@
     <section class="booking-section">
         <div class="booking-overlay"></div>
         <div class="booking-content">
+                                            <h2 style="margin-bottom: 20px; font-size: 2.5rem;">LOCATIONS</h2>
+
+            <div class="locations-container">
+
+            <div class="location-card">
+                    <h4>New Cavendish Street</h4>
+                    <p>50–52 New Cavendish Street, London W1G 8TL</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1481766840748117!3d51.51939871804245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c672b1!2sNew%20Cavendish%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" loading="lazy"></iframe>
+                    <a href="#">Get Directions</a>
+                </div>
+                
+                <div class="location-card">
+                    <h4>Bath Street</h4>
+                    <p>9–11 Bath Street, London EC1V 9LF</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6853755331393!2d-0.093498884074668!3d51.52766871767664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca607b973f7%3A0x6b5a3cb5b9c0889!2sBath%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000001!5m2!1sen!2suk" loading="lazy"></iframe>
+                    <a href="#">Get Directions</a>
+                </div>
+                </div>
+                                                <h2 style="margin-bottom: 15px; font-size: 2.5rem;">BOOKING</h2>
             <div class="booking-form-container">
                 <div class="form-glass-edge"></div>
                 <h2 style="margin-bottom: 20px; font-size: 2.5rem;">ARRANGE A CONSULTATION</h2>
@@ -1444,28 +1528,15 @@
                     <button type="submit" class="btn-gold">Request Appointment</button>
                 </form>
             </div>
-            
+            <div></div>
             <div class="locations-container">
-    <div class="location-card">
-        <h4>Moorfields Private Eye Centre</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1481766840748117!3d51.51939871804245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c672b1!2sNew%20Cavendish%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" loading="lazy"></iframe>
-        <p>50–52 New Cavendish Street<br>London W1G 8TL</p>
-        <a href="#">Get Directions</a>
-    </div>
-    
-    <div class="location-card">
-        <h4>Moorfields Private Outpatient Centre</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6853755331393!2d-0.093498884074668!3d51.52766871767664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca607b973f7%3A0x6b5a3cb5b9c0889!2sBath%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000001!5m2!1sen!2suk" loading="lazy"></iframe>
-        <p>9–11 Bath Street<br>London EC1V 9LF</p>
-        <a href="#">Get Directions</a>
-    </div>
 </div>
         </div>
     </section>
 
    <footer>
     <div class="footer-col">
-        <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 50px; margin-bottom: 20px;">
+        <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 80px; margin-bottom: 20px;">
         <p>Consultant Oculoplastic Surgeon specialising in bespoke eyelid and facial aesthetic treatments.</p>
     </div>
     
