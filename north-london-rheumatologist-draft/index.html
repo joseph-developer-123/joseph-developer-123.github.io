@@ -210,6 +210,7 @@ body {
             padding: 12px 16px; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.18); z-index: 10;
             display: flex; flex-direction: column; /* Allows internal elements to stretch */
+            cursor: pointer;
         }
         .review-card .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
         .review-card .time { font-size: 0.75rem; color: var(--text-light); margin: 0; font-weight: 500; }
@@ -530,6 +531,76 @@ body {
     
 }
 
+/* ==========================================================================
+           ABOUT SECTION - FULL WIDTH REASONS GRID
+           ========================================================================== */
+        .reasons-title {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .reason-card {
+            background: var(--cheerful-blue);
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 1px solid rgba(22, 120, 137, 0.08);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(22, 120, 137, 0.15);
+            border-color: rgba(22, 120, 137, 0.2);
+            background: #D8EEFC; /* slightly darker inviting light blue on hover */
+        }
+
+        .reason-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .virtual-note {
+            background: var(--white);
+            border: 1px solid rgba(22, 120, 137, 0.2);
+            padding: 18px 24px;
+            border-radius: 12px;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+            box-shadow: var(--shadow-sm);
+            /* This makes it span exactly 2 boxes in the grid */
+            grid-column: span 2; 
+        }
+
+        .virtual-note svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Ensure it shrinks back to 1 column on mobile devices */
+        @media (max-width: 650px) {
+            .virtual-note {
+                grid-column: span 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -587,7 +658,7 @@ body {
             </div>
         </div>
         
-        <div class="review-card fade-up delay-2">
+        <div onclick="window.open('https://www.doctify.com/uk/specialist/anna-nuttall', '_blank')" class="review-card fade-up delay-2">
             <div class="header">
                 <div class="header-left">
                     <p class="time" id="hero-review-time">1 week ago</p>
@@ -629,12 +700,40 @@ body {
     <section class="section-padding" id="about">
         <div class="container about-grid">
             <div class="about-image fade-up">
-        <img src="anna3.JPG" alt="Dr Anna Nuttall consulting" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'">
+                <img src="anna3.JPG" alt="Dr Anna Nuttall consulting" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'">
             </div>
             <div class="about-content fade-up delay-1">
                 <h2>Expert care across London and beyond</h2>
-                <p>I’m Dr Anna Nuttall, a Consultant Rheumatologist dedicated to providing compassionate, expert care for patients across London, both privately & within the NHS.</p>
+                <p>I’m Dr Anna Nuttall, a Consultant Rheumatologist dedicated to providing compassionate, expert care for patients across London, 
+                    both privately and within the NHS where I am the Rheumatology Clinical lead.</p>
                 <p>Whether you are seeking help for joint pain, an autoimmune condition or second opinion in a complex case, I am here to support your journey to better health.</p>
+            </div>
+        </div>
+
+        <div class="container fade-up delay-2" style="margin-top: 60px;">
+            <h3 class="reasons-title">Examples of reasons people might come and see me:</h3>
+            
+            <div class="reasons-grid">
+                <div class="reason-card"><p>Joint pain and/or swelling</p></div>
+                <div class="reason-card"><p>Back pain</p></div>
+                <div class="reason-card"><p>Raynaud's symptoms (cold hands that change colour)</p></div>
+                <div class="reason-card"><p>Unexplained fatigue</p></div>
+                <div class="reason-card"><p>Unexplained rashes, mouth ulcers, enlarged lymph nodes and fevers</p></div>
+                <div class="reason-card"><p>Multisystem problems that need to be tied together</p></div>
+                <div class="reason-card"><p>Hypermobility, palpitations, dizziness and widespread pain</p></div>
+                <div class="reason-card"><p>Abnormal autoimmune/inflammatory blood results (eg ANA, ENA, ANCA, ESR, RF, CCP, HLA B27)</p></div>
+                <div class="reason-card"><p>Low bone density (or risk of) and/or fractures</p></div>
+                <div class="reason-card"><p>Abnormal imaging results suggesting joint or spine inflammation</p></div>
+                <div class="reason-card"><p>Second opinion or an overview if management left unclear</p></div>
+            </div>
+
+            <div class="virtual-note">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>I provide both <strong>in person</strong> and <strong>virtual</strong> reviews.</span>
             </div>
         </div>
     </section>
@@ -856,10 +955,12 @@ body {
             };
 
             document.getElementById('nextHeroBtn').addEventListener('click', () => {
+                event.stopPropagation();
                 currentHeroReview = (currentHeroReview + 1) % heroReviews.length;
                 updateHeroReview(currentHeroReview);
             });
             document.getElementById('prevHeroBtn').addEventListener('click', () => {
+                event.stopPropagation();
                 currentHeroReview = (currentHeroReview - 1 + heroReviews.length) % heroReviews.length;
                 updateHeroReview(currentHeroReview);
             });
