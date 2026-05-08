@@ -1054,7 +1054,7 @@
         
         <div class="card-controls">
             <button class="ctrl-btn" id="btn-prev" aria-label="Previous card">←</button>
-            <button class="ctrl-btn active-play" id="btn-play-pause" aria-label="Pause/Play">⏸</button>
+            <button class="ctrl-btn active-play" id="btn-play-pause" aria-label="Pause/Play">⏸&#xFE0E;</button>
             <button class="ctrl-btn" id="btn-next" aria-label="Next card">→</button>
         </div>
     </section>
@@ -1327,14 +1327,14 @@
 
             function startPlay() {
                 isAutoPlaying = true;
-                btnPlay.textContent = "⏸";
+                btnPlay.textContent = "⏸\uFE0E";
                 btnPlay.classList.add('active-play');
-                playInterval = setInterval(turnNext, 6500); // Extended dwell time slightly since transition is longer
+                playInterval = setInterval(turnNext, 6500); 
             }
 
             function pausePlay() {
                 isAutoPlaying = false;
-                btnPlay.textContent = "▶";
+                btnPlay.textContent = "▶\uFE0E";
                 btnPlay.classList.remove('active-play');
                 clearInterval(playInterval);
             }
