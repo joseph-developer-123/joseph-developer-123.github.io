@@ -1054,7 +1054,9 @@
         
         <div class="card-controls">
             <button class="ctrl-btn" id="btn-prev" aria-label="Previous card">←</button>
-            <button class="ctrl-btn active-play" id="btn-play-pause" aria-label="Pause/Play">⏸&#xFE0E;</button>
+            <button class="ctrl-btn active-play" id="btn-play-pause" aria-label="Pause/Play">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+</button>
             <button class="ctrl-btn" id="btn-next" aria-label="Next card">→</button>
         </div>
     </section>
@@ -1327,14 +1329,14 @@
 
             function startPlay() {
                 isAutoPlaying = true;
-                btnPlay.textContent = "⏸\uFE0E";
+                btnPlay.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>';
                 btnPlay.classList.add('active-play');
                 playInterval = setInterval(turnNext, 6500); 
             }
 
             function pausePlay() {
                 isAutoPlaying = false;
-                btnPlay.textContent = "▶\uFE0E";
+                btnPlay.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
                 btnPlay.classList.remove('active-play');
                 clearInterval(playInterval);
             }
