@@ -1,5 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
-  <body>Coming soon</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Dr Anna Nuttall | North London Rheumatologist</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & RESET
+           ========================================================================== */
+        :root { 
+            --primary: #167889; 
+            --primary-dark: #105966; 
+            --doctify-blue: #00A3E0; 
+            --google-yellow: #F4B400; 
+            --cheerful-blue: #E8F4FC;
+            --text-dark: #1A1A24; 
+            --text-light: #5A5A6A; 
+            --white: #FFFFFF; 
+            --off-white: #F4F7F9; 
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05); 
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08); 
+            --radius-md: 16px; 
+            --transition: all 0.3s ease; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { 
+            scroll-behavior: smooth; 
+            font-family: 'Figtree', sans-serif; 
+            color: var(--text-dark); 
+            background-color: var(--off-white); 
+            overflow-x: hidden; 
+        }
+
+        /* CUSTOM SCROLLBARS */
+        ::-webkit-scrollbar { width: 14px; }
+        ::-webkit-scrollbar-track { background: var(--off-white); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border: 3px solid var(--off-white); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+        h1, h2, h3, .logo, .footer-logo { font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; }
+        .container { width: 90%; max-width: 1400px; margin: 0 auto; padding: 80px 20px; }
+        
+        /* FADE-UP ANIMATION */
+        .fade-up { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-up.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+        /* HEADER */
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 110px; 
+            background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid rgba(0,0,0,0.05); 
+            z-index: 1000; transition: var(--transition); 
+        }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 40px; height: 100%; max-width: 1300px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.6rem; color: var(--text-dark); }
+        .logo img { height: 75px; margin-right: 20px; } 
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-subtext { font-family: 'Figtree', sans-serif; font-size: 0.85rem; color: #167889; font-weight: 600; text-transform: uppercase; margin-top: 4px; display: flex; gap: 6px; }      
+        
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: var(--transition); font-size: 1rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .btn-primary { background: var(--primary); color: var(--white); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; border: 2px solid transparent; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        
+        .btn-outline-primary { background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 10px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; }
+        .btn-outline-primary:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); }
+        
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* MODIFIED PARALLAX HEADING SECTION - Blue theme color overlay */
+        .heading-parallax {
+            background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=2000');
+            background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+            position: relative; padding: 40px 20px 20px 20px; margin-top: 110px; text-align: center; min-height: 150px;
+        }
+        .heading-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(22, 120, 137, 0.85); } /* Updated to theme blue overlay */
+        .heading-parallax .parallax-overlay {
+            position: relative; z-index: 2; background: transparent; padding: 20px;
+            border-radius: var(--radius-md); max-width: 800px; margin: 0 auto;
+        }
+        .heading-parallax h1 { font-size: clamp(2.4rem, 4vw, 4rem); margin-bottom: 0.5rem; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .heading-parallax p { color: rgba(255,255,255,0.95); font-size: 1.2rem; margin: 0; font-weight: 400; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+        /* MIDDLE PARALLAX SECTION */
+        .middle-parallax {
+            /* Updated to a beautiful London skyline image, maintaining scrolling parallax */
+            background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=2000');
+            background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+            position: relative; padding: 120px 20px; text-align: center;
+        }
+        .middle-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(22, 120, 137, 0.85); } /* Shading color kept */
+        .middle-parallax-content {
+            position: relative; z-index: 2; max-width: 800px; margin: 0 auto; color: var(--white);
+        }
+        .middle-parallax-content h2 { font-size: 2.8rem; margin-bottom: 20px; color: var(--white); }
+        .middle-parallax-content p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px; color: rgba(255,255,255,0.9); }
+
+        /* CAROUSELS (Doctify & Google) */
+        .testimonials-carousel-wrapper { display: flex; align-items: center; gap: 20px; position: relative; margin-top: 30px; }
+        .carousel-arrow {
+            background: var(--white); border: 1px solid rgba(0,0,0,0.1); border-radius: 50%; width: 44px; height: 44px;
+            font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow-sm); transition: var(--transition);
+            display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0;
+        }
+        .carousel-arrow:hover { background: var(--primary); color: var(--white); }
+        .testimonials-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; overflow: hidden; }
+        
+        .testimonial-card {
+            background: var(--white); border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05); transition: opacity 0.3s ease, transform 0.3s ease; 
+            display: flex; flex-direction: column; justify-content: space-between;
+            height: 420px; 
+            text-align: left; /* Ensures text is left-aligned in tabs */
+        }
+        .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .testimonial-card .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .testimonial-card .header-info { display: flex; align-items: center; gap: 15px; }
+        .testimonial-card .avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--off-white); object-fit: cover; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-light); }
+        .testimonial-card .name { font-weight: 600; font-size: 1.05rem; margin: 0; color: var(--text-dark); }
+        .testimonial-card .time { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+        .testimonial-card .logo { height: 24px; object-fit: contain; }
+        .testimonial-card .stars { font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 15px; }
+        
+        .testimonial-card .text { 
+            font-size: 1rem; line-height: 1.6; color: var(--text-dark); margin: 0; font-style: italic;
+            overflow-y: auto; flex-grow: 1; padding-right: 5px; 
+        }
+
+        /* TEXT SCROLLBARS FOR REVIEW CARDS */
+        .testimonial-card .text::-webkit-scrollbar { width: 6px; }
+        .testimonial-card .text::-webkit-scrollbar-track { background: var(--off-white); border-radius: 4px; }
+        .testimonial-card .text::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+        .testimonial-card .text::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+        /* MASONRY LAYOUT FOR ADDITIONAL PANELS */
+        .masonry-grid { column-count: 3; column-gap: 30px; margin-top: 40px; }
+        .review-card { 
+            break-inside: avoid; 
+            background: var(--cheerful-blue);
+            border-radius: 16px; padding: 30px; margin-bottom: 30px; 
+            box-shadow: var(--shadow-sm); border: 1px solid rgba(22,120,137,0.1); 
+            transition: transform 0.3s ease; 
+        }
+        .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(22,120,137,0.3); }
+        .review-card .header { display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center; border-bottom: 1px solid rgba(22,120,137,0.1); padding-bottom: 15px; }
+        .review-card .name { font-weight: 700; color: var(--primary-dark); font-size: 1.1rem; }
+        .review-card .time { font-size: 0.85rem; color: var(--primary); margin-top: 4px; opacity: 0.8; }
+        .review-card .text { 
+            font-size: 1rem; line-height: 1.7; font-style: italic; color: var(--text-dark); position: relative; z-index: 1; padding-right: 10px; 
+            /* No max-height or overflow to prevent scrollbars */
+        }
+        
+        .section-divider { height: 1px; background: rgba(0,0,0,0.08); margin: 60px 0; }
+        .section-title { font-size: 2rem; color: var(--primary-dark); margin-bottom: 5px; text-align: center; }
+
+        /* BADGES */
+        .badge-container { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--white); padding: 8px 20px; border-radius: 30px; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05); margin-top: 10px; }
+
+        /* CONTACT SECTION & FOOTER */
+        .contact-parallax {
+            background-image: url('nuffield1.jpg'); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+            position: relative; padding: 120px 0; 
+        }
+        .contact-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(244, 247, 249, 0.95); }
+        .merged-contact-box { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        
+        .contact-info-panel { background: #0D4467; color: var(--white); padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .contact-info-panel h2 { color: var(--white); font-size: 2.4rem; margin-bottom: 20px; }
+        .contact-info-panel .contact-method p { color: #D0D0D0; font-weight: 300; font-size: 1.1rem; margin-bottom: 8px; }
+        .contact-info-panel .contact-method a { color: var(--white); text-decoration: none; transition: color 0.2s; font-weight: 400; }
+        .contact-info-panel .contact-method a:hover { color: var(--primary); }
+        
+        .contact-form-panel { background: var(--white); padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .contact-form-panel h2 { margin-bottom: 30px; font-size: 2.2rem; color: var(--text-dark); }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: 500; font-size: 1rem; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 16px 20px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; background: #F9FBFC; font-family: 'Figtree', sans-serif; font-size: 1rem; transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px rgba(22, 120, 137, 0.1); }
+        
+        .btn-accent { background: #5C9CE6; color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; border: none; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; }
+        .btn-accent:hover { background: #4A88D0; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center;}
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+        footer { background: var(--primary-dark); color: var(--white); padding: 80px 0 40px; text-align: center; }
+        .footer-logo { display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; }
+        .footer-logo img { height: 120px; margin-bottom: 15px; transition: transform 0.5s; }
+        .footer-text { opacity: 0.5; font-size: 0.95rem; margin-top: 40px; margin-bottom: 0; font-family: 'Figtree', sans-serif; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
+            .header-container { padding: 0 20px; }
+            .logo-text { display: none; }
+            .logo img { margin-right: 0; }
+            .merged-contact-box { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 1; }
+            .testimonials-track { grid-template-columns: 1fr; }
+            .carousel-arrow { width: 36px; height: 36px; font-size: 1rem; }
+            .testimonial-card { height: auto; min-height: 300px; padding: 20px; }
+            .nav-links { position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); background: var(--white); flex-direction: column; justify-content: center; gap: 40px; transition: left 0.3s; }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            .contact-info-panel, .contact-form-panel { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="header-container">
+            <a href="index11.html" class="logo">
+                <img src="nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
+                <span class="logo-text">
+                    North London Rheumatologist
+                    <span class="logo-subtext" style="position: relative; top: 8px;">Dr Anna Nuttall <span style="font-weight: 400; opacity: 0.75; position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></span>
+                </span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 20px;" class="header-right-actions">
+                <nav class="nav-links" id="navLinks">
+                    <a href="index11.html">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#treatments">Treatments</a>
+                    <a href="testimonials.html" class="active">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <a href="#contact" class="btn-primary" style="padding: 10px 16px;">Book Now</a>
+                <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="heading-parallax fade-up">
+        <div class="parallax-overlay">
+            <h1>Reviews and Testimonials</h1>
+            <p>Read what our patients have to say about their experience with Dr Anna Nuttall.</p>
+        </div>
+    </section>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 40px;">
+        
+        <div class="fade-up" style="text-align: center;">
+            <h2 class="section-title">Verified Reviews from Doctify</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 15px;">
+                <img src="doctify-badge.png" alt="Excellent" style="height: 160px;" onerror="this.style.display='none'">
+                <div class="badge-container" style="margin-top: 10px;">
+                    <img src="doctify-logo-img.png" alt="Doctify" style="height: 25px;" onerror="this.src='doctify.png'; this.onerror=null;">
+                    <img src="5-stars-display.png" alt="5 Stars" style="height: 20px;" onerror="this.style.display='none'">
+                </div>
+            </div>
+            <div class="testimonials-carousel-wrapper">
+                <button class="carousel-arrow" id="prevDoctify">❮</button>
+                <div class="testimonials-track" id="doctifyTrack"></div>
+                <button class="carousel-arrow" id="nextDoctify">❯</button>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="fade-up" style="text-align: center;">
+            <h2 class="section-title">Verified Reviews from Google</h2>
+            <div class="badge-container">
+                <span style="font-weight: 700; color: var(--text-dark); letter-spacing: 1px;">EXCELLENT</span>
+                <span style="color: var(--google-yellow); font-size: 1.3rem; letter-spacing: 2px;">★★★★★</span>
+                <span style="color: var(--text-light); font-size: 0.95rem; border-left: 1px solid #ddd; padding-left: 10px;">Based on 83 reviews</span>
+                <img src="googlelogo.png" alt="Google Logo" style="height: 22px; margin-left: 5px;" onerror="this.style.display='none'">
+            </div>
+            <div class="testimonials-carousel-wrapper">
+                <button class="carousel-arrow" id="prevGoogle">❮</button>
+                <div class="testimonials-track" id="googleTrack"></div>
+                <button class="carousel-arrow" id="nextGoogle">❯</button>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="fade-up" style="text-align: center; margin-bottom: 30px;">
+            <h2 class="section-title">More Patient Stories</h2>
+            <p style="color: var(--text-light); font-size: 1.1rem;">In-depth feedback from our valued patients.</p>
+        </div>
+
+        <div class="masonry-grid">
+            <div class="review-card fade-up">
+                <div class="header">
+                    <div><div class="name">Verified Patient</div></div>
+                </div>
+                <p class="text">Dr Nuttall is incredibly professional, knowledgeable, and attentive. From the moment of the assessment, she listened carefully and asked all the right questions. What really stood out was how clearly she came up with a plan of action tailored to my needs. She truly cares about her patients and knows her field inside out. Definitely recommend without hesitation.</p>
+            </div>
+
+            <div class="review-card fade-up">
+                <div class="header">
+                    <div><div class="name">Verified Patient</div></div>
+                </div>
+                <p class="text">I can’t recommend Dr Nuttall highly enough. I had concerning symptoms in my ankle and she immediately came up with a plan of action, did blood tests and an MRI same-day and was so knowledgeable.. I needed to quickly get to an expert. Dr Nuttall is definitely that.</p>
+            </div>
+
+            <div class="review-card fade-up">
+                <div class="header">
+                    <div><div class="name">Verified Patient</div></div>
+                </div>
+                <p class="text">Dr. Nuttall was thoughtful and patient in both appointments I had with her. She took the time to observe me and explain to me the potential reasons for my pain. In the follow up phone appointment she explained the results clearly and provided some guidance on exercises and physio to manage and reduce the pain. She also ensured she ran the test required to reassure me. I would highly recommend Dr. Nuttall.</p>
+            </div>
+
+            <div class="review-card fade-up">
+                <div class="header">
+                    <div><div class="name">Verified Patient</div></div>
+                </div>
+                <p class="text">Dr Nuttall is nothing short of a miracle worker. My wife was terribly sick for 2 months. Our local hospital sent her home 6 times to ‘rest’ before I found Dr Nuttall through a recommendation from a senior medic at UCL. After an emergency admission to Whittington Hospital and the most thorough testing regime imaginable, Dr Nuttall diagnosed the condition (a very rare one) which had confined my wife to bed for two months and was slowly attacking all of her major organs. The treatment plan is now working brilliantly. I have my wife back!!! As well as dripping in medical wisdom, Dr Nuttall is kind, compassionate and has explained everything in a very clear but non-scientific way. I dread to think what would have happened to my wife but for Dr Nuttall’s intervention. We will forever be in her debt!</p>
+            </div>
+
+            <div class="review-card fade-up">
+                <div class="header">
+                    <div><div class="name">Verified Patient</div></div>
+                </div>
+                <p class="text">Dr Nuttall was absolutely fantastic! I came in a very scared person unsure of what my symptoms could be, she listened to me intensely and wrote down every little detail with varied tests to diagnose my symptoms. She was quick to diagnose me and to take precautional measures to ensure that we don’t miss anything incase I may have any further conditions from genetics. She explained my diagnosis and ensured I had further resources to deal with for the future. My diagnosis was fibromyalgia and are now undergoing tests for lupus and other auto immune conditions. For me personally it was well worth the money spent to go private as I was receiving no answers from the NHS. I can’t thank Dr Nuttall enough for everything she has done for me! 100% recommend.</p>
+            </div>
+        </div>
+
+        <div class="fade-up" style="text-align: center; margin-top: 50px;">
+            <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-primary" style="margin: 0 10px; padding: 12px 30px; font-size: 1.1rem;">Book a Consultation</a>
+            <a href="#contactForm" class="btn-outline-primary" style="margin: 0 10px; padding: 12px 30px; font-size: 1.1rem;">Contact Us</a>
+        </div>
+    </main>
+
+    <section class="middle-parallax fade-up">
+        <div class="middle-parallax-content">
+            <h2>Expert care across London and beyond</h2>
+            <p>Whether you are seeking help for joint pain, an autoimmune condition or second opinion in a complex case, I am here to support your journey to better health.</p>
+            <a href="#contactForm" class="btn-primary" style="background: var(--white); color: var(--primary-dark); font-weight: 600; padding: 15px 40px; font-size: 1.1rem;">SEND A MESSAGE</a>
+        </div>
+    </section>
+
+    <section class="contact-parallax" id="contact">
+        <div class="container" style="padding-top: 0; padding-bottom: 0; transform: translateY(-50px);">
+            <div class="merged-contact-box fade-up">
+                <div class="contact-info-panel">
+                    <h2>Treatments are available for many conditions.</h2>
+                    <p style="color: white; font-size: 1.1rem; margin-bottom: 25px; line-height: 1.6;">
+                        Please call to discuss how we can help you<br>
+                        Please send a message to Dr Anna Nuttall<br>
+                        or click the button below to book
+                    </p>
+                    
+                    <div style="margin-bottom: 35px; display: flex; flex-wrap: wrap; gap: 15px;">
+                        <a href="#contactForm" class="btn-primary" style="background: white; color: #0D4467;">Send a Message</a>
+                        <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-outline">Book Now</a>
+                    </div>
+
+                    <div class="contact-method" style="margin-bottom: 25px;">
+                        <p><strong>North London Rheumatologist</strong><br>Dr Anna Nuttall</p>
+                        <p style="margin-top: 10px;">Please contact the office for any query:<br>
+                        📞 <a href="tel:07886709494">07886 709494</a><br>
+                        ✉️ <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a></p>
+                    </div>
+
+                    <div class="contact-method">
+                        <p>To book please contact:<br>
+                        <strong>Nuffield Health Highgate Hospital</strong><br>
+                        📞 <a href="tel:02083473856">0208 347 3856</a></p>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-primary" style="background: white; color: #0D4467;">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-panel" id="contactForm">
+                    <h2>Send a Message</h2>
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent!');">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can I help you?</label>
+                            <textarea id="message" class="form-control" required placeholder="I am seeking a consultation regarding..." rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn-accent" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 0;">
+            <div class="footer-logo fade-up">
+                <img src="nlrlogo1.PNG" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
+                North London Rheumatologist
+            </div>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Dr Anna Nuttall</p>
+            <p class="footer-text">©2026 North London Rheumatologist</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const menuBtn = document.getElementById('menuBtn');
+            const navLinks = document.getElementById('navLinks');
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Fade-up Animation Observer
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => { entry.target.classList.add('is-visible'); }, i * 50);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+            // Scroller Data Setup
+            const doctifyData = [
+                { type: 'doctify', name: 'Anonymous', time: '1 day ago', initial: 'A', text: "Dr. Nuttall is an exceptional and compassionate professional in the field of rheumatology. Her care and expertise are highly commendable, and I wholeheartedly recommend her as one of the best in the field for anyone seeking rheumatology services." },
+                { type: 'doctify', name: 'Anonymous', time: '2 weeks ago', initial: 'A', text: "I had both a face to face consultation and a follow up phone appointment with Dr Nuttall, and I was very impressed with the care I received. She listened attentively, explained everything clearly and made me feel comfortable and not rushed..." },
+                { type: 'doctify', name: 'Anonymous', time: '3 months ago', initial: 'A', text: "Dr. Nuttall was very thorough, and explained everything regarding my diagnosis very clearly. She also went through the treatment options and helped me make an informed choice going forward. And several times throughout the appointment, she paused to ask me if I had any questions. Dr. Nuttall was very professional, as well as being very pleasant. Overall it was an excellent experience for me." },
+                { type: 'doctify', name: 'Anonymous', time: '3 months ago', initial: 'A', text: "Dr Nuttall was incredibly kind and professional. She was personable and approachable and I immediately felt at ease on seeing her, which made the consultation much less stressful. She explained things clearly and made me feel positive about the outlook for my condition. I really appreciate Dr Nuttall's patience and knowledge and would highly recommend her." }
+            ];
+
+            const googleData = [
+                { type: 'google', name: 'Paul Barnes', time: 'a month ago', initial: 'P', text: "Anna was incredibly helpful, reassuring and took the time to listen to all my symptoms rather than jump to common causes. She laid out a long and short term plan with me and I couldn't be more grateful." },
+                { type: 'google', name: 'Hayley Asai', time: '3 weeks ago', initial: 'H', text: "Dr. Nuttall provided a very supportive and non-judgemental consultation. After years trying to get answers, Dr. Nuttall took the time to explore my symptoms, and actively listened to my experience. I am really grateful for the support!" },
+                { type: 'google', name: 'John Smith', time: '2 months ago', initial: 'J', text: "Very professional and compassionate doctor. Took the time to explain everything in detail." }
+            ];
+
+            // Render Functions
+            const getAvatarStyle = (type) => type === 'google' ? 'background: #F4B400; color: white;' : 'background: #00A3E0; color: white;';
+            const getLogoHTML = (type) => type === 'google' 
+                ? '<img src="googlelogo.png" alt="Google" class="logo" onerror="this.style.display=\'none\'">' 
+                : '<img src="doctify.png" alt="Doctify" class="logo" onerror="this.style.display=\'none\'">';
+            const getStarsHTML = (type) => type === 'google'
+                ? '<div class="stars" style="color: var(--google-yellow);">★★★★★</div>'
+                : '<div class="stars" style="color: var(--doctify-blue);">★★★★★</div>';
+
+            const renderCarousel = (trackId, dataArray, currentIndex) => {
+                const track = document.getElementById(trackId);
+                if(!track) return;
+                track.innerHTML = '';
+                
+                for(let i = 0; i < 3; i++) {
+                    const data = dataArray[(currentIndex + i) % dataArray.length];
+                    const card = document.createElement('div');
+                    card.className = 'testimonial-card';
+                    card.innerHTML = `
+                        <div class="header">
+                            <div class="header-info">
+                                <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
+                                <div>
+                                    <p class="name">${data.name}</p>
+                                    <p class="time">${data.time}</p>
+                                </div>
+                            </div>
+                            ${getLogoHTML(data.type)}
+                        </div>
+                        ${getStarsHTML(data.type)}
+                        <p class="text">"${data.text}"</p>
+                    `;
+                    track.appendChild(card);
+                }
+            };
+
+            // Doctify Scroller State & Events
+            let currentDoctifyIndex = 0;
+            renderCarousel('doctifyTrack', doctifyData, currentDoctifyIndex);
+            
+            document.getElementById('nextDoctify').addEventListener('click', () => {
+                currentDoctifyIndex = (currentDoctifyIndex + 1) % doctifyData.length;
+                renderCarousel('doctifyTrack', doctifyData, currentDoctifyIndex);
+            });
+            document.getElementById('prevDoctify').addEventListener('click', () => {
+                currentDoctifyIndex = (currentDoctifyIndex - 1 + doctifyData.length) % doctifyData.length;
+                renderCarousel('doctifyTrack', doctifyData, currentDoctifyIndex);
+            });
+
+            // Google Scroller State & Events
+            let currentGoogleIndex = 0;
+            renderCarousel('googleTrack', googleData, currentGoogleIndex);
+            
+            document.getElementById('nextGoogle').addEventListener('click', () => {
+                currentGoogleIndex = (currentGoogleIndex + 1) % googleData.length;
+                renderCarousel('googleTrack', googleData, currentGoogleIndex);
+            });
+            document.getElementById('prevGoogle').addEventListener('click', () => {
+                currentGoogleIndex = (currentGoogleIndex - 1 + googleData.length) % googleData.length;
+                renderCarousel('googleTrack', googleData, currentGoogleIndex);
+            });
+        });
+    </script>
+</body>
 </html>
