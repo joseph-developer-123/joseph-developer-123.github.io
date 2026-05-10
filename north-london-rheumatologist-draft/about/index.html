@@ -19,6 +19,7 @@
             --primary-dark: #105966; 
             --doctify-blue: #00A3E0; 
             --google-yellow: #F4B400; 
+            --accent-blue: #5C9CE6;
             --cheerful-blue: #E8F4FC;
             --text-dark: #1A1A24; 
             --text-light: #5A5A6A; 
@@ -105,12 +106,8 @@
             font-weight: 400; 
         }
         
-        .container { 
-            width: 90%; 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            padding: 80px 20px; 
-        }
+                .container { width: 90%; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+
         
         .text-center { 
             text-align: center; 
@@ -159,7 +156,7 @@
             background: var(--primary-dark); 
         }
         
-        .btn-outline-primary { 
+         .btn-outline-primary { 
             background: transparent; 
             color: var(--primary); 
             border: 2px solid var(--primary); 
@@ -169,6 +166,9 @@
             background: var(--primary); 
             color: var(--white); 
         }
+
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center;}
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
 
         .btn-group {
             display: flex;
@@ -519,35 +519,48 @@
             color: rgba(255,255,255,0.9); 
         }
 
-        /* ==========================================================================
-           CONTACT SECTION & FOOTER (Matched exactly to testimonials.html)
+       /* ==========================================================================
+           CONTACT SECTION & FOOTER
            ========================================================================== */
-        .contact-parallax {
-            background-image: url('nuffield1.jpg'); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
-            position: relative; padding: 120px 0; 
-        }
-        .contact-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(244, 247, 249, 0.95); }
-        .merged-contact-box { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        .contact-parallax { background-image: url('nuffield1.jpg'), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1600'); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; padding: 80px 20px 100px 20px; display: flex; align-items: center; }
+        .contact-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(244, 247, 249, 0.85); backdrop-filter: blur(8px); }
         
-        .contact-info-panel { background: #0D4467; color: var(--white); padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; }
-        .contact-info-panel h2 { color: var(--white); font-size: 2.4rem; margin-bottom: 20px; }
-        .contact-info-panel .contact-method p { color: #D0D0D0; font-weight: 300; font-size: 1.1rem; margin-bottom: 8px; }
-        .contact-info-panel .contact-method a { color: var(--white); text-decoration: none; transition: color 0.2s; font-weight: 400; }
-        .contact-info-panel .contact-method a:hover { color: var(--primary); }
+        .merged-contact-box { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
         
-        .contact-form-panel { background: var(--white); padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; }
-        .contact-form-panel h2 { margin-bottom: 30px; font-size: 2.2rem; color: var(--text-dark); }
-        .form-group { margin-bottom: 24px; }
-        .form-group label { display: block; margin-bottom: 10px; font-weight: 500; font-size: 1rem; color: var(--text-dark); }
-        .form-control { width: 100%; padding: 16px 20px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; background: #F9FBFC; font-family: 'Figtree', sans-serif; font-size: 1rem; transition: var(--transition); }
-        .form-control:focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px rgba(22, 120, 137, 0.1); }
+        .contact-info-panel { background: var(--contact-bg); color: var(--white); padding: 60px 50px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+        .contact-info-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%); z-index: 1; pointer-events: none; }
+        .contact-info-panel * { position: relative; z-index: 2; }
+        .contact-info-panel h2 { font-size: 2.4rem; margin-bottom: 5px; color: var(--white); }
+        .contact-info-panel h3 { color: var(--accent-blue); font-size: 1.4rem; font-weight: 500; margin-bottom: 30px; }
         
-        .btn-accent { background: #5C9CE6; color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; border: none; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; }
-        .btn-accent:hover { background: #4A88D0; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center;}
-        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        /* TABS STYLING */
+        .tabs-container { width: 100%; display: flex; flex-direction: column; }
+        .tab-buttons { display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 10px; flex-wrap: wrap; }
+        .tab-btn { background: transparent; color: rgba(255,255,255,0.6); border: none; font-size: 1.05rem; font-family: 'Figtree', sans-serif; cursor: pointer; padding: 5px 0; font-weight: 600; transition: var(--transition); border-bottom: 2px solid transparent; }
+        .tab-btn.active { color: var(--white); border-bottom: 2px solid var(--accent-blue); }
+        .tab-btn:hover { color: var(--white); }
+        .tab-content { display: none; flex-direction: column; gap: 15px; animation: fadeIn 0.4s ease-out; }
+        .tab-content.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-         footer { background: var(--text-dark); color: var(--white); padding: 80px 0 40px 0; text-align: center; }
+        .location-image { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; margin-bottom: 5px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .map-container { width: 100%; height: 180px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+
+        .contact-method p { color: #E0E5E9; font-weight: 300; font-size: 1.1rem; margin-bottom: 8px; line-height: 1.5; }
+        .contact-method a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 1.15rem; transition: var(--transition); border-bottom: 1px solid transparent; }
+        .contact-method a:hover { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+        
+        .contact-form-panel { background: var(--white); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .contact-form-panel h2 { margin-bottom: 20px; font-size: 2.4rem; color: var(--primary-dark); }
+        
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 1rem; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 18px 20px; border: 2px solid rgba(0,0,0,0.05); border-radius: 12px; background: #F9FBFC; font-family: 'Figtree', sans-serif; font-size: 1rem; transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px rgba(22, 120, 137, 0.1); }
+        textarea.form-control { resize: vertical; min-height: 160px; }
+
+        footer { background: var(--text-dark); color: var(--white); padding: 80px 0 40px 0; text-align: center; }
         .footer-logo { font-size: 1.8rem; color: var(--white); margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .footer-logo img { height: 120px; margin-bottom: 15px; transition: transform 0.5s; }
         .footer-text { opacity: 0.5; font-size: 0.95rem; margin-top: 40px; margin-bottom: 0; font-family: 'Figtree', sans-serif; }
@@ -587,22 +600,25 @@
 
     <header id="navbar">
         <div class="header-container">
-            <a href="index11.html" class="logo">
+            <a href="#home" class="logo">
                 <img src="nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
                 <span class="logo-text">
                     North London Rheumatologist
-                    <span class="logo-subtext" style="position: relative; top: 8px;">Dr Anna Nuttall <span style="font-weight: 400; opacity: 0.75; position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></span>
+                    <span class="logo-subtext" style="position: relative; top: 8px;"">Dr Anna Nuttall <span style="font-weight: 400;  
+    opacity: 0.75;  position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></span>
                 </span>
             </a>
+            
             <div style="display: flex; align-items: center; gap: 20px;" class="header-right-actions">
                 <nav class="nav-links" id="navLinks">
-                    <a href="index11.html">Home</a>
-                    <a href="about.html" class="active">About</a>
-                    <a href="#treatments">Treatments</a>
-                    <a href="testimonials.html">Testimonials</a>
-                    <a href="#contact">Contact</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/">Home</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/about">About</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/conditions-treated">Conditions Treated</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/testimonials">Testimonials</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/contact">Contact</a>
                 </nav>
-                <a href="#contact" class="btn-primary header-btn">Book Now</a>
+                
+                <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn btn-primary" style="padding: 10px 24px; color: white">Book Now</a>
                 <button class="mobile-menu-btn" id="menuBtn">☰</button>
             </div>
         </div>
@@ -625,8 +641,8 @@
                 <p>Known for her personable and attentive approach, Dr Nuttall prioritises clear communication and building strong relationships with her patients. Fluent in both English and Russian, she is able to connect with a diverse patient population. Dr Nuttall is recognised by all major private insurance providers, making her services accessible to a wide range of patients seeking expert rheumatological care.</p>
                 
                 <div class="btn-group">
-                    <a href="#contact" class="btn btn-primary">Book an Appointment</a>
-                    <a href="conditions.html" class="btn btn-outline-primary">View Treatments</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn btn-primary">Book an Appointment</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/conditions-treated" class="btn btn-outline-primary">View Treatments</a>
                 </div>
             </div>
         </div>
@@ -710,7 +726,7 @@
 
             <div class="cta-treatment-box fade-up">
                 <h3>Treatments are available for many conditions.</h3>
-                <a href="#contact" class="btn btn-primary">Please click here to see how we can help you</a>
+                <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn btn-primary">Please click here to see how we can help you</a>
             </div>
         </div>
     </section>
@@ -719,62 +735,86 @@
         <div class="middle-parallax-content fade-up">
             <h2>Expert Rheumatology Care</h2>
             <p>Delivering comprehensive, patient-centred treatment plans using the latest evidence-based medicine.</p>
-            <a href="#contact" class="btn-outline">Get in Touch Today</a>
+            <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-outline">Get in Touch Today</a>
         </div>
     </section>
 
-    <section class="contact-parallax" id="contact">
-        <div class="container" style="padding-top: 0; padding-bottom: 0; transform: translateY(-50px);">
+     <section class="contact-parallax">
+        <div class="container">
             <div class="merged-contact-box fade-up">
+                
                 <div class="contact-info-panel">
-                    <h2>Treatments are available for many conditions.</h2>
-                    <p style="color: white; font-size: 1.1rem; margin-bottom: 25px; line-height: 1.6;">
-                        Please call to discuss how we can help you<br>
-                        Please send a message to Dr Anna Nuttall<br>
-                        or click the button below to book
-                    </p>
+                    <h2>Locations & Contact</h2>
+                    <h3>Dr Anna Nuttall</h3>
                     
-                    <div style="margin-bottom: 35px; display: flex; flex-wrap: wrap; gap: 15px;">
-                        <a href="#contactForm" class="btn-primary" style="background: white; color: #0D4467;">Send a Message</a>
-                        <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-outline">Book Now</a>
-                    </div>
+                    <div class="tabs-container">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" onclick="openTab(event, 'Nuffield')">Nuffield Health</button>
+                            <button class="tab-btn" onclick="openTab(event, 'Mayo')">Mayo Clinic</button>
+                            <button class="tab-btn" onclick="openTab(event, 'Golders')">Golders Green</button>
+                        </div>
 
-                    <div class="contact-method" style="margin-bottom: 25px;">
-                        <p><strong>North London Rheumatologist</strong><br>Dr Anna Nuttall</p>
-                        <p style="margin-top: 10px;">Please contact the office for any query:<br>
-                        📞 <a href="tel:07886709494">07886 709494</a><br>
-                        ✉️ <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a></p>
-                    </div>
+                        <div id="Nuffield" class="tab-content active">
+                            <div class="contact-method">
+                                <p style="color: var(--white); font-weight: 500;">Direct Appointments:</p>
+                                <p>Nuffield Health Highgate Hospital</p>
+                                <p>📞 <a href="tel:02083473856">0208 347 3856</a></p>
+                            </div>
+                            <img src="nuffield1.jpg" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800'" alt="Nuffield Health Highgate Hospital" class="location-image">
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.201655610815!2d-0.14954708422797676!3d51.56456207964402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761a58c0dbb12d%3A0xc6fb6c075676cc13!2sNuffield%20Health%20Highgate%20Hospital!5e0!3m2!1sen!2suk!4v1683123456789!5m2!1sen!2suk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            
+                        </div>
 
-                    <div class="contact-method">
-                        <p>To book please contact:<br>
-                        <strong>Nuffield Health Highgate Hospital</strong><br>
-                        📞 <a href="tel:02083473856">0208 347 3856</a></p>
-                    </div>
-                    
-                    <div style="margin-top: 25px;">
-                        <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-primary" style="background: white; color: #0D4467;">Book Now</a>
+                        <div id="Mayo" class="tab-content">
+                            <div class="contact-method">
+                                <p style="color: var(--white); font-weight: 500;">Appointments (via PA):</p>
+                                <p>📞 <a href="tel:07886709494">07886 709494</a></p>
+                                <p>✉️ <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a></p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800" alt="Mayo Clinic Healthcare London" class="location-image">
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.906660608552!2d-0.1481232842299834!3d51.514930179636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad5815616e5%3A0x7d6fa5c05c0c9769!2sMayo%20Clinic%20Healthcare!5e0!3m2!1sen!2suk!4v1683123456790!5m2!1sen!2suk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            
+                        </div>
+
+                        <div id="Golders" class="tab-content">
+                            <div class="contact-method">
+                                <p style="color: var(--white); font-weight: 500;">Appointments (via PA):</p>
+                                <p>📞 <a href="tel:07886709494">07886 709494</a></p>
+                                <p>✉️ <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a></p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac17e4?auto=format&fit=crop&q=80&w=800" alt="Golders Green Diagnostic Centre" class="location-image">
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.524855483758!2d-0.19827598422744315!3d51.576915379647225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761081a296d393%3A0xc3b8606ab06d7e00!2sGolders%20Green!5e0!3m2!1sen!2suk!4v1683123456791!5m2!1sen!2suk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+            
+                        </div>
+
                     </div>
                 </div>
-                
-                <div class="contact-form-panel" id="contactForm">
+
+                <div class="contact-form-panel">
                     <h2>Send a Message</h2>
-                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent!');">
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message successfully sent to Dr Anna Nuttall\'s office.');">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required placeholder="John Doe">
+                            <input type="text" id="name" class="form-control" required placeholder="Jane Doe">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required placeholder="john@example.com">
+                            <input type="email" id="email" class="form-control" required placeholder="jane@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="message">How can I help you?</label>
-                            <textarea id="message" class="form-control" required placeholder="I am seeking a consultation regarding..." rows="5"></textarea>
+                            <label for="message">How can we help you today?</label>
+                            <textarea id="message" class="form-control" required placeholder="Please describe your symptoms or reason for seeking a consultation..."></textarea>
                         </div>
-                        <button type="submit" class="btn-accent" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem; margin-top: 10px;">Send Message</button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
@@ -815,6 +855,21 @@
             
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         });
+
+        // Tab Switching Logic
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>
