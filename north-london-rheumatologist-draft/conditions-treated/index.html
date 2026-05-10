@@ -182,7 +182,13 @@
         .contact-method a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 1.15rem; transition: var(--transition); border-bottom: 1px solid transparent; }
         .contact-method a:hover { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
         
-        .contact-form-panel { background: var(--white); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+.contact-form-panel { 
+    background: var(--white); 
+    padding: 60px 60px; /* Changed top padding to 60px */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; /* Align content to the top */
+}
         .contact-form-panel h2 { margin-bottom: 20px; font-size: 2.4rem; color: var(--primary-dark); }
         .form-intro-text { margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 20px; }
         .form-intro-text p { margin-bottom: 10px; color: var(--text-light); line-height: 1.5; font-size: 1.05rem; }
