@@ -233,10 +233,53 @@
             .logo img { margin-right: 0; }
             .merged-contact-box { grid-template-columns: 1fr; }
         }
+
+@media (min-width: 771px) {
+            .mobile-progress-wrapper { display: none !important; }
+        }
+
         @media (max-width: 770px) {
             .masonry-grid { column-count: 1; }
-            .testimonials-track { grid-template-columns: 1fr; }
-            .carousel-arrow { width: 36px; height: 36px; font-size: 1rem; }
+            .testimonials-track { 
+                display: flex; 
+                flex-wrap: nowrap;
+                overflow-x: auto; 
+                scroll-snap-type: x mandatory; 
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hides default scrollbar in Firefox */
+                gap: 15px;
+            }
+            .testimonials-track::-webkit-scrollbar {
+                display: none; /* Hides default scrollbar in Chrome/Safari */
+            }
+            .testimonials-track .testimonial-card { 
+                flex: 0 0 100%; /* Shows exactly 1 card at a time */
+                scroll-snap-align: center; 
+            }
+@media (hover: none) and (pointer: coarse) {
+    .carousel-arrow { 
+        display: none !important; 
+    }
+}
+            
+            /* Mobile Progress Bar Styles */
+            .mobile-progress-wrapper {
+                display: block;
+                width: 70px;
+                height: 5px;
+                background: rgba(0, 0, 0, 0.08);
+                border-radius: 6px;
+                margin: 20px auto 0 auto;
+                overflow: hidden;
+            }
+            .mobile-progress-bar {
+                height: 100%;
+                background: var(--text-light);
+                border-radius: 6px;
+                transform-origin: left;
+                will-change: transform;
+            }
             .testimonial-card { height: auto; min-height: 300px; padding: 20px; }
             .nav-links { position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); background: var(--white); flex-direction: column; justify-content: center; gap: 40px; transition: left 0.3s; }
             .nav-links.active { left: 0; }
@@ -260,10 +303,45 @@
         width: 95% !important; 
         padding: 10 10px !important; 
     }
+    
         }
+
+        @media (max-width: 600px) {
+            .google-badge { 
+                flex-direction: column; 
+                gap: 4px; 
+                border-radius: 20px; 
+                padding: 12px 20px; 
+            }
+            .badge-divider-row { 
+                border: none; 
+                padding: 0; 
+                width: 100%; 
+                justify-content: center; 
+            }
+
+            
+}
 
         .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center;}
         .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+        .google-badge { flex-wrap: wrap; }
+.badge-row { display: flex; align-items: center; gap: 10px; }
+.badge-divider-row { border-left: 1px solid #ddd; padding-left: 10px; }
+
+.review-link {
+    color: var(--text-light); 
+    font-size: 0.95rem; 
+    text-decoration: underline; 
+    text-decoration-color: #ddd; 
+    text-underline-offset: 3px;
+    transition: var(--transition);
+}
+.review-link:hover {
+    color: var(--primary);
+    text-decoration-color: var(--primary);
+}
     </style>
 </head>
 <body>
@@ -333,12 +411,16 @@
         Verified Reviews from <img src="../googlelogo.png" alt="Google" style="height: 1em; vertical-align: text-bottom; margin-left: 4px;" onerror="this.style.display='none'">
     </a>
 </h2>
-            <div class="badge-container">
-                <span style="font-weight: 700; color: var(--text-dark); letter-spacing: 1px;">EXCELLENT</span>
-                <span style="color: var(--google-yellow); font-size: 1.3rem; letter-spacing: 2px;">★★★★★</span>
-                <span style="color: var(--text-light); font-size: 0.95rem; border-left: 1px solid #ddd; padding-left: 10px;">Based on 83 reviews</span>
-                <img src="../googlelogo.png" alt="Google Logo" style="height: 22px; margin-left: 5px;" onerror="this.style.display='none'">
-            </div>
+            <div class="badge-container google-badge">
+    <div class="badge-row">
+        <span style="font-weight: 700; color: var(--text-dark); letter-spacing: 1px;">EXCELLENT</span>
+        <span style="color: var(--google-yellow); font-size: 1.3rem; letter-spacing: 2px;">★★★★★</span>
+    </div>
+    <div class="badge-row badge-divider-row">
+        <a href="https://www.trustindex.io/reviews/www.northlondonrheumatologist.org" target="_blank" rel="noopener noreferrer" class="review-link">Based on 83 reviews</a>
+        <img src="../googlelogo.png" alt="Google Logo" style="height: 22px; margin-left: 5px;" onerror="this.style.display='none'">
+    </div>
+</div>
             <div class="testimonials-carousel-wrapper">
                 <button class="carousel-arrow" id="prevGoogle">❮</button>
                 <div class="testimonials-track" id="googleTrack"></div>
@@ -391,9 +473,9 @@
         </div>
 
         <div class="fade-up" style="text-align: center; margin-top: 50px;">
-            <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-primary" style="margin: 0 10px; padding: 12px 30px; font-size: 1.1rem;">Book a Consultation</a>
-            <a href="#contactForm" class="btn-outline-primary" style="margin: 0 10px; padding: 12px 30px; font-size: 1.1rem;">Contact Us</a>
-        </div>
+    <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn-primary" style="margin: 10px; padding: 12px 30px; font-size: 1.1rem; width: 240px; max-width: 90%;">Book a Consultation</a>
+    <a href="#contactForm" class="btn-outline-primary" style="margin: 10px; padding: 12px 30px; font-size: 1.1rem; width: 240px; max-width: 90%;">Contact Us</a>
+</div>
     </main>
 
     <section class="middle-parallax fade-up">
@@ -543,72 +625,130 @@
             // Render Functions
             const getAvatarStyle = (type) => type === 'google' ? 'background: #F4B400; color: white;' : 'background: #00A3E0; color: white;';
             const getLogoHTML = (type) => type === 'google' 
-                ? '<img src="../googlelogo.png" alt="Google" class="logo" onerror="this.style.display=\'none\'">' 
+                ? '<img src="../google.png" alt="Google" class="logo" onerror="this.style.display=\'none\'">' 
                 : '<img src="../doctify.png" alt="Doctify" class="logo" onerror="this.style.display=\'none\'">';
             const getStarsHTML = (type) => type === 'google'
                 ? '<div class="stars" style="color: var(--google-yellow);">★★★★★</div>'
                 : '<div class="stars" style="color: var(--doctify-blue);">★★★★★</div>';
 
-            const renderCarousel = (trackId, dataArray, currentIndex) => {
-    const track = document.getElementById(trackId);
-    if(!track) return;
-    track.innerHTML = '';
-    
-    for(let i = 0; i < 3; i++) {
-        const data = dataArray[(currentIndex + i) % dataArray.length];
-        
-        // Check if it's a google review with a URL
-        const isClickable = data.type === 'google' && data.url;
-        
-        // Create an <a> tag if clickable, otherwise a <div>
-        const card = document.createElement(isClickable ? 'a' : 'div');
-        card.className = 'testimonial-card';
-        
-        // Add link attributes if clickable
-        if (isClickable) {
-            card.href = data.url;
-            card.target = '_blank';
-            card.rel = 'noopener noreferrer';
-            card.style.textDecoration = 'none';
-            card.style.color = 'inherit';
-            card.style.cursor = 'pointer';
-        }
-        
-        card.innerHTML = `
-            <div class="header">
-                <div class="header-info">
-                    <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
-                    <div>
-                        <p class="name">${data.name}</p>
-                        <p class="time">${data.time}</p>
-                    </div>
-                </div>
-                ${getLogoHTML(data.type)}
-            </div>
-            ${getStarsHTML(data.type)}
-            <p class="text">"${data.text}"</p>
-            ${isClickable ? `
-            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--primary); font-weight: 600; font-style: normal; display: flex; align-items: center; gap: 4px;">
-                Read on Google <span style="font-size: 1.1rem;">&rarr;</span>
-            </p>` : ''}
-        `;
-        track.appendChild(card);
-    }
-};
+           const renderCarousel = (trackId, dataArray, currentIndex) => {
+                const track = document.getElementById(trackId);
+                if(!track) return;
+                track.innerHTML = '';
+                
+                // NEW LOGIC: Check if mobile
+                const isMobile = window.innerWidth <= 770;
+                // On mobile we put all items in the DOM for CSS to swipe through. On desktop, we just inject 3.
+                const itemsToRender = isMobile ? dataArray.length : 3;
+
+                for(let i = 0; i < itemsToRender; i++) {
+                    const data = isMobile ? dataArray[i] : dataArray[(currentIndex + i) % dataArray.length];
+                    
+                    const isClickable = data.type === 'google' && data.url;
+                    const card = document.createElement(isClickable ? 'a' : 'div');
+                    card.className = 'testimonial-card';
+                    
+                    if (isClickable) {
+                        card.href = data.url;
+                        card.target = '_blank';
+                        card.rel = 'noopener noreferrer';
+                        card.style.textDecoration = 'none';
+                        card.style.color = 'inherit';
+                        card.style.cursor = 'pointer';
+                    }
+                    
+                    card.innerHTML = `
+                        <div class="header">
+                            <div class="header-info">
+                                <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
+                                <div>
+                                    <p class="name">${data.name}</p>
+                                    <p class="time">${data.time}</p>
+                                </div>
+                            </div>
+                            ${getLogoHTML(data.type)}
+                        </div>
+                        ${getStarsHTML(data.type)}
+                        <p class="text">"${data.text}"</p>
+                        ${isClickable ? `
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--primary); font-weight: 600; font-style: normal; display: flex; align-items: center; gap: 4px;">
+                            Read on Google <span style="font-size: 1.1rem;">→</span>
+                        </p>` : ''}
+                    `;
+                    track.appendChild(card);
+                }
+            };
 
             // Google Scroller State & Events
             let currentGoogleIndex = 0;
-            renderCarousel('googleTrack', googleData, currentGoogleIndex);
             
-            document.getElementById('nextGoogle').addEventListener('click', () => {
-                currentGoogleIndex = (currentGoogleIndex + 1) % googleData.length;
+            // Inject progress bar wrapper into HTML right after the Google carousel
+            const googleTrackEl = document.getElementById('googleTrack');
+            const googleWrapper = googleTrackEl.parentNode;
+            const progressWrapper = document.createElement('div');
+            progressWrapper.className = 'mobile-progress-wrapper';
+            progressWrapper.innerHTML = '<div class="mobile-progress-bar" id="googleProgress"></div>';
+            googleWrapper.parentNode.insertBefore(progressWrapper, googleWrapper.nextSibling);
+
+            // Setup and Initial Render
+            const initGoogleCarousel = () => {
                 renderCarousel('googleTrack', googleData, currentGoogleIndex);
+                // Set progress bar initial size
+                const progress = document.getElementById('googleProgress');
+                if(progress) progress.style.width = `${100 / googleData.length}%`;
+            };
+            
+            initGoogleCarousel();
+            
+            // Listen for window resizes so it switches back to desktop mode if a phone rotates
+            window.addEventListener('resize', () => {
+                initGoogleCarousel();
             });
+
+            // Native scroll listener for the mobile progress bar indicator
+            document.getElementById('googleTrack').addEventListener('scroll', (e) => {
+                if (window.innerWidth > 770) return; // Only run on mobile
+                const track = e.target;
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                if (maxScroll <= 0) return;
+                
+                const scrollPercentage = track.scrollLeft / maxScroll;
+                const progress = document.getElementById('googleProgress');
+                if (progress) {
+                    const availableMove = googleData.length - 1; 
+                    progress.style.transform = `translateX(${scrollPercentage * availableMove * 100}%)`;
+                }
+            });
+
+            // Desktop Arrow Functionality (Disabled on mobile)
+           // Arrow Functionality (Re-renders on Desktop, Scrolls on narrow Computer windows)
+            document.getElementById('nextGoogle').addEventListener('click', () => {
+                if (window.innerWidth <= 770) {
+                    // We are in the narrow single-card view: Scroll the track right
+                    const track = document.getElementById('googleTrack');
+                    const cardWidth = track.querySelector('.testimonial-card').offsetWidth + 15; // Width + gap
+                    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                } else {
+                    // We are in the full desktop view: Re-render the 3 cards
+                    currentGoogleIndex = (currentGoogleIndex + 1) % googleData.length;
+                    renderCarousel('googleTrack', googleData, currentGoogleIndex);
+                }
+            });
+
             document.getElementById('prevGoogle').addEventListener('click', () => {
-                currentGoogleIndex = (currentGoogleIndex - 1 + googleData.length) % googleData.length;
-                renderCarousel('googleTrack', googleData, currentGoogleIndex);
+                if (window.innerWidth <= 770) {
+                    // We are in the narrow single-card view: Scroll the track left
+                    const track = document.getElementById('googleTrack');
+                    const cardWidth = track.querySelector('.testimonial-card').offsetWidth + 15; // Width + gap
+                    track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                } else {
+                    // We are in the full desktop view: Re-render the 3 cards
+                    currentGoogleIndex = (currentGoogleIndex - 1 + googleData.length) % googleData.length;
+                    renderCarousel('googleTrack', googleData, currentGoogleIndex);
+                }
             });
         });
+        
 
         function openTab(evt, tabName) {
             let i, tabcontent, tablinks;
