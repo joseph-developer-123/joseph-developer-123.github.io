@@ -104,8 +104,8 @@ body {
             text-decoration: none; transition: var(--transition); cursor: pointer; border: none; font-size: 1.1rem;
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .btn-primary { background: var(--primary); color: var(--white); }
-        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-primary { background: var(--primary); color: var(--white); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: var(--transition); display: inline-flex; justify-content: center; align-items: center; border: none; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 1.1rem; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .btn-accent { background: var(--accent-blue); color: var(--white); }
         .btn-accent:hover { background: var(--accent-blue-dark); }
         .btn-outline { background: transparent; color: var(--text-dark); border: 2px solid var(--text-dark); }
@@ -556,7 +556,7 @@ body {
     /* Allow the container to take up more width */
     .container {
         width: 95% !important; /* Increased from 90% */
-        padding: 10px 10px !important; /* Reduced from 20px */
+        padding: 0 10px !important; /* Reduced from 20px */
     }
 
         }
@@ -650,7 +650,7 @@ body {
 
     <header id="navbar">
         <div class="header-container">
-            <a href="#home" class="logo">
+            <a href="https://alethara.com/north-london-rheumatologist-draft/" class="logo">
                 <img src="nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
                 <span class="logo-text">
                     North London Rheumatologist
