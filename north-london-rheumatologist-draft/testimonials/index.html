@@ -310,7 +310,11 @@
         <div class="section-divider"></div>
 
         <div class="fade-up" style="text-align: center;">
-            <h2 class="section-title">Verified Reviews from Google</h2>
+            <h2 class="section-title">
+    <a href="https://www.trustindex.io/reviews/www.northlondonrheumatologist.org" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+        Verified Reviews from <img src="../googlelogo.png" alt="Google" style="height: 32px;" onerror="this.style.display='none'">
+    </a>
+</h2>
             <div class="badge-container">
                 <span style="font-weight: 700; color: var(--text-dark); letter-spacing: 1px;">EXCELLENT</span>
                 <span style="color: var(--google-yellow); font-size: 1.3rem; letter-spacing: 2px;">★★★★★</span>
@@ -419,7 +423,7 @@
                             <div class="map-container">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.906660608552!2d-0.1481232842299834!3d51.514930179636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad5815616e5%3A0x7d6fa5c05c0c9769!2sMayo%20Clinic%20Healthcare!5e0!3m2!1sen!2suk!4v1683123456790!5m2!1sen!2suk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                            <img src="mayo.jpg" alt="Mayo Clinic Healthcare London" class="location-image">
+                            <img src="../mayo.jpg" alt="Mayo Clinic Healthcare London" class="location-image">
                             
                             
                         </div>
@@ -433,7 +437,7 @@
                             <div class="map-container">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.524855483758!2d-0.19827598422744315!3d51.576915379647225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761081a296d393%3A0xc3b8606ab06d7e00!2sGolders%20Green!5e0!3m2!1sen!2suk!4v1683123456791!5m2!1sen!2suk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                            <img src="golders.jpg" alt="Golders Green Diagnostic Centre" class="location-image">
+                            <img src="../golders.jpg" alt="Golders Green Diagnostic Centre" class="location-image">
                             
                             
                         </div>
@@ -504,11 +508,19 @@
                 { type: 'doctify', name: 'Anonymous', time: '3 months ago', initial: 'A', text: "Dr Nuttall was incredibly kind and professional. She was personable and approachable and I immediately felt at ease on seeing her, which made the consultation much less stressful. She explained things clearly and made me feel positive about the outlook for my condition. I really appreciate Dr Nuttall's patience and knowledge and would highly recommend her." }
             ];
 
+
             const googleData = [
-                { type: 'google', name: 'Paul Barnes', time: 'a month ago', initial: 'P', text: "Anna was incredibly helpful, reassuring and took the time to listen to all my symptoms rather than jump to common causes. She laid out a long and short term plan with me and I couldn't be more grateful." },
-                { type: 'google', name: 'Hayley Asai', time: '3 weeks ago', initial: 'H', text: "Dr. Nuttall provided a very supportive and non-judgemental consultation. After years trying to get answers, Dr. Nuttall took the time to explore my symptoms, and actively listened to my experience. I am really grateful for the support!" },
-                { type: 'google', name: 'John Smith', time: '2 months ago', initial: 'J', text: "Very professional and compassionate doctor. Took the time to explain everything in detail." }
-            ];
+ { type: 'google', name: 'Ilan Mulerov', time: '3 days ago', initial: 'I', 
+    url: 'https://share.google/1PeAVMm87StjDf2Cq', text: "            Dr Nuttall is incredibly kind, compassionate, and professional. She immediately put me at ease and made me feel very calm and reassured about my situation. I cannot recommend Dr Nuttall highly enough." },
+ 
+                  { type: 'google', name: 'Rory Brown', time: 'a month ago', initial: 'R', 
+    url: 'https://share.google/ALNEK8N1S8HVcMRT0', text: "Dr Nuttall was incredibly impressive, empathetic and knowledgeable. I would like to thank her for her excellent service and would highly recommend her to anyone." }
+,
+    { type: 'google', name: 'Paul Barnes', time: 'a month ago', initial: 'P', 
+    url: 'https://share.google/1PeAVMm87StjDf2Cq', text: "Anna was incredibly helpful, reassuring and took the time to listen to all my symptoms rather than jump to common causes. She laid out a long and short term plan with me and I couldn't be more grateful." },
+    { type: 'google', name: 'Hayley Asai', time: '3 weeks ago', initial: 'H', 
+    url: 'https://share.google/1Hu515wctvyGfu90n', text: "Dr. Nuttall provided a very supportive and non-judgemental consultation. After years trying to get answers, Dr. Nuttall took the time to explore my symptoms, and actively listened to my experience. I am really grateful for the support!" },
+  ];
 
             // Render Functions
             const getAvatarStyle = (type) => type === 'google' ? 'background: #F4B400; color: white;' : 'background: #00A3E0; color: white;';
@@ -520,31 +532,51 @@
                 : '<div class="stars" style="color: var(--doctify-blue);">★★★★★</div>';
 
             const renderCarousel = (trackId, dataArray, currentIndex) => {
-                const track = document.getElementById(trackId);
-                if(!track) return;
-                track.innerHTML = '';
-                
-                for(let i = 0; i < 3; i++) {
-                    const data = dataArray[(currentIndex + i) % dataArray.length];
-                    const card = document.createElement('div');
-                    card.className = 'testimonial-card';
-                    card.innerHTML = `
-                        <div class="header">
-                            <div class="header-info">
-                                <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
-                                <div>
-                                    <p class="name">${data.name}</p>
-                                    <p class="time">${data.time}</p>
-                                </div>
-                            </div>
-                            ${getLogoHTML(data.type)}
-                        </div>
-                        ${getStarsHTML(data.type)}
-                        <p class="text">"${data.text}"</p>
-                    `;
-                    track.appendChild(card);
-                }
-            };
+    const track = document.getElementById(trackId);
+    if(!track) return;
+    track.innerHTML = '';
+    
+    for(let i = 0; i < 3; i++) {
+        const data = dataArray[(currentIndex + i) % dataArray.length];
+        
+        // Check if it's a google review with a URL
+        const isClickable = data.type === 'google' && data.url;
+        
+        // Create an <a> tag if clickable, otherwise a <div>
+        const card = document.createElement(isClickable ? 'a' : 'div');
+        card.className = 'testimonial-card';
+        
+        // Add link attributes if clickable
+        if (isClickable) {
+            card.href = data.url;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            card.style.textDecoration = 'none';
+            card.style.color = 'inherit';
+            card.style.cursor = 'pointer';
+        }
+        
+        card.innerHTML = `
+            <div class="header">
+                <div class="header-info">
+                    <div class="avatar" style="${getAvatarStyle(data.type)}">${data.initial}</div>
+                    <div>
+                        <p class="name">${data.name}</p>
+                        <p class="time">${data.time}</p>
+                    </div>
+                </div>
+                ${getLogoHTML(data.type)}
+            </div>
+            ${getStarsHTML(data.type)}
+            <p class="text">"${data.text}"</p>
+            ${isClickable ? `
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--primary); font-weight: 600; font-style: normal; display: flex; align-items: center; gap: 4px;">
+                Read on Google <span style="font-size: 1.1rem;">&rarr;</span>
+            </p>` : ''}
+        `;
+        track.appendChild(card);
+    }
+};
 
             // Google Scroller State & Events
             let currentGoogleIndex = 0;
