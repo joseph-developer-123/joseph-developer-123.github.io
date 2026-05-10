@@ -459,7 +459,7 @@ body {
         bottom: 8px; /* Anchors to the bottom edge of the image */
         left: 8px;   /* Anchors to the left edge of the image */
         width: 180px; 
-        height: 200px; 
+        height: 192px; 
         background: #fff; 
         border-radius: 12px;
         padding: 16px; 
@@ -537,10 +537,32 @@ body {
             .carousel-arrow { display: none; }
             .section-padding { padding: 60px 0; }
 
-            .contact-info-panel, .contact-form-panel { padding: 40px 25px; }
-            .contact-parallax { padding: 60px 10px 60px 10px; background-attachment: scroll; }
-            .contact-info-panel h2 { font-size: 2rem; }
-            .contact-form-panel h2 { font-size: 1.8rem; }
+            .contact-info-panel, 
+    .contact-form-panel { 
+        padding: 30px 20px !important; /* Reduced from 40px 25px */
+    }
+
+    /* Tighten up the headings */
+    .contact-info-panel h2,
+    .contact-form-panel h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+            .contact-parallax { 
+        padding: 40px 0 !important; /* Changed from 60px 10px */
+    }
+
+    /* Allow the container to take up more width */
+    .container {
+        width: 95% !important; /* Increased from 90% */
+        padding: 0 10px !important; /* Reduced from 20px */
+    }
+
+    /* Remove border radius on mobile for a cleaner "edge-to-edge" look if desired */
+    .merged-contact-box {
+        border-radius: 0; /* Optional: makes the box flush with screen edges */
+    }
         }
 
         @media (min-width: 500px) and (max-width: 770px) {
