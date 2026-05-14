@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Swan Kang | Oculoplastic Surgeon | Eyelid Surgery London</title>
+    <meta name="description" content="Dr. Swan Kang is a leading Consultant Oculoplastic Surgeon specialising in Blepharoplasty, Asian Blepharoplasty, and functional eyelid treatments in London.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400&family=Questrial&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           GLOBAL VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            --warm-champagne: #F5EFE7;
+            --deep-teal: #1A4D5C;
+            --soft-gold: #D4AF87;
+            --sage-green: #8B9F91;
+            --rose-gold: #C9A58C;
+            --charcoal: #2C2C2C;
+            --hero-bg: #EAE3D9; /* Lightest tone matched to warm beige image context */
+            
+            --font-head-thin: 'Archivo', sans-serif; /* 100 */
+            --font-head-reg: 'Archivo', sans-serif;  /* 400 */
+            --font-body: 'Questrial', sans-serif;    /* 400 */
+            
+            --nav-height: 120px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            background-color: var(--warm-champagne);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFFFF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--soft-gold);
+            border: 3px solid #FFFFFF;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--rose-gold);
+        }
+
+        /* Typography Global Rules */
+        /* Specific rule for natural-height elements in the About section */
+        .natural-alignment {
+            align-items: flex-start; /* Aligns items to the top for a cleaner feel */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-head-thin);
+            font-weight: 100;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+        
+        /* Specific rule for non-uppercase headings as requested */
+        .mixed-case-heading {
+            font-family: var(--font-head-reg);
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4%;
+            z-index: 1000;
+            transition: background 0.4s ease, height 0.4s ease;
+            background: transparent;
+            color: #000; /* Black text on load */
+        }
+
+        .navbar.scrolled {
+            background: var(--warm-champagne);
+            color: var(--charcoal);
+            height: 100px; /* Slightly shrinks on scroll */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Logo Configuration */
+        .nav-logo-container {
+            flex: 0 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+        }
+        .nav-logo {
+            max-height: calc(100% - 8px); /* As large as possible with ~4px padding */
+            width: auto;
+            object-fit: contain;
+            /* Logo text is inherently black in the asset, so no filter needed per rules */
+        }
+
+        /* Navigation Links: Two Rows */
+        .nav-links-wrapper {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px 30px;
+    list-style: none;
+}
+
+/* Add this new class right below .nav-links */
+.nav-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+        .nav-links a {
+            font-family: var(--font-head-reg);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-color: rgba(0,0,0,0.2);
+            text-underline-offset: 4px;
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
+        }
+
+        .navbar.scrolled .nav-links a {
+            text-decoration-color: rgba(44,44,44,0.2);
+        }
+
+        .nav-links a:hover {
+            color: var(--soft-gold);
+            text-decoration-color: var(--soft-gold);
+        }
+
+        /* Dropdown Menus */
+        .nav-item-dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            list-style: none;
+            padding: 10px 0;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-align: left;
+        }
+        .nav-item-dropdown:hover > .dropdown-menu,
+        .dropdown-submenu:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu li {
+            position: relative;
+        }
+        .dropdown-menu a {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px !important;
+            font-family: var(--font-body) !important;
+            font-size: 0.9rem !important;
+            text-transform: capitalize !important;
+            text-decoration: none !important;
+            color: var(--charcoal) !important;
+            letter-spacing: 0.5px !important;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .dropdown-menu a:hover {
+            background: var(--hero-bg);
+            color: var(--deep-teal) !important;
+        }
+        /* Sub-menu positioning */
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-left: 1px;
+        }
+
+        /* Nav CTA (Teal) */
+         .nav-cta {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+    background: var(--deep-teal);
+    color: #FFFFFF;
+    padding: 14px 28px;
+    font-family: var(--font-head-reg);
+    font-weight: 400;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap; 
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+        .nav-cta:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: 0.3s;
+        }
+
+       /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background-color: var(--hero-bg);
+    min-height: 100vh; /* Forces the section to be roughly twice as tall */
+}
+
+.hero-spacer-image {
+    visibility: hidden;
+    position: relative;
+    width: 75vw; 
+    max-height: 100vh; /* Matches the hero height */
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    margin-left: auto; 
+}
+
+        .hero-visual {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100%;
+            z-index: 1;
+            /* Linear gradient mask fading out entirely on the left side */
+           
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;       
+        }
+
+        /* Completely hides the left side, then fades into the image */
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Solid beige from 0% to 40%, then fades to transparent by 75% */
+            background: linear-gradient(to right, var(--hero-bg) 0%, var(--hero-bg) 10%, transparent 75%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-visual img, .hero-visual video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            width: 100vw; /* Fills left side, overlapping the gradient fade slightly */
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            justify-content: left;
+            z-index: 2;
+        }
+
+        .hero-doctify {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards; /* 1. Doctify first */
+        }
+        .hero-doctify img {
+            height: 30px;
+        }
+
+        /* Hero Text Animation */
+        .hero h1 {
+            font-size: clamp(2.5rem, 4vw, 5rem);
+            color: #000;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards; /* 2. Hero text after Doctify */
+        }
+        
+        /* Hero Subtext Animation */
+        .hero p {
+            font-family: var(--font-head-reg);
+            font-size: 1.2rem;
+            color: #000;
+            margin-bottom: 2.5rem;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards; /* 3. Hero subtext after Hero text */
+        }
+
+        /* Hero Actions Animation */
+        .hero-actions {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards; /* 4. Buttons last */
+        }
+
+        /* Shared CTA styling for the hero */
+        .hero-cta {
+            padding: 16px 32px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0;
+            width: 250px;
+        }
+
+        /* New Outline Button Style */
+.btn-outline, .btn-gold {
+    min-width: 220px;
+    width: 250px;
+    padding: 16px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+            font-family: var(--font-head-reg);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--charcoal);
+            color: #FFFFFF;
+        }
+
+        .btn-teal {
+            background-color: var(--deep-teal);
+            color: #FFFFFF;
+            padding: 18px;
+            border: none;
+            font-family: var(--font-head-reg);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-teal:hover { 
+            background-color: var(--charcoal); 
+            color: #FFFFFF; 
+        }
+
+       
+
+        /* ==========================================================================
+           TRUST BAR
+           ========================================================================== */
+        .trust-bar {
+            background-color: var(--charcoal);
+            padding: 2.5rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .trust-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .trust-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #FFFFFF;
+        }
+
+        .trust-logo {
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        .trust-logo.rcop {
+            height: 55px; /* Visually equivalent scale */
+        }
+
+        /* Convert specific logos to white */
+        .trust-logo.filter-white {
+            filter: brightness(0) invert(1);
+        }
+
+        .trust-qualifications {
+            font-family: var(--font-head-reg);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--warm-champagne);
+        }
+
+         /* ==========================================================================
+           ABOUT STRIP
+           ========================================================================== */
+        .about-strip {
+            display: flex;
+            width: 100%;
+            padding: 8rem 6% 6rem 6%; /* balanced padding */
+            justify-content: space-between;
+            overflow: hidden;
+            background-color: var(--hero-bg); /* Solid lighter beige */
+        }
+
+        .about-image-container {
+            width: 48%; /* Same size as text block */
+            height: 450px; /* Consistent height with services cards */
+            border-radius: 4px; /* subtle rounding */
+            color: var(--soft-gold);
+            overflow: hidden;
+            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .about-strip.visible .about-image-container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content {
+            width: 48%; /* Same size as image block */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 60px; /* "one a little lower than the left" - creates offset */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+        }
+
+        .about-strip.visible .about-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--deep-teal);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+              text-align: justify;
+  text-justify: inter-word;
+        }
+
+        .about-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-head-reg);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--soft-gold);
+            margin-top: 1rem;
+            group: hover;
+        }
+
+        .about-link svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+        .about-link:hover svg {
+            transform: translateX(10px);
+        }
+
+        .about-content {
+            width: 48%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 60px; 
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+            
+            /* Add these 3 lines for the box */
+            border: 1px solid rgba(44, 44, 44, 0.15); /* Faint charcoal */
+            padding: 2.5rem;
+            border-radius: 4px;
+        }
+
+
+        /* ==========================================================================
+           PARALLAX VIDEO SECTION
+           ========================================================================== */
+        .parallax-video-section {
+            position: relative;
+            height: 90vh; /* Generous height */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: inset(0); /* Essential for fixed child parallax */
+        }
+
+        .parallax-video-section video {
+            position: fixed; /* Native fixed parallax */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+
+        .video-overlay-text {
+            text-align: center;
+            color: #FFFFFF;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .video-overlay-text h2 {
+            font-size: clamp(3rem, 5vw, 6rem);
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* ==========================================================================
+           PROCEDURES SECTION
+           ========================================================================== */
+        .procedures {
+            padding: 8rem 4%;
+            background-color: var(--warm-champagne);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--charcoal);
+        }
+        .section-header p {
+            font-family: var(--font-head-reg);
+            color: var(--sage-green);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .procedures-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .proc-card {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .procedures.visible .proc-card {
+            animation: staggerUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Stagger Delays */
+        .proc-card:nth-child(1) { animation-delay: 0.1s; }
+        .proc-card:nth-child(2) { animation-delay: 0.2s; }
+        .proc-card:nth-child(3) { animation-delay: 0.3s; }
+        .proc-card:nth-child(4) { animation-delay: 0.4s; }
+        .proc-card:nth-child(5) { animation-delay: 0.5s; }
+        .proc-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .proc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .proc-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .proc-card:hover .proc-bg {
+            transform: scale(1.05);
+        }
+
+        .proc-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(26, 77, 92, 0.65); /* #1A4D5C tint */
+            z-index: 1;
+        }
+
+        /* Edge Glassmorphism */
+        .proc-glass-edge {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            /* Inner edge highlight + backdrop filter masked out in the center */
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), inset 0 0 20px rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            -webkit-mask-image: radial-gradient(circle, transparent 65%, black 100%);
+            mask-image: radial-gradient(circle, transparent 65%, black 100%);
+        }
+
+        .proc-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 30px;
+            z-index: 3;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .proc-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        .proc-content p {
+            font-family: var(--font-head-reg);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            min-height: 42px; /* Force consistent vertical height for subtext alignment */
+        }
+
+        /* ==========================================================================
+           BEFORE & AFTER PREVIEW
+           ========================================================================== */
+        .before-after-section {
+            padding: 8rem 4%;
+            background-color: var(--hero-bg);
+            text-align: center;
+        }
+
+          .sliders-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 80%;
+            min-width: 300px;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-after {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+
+        .slider-range {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-line {
+            position: absolute;
+            top: 0; left: 50%;
+            width: 2px; height: 100%;
+            background: #FFFFFF;
+            z-index: 5;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 40px; height: 40px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            pointer-events: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-button::before, .slider-button::after {
+            content: '';
+            border: solid var(--charcoal);
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+        }
+        .slider-button::before { transform: rotate(135deg); margin-right: 2px; }
+        .slider-button::after { transform: rotate(-45deg); margin-left: 2px; }
+
+        /* Glassmorphism Panel under sliders */
+        .ba-glass-panel {
+            position: relative;
+            margin: -50px auto 0 auto;
+            width: 80%;
+            padding: 40px;
+            z-index: 1;
+            /* Edge only glassmorphism */
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 40%, black 100%);
+            mask-image: radial-gradient(ellipse at center, transparent 40%, black 100%);
+            border-radius: 12px;
+            height: 150px;
+        }
+
+        .ba-link {
+            position: relative;
+            z-index: 5; /* Above mask */
+            display: inline-block;
+            margin-top: 2rem;
+            font-family: var(--font-head-reg);
+            font-size: 1.1rem;
+            color: var(--deep-teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .ba-link:hover { color: var(--soft-gold); }
+
+        /* ==========================================================================
+           TESTIMONIALS SECTION
+           ========================================================================== */
+        /* Update background to lighter beige and remove white text default */
+        .testimonials-section {
+            position: relative;
+            padding: 8rem 4%;
+            background-color: var(--hero-bg); /* Lighter beige */
+            color: var(--charcoal);
+            overflow: hidden;
+        }
+
+        /* Hide the dark abstract background image */
+        .testi-bg {
+            display: none; 
+        }
+
+        /* Make cards white with a softer shadow to pop against the beige background */
+        .testi-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: var(--warm-champagne);
+            color: var(--charcoal);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Softer, lighter shadow */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 400px;
+        }
+
+        /* Update carousel arrows for light background */
+        .carousel-btn {
+            background: transparent;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s;
+            padding: 0; 
+            flex-shrink: 0; 
+            box-sizing: border-box;
+        }
+        
+        .carousel-btn:hover {
+            background: var(--charcoal);
+            color: #FFFFFF;
+        }
+
+        /* Update bottom link color for better visibility on beige */
+        .testi-link {
+            display: block;
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--deep-teal);
+            font-family: var(--font-head-reg);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s;
+        }
+        
+        .testi-link:hover {
+            color: var(--soft-gold);
+        }
+
+        .testi-content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 3rem;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 30px;
+        }
+
+        
+
+        .testi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 15px;
+        }
+
+        .testi-stars {
+            color: #0076D6;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .testi-doctify-logo {
+            height: 25px;
+            /* Keeps natural color per rules */
+        }
+
+        .testi-quote {
+            font-size: 1rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: auto; /* Pushes author to bottom */
+        }
+
+        .testi-author {
+            margin-top: 20px;
+            font-family: var(--font-head-reg);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--deep-teal);
+        }
+        .testi-date {
+            font-size: 0.75rem;
+            color: var(--sage-green);
+        }
+
+        
+
+        /* ==========================================================================
+           BOOKING & LOCATION SECTION
+           ========================================================================== */
+        .booking-section {
+            position: relative;
+            padding: 8rem 4%;
+            background-image: url('moorfields.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #FFFFFF;
+        }
+
+        /* Overlay */
+        .booking-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(26, 77, 92, 0.85); /* #1A4D5C Deep Teal overlay */
+            z-index: 1;
+        }
+
+        .booking-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px; /* Reduced width so the centered form doesn't stretch too far */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            align-items: center; /* Centers the form and locations */
+        }
+
+        /* Limit the width of the form so it looks neat when centered */
+        .booking-form-container {
+            position: relative;
+            padding: 50px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 700px; 
+        }
+        /* Form Glassmorphism - Edge only */
+        .form-glass-edge {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 8px;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), inset 0 0 30px rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+            mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+            z-index: -1;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .booking-form input, .booking-form select, .booking-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            color: #FFFFFF;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .booking-form input::placeholder, .booking-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .booking-form input:focus, .booking-form textarea:focus, .booking-form select:focus {
+            border-bottom-color: var(--soft-gold);
+        }
+
+        .booking-form option {
+            background-color: var(--deep-teal);
+            color: #FFFFFF;
+        }
+
+       
+
+        .locations-container {
+            display: flex;
+            flex-direction: row; /* Forces them side-by-side */
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Ensure each card takes exactly half the space */
+        .location-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 4px;
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            text-align: center; /* Centers the text inside the cards */
+        }
+
+        .location-card iframe {
+            width: 100%;
+            height: 200px; /* Slightly taller to look better side-by-side */
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .location-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--soft-gold);
+        }
+
+        .location-card p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .location-card a {
+            font-family: var(--font-head-reg);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--charcoal);
+            color: #FFFFFF;
+            padding: 4rem 4% 2rem 4%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h5 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--soft-gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li a {
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover {
+            color: var(--soft-gold);
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ==========================================================================
+           ANIMATIONS & KEYFRAMES
+           ========================================================================== */
+        @keyframes heroRise {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes scrollPulse {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            100% { transform: translate(-50%, 15px); opacity: 0; }
+        }
+
+        @keyframes staggerUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 1150px) {
+
+            .nav-links-wrapper { display: none; } /* Hide full links */
+            .hamburger { display: flex; }
+            .nav-logo { max-height: 60px; } /* Smaller on mobile */
+            .navbar { padding: 0 20px; }
+            .logo {
+            margin-right: auto;
+        }
+        .nav-logo-container {
+                margin-right: auto;
+            }
+        
+         .nav-cta {
+            margin-left: 0;
+            margin-right: 20px;
+            
+        }
+        
+            
+            .hero-content { width: 100%; padding-right: 6%; z-index: 5; }
+            /* Image sits behind text, so text must change to contrast */
+            .hero h1, .hero p, .hero-doctify { color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+            .hero-visual { width: 100vw; -webkit-mask-image: none; opacity: 0.8; }
+            .scroll-arrow { border-color: #FFFFFF; }
+            .scroll-arrow::before { background: #FFFFFF; }
+            
+            .trust-bar { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            
+            .procedures-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .booking-content { grid-template-columns: 1fr; }
+            
+            footer { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 900px) {
+
+                    .testi-card { flex: 0 0 100%; }
+}
+
+        @media (max-width: 768px) {
+
+            .hero-content {
+                bottom: 100px;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                box-sizing: border-box;
+                width: 100%;
+            }
+            .about-content {
+        border: none; /* Removes the faint charcoal box */
+        padding: 0 !important; /* Removes the extra padding we added for the box */
+    }
+            .about-image-container {
+            background-color: #F9F6F0; /* Lighter beige/off-white */
+        }
+            .hero h1 { font-size: 2.5rem; }
+            .about-strip { flex-direction: column; padding: 4rem 4%; }
+            .about-image-container { position: relative; width: 100%; height: 300px; transform: none; left: 0; margin-bottom: 2rem; }
+            .about-content { width: 100%; margin-left: 0; padding: 0; }
+            
+            .procedures-grid { grid-template-columns: 1fr; }
+            
+            .carousel-btn { display: none; } /* Remove arrows on mobile */
+            .testi-card { flex: 0 0 100%; }
+            
+            .slider-wrapper { width: 100%; }
+            
+            footer { grid-template-columns: 1fr; }
+        }
+
+        /* =========================================
+   MOBILE & LAYOUT OVERRIDES 
+   ========================================= */
+
+/* 1. Navbar Mobile Fixes & Logo Swap */
+.nav-logo.mobile-logo { display: none; }
+@media (max-width: 768px) {
+    .nav-logo.desktop-logo { display: none; }
+    .nav-logo.mobile-logo { display: block; max-height: 25px; }
+    .hero-content {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                box-sizing: border-box;
+                width: 100%;
+            }
+}
+
+/* 2. Trust Bar - Disable Animation */
+.trust-bar {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* 3. Treatments - 4 Card Staggered Grid & Friendly Dark Glassmorphism */
+.procedures-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (min-width: 769px) {
+    .proc-card:nth-child(even) { margin-top: 60px; }
+}
+.proc-overlay {
+    background-color: rgba(60, 50, 45, 0.55) !important; /* Friendly dark warm tone */
+}
+
+/* 4. Testimonials (Kind Words) Simple Grid */
+.testi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 5. Substantial Mobile Tweaks */
+@media (max-width: 768px) {
+    .locations-container {
+                flex-direction: column;
+            }
+    /* Headings reduced substantially */
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    h3 { font-size: 1.3rem !important; }
+
+    /* CTAs stacked */
+    .hero-actions { flex-direction: column; width: 100%; align-items: flex-start; gap: 1rem; }
+    .hero-cta { width: 100%; text-align: center; margin-top: 0; }
+
+    .hero-actions, 
+            .hero-buttons {
+                flex-wrap: wrap; 
+                gap: 15px; /* Slightly tighter gap on mobile/tablet */
+                width: 90%;
+            }
+
+            /* Stops individual buttons from being wider than the screen */
+            .hero-actions .btn-gold,
+            .hero-actions .btn-outline,
+            .hero-buttons .btn-gold,
+            .hero-buttons .btn-outline {
+                max-width: 100%; 
+            }
+
+    /* About Section Mobile (Image on top, full visibility, solid light bg) */
+    .about-strip { background: var(--hero-bg) !important; padding: 3rem 4% !important; flex-direction: column !important; }
+    .about-image-container { position: relative !important; width: 100% !important; height: auto !important; transform: none !important; left: 0 !important; margin-bottom: 2rem !important; box-shadow: none !important; }
+    .about-image-container img { height: auto !important; max-height: 400px !important; display: block !important; object-position: top !important; }
+    .about-content { width: 100% !important; margin-left: 0 !important; padding: 0 !important; }
+    
+    /* Video Right Eye */
+    .parallax-video-section video { object-position: 85% center !important; }
+
+    /* Grids to single column */
+    .procedures-grid { grid-template-columns: 1fr !important; }
+    .testi-grid { grid-template-columns: 1fr !important; }
+}
+
+        /* Specific Styles for Upper Blepharoplasty Page */
+.two-column-explanation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 6rem 6%;
+    background-color: var(--warm-champagne);
+}
+
+.outlined-about-box {
+    border: 1.5px solid var(--soft-gold);
+    padding: 40px;
+    background-color: transparent;
+    margin-top: 20px;
+}
+
+.procedure-at-a-glance {
+    padding: 6rem 6%;
+    background-color: var(--charcoal);
+    color: #FFFFFF;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 15px;
+}
+
+.stat-item h4 {
+    color: var(--soft-gold);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    font-family: var(--font-head-reg);
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--soft-gold);
+    text-decoration: underline;
+    font-family: var(--font-head-reg);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .two-column-explanation { grid-template-columns: 1fr; gap: 30px; }
+}
+
+.bio-box {
+    background-color: #D4CDBC; /* This is the dark beige color from your design */
+    padding: 60px;             /* Adds space inside the box so text doesn't touch the edges */
+    color: var(--charcoal);    /* Ensures text is readable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Update the existing class to ensure it has proper padding and no background */
+.outlined-about-box {
+    border: 1.5px solid var(--soft-gold) !important; /* The gold outline */
+    padding: 50px;             /* Proper inner spacing so text doesn't touch the border */
+    background-color: transparent !important; /* Removes the beige box color */
+    margin: 0;                 /* Removes extra outer space */
+}
+
+/* 1. Control the main container to remove excess space */
+.staggered-intro {
+    display: flex;
+    align-items: center;      /* Vertically centers the text box with the image */
+    padding: 3rem 6%;         /* Keeps a normal amount of space above/below the section */
+    background-color: var(--warm-champagne);
+    gap: 40px;                /* Adds clean spacing between the image and the text */
+}
+
+/* 2. Constrain the image so it stops forcing a massive gap */
+.stagger-img-block {
+    width: 50%;
+    max-height: 500px;        /* Limits how tall the image can get */
+    display: flex;
+}
+
+.stagger-img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Crops the image perfectly without squishing it */
+}
+
+/* 3. Clean up the text block */
+.stagger-text-block {
+    width: 50%;
+    padding-left: 0;          /* Removed because we are using 'gap' above */
+    margin-bottom: 0; 
+    margin-top: 80px;
+}
+
+/* 4. Ensure the outlined box itself isn't pushing things down */
+.outlined-about-box {
+    border: 1.5px solid var(--soft-gold) !important;
+    padding: 40px;             
+    background-color: transparent !important; 
+    margin: 0 !important;      /* Forces no extra margins outside the box */
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .staggered-intro {
+        flex-direction: column;
+        padding: 2rem 4%;
+        gap: 20px;
+    }
+    .stagger-img-block, .stagger-text-block {
+        width: 100%;
+        max-height: none; /* Let the image be its natural height on mobile */
+    }
+}
+
+/* Hero layout and right-eye focus strictly under 600px */
+        @media (max-width: 600px) {
+            
+            .hero-visual video {
+                object-position: 80% center; /* Focuses specifically on the right eye */
+            }
+            
+            .hero-buttons {
+                flex-direction: column; /* Stacks them nicely on mobile */
+            }
+
+            .hero { 
+                min-height: auto; 
+                height: 100vh; /* Fits screen perfectly above trust bar */
+            }
+            .hero-content {
+                bottom: 5%;
+                height: 100%;
+                justify-content: center;
+                padding-top: var(--nav-height); 
+            }
+        }
+
+       .faq-layout-strip {
+        display: flex;
+        width: 100%;
+        padding: 4rem 6% 8rem 6%; /* Matches your about-strip padding perfectly */
+        justify-content: space-between; /* Pushes the 48% blocks to the edges */
+        background-color: var(--hero-bg);
+    }
+    
+    .faq-text-block {
+        width: 48%; /* STRICT 48% MATCH */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid rgba(44, 44, 44, 0.15); /* Faint charcoal box */
+        padding: 2.5rem;
+        border-radius: 4px;
+    }
+    
+    .faq-image-block {
+        width: 48%; 
+        /* We removed margin-top so it doesn't shrink the height */
+        transform: translateY(60px); /* This visually pushes it down WITHOUT altering the height */
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+    }
+
+    .faq-image-block img {
+        width: 100%;
+        height: 100%; /* If you want to match the 450px height of the original, add: height: 450px; here */
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Mobile handling so it stacks nicely on phones */
+    @media (max-width: 768px) {
+        .faq-layout-strip {
+            flex-direction: column;
+            padding: 4rem 6%;
+        }
+        .faq-text-block, .faq-image-block {
+            width: 100%;
+            margin-top: 0;
+        }
+        .faq-image-block {
+            margin-top: 40px; /* Gives some breathing room between text and image on mobile */
+            margin-bottom: 40px;
+        }
+    }
+
+        
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+    <div class="nav-logo-container">
+        <img src="swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
+        <img src="swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
+    </div>
+    
+    <div class="nav-links-wrapper">
+        <ul class="nav-links">
+            <li><a href="https://about.swankang.co.uk">About</a></li>
+            <li class="nav-item-dropdown">
+                <a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                    <li><a href="#">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                    <li><a href="#">Brow Lift</a></li>
+                </ul>
+            </li>
+            <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
+            <li class="nav-item-dropdown">
+                <a href="#">Eyelid Lumps</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Chalazion</a></li>
+                    <li><a href="#">Skin Lesion</a></li>
+                </ul>
+            </li>
+            <li class="nav-break"></li>
+            <li class="nav-item-dropdown">
+                <a href="https://functional.swankang.co.uk">Functional Surgery</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                        <a href="#">Lid Surgery &raquo;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Ectropion</a></li>
+                            <li><a href="#">Entropion</a></li>
+                            <li><a href="#">Ptosis</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a href="#">Watery Eye Tear Duct Surgery &raquo;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Endonasal DCR</a></li>
+                            <li><a href="#">External DCR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="https://gallery.swankang.co.uk">Gallery</a></li>
+            <li><a href="https://blog.swankang.co.uk">Blog</a></li>
+            <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+        </ul>
+    </div>
+    
+    <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
+    
+    <div class="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+    <header class="hero">
+        <img src="img6.png" alt="" class="hero-spacer-image">
+        
+        <div class="hero-visual">
+            <img src="hero-image-4.png">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-doctify">
+                <img src="doctify-logo.png" alt="Doctify">
+                <img src="doctify-score-stars.png" alt="5 Stars">
+            </div>
+            
+            <h1>BLEPHAROPLASTY</h1>
+            
+            <!--p class="mixed-case-heading">Consultant oculoplastic surgeon bringing fellowship-trained expertise and a reputation for natural, 
+                balanced outcomes to every patient - whether functional or cosmetic, simple or complex.
+</p-->
+            
+            <!--div class="hero-actions">
+    <a href="https://contact.swankang.co.uk" class="btn-teal hero-cta">Book Now</a>
+    <a href="#about-strip" class="btn-outline hero-cta">See More</a>
+</div-->
+        </div>
+    </header>
+
+    <section class="two-column-explanation">
+    <div>
+        <h2 class="mixed-case-heading" style="z-index: 1; color: var(--deep-teal); margin-bottom: 20px;">Restoring Clarity & Vitality</h2>
+        <p style="line-height: 1.8; margin-bottom: 1.5rem; text-align: justify;">
+            The upper eyelids are a sophisticated architectural element of the face, serving both to protect the globe and ensure the healthy distribution of the tear film. Over time, however, these delicate tissues are uniquely susceptible to the cumulative effects of gravity, sun exposure, and the constant mechanical motion of blinking - occurring thousands of times each day.
+        </p>
+        <p style="line-height: 1.8; text-align: justify;">
+            By the time we reach our 60s, the skin often loses its structural elasticity, leading to <strong>dermatochalasis</strong>, or "hooding." This excess tissue can rest heavily on the lashes, creating a tired appearance and, in many cases, physically obstructing the upper field of vision.
+        </p>
+    </div>
+    <div>
+        <p style="line-height: 1.8; margin-bottom: 1.5rem; margin-top: 50px; text-align: justify;"> An upper blepharoplasty is a precise surgical intervention designed to address these changes. By meticulously removing redundant skin and, where necessary, repositioning underlying fat, I aim to restore a refreshed, open-eyed contour that feels lighter and looks entirely natural. 
+        </p>
+        <p style="line-height: 1.8; text-align: justify;">
+            Whether driven by functional necessity or a desire for aesthetic rejuvenation, the goal remains the same: a balanced outcome that respects your unique anatomy. A detailed consultation is essential to tailor the surgical plan to your specific goals and eyelid health.
+        </p>
+        <a href="#" class="download-link">↓ Download Patient Info Sheet</a>
+    </div>
+</section>
+
+
+<section class="faq-layout-strip">
+    
+    <div class="faq-text-block">
+        <h2 style="font-family: var(--font-head-thin); font-size: 3rem; color: var(--deep-teal); margin-bottom: 2rem; margin-top: 0; font-weight: 100; text-transform: uppercase;">
+            FAQS
+        </h2>
+        
+        <div style="margin-bottom: 1.8rem;">
+            <h3 class="mixed-case-heading" style="color: var(--deep-teal); font-size: 1.3rem; margin-bottom: 0.5rem;">What is the recovery time like?</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--charcoal); margin: 0; text-align: justify;">Most patients can return to normal activities and work within 7 to 10 days. Mild swelling and bruising are normal but subside significantly within the first two weeks.</p>
+        </div>
+        
+        <div style="margin-bottom: 1.8rem;">
+            <h3 class="mixed-case-heading" style="color: var(--deep-teal); font-size: 1.3rem; margin-bottom: 0.5rem;">Will I have visible scars?</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--charcoal); margin: 0; text-align: justify;">Incisions are meticulously placed within the natural creases of your eyelids, rendering them virtually undetectable once fully healed.</p>
+        </div>
+        
+        <!--div>
+            <h3 class="mixed-case-heading" style="color: var(--deep-teal); font-size: 1.3rem; margin-bottom: 0.5rem;">Is the procedure painful?</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--charcoal); margin: 0; text-align: justify;">The procedure is performed under local or general anaesthetic, ensuring you feel no pain. Post-operative discomfort is typically mild and easily managed.</p>
+        </div-->
+    </div>
+
+    <div class="faq-image-block">
+        <img src="surgery3.png" alt="Frequently Asked Questions Consultation">
+    </div>
+    
+</section>
+
+
+<section class="procedure-at-a-glance">
+    <div class="section-header">
+        <h2 style="color: #fff;">PROCEDURE AT A GLANCE</h2>
+        <p>Upper Blepharoplasty</p>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-item"><h4>Procedure time</h4><p>1–1.5 hours</p></div>
+        <div class="stat-item"><h4>Anaesthetic</h4><p>Local or General</p></div>
+        <div class="stat-item"><h4>Length of Stay</h4><p>Day case</p></div>
+        <div class="stat-item"><h4>Up & Mobile</h4><p>Same day</p></div>
+        <div class="stat-item"><h4>Washing</h4><p>1 week</p></div>
+        <div class="stat-item"><h4>Back to Work</h4><p>Up to a week</p></div>
+        <div class="stat-item"><h4>Driving</h4><p>5 days</p></div>
+        <div class="stat-item"><h4>Post-op Care</h4><p>Ice pack (2 days)</p></div>
+        <div class="stat-item"><h4>Sleeping</h4><p>Upright for 1 week</p></div>
+        <div class="stat-item"><h4>Resume Exercise</h4><p>2 weeks</p></div>
+        <div class="stat-item"><h4>Full Recovery</h4><p>4–6 weeks</p></div>
+        <div class="stat-item"><h4>Final Results</h4><p>2–3 months</p></div>
+    </div>
+</section>
+
+    <section class="about-strip" id="about-strip">
+    <div class="about-image-container">
+        <img src="sk1.png" alt="Dr Swan Kang">
+    </div>
+    <div class="about-content">
+        <h2 class="mixed-case-heading">Expertise & Precision</h2>
+        <p>I am a Consultant Oculoplastic Surgeon practising in Central London, with specialist training at Oxford University and Moorfields Eye Hospital. 
+        Oculoplastic surgery demands absolute precision - the margins are small, 
+        the anatomy complex, and the results permanent. That standard of exactness is what drew me to this field, and it underpins everything I do.</p>
+        <a href="https://about.swankang.co.uk" class="about-link">
+            Discover My Approach
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+    <section class="parallax-video-section">
+        <video src="woman-blinking-2.mp4" autoplay loop muted playsinline></video>
+        <div class="video-overlay-text">
+            <h2>PRECISION OCULOPLASTICS</h2>
+        </div>
+    </section>
+
+   
+
+    <section class="before-after-section">
+        <div class="section-header">
+            <h2>PATIENT RESULTS</h2>
+            <p>Transformations</p>
+        </div>
+        
+        <div class="sliders-container">
+            <div class="slider-wrapper">
+                <img src="thebefore1.png" alt="Before" class="slider-img">
+                <img src="theafter1.png" alt="After" class="slider-img slider-after" id="after-img-1">
+                <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-1">
+                <div class="slider-line" id="slider-line-1"></div>
+                <div class="slider-button" id="slider-btn-1"></div>
+            </div>
+            
+           
+        </div>
+        
+        <a href="https://gallery.swankang.co.uk" class="ba-link">View Full Gallery &rarr;</a>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="testi-bg"></div>
+        <div class="testi-content-wrapper">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>PATIENT EXPERIENCES</h2>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="prevBtn">&larr;</button>
+                
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!--div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"I had two appointments with Miss Swan Kang to treat my stubborn chalazion. Miss Kang diagnosed the lump and my lid skin condition with a microscope and carefully explained the mechanics of how the eyelid and meibomian glands work. The treatment options were well explained. Miss Kang's medical approach is empathetic — I felt respected and trusted throughout the process. My condition improved after the first consultation and no surgery was needed."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">24 Sep 2025</div>
+                        </div-->
+                        
+                        <!--div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"Dr Swan Kang was very thorough with all my eye issues and went further to track down my glaucoma history with Moorfields NHS. She was friendly, highly professional, and explained clearly what would be involved with upper eyelid surgery. She spent a lot of time understanding my full health history. I was very happy with my first consultation."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">21 Nov 2025</div>
+                        </div-->
+
+                        <div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"Dr Kang is a real professional, a good listener, and takes time to explain everything about your operation. Her aftercare is second to none."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">12 Dec 2025</div>
+                        </div>
+
+                        <div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"A highly professional, first-class practitioner. The advice, procedure, and aftercare could not have been better."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">21 Mar 2026</div>
+                        </div>
+
+                        <div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"She is lovely and corrected more things in my eye surgery than I even knew were there. Follow-up was excellent."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">13 Mar 2026</div>
+                        </div>
+
+                        <div class="testi-card">
+                            <div class="testi-header">
+                                <div class="testi-stars">★★★★★</div>
+                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
+                            </div>
+                            <p class="testi-quote">"Excellent communication and the procedure was explained in great detail. Great follow-up too."</p>
+                            <div class="testi-author">Patient</div>
+                            <div class="testi-date">13 Mar 2026</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next-btn" id="nextBtn">&rarr;</button>
+            </div>
+            
+            <a href="https://about.swankang.co.uk" class="testi-link">See all testimonials &rarr;</a>
+        </div>
+    </section>
+
+        <section class="trust-bar" id="trust-bar">
+    <div class="trust-group">
+        <img src="doctify.png" alt="Doctify" class="trust-logo doctify">
+        <img src="doctify-score-stars.png" alt="Stars" class="trust-logo doctify">
+        <span class="mixed-case-heading">4.98/5 · 19 reviews</span>
+    </div>
+    
+    <img src="bopss.png" alt="BOPSS" class="trust-logo filter-white">
+    <img src="rcop.png" alt="RCOphth" class="trust-logo filter-white rcop">
+    <img src="rsm.png" alt="RSM" class="trust-logo filter-white">
+    
+    <div class="trust-qualifications">
+        MBioch (Oxon) • MBBS • FRCOphth
+    </div>
+</section>
+
+   <footer>
+    <div class="footer-col">
+        <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 80px; margin-bottom: 20px;">
+        <p>Consultant Oculoplastic Surgeon specialising in bespoke eyelid and facial aesthetic treatments.</p>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+            <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
+            <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
+            <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
+            <li><a href="https://cosmetic.swankang.co.uk">Cosmetic Gallery</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+            <li>Practice Manager: Robyn Waya</li>
+            <li>Email: moorfields.skang@nhs.net</li>
+            <li>Tel: +44 (0)7353 760 871</li>
+        </ul>
+    </div>
+    
+    <div class="footer-col">
+        <h5>Locations</h5>
+        <ul>
+            <li>50–52 New Cavendish Street, London</li>
+            <li>9–11 Bath Street, London</li>
+        </ul>
+    </div>
+    
+    <div class="footer-bottom">
+        © 2026 Dr. Swan Kang. All Rights Reserved. General Medical Council Registered.
+    </div>
+</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+          
+
+            // 3. Scroll Animations (Intersection Observer)
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -100px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Elements to observe
+            const trustBar = document.getElementById('trust-bar');
+            const aboutStrip = document.getElementById('about-strip');
+            const proceduresSection = document.getElementById('procedures');
+            
+            if(trustBar) observer.observe(trustBar);
+            if(aboutStrip) observer.observe(aboutStrip);
+            if(proceduresSection) observer.observe(proceduresSection);
+
+            // 4. Before & After Sliders Logic
+            function initSlider(sliderId, afterImgId, lineId, btnId) {
+                const slider = document.getElementById(sliderId);
+                const afterImg = document.getElementById(afterImgId);
+                const line = document.getElementById(lineId);
+                const btn = document.getElementById(btnId);
+
+                if(!slider) return;
+
+                slider.addEventListener('input', (e) => {
+                    const val = e.target.value;
+                    // Clip-path syntax: polygon(left top, right top, right bottom, left bottom)
+                    // We reveal the left side of the 'after' image by moving the left boundary
+                    afterImg.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
+                    line.style.left = `${val}%`;
+                    btn.style.left = `${val}%`;
+                });
+            }
+
+            initSlider('slider-1', 'after-img-1', 'slider-line-1', 'slider-btn-1');
+            initSlider('slider-2', 'after-img-2', 'slider-line-2', 'slider-btn-2');
+
+            // 5. Testimonials Carousel
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cards = document.querySelectorAll('.testi-card');
+            
+            let currentIndex = 0;
+            // 3 cards visible on desktop, gap is 30px
+            // Card width + gap percentage
+            
+            function updateCarousel() {
+                // Calculate translation based on viewport width
+                let cardsVisible = window.innerWidth <= 768 ? 1 : 3;
+                let maxIndex = cards.length - cardsVisible;
+                
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+                
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 30;
+                const moveAmount = (cardWidth + gap) * currentIndex;
+                
+                track.style.transform = `translateX(-${moveAmount}px)`;
+            }
+
+            if(nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    let cardsVisible = window.innerWidth <= 768 ? 1 : 3;
+                    if (currentIndex < cards.length - cardsVisible) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
+</body>
+</html>
