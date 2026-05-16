@@ -307,11 +307,16 @@
             width: 100%;
         }
 
-        .tiktok-video-wrapper img {
+        .tiktok-video-wrapper img,
+        .tiktok-video-wrapper video {
             width: 100%;
+            max-width: 439px;
             border-radius: 12px;
             object-fit: cover;
             margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .tiktok-video-wrapper h3 {
@@ -727,8 +732,10 @@
         <div class="container">
             <div class="video-services-layout fade-up">
                 <div class="tiktok-video-wrapper">
-                    <img src="../annavideo.png" alt="Dr Anna Nuttall Information Video">
-                    <h3>Patient Guide</h3>
+                <video src="../about-video.mp4" controls playsinline>
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Patient Guide</h3>
                     <p>Watch a brief introduction on what to expect during your consultation.</p>
                 </div>
                 
