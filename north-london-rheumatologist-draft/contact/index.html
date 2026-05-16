@@ -157,7 +157,17 @@ h1, h2, h3, .logo { font-family: 'DM Sans', sans-serif; font-weight: 300; line-h
     }
         }
 
-        
+    @media (max-width: 770px) {
+    .mobile-block {
+        display: block;
+        margin-bottom: 4px; /* Adds slight spacing between lines on mobile */
+    }
+    .desktop-divider {
+        display: none;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -198,7 +208,7 @@ h1, h2, h3, .logo { font-family: 'DM Sans', sans-serif; font-weight: 300; line-h
             <div style="background: rgba(92, 156, 230, 0.08); border: 1px solid rgba(92, 156, 230, 0.15); border-radius: 16px; padding: 25px 30px; margin-bottom: 40px; max-width: 950px; margin-left: auto; margin-right: auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 
                 <div style="display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 15px; font-size: 1.1rem; width: 100%;">
-                    <span style="font-weight: 600; color: var(--primary-dark);">Approved by all insurers:</span>
+                    <span style="font-weight: 600; color: var(--primary-dark);">Approved by all insurers including:</span>
                     
                     <span style="display: inline-flex; align-items: center;"><img src="../bupa.png" alt="Bupa" style="max-height: 24px; object-fit: contain; filter: brightness(0) saturate(100%) invert(26%) sepia(50%) saturate(831%) hue-rotate(141deg) brightness(96%) contrast(91%);" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"><span style="display:none; font-weight:500;">Bupa</span></span>
                     
@@ -216,10 +226,14 @@ h1, h2, h3, .logo { font-family: 'DM Sans', sans-serif; font-weight: 300; line-h
                 <div style="height: 1px; background: rgba(92, 156, 230, 0.2); margin: 15px auto; width: 100%; max-width: 90%;"></div>
 
                 <p style="font-size: 1.1rem; color: var(--text-dark); margin: 0; text-align: center; width: 100%;">
-                    <strong style="color: var(--primary-dark);">Self-Pay Appointments (30 minutes each):</strong> 
-                    New Appointment <strong style="color: var(--primary-dark);">£300</strong> &nbsp;|&nbsp; 
-                    Follow-up Appointment <strong style="color: var(--primary-dark);">£200</strong>
-                </p>
+    <strong style="color: var(--primary-dark);">
+        <span class="mobile-block">Self-Pay Appointments</span> 
+        <span class="mobile-block">(30 minutes each):</span>
+    </strong> 
+    <span class="mobile-block">New Appointment <strong style="color: var(--primary-dark);">£300</strong></span> 
+    <span class="desktop-divider"> &nbsp;|&nbsp; </span> 
+    <span class="mobile-block">Follow-up Appointment <strong style="color: var(--primary-dark);">£200</strong></span>
+</p>
             </div>
 
             <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 0; text-align: center;">Please use the form below to send your enquiry.</p>
