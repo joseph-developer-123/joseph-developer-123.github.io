@@ -269,6 +269,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            z-index: 999;
         }
 
         .nav-links {
@@ -364,6 +365,7 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
+            transition: all var(--transition-fast);
         }
 
         .hero-bg-img {
@@ -1126,13 +1128,21 @@
             .trust-bar-section { flex-direction: column; gap: 2rem; text-align: center; justify-content: center; }
         }
 
+        @media (max-width: 700px) {
+            .hero-bg-wrapper {
+                right: -15vw;
+                width: 135vw;
+            }
+            .hero-bg-img {
+                object-position: 90% center; /* Adjusts image position to keep furthest right eye in view */
+            }
+        }
+
         @media (max-width: 600px) {
             .text-huge { font-size: clamp(2rem, 8vw, 2.5rem); }
             .text-lg { font-size: clamp(1.8rem, 7vw, 2.2rem); }
             .text-md { font-size: clamp(1.4rem, 6vw, 1.8rem); }
 
-            
-            
             .hero h1 {
                 font-size: clamp(1.8rem, 7vw, 2.2rem);
             }
@@ -1144,6 +1154,10 @@
                 padding: 0.8rem 0.5rem;
                 font-size: 0.65rem;
                 letter-spacing: 0.05em;
+            }
+            .nav-cta {
+                transform: translateX(12px); /* Moves button slightly right without colliding with hamburger */
+                padding: 0.75rem 1.5rem;
             }
         }
 
@@ -1595,23 +1609,36 @@
 
             // 7. Mobile Navigation Interaction Control Handlers
             const hamburger = document.querySelector('.hamburger');
+            const navLinksWrapper = document.querySelector('.nav-links-wrapper');
             const navLinks = document.querySelector('.nav-links');
 
-            if(hamburger) {
+            if(hamburger && navLinksWrapper) {
                 hamburger.addEventListener('click', () => {
-                    if(navLinks.style.display === 'flex') {
-                        navLinks.style.display = 'none';
+                    if(navLinksWrapper.style.display === 'flex') {
+                        navLinksWrapper.style.display = 'none';
                         document.body.style.overflow = 'auto';
                     } else {
+                        // Ensure wrapper overrides standard display rules to show overlay
+                        navLinksWrapper.style.display = 'flex';
+                        navLinksWrapper.style.position = 'absolute';
+                        navLinksWrapper.style.top = '100%';
+                        navLinksWrapper.style.left = '0';
+                        navLinksWrapper.style.width = '100%';
+                        navLinksWrapper.style.backgroundColor = 'var(--color-bg)';
+                        navLinksWrapper.style.padding = '3rem 0';
+                        navLinksWrapper.style.borderBottom = '1px solid var(--color-border)';
+                        
+                        // Enforce vertical flex mapping for the inner list items 
                         navLinks.style.display = 'flex';
                         navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '100%';
-                        navLinks.style.left = '0';
                         navLinks.style.width = '100%';
-                        navLinks.style.backgroundColor = 'rgba(250,250,250,0.98)';
-                        navLinks.style.padding = '3rem 0';
-                        navLinks.style.borderBottom = '1px solid var(--color-border)';
+                        
+                        // Shift mobile dropdown links to black text for visibility against the new background
+                        const mobileLinks = navLinksWrapper.querySelectorAll('a');
+                        mobileLinks.forEach(link => {
+                            link.style.color = 'var(--color-black)';
+                        });
+                        
                         document.body.style.overflow = 'hidden';
                     }
                 });
