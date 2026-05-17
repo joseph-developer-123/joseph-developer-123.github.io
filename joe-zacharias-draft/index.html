@@ -921,7 +921,16 @@
             .contact-card { padding: 2rem; }
         }
 
+        @media (max-width: 1200px) {
+            .nav-icons {
+                display: none !important;;
+            } }
+
         @media (max-width: 768px) {
+            .nav-icons {
+                display: none !important;;
+            }
+
             .nav-links {
                 position: fixed; top: 0; right: -100%; height: 100vh; width: 100%;
                 background: var(--color-surface); flex-direction: column;
@@ -957,24 +966,141 @@
             .pub-header { flex-direction: column; gap: 0.5rem; }
             .pub-meta-right { align-items: flex-start; flex-direction: row; justify-content: space-between; width: 100%; margin-top: 1rem; }
         }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-surface);
+            min-width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: var(--border-radius-md);
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-fast);
+            list-style: none;
+            z-index: 1002;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-main);
+            transition: background-color 0.2s, color 0.2s;
+            line-height: 1.4;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: var(--color-background);
+            color: #7b61ff;
+        }
+
+        /* Responsive Dropdown for Mobile */
+        @media (max-width: 1200px) {
+            .dropdown-menu {
+                position: relative;
+                box-shadow: none;
+                border: none;
+                padding: 0.5rem 0 0.5rem 1rem;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                min-width: 100%;
+            }
+            .dropdown:hover .dropdown-menu,
+            .dropdown:active .dropdown-menu {
+                display: block;
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem; /* Reduced from 1.5rem to pull icons closer to the button */
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem; /* Reduced from 1rem to pull icons closer together */
+        }
+
+        .nav-icons a {
+            color: var(--color-text); /* Uses the exact same color as your navbar text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast), color var(--transition-fast);
+        }
+
+        .nav-icons a:hover {
+            opacity: 1;
+            color: #7b61ff; /* Optional: adds a hover color effect */
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
-        <div class="nav-logo">Joseph Zacharias</div>
+        <div class="nav-logo"><a href="https://alethara.com/joe-zacharias-draft/home">Joseph Zacharias</a></div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="https://alethara.com/joe-zacharias-draft/home">Home</a></li>
-            <li><a href="https://alethara.com/joe-zacharias-draft/about">My Journey</a></li>
-            <li><a href="https://alethara.com/joe-zacharias-draft/cardiac">Cardiac Surgery</a></li>
-            <li><a href="https://alethara.com/joe-zacharias-draft/thoracic">Thoracic Surgery</a></li>
-            <li><a href="https://alethara.com/joe-zacharias-draft/academic">Academic Work</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/about">About</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/team">Team</a></li>
+            <li class="dropdown">
+                <a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery">Cardiac Surgery</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-mitral-valve-surgery">Endoscopic mitral valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/anterior-right-thoracotomy-aortic-valve-replacement/">Anterior right thoracotomy for aortic valve replacement</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-tricuspid-valve-surgery">Endoscopic tricuspid valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-redo-heart-valve-surgery">Endoscopic redo heart valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/other-endoscopic-procedures">Other Endoscopic procedures (Atrial fibrillation, ASD closure and HOCM surgery)</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/coronary-artery-bypass-grafting">Coronary artery bypass grafting</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery">Thoracic Surgery</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-lung-cancer">Endoscopic (VATS) surgery for lung cancer</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-mediastinal-masses">Endoscopic (VATS) surgery of Mediastinal masses</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-pneumothorax">Endoscopic (VATS) surgery for Pneumothorax</a></li>
+                </ul>
+            </li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/patient-stories">Patient Stories</a></li>
             <li><a href="https://alethara.com/joe-zacharias-draft/faqs">FAQ</a></li>
             <li><a href="https://alethara.com/joe-zacharias-draft/blog">Blog</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/academic">Academic</a></li>
         </ul>
         <div class="nav-right">
-            <a href="#contact" class="btn btn-primary nav-btn">Contact</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+<div class="nav-actions">
+            <a href="#contact" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contact</a>
+            
+            <div class="nav-icons">
+                <a href="tel:01614957008" aria-label="Call us">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </a>
+                <a href="mailto:info@josephzacharias.com" aria-label="Email us">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+                   <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
