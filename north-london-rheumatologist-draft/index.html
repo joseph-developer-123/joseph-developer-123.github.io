@@ -968,15 +968,18 @@
             const textEl = document.getElementById('hero-review-text');
 
             const updateHeroReview = (index) => {
-                textEl.style.opacity = 0;
-                timeEl.style.opacity = 0;
-                setTimeout(() => {
-                    timeEl.textContent = heroReviews[index].time;
-                    textEl.textContent = '"' + heroReviews[index].text + '"';
-                    textEl.style.opacity = 1;
-                    timeEl.style.opacity = 1;
-                }, 300);
-            };
+    textEl.style.opacity = 0;
+    if (timeEl) timeEl.style.opacity = 0; // Only update if it exists
+    
+    setTimeout(() => {
+        if (timeEl) {
+            timeEl.textContent = heroReviews[index].time;
+            timeEl.style.opacity = 1;
+        }
+        textEl.textContent = '"' + heroReviews[index].text + '"';
+        textEl.style.opacity = 1;
+    }, 300);
+};
 
             document.getElementById('nextHeroBtn').addEventListener('click', () => {
                 event.stopPropagation();
