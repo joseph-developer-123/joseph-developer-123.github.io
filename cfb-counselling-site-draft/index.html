@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claire Frances Bex - MBACP Registered Counsellor offering compassionate, trauma-informed, online and telephone counselling. Specialising in young people and adults.">
+    <meta name="theme-color" content="#f2f6f7">
+    <title>Claire Frances Bex | Compassionate & Trauma-Informed Counselling</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            /* Color Palette */
+            --primary: #6c929a; 
+            --primary-dark: #4a6c73;
+            --primary-light: #eef3f5;
+            --secondary: #85a999; 
+            --secondary-light: #e5ede9;
+            --accent: #dca78a; 
+            
+            /* Neutrals */
+            --bg-color: #fcfdfe; 
+            --surface: #ffffff;
+            --text-main: #334145;
+            --text-muted: #5e7379;
+            --text-light: #ffffff;
+            --border-color: #dbe4e7;
+            
+            /* Typography */
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Jost', sans-serif;
+            
+            /* Layout & Spacing */
+            --container-w: 1200px;
+            --section-pad: clamp(4rem, 8vw, 8rem);
+            --border-radius: 8px;
+            --border-radius-lg: 16px;
+            
+            /* Shadows for depth */
+            --shadow-sm: 0 4px 6px -1px rgba(74, 108, 115, 0.05), 0 2px 4px -1px rgba(74, 108, 115, 0.03);
+            --shadow-md: 0 10px 25px -3px rgba(74, 108, 115, 0.08), 0 4px 6px -2px rgba(74, 108, 115, 0.04);
+            
+            /* Transitions */
+            --trans-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==========================================================================
+           RESET & ACCESSIBILITY
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; 
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY
+           ========================================================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--primary-dark);
+            line-height: 1.2;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--trans-smooth);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           LAYOUT COMPONENTS
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: var(--section-pad) 0;
+            position: relative;
+        }
+
+        .bg-surface {
+            background-color: var(--surface);
+        }
+
+        .bg-soft-blue {
+            background-color: var(--primary-light);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           BUTTONS & LINKS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--trans-smooth);
+            border: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-light) !important;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary) !important;
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--text-light) !important;
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION (Transparent -> Solid)
+           ========================================================================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            transition: var(--trans-smooth);
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .site-header.scrolled {
+            padding: 1rem 5%;
+            background-color: var(--surface);
+            border-bottom-color: var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-w);
+            margin: 0 auto;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-light);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            transition: color 0.4s ease;
+        }
+
+        .logo-text span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .nav-link {
+            color: var(--text-light); 
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-light);
+            transition: color 0.4s ease;
+        }
+
+        .site-header.scrolled .logo-text {
+            color: var(--primary-dark);
+        }
+        
+        .site-header.scrolled .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .site-header.scrolled .nav-link {
+            color: var(--text-main);
+        }
+        
+        .site-header.scrolled .mobile-menu-btn {
+            color: var(--primary-dark);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--secondary);
+            transition: var(--trans-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link[aria-current="page"]::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ==========================================================================
+           HERO SECTION (Parallax 1)
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(rgba(45, 65, 70, 0.7), rgba(45, 65, 70, 0.5)), 
+                        url('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center center no-repeat fixed;
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            animation: fadeInUp 1s ease forwards 0.2s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease forwards 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease forwards 0.6s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .hero .btn-outline {
+            color: var(--text-light) !important;
+            border-color: var(--text-light);
+        }
+        
+        .hero .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark) !important;
+        }
+
+        /* ==========================================================================
+           ABOUT SECTION
+           ========================================================================== */
+        .about-image-wrapper {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-light);
+            border-radius: var(--border-radius-lg);
+            z-index: 1;
+        }
+
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 60%;
+            height: 60%;
+            background-color: var(--secondary-light);
+            border-radius: var(--border-radius-lg);
+            z-index: 1;
+        }
+
+        .bio-text {
+            color: var(--text-main);
+        }
+
+        .qualifications-fullwidth {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .credentials-grid li {
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           SERVICES & APPROACH (Parallax 2 - Updated)
+           ========================================================================== */
+        #services {
+            background: linear-gradient(rgba(45, 65, 70, 0.85), rgba(45, 65, 70, 0.85)), 
+                        url('https://images.unsplash.com/photo-1448375240586-882707db8855?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center center no-repeat fixed;
+            background-size: cover;
+            color: var(--text-light);
+        }
+
+        #services h2, 
+        #services h3, 
+        #services p {
+            color: var(--text-light) !important;
+        }
+        
+        #services .section-label {
+            color: var(--accent);
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--trans-smooth);
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 3rem; 
+        }
+
+        #services .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 2.5rem;
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px 2px 0 0;
+        }
+        
+        #services .card::after {
+            background-color: var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+        
+        #services .card:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .specialisms {
+            margin-top: 4rem;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        #services .specialisms {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .specialisms-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--trans-smooth);
+        }
+
+        #services .tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-light);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+        
+        #services .tag:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark) !important;
+            border-color: var(--text-light);
+        }
+
+        details {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--bg-color);
+            overflow: hidden;
+        }
+
+        #services details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        summary {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+        }
+
+        #services summary {
+            color: var(--text-light);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        #services summary::after {
+            color: var(--accent);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .details-content {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        #services .details-content {
+            border-top-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .multi-column {
+            column-count: 2;
+            column-gap: 2rem;
+            list-style-type: disc;
+            list-style-position: inside;
+            padding: 0;
+        }
+
+        .multi-column li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        #services .multi-column li {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ==========================================================================
+           PARALLAX DIVIDER
+           ========================================================================== */
+        .parallax-divider {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(108, 146, 154, 0.75), rgba(74, 108, 115, 0.85)), 
+                        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center center no-repeat fixed;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+            padding: 4rem 5%;
+        }
+
+        .parallax-divider h2 {
+            color: var(--text-light);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 300;
+            margin: 0;
+            max-width: 800px;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+        }
+
+        /* ==========================================================================
+           LOGISTICS (LOCATIONS & FEES)
+           ========================================================================== */
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .logistics-card {
+            background-color: var(--surface);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logistics-card svg {
+            width: 48px;
+            height: 48px;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .logistics-card .price {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin: 1rem 0;
+            font-weight: 300;
+        }
+
+        .divider {
+            height: 1px;
+            width: 50px;
+            background-color: var(--secondary);
+            margin: 1.5rem auto;
+        }
+
+        /* ==========================================================================
+           CONTACT SECTION
+           ========================================================================== */
+        .contact-wrapper {
+            background-color: var(--surface);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-info {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 4rem;
+        }
+
+        .contact-info h2 {
+            color: var(--text-light);
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item svg {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            font-family: var(--font-heading);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form-container {
+            padding: 4rem;
+            background-color: var(--surface);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background-color: var(--bg-color);
+            transition: var(--trans-smooth);
+            color: var(--text-main);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .site-footer {
+            background-color: var(--surface);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-badge img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: var(--trans-smooth);
+        }
+
+        .footer-badge img:hover {
+            filter: grayscale(0%);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           ANIMATIONS & REVEALS
+           ========================================================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form-container {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: var(--surface);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+                flex-direction: column;
+                justify-content: center;
+                transition: var(--trans-smooth);
+                z-index: 999;
+            }
+
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .site-header .nav-link {
+                color: var(--text-main) !important;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .multi-column {
+                column-count: 1;
+            }
+            
+            .about-image-wrapper {
+                max-width: 300px;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="sr-only sr-only-focusable" style="position: absolute; background: var(--primary); color: white; padding: 10px; z-index: 10000; top: 0; left: 0;">Skip to main content</a>
+
+    <header class="site-header" id="header" role="banner">
+        <div class="nav-container">
+            <a href="#" class="logo-link" aria-label="Claire Frances Bex Counselling Home">
+                <div class="logo-circle">CFB</div>
+                <div class="logo-text">
+                    Claire Frances Bex
+                    <span>Counselling</span>
+                </div>
+            </a>
+
+            <nav id="main-navigation" aria-label="Main Navigation">
+                <div class="main-nav" id="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="#about" class="nav-link">About Claire</a></li>
+                        <li><a href="#services" class="nav-link">Approach</a></li>
+                        <li><a href="#logistics" class="nav-link">Online Therapy</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">Book Consultation</a>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Toggle Navigation Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>A compassionate, <br>trauma-informed approach to healing.</h1>
+                    <p>Building trust and a strong therapeutic connection is at the heart of my work. Enter a safe, confidential space where you can be truly heard.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Book a Free Intro Call</a>
+                        <a href="#services" class="btn btn-outline">Explore My Approach</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-surface">
+            <div class="container reveal">
+                <div class="grid-2" style="align-items: center;">
+                    
+                    <div class="about-image-wrapper">
+                        <img src="claire.jpg" alt="Portrait of Claire Frances Bex, Counsellor" class="about-image">
+                    </div>
+
+                    <div class="about-content">
+                        <span class="section-label">01. About Me</span>
+                        <h2>A steady, empathetic presence.</h2>
+                        <div class="bio-text">
+                            <p>My name is Claire Frances Bex, I am an integrative counsellor working within a person-centred approach, incorporating brief model CBT techniques where appropriate.</p>
+                            <p>My aim is to build a safe, supportive connection where you feel heard, understood, and able to explore what you need at your own pace. I work collaboratively, focusing on where you would like to get to, while remaining objective and helping you explore solutions when necessary.</p>
+                            <p>I believe therapy should offer a space where you can tell your story, name your feelings, and begin to process difficult experiences without fear of judgement. I am trauma-informed in my approach, as I believe understanding how trauma impacts both the mind and body can help us develop greater self-awareness, self-compassion, and healthier ways to self-regulate.</p>
+                            <p>I work with people from all backgrounds and experiences, supporting a wide range of concerns including anxiety, low mood, depression, traumatic experiences, and feelings of disconnection, among many others. If you are unsure whether I may be the right fit for your needs, I warmly encourage you to get in touch.</p>
+                            <p>Seeking support can feel intimidating, and therapy can often feel financially out of reach. Providing affordable, tailored support is important to me, as I personally understand the value of being offered compassionate guidance during difficult times. The support I once received created meaningful change in my own life, and I remain grateful for that experience.</p>
+                            <p>Therapy with me is about creating a safe and compassionate space where you can feel heard, understood, and supported to make sense of your experiences.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="qualifications-fullwidth">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Qualifications & Training</h3>
+                    <ul class="credentials-grid">
+                        <li><strong>Qualifications:</strong> Level 5 Diploma in CBT Skills & Theory (2024), Level 4 Diploma in Integrative Therapeutic Counselling (2022), BSc (Hons) Psychology & Counselling (2006).</li>
+                        <li><strong>Continuous Training:</strong> Currently completing Trauma-Informed Counselling at the Open University (2025).</li>
+                        <li><strong>Professional Body:</strong> Registered Member of the BACP (402057); fully insured with an updated DBS.</li>
+                        <li><strong>Commitment to Practice:</strong> Engaging in regular clinical supervision and continued professional development to ensure ethical and up-to-date client care.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container reveal">
+                <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                    <span class="section-label">02. The Work</span>
+                    <h2>How We Work Together</h2>
+                    <p>I practice integratively, meaning I draw upon several therapeutic models to tailor our sessions to exactly what you need. Therapy is not one-size-fits-all.</p>
+                </div>
+
+                <div class="service-cards">
+                    <div class="card">
+                        <h3>Person-Centred</h3>
+                        <p>At the core of my practice is the belief that you are the expert on your own life. I provide a deeply empathetic, genuine space where you can safely explore your feelings without judgment.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Brief Model CBT</h3>
+                        <p>We can utilise Cognitive Behavioural Therapy techniques to gently examine how your thoughts, feelings, and behaviours are interconnected, offering practical tools to manage current difficulties.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Trauma-Informed & Somatic</h3>
+                        <p>Understanding the impact of trauma on the nervous system. We incorporate psychoeducation and somatic awareness to help you feel grounded and safe in your body.</p>
+                    </div>
+                </div>
+
+                <div class="specialisms">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-light);">Who I Help</h3>
+                    <p>I welcome adults, couples, young people, older adults, and trainees. While I have built a strong specialism in supporting <strong>young people in distress</strong>, my door is open to a wide range of human experiences.</p>
+                    
+                    <div class="specialisms-tags">
+                        <span class="tag">Anxiety & Depression</span>
+                        <span class="tag">Trauma Recovery</span>
+                        <span class="tag">Youth Counselling</span>
+                        <span class="tag">Stress Management</span>
+                        <span class="tag">Self-Esteem</span>
+                        <span class="tag">Life Transitions</span>
+                    </div>
+
+                    <details>
+                        <summary aria-expanded="false">View all areas of therapeutic focus</summary>
+                        <div class="details-content">
+                            <ul class="multi-column">
+                                <li>Abuse</li>
+                                <li>Anxiety</li>
+                                <li>Bereavement & Loss</li>
+                                <li>Depression</li>
+                                <li>Emotional Distress</li>
+                                <li>Identity Issues</li>
+                                <li>Life Transitions</li>
+                                <li>Neurodiversity (e.g. ADHD/Autism related stress)</li>
+                                <li>Relationship Difficulties</li>
+                                <li>Self-Harm</li>
+                                <li>Stress & Burnout</li>
+                                <li>Trauma / PTSD</li>
+                                <li>Work/School Related Issues</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="logistics" class="bg-soft-blue">
+            <div class="container reveal">
+                <div class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
+                    <span class="section-label">03. Details</span>
+                    <h2>Accessible, Flexible Support</h2>
+                    <p>I currently operate exclusively via <strong>Online and Telephone</strong> counselling. This allows you to access support from the comfort and safety of your own environment, wherever you are based in the UK.</p>
+                </div>
+
+                <div class="logistics-grid">
+                    <div class="logistics-card">
+                        <h3>Format & Location</h3>
+                        <p class="text-muted">Online (Video) & Telephone</p>
+                        <div class="divider"></div>
+                        <p style="font-size: 0.95rem;">My practice is based in Stockport (SK2), but operating fully remotely enables me to work with clients nationally. Sessions can be brief, short-term, or long-term depending on your goals.</p>
+                    </div>
+
+                    <div class="logistics-card">
+                        <h3>Fees & Investment</h3>
+                        <p class="price">£45</p>
+                        <p class="text-muted" style="margin-top: -10px; margin-bottom: 1rem;">per 50-minute session</p>
+                        <div class="divider"></div>
+                        <p style="font-size: 0.95rem;">I believe therapy should be accessible. I offer <strong>concessionary rates</strong> for students and those experiencing financial difficulties (subject to availability).</p>
+                    </div>
+
+                    <div class="logistics-card">
+                        <h3>Working Hours</h3>
+                        <p class="text-muted">Flexible availability</p>
+                        <div class="divider"></div>
+                        <ul style="list-style:none; padding:0; font-size: 0.95rem; text-align: left; margin: 0 auto; max-width: 200px;">
+                            <li style="display:flex; justify-content:space-between; margin-bottom:0.5rem;"><span>Mon:</span> <span>12pm - 6pm</span></li>
+                            <li style="display:flex; justify-content:space-between; margin-bottom:0.5rem;"><span>Tue - Thu:</span> <span>9:30am - 10:30am<br>&amp; 4pm - 7pm</span></li>
+                            <li style="display:flex; justify-content:space-between; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;"><span>Weekends:</span> <span>Some availability</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="parallax-divider">
+            <div class="container reveal">
+                <h2>"Healing is not a linear process, but every step forward matters."</h2>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-surface">
+            <div class="container reveal">
+                
+                <div class="contact-wrapper">
+                    
+                    <div class="contact-info">
+                        <span class="section-label" style="color: var(--secondary-light);">04. Connect</span>
+                        <h2>Take the first step.</h2>
+                        <p>Reaching out can feel daunting, but you don't have to navigate this alone. I offer a complimentary 25-minute telephone consultation. This gives us a chance to explore what brings you to counselling and decide if we are a good fit, with no obligation.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <a href="tel:07535633654" aria-label="Call Claire on 07535633654">07535 633 654</a>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <a href="mailto:clairefrancescounselling@gmail.com" aria-label="Email Claire at clairefrancescounselling@gmail.com">clairefrancescounselling@gmail.com</a>
+                            </div>
+                            
+                            <div class="contact-item" style="margin-top: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1.125rem;">Online & Telephone based in Stockport (SK2)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form action="#" method="POST" id="booking-form" aria-label="Contact form to book a consultation">
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Send a Secure Message</h3>
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">How can I help you?</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Please mention if you are seeking support for a specific issue, and your general availability..." required aria-required="true"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Intro Call</button>
+                            <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-muted); text-align: center;">All communications are strictly confidential.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            
+            <div class="footer-badge">
+                <a href="https://www.bacp.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="View BACP Registration for Claire Frances Bex">
+                    <img src="bacp-badge.png" alt="Registered Member MBACP Logo">
+                </a>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <a href="#about">About</a>
+                <a href="#services">Approach</a>
+                <a href="#logistics">Fees & Logistics</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Claire Frances Bex Counselling. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">MBACP Registration Number: 402057</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Sticky Header Scrolled State
+            const header = document.getElementById('header');
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Initial check
+
+            // Mobile Menu Toggle Logic
+            const menuBtn = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const toggleMenu = () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('active');
+                
+                // Toggle icon
+                if (!isExpanded) {
+                    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
+                } else {
+                    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>';
+                }
+            };
+
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Details Element Accessibility (Accordion)
+            const detailsElement = document.querySelector('details');
+            const summaryElement = document.querySelector('summary');
+            
+            if (detailsElement && summaryElement) {
+                detailsElement.addEventListener('toggle', (e) => {
+                    summaryElement.setAttribute('aria-expanded', detailsElement.open);
+                });
+            }
+
+            // Scroll Reveal Animation (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // Prefer-reduced-motion check
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target); 
+                        }
+                    });
+                }, { 
+                    root: null,
+                    threshold: 0.15, 
+                    rootMargin: "0px 0px -50px 0px" 
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                // Instantly show elements if observer isn't supported or reduced motion is preferred
+                revealElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.classList.add('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
