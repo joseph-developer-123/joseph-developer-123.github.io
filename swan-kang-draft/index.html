@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Swan Kang | Oculoplastic Surgeon | Eyelid Surgery London</title>
-    <meta name="description" content="Dr. Swan Kang is a leading Consultant Oculoplastic Surgeon specialising in Blepharoplasty, Asian Blepharoplasty, and functional eyelid treatments in London.">
+    <title>Dr Swan Kang | Exceptional Eyelid Surgery</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================================
-           GLOBAL VARIABLES & RESET
+           1. CSS VARIABLES & RESET (Elevated for Premium Breathing Room)
            ========================================================================== */
         :root {
-            --warm-champagne: #F5EFE7;
-            --deep-teal: #1A4D5C;
-            --soft-gold: #D4AF87;
-            --sage-green: #8B9F91;
-            --rose-gold: #C9A58C;
-            --charcoal: #2C2C2C;
-            --hero-bg: #EAE3D9; /* Lightest tone matched to warm beige image context */
+            --color-bg: #FAFAFA;
+            --color-text: #111111;
+            --color-text-light: #666666;
+            --color-border: #E5E5E5;
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-grey-bg: #F4F4F4;
+            --color-grey-outline: #DCDCDC;
             
-            --font-head-thin: 'Archivo', sans-serif; /* 100 */
-            --font-head-reg: 'Archivo', sans-serif;  /* 400 */
-            --font-body: 'Questrial', sans-serif;    /* 400 */
+            --font-display: 'Cinzel', 'Didot', serif;
+            --font-quote: 'Crimson Text', serif;
+            --font-body: 'Figtree', 'Avenir', 'Helvetica Neue', sans-serif;
             
-            --nav-height: 120px;
+            /* Drastically expanded whitespace to deliver luxury breathing room */
+            --space-xs: 1.5rem;
+            --space-sm: 3rem;
+            --space-md: 6rem;
+            --space-lg: 12rem;
+            --space-xl: 18rem;
+            
+            --transition-slow: 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-confident: 1s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 0.4s ease;
         }
 
         *, *::before, *::after {
@@ -36,747 +45,669 @@
             padding: 0;
         }
 
-        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
 
         body {
             font-family: var(--font-body);
-            color: var(--charcoal);
-            background-color: var(--warm-champagne);
+            font-weight: 300;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.75;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FFFFFF;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--soft-gold);
-            border: 3px solid #FFFFFF;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--rose-gold);
+        /* Confident, ultra-smooth background element transitions */
+        .bg-blur-element {
+            filter: blur(8px);
+            transition: filter var(--transition-slow);
         }
 
-        /* Typography Global Rules */
-        /* Specific rule for natural-height elements in the About section */
-        .natural-alignment {
-            align-items: flex-start; /* Aligns items to the top for a cleaner feel */
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-head-thin);
-            font-weight: 100;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-        
-        /* Specific rule for non-uppercase headings as requested */
-        .mixed-case-heading {
-            font-family: var(--font-head-reg);
-            font-weight: 400;
-            text-transform: none;
+        img {
+            transition: filter var(--transition-slow), transform var(--transition-slow);
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
+            transition: opacity var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        a:hover {
+            opacity: 0.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.15;
+            color: var(--color-black);
+        }
+
+        /* Luxe adjustment for ampersands */
+        h1 option, h2 option, .ampersand {
+            font-family: var(--font-display);
+            font-style: italic;
         }
 
         /* ==========================================================================
-           NAVIGATION
+           2. TYPOGRAPHY & UTILITIES
+           ========================================================================== */
+        .text-huge { font-size: clamp(3.2rem, 5.5vw, 5.5rem); font-weight: 400; }
+        .text-lg { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 400; }
+        .text-md { font-size: clamp(1.75rem, 2.5vw, 3rem); font-weight: 400; }
+        .text-sm { font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: var(--color-text-light); }
+        
+        .thin-text { font-weight: 300; }
+        .tracking-wide { letter-spacing: 0.2em; }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 6vw;
+        }
+
+        /* Soft Depth-of-Field Section Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            filter: blur(4px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow), filter var(--transition-slow);
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        /* Adjusted padding to reduce button height */
+        .btn-solid, .btn-outline {
+            display: inline-block;
+            padding: 0.85rem 3.5rem; 
+            font-family: var(--font-body);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-solid {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            border: 1px solid var(--color-black);
+        }
+
+        .btn-solid:hover {
+            background-color: transparent;
+            color: var(--color-black);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-black);
+            border: 1px solid var(--color-black);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+           3. NAVIGATION (Transparent with elegant scroll transitions)
            ========================================================================== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: var(--nav-height);
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 4%;
-            z-index: 1000;
-            transition: background 0.4s ease, height 0.4s ease;
-            background: transparent;
-            color: #000; /* Black text on load */
-        }
-
-        .navbar.scrolled {
-            background: var(--warm-champagne);
-            color: var(--charcoal);
-            height: 100px; /* Slightly shrinks on scroll */
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        /* Logo Configuration */
-        .nav-logo-container {
-            flex: 0 0 auto;
-            height: 100%;
-            display: flex;
             align-items: center;
-            padding: 16px;
+            padding: 2rem 6vw;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            z-index: 1000;
+            transition: padding var(--transition-confident), background-color var(--transition-confident), border-color var(--transition-confident), backdrop-filter var(--transition-confident);
         }
+
+        /* Hero state (white text) */
+        .nav-links a {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-white); /* White text in hero */
+            transition: color var(--transition-fast);
+        }
+
         .nav-logo {
-            max-height: calc(100% - 8px); /* As large as possible with ~4px padding */
+            height: 60px;
             width: auto;
             object-fit: contain;
-            /* Logo text is inherently black in the asset, so no filter needed per rules */
+            filter: invert(1) brightness(2); /* Makes logo white initially if it's black */
+            transition: filter var(--transition-fast);
         }
 
-        /* Navigation Links: Two Rows */
-        .nav-links-wrapper {
-            flex: 1 1 auto;
+        .nav-right-controls {
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 1.5rem;
+            flex: 0 0 auto;
         }
 
-        .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px 30px;
-    list-style: none;
-}
-
-/* Add this new class right below .nav-links */
-.nav-break {
-    flex-basis: 100%;
-    height: 0;
-}
-
-        .nav-links a {
-            font-family: var(--font-head-reg);
-            font-weight: 400;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+        .nav-cta {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
             text-transform: uppercase;
-            text-decoration: underline;
-            text-decoration-color: rgba(0,0,0,0.2);
-            text-underline-offset: 4px;
-            transition: color 0.3s ease, text-decoration-color 0.3s ease;
+            letter-spacing: 0.15em;
+            padding: 0.85rem 2.25rem;
+            color: var(--color-white);
+            border: 1px solid var(--color-white);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            opacity: 1;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 1px;
+            background-color: var(--color-white);
+            transition: all 0.3s;
+        }
+
+        /* Scrolled State */
+        .navbar.scrolled {
+            padding: 1.25rem 6vw;
+            background-color: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .navbar.scrolled .nav-links a {
-            text-decoration-color: rgba(44,44,44,0.2);
+            color: var(--color-black);
         }
 
-        .nav-links a:hover {
-            color: var(--soft-gold);
-            text-decoration-color: var(--soft-gold);
+        .navbar.scrolled .nav-logo {
+            filter: none;
         }
 
-        /* Dropdown Menus */
-        .nav-item-dropdown {
-            position: relative;
+        .navbar.scrolled .nav-cta {
+            color: var(--color-black);
+            border-color: var(--color-black);
         }
+
+        .navbar.scrolled .nav-cta:hover {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .navbar.scrolled .hamburger span {
+            background-color: var(--color-black);
+        }
+
+        .nav-logo-container {
+            flex: 0 0 auto;
+        }
+
+        .mobile-logo { display: none; }
+
+        .nav-links-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 700px;
+            row-gap: 0.5rem;
+            column-gap: 2.5rem;
+        }
+
+        .nav-break {
+            flex-basis: 100%;
+            height: 0;
+            margin: 0;
+        }
+
+        /* Premium Minimalist Dropdowns */
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 0;
-            background: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            list-style: none;
-            padding: 10px 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
             min-width: 280px;
+            list-style: none;
+            padding: 1.5rem 0;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-align: left;
+            transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
         }
-        .nav-item-dropdown:hover > .dropdown-menu,
-        .dropdown-submenu:hover > .dropdown-menu {
+
+        .nav-item-dropdown:hover > .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translate(-50%, 0px);
         }
+
         .dropdown-menu li {
+            padding: 0.6rem 2.5rem;
+            text-align: left;
+        }
+
+        .dropdown-menu a {
+            font-size: 0.75rem;
+            white-space: nowrap;
+            color: var(--color-text) !important; /* Forces dropdown links to remain dark */
+        }
+
+        .dropdown-submenu {
             position: relative;
         }
-        .dropdown-menu a {
-            display: flex !important;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px !important;
-            font-family: var(--font-body) !important;
-            font-size: 0.9rem !important;
-            text-transform: capitalize !important;
-            text-decoration: none !important;
-            color: var(--charcoal) !important;
-            letter-spacing: 0.5px !important;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-        }
-        .dropdown-menu a:hover {
-            background: var(--hero-bg);
-            color: var(--deep-teal) !important;
-        }
-        /* Sub-menu positioning */
-        .dropdown-submenu > .dropdown-menu {
+
+        .dropdown-submenu .dropdown-menu {
             top: 0;
             left: 100%;
-            margin-left: 1px;
+            transform: translateX(15px);
         }
 
-        /* Nav CTA (Teal) */
-        .nav-cta {
-    width: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex: 0 0 auto;
-    background: var(--deep-teal);
-    color: #FFFFFF;
-    padding: 14px 28px;
-    font-family: var(--font-head-reg);
-    font-weight: 400;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap; 
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-        .nav-cta:hover {
-            background: var(--charcoal);
-            transform: translateY(-2px);
+        .dropdown-submenu:hover > .dropdown-menu {
+            transform: translateX(0);
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
             flex-direction: column;
-            gap: 5px;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 2px;
-            background-color: var(--charcoal);
-            transition: 0.3s;
+            gap: 6px;
         }
 
-       /* ==========================================================================
-           HERO SECTION
+        /* ==========================================================================
+           4. HERO SECTION (Safe Under Navbar Layout & Within-Fold Target Setup)
            ========================================================================== */
         .hero {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    background-color: var(--hero-bg);
-    min-height: 100vh; /* Forces the section to be roughly twice as tall */
-}
+            position: relative;
+            height: 100vh;
+            max-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: #2A2A2A; /* Darkened base background for white text to pop */
+            padding-top: 100px; /* Forces content to systematically start cleanly below navbar */
+        }
 
-.hero-spacer-image {
-    visibility: hidden;
-    position: relative;
-    width: 75vw; 
-    max-height: 100vh; /* Matches the hero height */
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
-    margin-left: auto; 
-}
-
-        .hero-visual {
+        .hero-bg-wrapper {
             position: absolute;
             top: 0;
             right: 0;
-            width: 100vw;
-            height: 100%;
-            z-index: 1;
-            /* Linear gradient mask fading out entirely on the left side */
-           
-            opacity: 0;
-            transform: translateY(30px);
-            animation: heroRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+            width: 120vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .hero-visual img, .hero-visual video {
+        .hero-bg-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            object-position: right center;
+            mask-image: linear-gradient(to right, transparent, black 40%);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(45, 45, 45, 0.55); /* Subtle grey overlay to dim background */
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hero-content {
-            position: absolute;
-            bottom: 5%;
-            left: 0;
-            width: 100vw; /* Fills left side, overlapping the gradient fade slightly */
-            height: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
+            position: relative;
             z-index: 2;
+            width: 55vw;
+            padding-left: 6vw;
+            margin-top: -2rem; /* Retains layout cleanly above the fold limits */
         }
 
-        .hero-doctify {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.5s forwards; /* 1. Doctify first */
-        }
-        .hero-doctify img {
-            height: 30px;
-        }
-
-       /* Hero Text Animation */
         .hero h1 {
-            font-size: clamp(2.5rem, 4vw, 5rem);
-            color: #000;
-            margin-bottom: 1rem; /* Reduced from 1.5rem */
-            line-height: 0.95; /* Added tighter line height */
-            opacity: 0;
-            animation: fadeIn 1s ease 1s forwards; 
+            color: var(--color-white); /* Force white heading */
+            margin-bottom: 1.5rem;
+            min-height: 2.3em;
+        }
+
+        /* Typographic Cursor Effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+            font-weight: 200;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 85%;
+            margin-bottom: 2.5rem;
+            color: var(--color-white); /* Force white text */
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
         }
         
-        /* Hero Subtext Animation */
-        .hero p {
-            font-family: var(--font-head-reg);
-            font-size: 1.2rem;
-            color: #000;
-            margin-bottom: 1.5rem; /* Reduced from 2.5rem */
-            line-height: 1.3; /* Added tighter line height */
-            max-width: 80%;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.5s forwards; 
+        .hero-buttons .btn-solid {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            border-color: var(--color-white);
         }
-
-        /* Hero Actions Animation */
-        .hero-actions {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 1.5rem;
-            opacity: 0;
-            animation: fadeIn 1s ease 2s forwards; /* 4. Buttons last */
-        }
-
-        /* Shared CTA styling for the hero */
-        .hero-cta {
-            padding: 16px 32px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 0;
-            width: 250px;
-        }
-
-        /* New Outline Button Style */
-.btn-outline, .btn-gold {
-    min-width: 220px;
-    width: 250px;
-    padding: 16px 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
-
-        .btn-outline {
+        
+        .hero-buttons .btn-solid:hover {
             background-color: transparent;
-            color: var(--charcoal);
-            border: 2px solid var(--charcoal);
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
+            color: var(--color-white);
+        }
+        
+        .hero-buttons .btn-outline {
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+        
+        .hero-buttons .btn-outline:hover {
+            background-color: var(--color-white);
+            color: var(--color-black);
         }
 
-        .btn-outline:hover {
-            background-color: var(--charcoal);
-            color: #FFFFFF;
-        }
-
-        .btn-teal {
-            background-color: var(--deep-teal);
-            color: #FFFFFF;
-            padding: 18px;
-            border: none;
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-        }
-        .btn-teal:hover { 
-            background-color: var(--charcoal); 
-            color: #FFFFFF; 
-        }
-
-        .btn-gold {
-            background-color: var(--soft-gold);
-            color: #FFFFFF;
-            padding: 18px;
-            border: none;
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-        }
-        .btn-gold:hover { 
-            background-color: var(--charcoal); 
-        }
-
-       
-
-        /* ==========================================================================
-           TRUST BAR
-           ========================================================================== */
-        .trust-bar {
-            background-color: var(--charcoal);
-            padding: 2.5rem 4%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: nowrap;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .trust-bar.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .trust-group {
+        /* Premium Trust Bar Relocated Out Of Fold to Separate Structural Row */
+        .trust-bar-section {
+            width: 100%;
+            padding: 3rem 6vw;
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: #FFFFFF;
+            justify-content: space-between; /* Equally spaces direct children */
+            background-color: var(--color-grey-bg);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .trust-logo {
-            height: 50px;
-            object-fit: contain;
-        }
-        
-        .trust-logo.rcop {
-            height: 55px; /* Visually equivalent scale */
+            height: 70px;
+            width: auto;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: opacity var(--transition-fast);
         }
 
-        /* Convert specific logos to white */
-        .trust-logo.filter-white {
-            filter: brightness(0) invert(1);
+        .trust-logo:hover {
+            opacity: 0.8;
         }
 
         .trust-qualifications {
-            font-family: var(--font-head-reg);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            color: var(--warm-champagne);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: right;
         }
 
-       /* ==========================================================================
-           ABOUT STRIP
+        /* ==========================================================================
+           5. ABOUT SECTION
            ========================================================================== */
-        .about-strip {
-            display: flex;
-            width: 100%;
-            padding: 8rem 6% 6rem 6%; /* balanced padding */
-            justify-content: space-between;
-            overflow: hidden;
-            background-color: var(--hero-bg); /* Solid lighter beige */
+        .about-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-white);
         }
 
-        .about-image-container {
-            width: 48%; /* Same size as text block */
-            height: 450px; /* Consistent height with services cards */
-            border-radius: 4px; /* subtle rounding */
-            color: var(--soft-gold);
-            overflow: hidden;
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        
-        .about-strip.visible .about-image-container {
-            opacity: 1;
-            transform: translateY(0);
+        .about-grid {
+            display: grid;
+            grid-template-columns: 5fr 6fr;
+            gap: 10vw;
+            align-items: center;
         }
 
-        .about-image-container img {
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
             width: 100%;
-            height: 100%;
+            height: auto;
+            aspect-ratio: 4/5;
             object-fit: cover;
-            display: block;
-        }
-
-        .about-content {
-            width: 48%; /* Same size as image block */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 60px; /* "one a little lower than the left" - creates offset */
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
-        }
-
-        .about-strip.visible .about-content {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .about-content h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--deep-teal);
+            margin-bottom: 2.5rem;
         }
 
         .about-content p {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
+            font-family: var(--font-quote);
+            font-weight: 400;
             line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--charcoal);
-              text-align: justify;
-  text-justify: inter-word;
-        }
-
-        .about-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            color: var(--soft-gold);
-            margin-top: 1rem;
-            group: hover;
-        }
-
-        .about-link svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            transition: transform 0.3s ease;
-        }
-        .about-link:hover svg {
-            transform: translateX(10px);
-        }
-
-        .about-content {
-            width: 48%; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 60px; 
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
-            
-            /* Add these 3 lines for the box */
-            border: 1px solid rgba(44, 44, 44, 0.15); /* Faint charcoal */
-            padding: 2.5rem;
-            border-radius: 4px;
+            color: var(--color-text-light);
+            margin-bottom: 4rem;
         }
 
         /* ==========================================================================
-           PARALLAX VIDEO SECTION
+           6. PARALLAX VIDEO SECTION (Cinematic Quote Architectural Layout)
            ========================================================================== */
-        .parallax-video-section {
+        .parallax-section {
             position: relative;
-            height: 90vh; /* Generous height */
-            overflow: hidden;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            clip-path: inset(0); /* Essential for fixed child parallax */
+            overflow: hidden;
+            background-color: var(--color-black);
         }
 
-        .parallax-video-section video {
-            position: fixed; /* Native fixed parallax */
+        .parallax-video {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 120%;
             object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.6);
-        }
-
-        .video-overlay-text {
-            text-align: center;
-            color: #FFFFFF;
             z-index: 1;
-            padding: 0 20px;
+            opacity: 0.35;
+            will-change: transform;
         }
 
-        .video-overlay-text h2 {
-            font-size: clamp(3rem, 5vw, 6rem);
-            letter-spacing: 2px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--color-white);
+            max-width: 850px;
+            padding: 0 2rem;
+        }
+
+        .parallax-quote {
+            font-family: var(--font-quote);
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
         }
 
         /* ==========================================================================
-           PROCEDURES SECTION
+           7. TREATMENTS SECTION (Isolated Headings & Brightening Modulations)
            ========================================================================== */
-        .procedures {
-            padding: 8rem 4%;
-            background-color: var(--warm-champagne);
+        .treatments-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-bg);
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .section-header h2 {
-            font-size: 3.5rem;
-            color: var(--charcoal);
-        }
-        .section-header p {
-            font-family: var(--font-head-reg);
-            color: var(--sage-green);
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .treatments-header-container {
+            background-color: transparent;
+            margin-bottom: 3.5rem;
+            text-align: left;
         }
 
-        .procedures-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .treatments-header-container h2 {
+            margin-top: 0.5rem;
         }
 
-        .proc-card {
+        .treatments-grid {
+            display: flex;
+            width: 100%;
+            gap: 4px;
+            background-color: var(--color-white); 
+            height: 65vh;
+            min-height: 500px;
+        }
+
+        .treatment-card {
+            flex: 1;
             position: relative;
-            height: 450px;
             overflow: hidden;
-            border-radius: 4px;
+            text-decoration: none;
+            display: block;
             cursor: pointer;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            opacity: 0;
-            transform: translateY(40px);
+            transition: flex var(--transition-slow);
         }
 
-        .procedures.visible .proc-card {
-            animation: staggerUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        .treatment-card:hover {
+            flex: 1.8;
         }
 
-        /* Stagger Delays */
-        .proc-card:nth-child(1) { animation-delay: 0.1s; }
-        .proc-card:nth-child(2) { animation-delay: 0.2s; }
-        .proc-card:nth-child(3) { animation-delay: 0.3s; }
-        .proc-card:nth-child(4) { animation-delay: 0.4s; }
-        .proc-card:nth-child(5) { animation-delay: 0.5s; }
-        .proc-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .proc-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .proc-bg {
+        /* Linear gradient shield protecting typography clarity while enabling raw brightening underneath */
+        .treatment-card::after {
+            content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .proc-card:hover .proc-bg {
-            transform: scale(1.05);
-        }
-
-        .proc-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(26, 77, 92, 0.65); /* #1A4D5C tint */
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%);
             z-index: 1;
+            transition: opacity var(--transition-slow);
         }
 
-        /* Edge Glassmorphism */
-        .proc-glass-edge {
+        .treatment-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 2;
-            pointer-events: none;
-            /* Inner edge highlight + backdrop filter masked out in the center */
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), inset 0 0 20px rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            -webkit-mask-image: radial-gradient(circle, transparent 65%, black 100%);
-            mask-image: radial-gradient(circle, transparent 65%, black 100%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.05);
+            transition: transform var(--transition-slow), filter var(--transition-slow);
         }
 
-        .proc-content {
+        /* Dynamic interaction setup: transforms to bright states on user click actions */
+        .treatment-card:hover .treatment-bg,
+        .treatment-card.active-click .treatment-bg {
+            transform: scale(1.03);
+            filter: brightness(0.75) contrast(1.05);
+        }
+
+        .treatment-content {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 40px 30px;
-            z-index: 3;
-            color: #FFFFFF;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 100%;
+            padding: 4rem 3rem;
+            color: var(--color-white);
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .proc-content h3 {
+        .treatment-content .text-sm {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .treatment-content h3 {
             font-size: 1.8rem;
-            margin-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 15px;
+            color: var(--color-white);
+            margin-bottom: 1rem;
         }
 
-        .proc-content p {
-            font-family: var(--font-head-reg);
+        .treatment-content p {
             font-size: 0.95rem;
-            line-height: 1.5;
-            min-height: 42px; /* Force consistent vertical height for subtext alignment */
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(15px);
+            transition: opacity var(--transition-confident), max-height var(--transition-confident), transform var(--transition-confident);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .treatment-card.active-click .treatment-content p {
+            opacity: 1;
+            max-height: 120px;
+            transform: translateY(0);
+            margin-top: 0.5rem;
         }
 
         /* ==========================================================================
-           BEFORE & AFTER PREVIEW
+           8. PATIENT RESULTS (SLIDER PANEL)
            ========================================================================== */
-        .before-after-section {
-            padding: 8rem 4%;
-            background-color: var(--hero-bg);
+        .results-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-white);
             text-align: center;
         }
 
-        .sliders-container {
+        .sliders-wrapper-flex {
             display: flex;
-            gap: 40px;
             justify-content: center;
-            margin-top: 4rem;
+            gap: 5rem;
+            margin-top: var(--space-md);
             flex-wrap: wrap;
+        }
+
+        .sliders-container {
+            width: 100%;
+            max-width: 580px;
         }
 
         .slider-wrapper {
             position: relative;
-            width: 80%;
-            min-width: 300px;
-            height: 300px;
-            border-radius: 8px;
+            width: 100%;
+            aspect-ratio: 16/10;
             overflow: hidden;
+            background: #F0F0F0;
         }
 
         .slider-img {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
@@ -786,8 +717,10 @@
 
         .slider-range {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0;
             cursor: ew-resize;
             z-index: 10;
@@ -795,1025 +728,816 @@
 
         .slider-line {
             position: absolute;
-            top: 0; left: 50%;
-            width: 2px; height: 100%;
-            background: #FFFFFF;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: var(--color-white);
+            transform: translateX(-50%);
             z-index: 5;
             pointer-events: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
         .slider-button {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 40px; height: 40px;
-            background: #FFFFFF;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color-white);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            z-index: 6;
+            z-index: 5;
             pointer-events: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
+
         .slider-button::before, .slider-button::after {
             content: '';
-            border: solid var(--charcoal);
-            border-width: 0 2px 2px 0;
+            border: solid var(--color-black);
+            border-width: 0 1px 1px 0;
             display: inline-block;
             padding: 3px;
         }
-        .slider-button::before { transform: rotate(135deg); margin-right: 2px; }
-        .slider-button::after { transform: rotate(-45deg); margin-left: 2px; }
-
-        /* Glassmorphism Panel under sliders */
-        .ba-glass-panel {
-            position: relative;
-            margin: -50px auto 0 auto;
-            width: 80%;
-            padding: 40px;
-            z-index: 1;
-            /* Edge only glassmorphism */
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            -webkit-mask-image: radial-gradient(ellipse at center, transparent 40%, black 100%);
-            mask-image: radial-gradient(ellipse at center, transparent 40%, black 100%);
-            border-radius: 12px;
-            height: 150px;
+        
+        .slider-button::before {
+            transform: rotate(135deg);
+            margin-right: 3px;
         }
-
-        .ba-link {
-            position: relative;
-            z-index: 5; /* Above mask */
-            display: inline-block;
-            margin-top: 2rem;
-            font-family: var(--font-head-reg);
-            font-size: 1.1rem;
-            color: var(--deep-teal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+        
+        .slider-button::after {
+            transform: rotate(-45deg);
+            margin-left: 3px;
         }
-        .ba-link:hover { color: var(--soft-gold); }
 
         /* ==========================================================================
-           TESTIMONIALS SECTION
+           9. TESTIMONIALS (Shorter Cards & Horizontal Scroll Architecture)
            ========================================================================== */
-        /* Update background to lighter beige and remove white text default */
         .testimonials-section {
-            position: relative;
-            padding: 8rem 4%;
-            background-color: var(--hero-bg); /* Lighter beige */
-            color: var(--charcoal);
-            overflow: hidden;
+            padding: var(--space-xl) 0;
+            background-color: var(--color-white);
+            text-align: center;
         }
 
-        /* Hide the dark abstract background image */
-        .testi-bg {
-            display: none; 
+        .testimonials-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-md);
+            text-align: left;
+            padding: 1rem 6vw;
+            margin-left: -6vw;
+            margin-right: -6vw;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Custom minimalist scrollbar to maintain elegant scannability design */
+        .testimonials-grid::-webkit-scrollbar {
+            height: 4px;
+        }
+        .testimonials-grid::-webkit-scrollbar-track {
+            background: var(--color-grey-bg);
+        }
+        .testimonials-grid::-webkit-scrollbar-thumb {
+            background: var(--color-black);
         }
 
-        /* Make cards white with a softer shadow to pop against the beige background */
-        .testi-card {
-            flex: 0 0 calc(33.333% - 20px);
-            background-color: var(--warm-champagne);
-            color: var(--charcoal);
-            padding: 40px 30px;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Softer, lighter shadow */
+        /* Shorter structure layout configuration */
+        .testimonial-card {
+            flex: 0 0 380px;
+            scroll-snap-align: start;
+            background-color: transparent;
+            padding: 2.25rem 2rem;
+            border: 1px solid var(--color-grey-outline);
+            transition: border-color var(--transition-fast);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            height: 400px;
-        }
-
-        /* Update carousel arrows for light background */
-        .carousel-btn {
-            background: transparent;
-            border: 1px solid var(--charcoal);
-            color: var(--charcoal);
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s, color 0.3s;
-            padding: 0; 
-            flex-shrink: 0; 
-            box-sizing: border-box;
-        }
-        
-        .carousel-btn:hover {
-            background: var(--charcoal);
-            color: #FFFFFF;
-        }
-
-        /* Update bottom link color for better visibility on beige */
-        .testi-link {
-            display: block;
-            text-align: center;
-            margin-top: 3rem;
-            color: var(--deep-teal);
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transition: color 0.3s;
-        }
-        
-        .testi-link:hover {
-            color: var(--soft-gold);
-        }
-
-        .testi-content-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 3rem;
-        }
-
-        .carousel-viewport {
-            overflow: hidden;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            gap: 30px;
-        }
-
-        
-
-        .testi-header {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 15px;
         }
 
-        .testi-stars {
-            color: #0076D6;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+        .testimonial-card:hover {
+            border-color: var(--color-black);
         }
 
-        .testi-doctify-logo {
-            height: 25px;
-            /* Keeps natural color per rules */
-        }
-
-        .testi-quote {
+        .testimonial-stars {
             font-size: 1rem;
-            line-height: 1.6;
-            font-style: italic;
-            margin-bottom: auto; /* Pushes author to bottom */
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.1em;
         }
 
-        .testi-author {
-            margin-top: 20px;
-            font-family: var(--font-head-reg);
-            font-weight: bold;
+        .testimonial-source {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            color: var(--deep-teal);
-        }
-        .testi-date {
-            font-size: 0.75rem;
-            color: var(--sage-green);
+            letter-spacing: 0.15em;
+            color: var(--color-text-light);
+            margin-bottom: 1.25rem;
+            display: block;
         }
 
-        
+        .testimonial-text {
+            font-family: var(--font-quote);
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 1.75rem;
+            color: var(--color-text);
+        }
+
+        .testimonial-author {
+            font-size: 0.72rem;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-light);
+            margin-top: auto;
+        }
 
         /* ==========================================================================
-           BOOKING & LOCATION SECTION
+           10. LOCATIONS (Google Maps Inline Integration)
            ========================================================================== */
-        .booking-section {
-            position: relative;
-            padding: 8rem 4%;
-            background-image: url('moorfields.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #FFFFFF;
+        .locations-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-bg);
         }
 
-        /* Overlay */
-        .booking-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(26, 77, 92, 0.85); /* #1A4D5C Deep Teal overlay */
-            z-index: 1;
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6vw;
+            margin-top: var(--space-md);
         }
 
-        .booking-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px; /* Reduced width so the centered form doesn't stretch too far */
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            align-items: center; /* Centers the form and locations */
-        }
-
-        /* Limit the width of the form so it looks neat when centered */
-        .booking-form-container {
-            position: relative;
-            padding: 50px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 700px; 
-        }
-        /* Form Glassmorphism - Edge only */
-        .form-glass-edge {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 8px;
-            pointer-events: none;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), inset 0 0 30px rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
-            mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
-            z-index: -1;
-        }
-
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .booking-form input, .booking-form select, .booking-form textarea {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.5);
-            color: #FFFFFF;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        
-        .booking-form input::placeholder, .booking-form textarea::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .booking-form input:focus, .booking-form textarea:focus, .booking-form select:focus {
-            border-bottom-color: var(--soft-gold);
-        }
-
-        .booking-form option {
-            background-color: var(--deep-teal);
-            color: #FFFFFF;
-        }
-
-       
-
-        .locations-container {
-            display: flex;
-            flex-direction: row; /* Forces them side-by-side */
-            gap: 30px;
-            width: 100%;
-        }
-
-        /* Ensure each card takes exactly half the space */
         .location-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 4px;
-            flex: 1; 
+            border-top: 1px solid var(--color-black);
+            padding-top: 3rem;
             display: flex;
             flex-direction: column;
-            text-align: center; /* Centers the text inside the cards */
         }
 
-        .location-card iframe {
-            width: 100%;
-            height: 200px; /* Slightly taller to look better side-by-side */
-            border: none;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            margin-top: 10px;
-        }
-
-        .location-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--soft-gold);
+        .location-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
         }
 
         .location-card p {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
         }
 
-        .location-card a {
-            font-family: var(--font-head-reg);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            text-decoration: underline;
+        .map-iframe-wrapper {
+            width: 100%;
+            height: 280px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--color-grey-outline);
+            overflow: hidden;
+        }
+
+        .map-iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* ==========================================================================
-           FOOTER
+           11. CONTACT / BOOKING FORM (Compact Balanced Footprint Modulations)
            ========================================================================== */
-        footer {
-            background-color: var(--charcoal);
-            color: #FFFFFF;
-            padding: 4rem 4% 2rem 4%;
+        .booking-section {
+            position: relative;
+            display: flex;
+            min-height: 65vh; /* Reduced height footprint constraints */
+            background-color: var(--color-white);
+        }
+
+        .booking-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .booking-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            z-index: 1;
+        }
+
+        .booking-container {
+            position: relative;
+            z-index: 2;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            font-size: 0.9rem;
-            line-height: 1.8;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            max-width: 1100px; /* Reduced layout width architecture */
+            margin: 0 auto;
+            padding: var(--space-md) 6vw; /* Reduced interior vertical margins */
+            gap: 6vw;
+            align-items: center;
         }
 
-        .footer-col h5 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--soft-gold);
+        .booking-text h2 {
+            margin-bottom: 1.25rem;
         }
 
-        .footer-col ul {
+        .booking-text p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem; /* Tighter input spacing alignment */
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.95rem 0; /* Shorter field tracking frames */
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--color-black);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--color-black);
+            transition: border-color var(--transition-fast);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.72rem;
+        }
+
+        .form-control:focus {
+            border-bottom-width: 1.5px;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 90px; /* More compact viewport space mapping */
+        }
+
+        /* ==========================================================================
+           12. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-bg);
+            padding: var(--space-lg) 0 3rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr 1.5fr 1.5fr;
+            gap: 5rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-logo {
+            height: 45px;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-desc {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+            max-width: 85%;
+        }
+
+        .footer h4 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2.5rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .footer ul {
             list-style: none;
         }
-        .footer-col ul li a {
-            transition: color 0.3s;
+
+        .footer ul li {
+            margin-bottom: 1.25rem;
         }
-        .footer-col ul li a:hover {
-            color: var(--soft-gold);
+
+        .footer ul a, .footer p {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--color-text-light);
         }
 
         .footer-bottom {
-            grid-column: 1 / -1;
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         /* ==========================================================================
-           ANIMATIONS & KEYFRAMES
+           13. RESPONSIVE MEDIA QUERIES
            ========================================================================== */
-        @keyframes heroRise {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        @keyframes scrollPulse {
-            0% { transform: translate(-50%, 0); opacity: 1; }
-            100% { transform: translate(-50%, 15px); opacity: 0; }
-        }
-
-        @keyframes staggerUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ==========================================================================
-           MEDIA QUERIES
-           ========================================================================== */
-        @media (max-width: 1150px) {
-
-            .nav-links-wrapper { display: none; } /* Hide full links */
+        @media (max-width: 1120px) {
+            .nav-links-wrapper { display: none; }
             .hamburger { display: flex; }
-            .nav-logo { max-height: 60px; } /* Smaller on mobile */
-            .navbar { padding: 0 20px; }
-            .logo {
-            margin-right: auto;
+            
+            .about-grid, .locations-grid, .booking-container { grid-template-columns: 1fr; gap: 4rem; }
+            
+            .treatments-grid { flex-direction: column; height: auto; }
+            .treatment-card { flex: none; height: 350px; }
+            .treatment-card:hover { flex: none; }
+            
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+            .testimonial-card { flex: 0 0 300px; }
         }
-        .nav-logo-container {
-                margin-right: auto;
-            }
-        
-        .nav-cta {
-            margin-left: 0;
-            margin-right: 20px;
-            
-        }
-        
-            
-            .hero-content { width: 100%; padding-right: 0%; z-index: 5; }
-            /* Image sits behind text, so text must change to contrast */
-            .hero h1, .hero p, .hero-doctify { color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-            .hero-visual { width: 100vw; -webkit-mask-image: none; opacity: 0.8; }
-            .scroll-arrow { border-color: #FFFFFF; }
-            .scroll-arrow::before { background: #FFFFFF; }
-            
-            .trust-bar { flex-wrap: wrap; justify-content: center; gap: 20px; }
-            
-            .procedures-grid { grid-template-columns: repeat(2, 1fr); }
-            
-            .booking-content { grid-template-columns: 1fr; }
-            
-            footer { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 900px) {
 
-                    .testi-card { flex: 0 0 100%; }
-}
+        @media (max-width: 850px) {
+            .hero {
+                padding-top: 100px;
+                align-items: center;
+            }
+            .hero-content {
+                width: 90vw;
+                margin-top: 0;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+                min-height: auto;
+                margin-bottom: 1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .hero-buttons {
+                flex-wrap: nowrap;
+                width: 100%;
+                gap: 1rem;
+            }
+            .hero-buttons .btn-solid, 
+            .hero-buttons .btn-outline {
+                flex: 1;
+                text-align: center;
+                padding: 0.85rem 1rem;
+                white-space: nowrap;
+            }
+        }
 
         @media (max-width: 768px) {
-            .about-image-container {
-            background-color: #F9F6F0; /* Lighter beige/off-white */
-        }
-            .hero h1 { font-size: 2.5rem; }
-            .hero { 
-                min-height: auto; 
-                height: 100vh; /* Forces exact screen height to prevent overlap */
+            :root {
+                --space-xl: 10rem;
+                --space-lg: 7rem;
+                --space-md: 4rem;
             }
-            .hero-content {
-                bottom: 100px;
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-                box-sizing: border-box;
-                width: 100%;
-            }
-            .about-strip { flex-direction: column; padding: 4rem 4%; }
-            .about-image-container { position: relative; width: 100%; height: 300px; transform: none; left: 0; margin-bottom: 2rem; }
-            .about-content { width: 100%; margin-left: 0; padding: 0; }
-            
-            .procedures-grid { grid-template-columns: 1fr; }
-            
-            .carousel-btn { display: none; } /* Remove arrows on mobile */
-            .testi-card { flex: 0 0 100%; }
-            
-            .slider-wrapper { width: 100%; }
-            
-            footer { grid-template-columns: 1fr; }
-        }
-
-        /* =========================================
-   MOBILE & LAYOUT OVERRIDES 
-   ========================================= */
-
-/* 1. Navbar Mobile Fixes & Logo Swap */
-.nav-logo.mobile-logo { display: none; }
-@media (max-width: 768px) {
-    .nav-logo.desktop-logo { display: none; }
-    .nav-logo.mobile-logo { display: block; max-height: 25px; padding: 0px !important; }
-}
-
-/* 2. Trust Bar - Disable Animation */
-.trust-bar {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-}
-
-/* 3. Treatments - 4 Card Staggered Grid & Friendly Dark Glassmorphism */
-.procedures-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-}
-@media (min-width: 769px) {
-    .proc-card:nth-child(even) { margin-top: 60px; }
-}
-.proc-overlay {
-    background-color: rgba(60, 50, 45, 0.55) !important; /* Friendly dark warm tone */
-}
-
-/* 4. Testimonials (Kind Words) Simple Grid */
-.testi-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 5. Substantial Mobile Tweaks */
-@media (max-width: 768px) {
-    .about-content {
-        border: none; /* Removes the faint charcoal box */
-        padding: 0 !important; /* Removes the extra padding we added for the box */
-    }
-    .locations-container {
-                flex-direction: column;
-            }
-    /* Headings reduced substantially */
-    h1 { font-size: 2.2rem !important; }
-    h2 { font-size: 1.8rem !important; }
-    h3 { font-size: 1.3rem !important; }
-
-    /* CTAs stacked */
-    .hero-actions { flex-direction: column; width: 100%; align-items: flex-start; gap: 1rem; }
-    .hero-cta { width: 100%; text-align: center; margin-top: 0; }
-
-    /* About Section Mobile (Image on top, full visibility, solid light bg) */
-    .about-strip { background: var(--hero-bg) !important; padding: 3rem 4% !important; flex-direction: column !important; }
-    .about-image-container { position: relative !important; width: 100% !important; height: auto !important; transform: none !important; left: 0 !important; margin-bottom: 2rem !important; box-shadow: none !important; }
-    .about-image-container img { height: auto !important; max-height: 400px !important; display: block !important; object-position: top !important; }
-    .about-content { width: 100% !important; margin-left: 0 !important; padding: 0 !important; }
-    
-    /* Video Right Eye */
-    .parallax-video-section video { object-position: 85% center !important; }
-
-    /* Grids to single column */
-    .procedures-grid { grid-template-columns: 1fr !important; }
-    .testi-grid { grid-template-columns: 1fr !important; }
-}
-
-/* Hero layout and right-eye focus strictly under 600px */
-        @media (max-width: 600px) {
-            
-            .hero-visual video {
-                object-position: 80% center; /* Focuses specifically on the right eye */
-            }
-            
-            .hero-buttons {
-                flex-direction: column; /* Stacks them nicely on mobile */
-            }
-
-            .hero { 
-                min-height: auto; 
-                height: 100vh; /* Fits screen perfectly above trust bar */
-            }
-            .hero-content {
-                bottom: 0;
-                height: 100%;
-                justify-content: center;
-                padding-top: var(--nav-height); 
-            }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .trust-bar-section { flex-direction: column; gap: 2rem; text-align: center; justify-content: center; }
         }
 
         @media (max-width: 600px) {
+            .text-huge { font-size: clamp(2rem, 8vw, 2.5rem); }
+            .text-lg { font-size: clamp(1.8rem, 7vw, 2.2rem); }
+            .text-md { font-size: clamp(1.4rem, 6vw, 1.8rem); }
 
-            .nav-logo, 
-    .nav-logo.mobile-logo {
-        margin-left: 15px;
-        width: 150px;
-        max-width: 100%; /* Ensures it never overflows the screen */
-        height: auto;    /* Lets the height scale naturally with the width */
-        max-height: none; /* Overrides the previous 25px mobile height limit */
-    }
-
-                    .nav-cta { width: 100px; }
-
-            .navbar {
-        /* Sets the distance from the hamburger to the right edge of the screen */
-        padding-right: 15px; 
-    }
-    
-    .nav-cta {
-        /* Sets the identical distance from the CTA button to the hamburger */
-        margin-right: 10px; 
-    }
-}  
+            
+            
+            .hero h1 {
+                font-size: clamp(1.8rem, 7vw, 2.2rem);
+            }
+            .hero p {
+                font-size: 0.85rem;
+            }
+            .hero-buttons .btn-solid, 
+            .hero-buttons .btn-outline {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.65rem;
+                letter-spacing: 0.05em;
+            }
+        }
 
         @media (max-width: 500px) {
-            .nav-logo-container {
-        padding-left: 0 !important; 
-        margin-left: 0 !important;
-        margin-right: auto; /* Keeps the logo pushed to the left */
-    }
-
-    /* 2. Restrict the maximum size of the logo/name so it isn't massive */
-    .nav-logo {
-        max-height: 35px !important; /* Adjust this value to shrink the height */
-        max-width: 150px !important; /* Prevents it from stretching across the screen */
-        object-fit: contain;
-    }
-    
-    .nav-logo.mobile-logo {
-        display: block;
-        max-height: 25px !important; 
-    }
-    /* 4. Ensure the hamburger stays visible and has proper spacing */
-    .hamburger {
-        display: flex;
-        margin-left: 10px; /* Adds a little breathing room on the right */
-        margin-right: 10px;
-    }
-    
-    /* 5. Fix navbar padding for mobile */
-    .navbar {
-        padding: 0px 0px 5px 0px !important;
-    }
-        }    
-
+            .nav-logo {
+                margin-top: 10px;
+                max-height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
-    <div class="nav-logo-container">
-        <img src="swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
-        <img src="swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
-    </div>
-    
-    <div class="nav-links-wrapper">
-        <ul class="nav-links">
-            <li><a href="https://about.swankang.co.uk">About</a></li>
-            <li class="nav-item-dropdown">
-                <a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
-                    <li><a href="#">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
-                    <li><a href="#">Brow Lift</a></li>
-                </ul>
-            </li>
-            <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
-            <li class="nav-item-dropdown">
-                <a href="#">Eyelid Lumps</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Chalazion</a></li>
-                    <li><a href="#">Skin Lesion</a></li>
-                </ul>
-            </li>
-            <li class="nav-break"></li>
-            <li class="nav-item-dropdown">
-                <a href="https://functional.swankang.co.uk">Functional Surgery</a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-submenu">
-                        <a href="#">Lid Surgery &raquo;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Ectropion</a></li>
-                            <li><a href="#">Entropion</a></li>
-                            <li><a href="#">Ptosis</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-submenu">
-                        <a href="#">Watery Eye Tear Duct Surgery &raquo;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Endonasal DCR</a></li>
-                            <li><a href="#">External DCR</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="https://gallery.swankang.co.uk">Gallery</a></li>
-            <li><a href="https://blog.swankang.co.uk">Blog</a></li>
-            <li><a href="https://contact.swankang.co.uk">Contact</a></li>
-        </ul>
-    </div>
-    
-    <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
-    
-    <div class="hamburger">
-        <span></span><span></span><span></span>
-    </div>
-</nav>
-
-    <header class="hero">
-        <img src="img6.png" alt="" class="hero-spacer-image">
-        
-        <div class="hero-visual">
-            <video src="woman-blinking-2.mp4" autoplay loop muted playsinline></video>
+        <div class="nav-logo-container">
+            <img src="swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
+            <img src="swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
         </div>
+        
+        <div class="nav-links-wrapper">
+            <ul class="nav-links">
+                <li><a href="https://about.swankang.co.uk">About</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                        <li><a href="#">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                        <li><a href="#">Brow Lift</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="#">Eyelid Lumps</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Chalazion</a></li>
+                        <li><a href="#">Skin Lesion</a></li>
+                    </ul>
+                </li>
+                <li class="nav-break"></li>
+                
+                <li class="nav-item-dropdown">
+                    <a href="https://functional.swankang.co.uk">Functional Surgery</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Lid Surgery »</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Ectropion</a></li>
+                                <li><a href="#">Entropion</a></li>
+                                <li><a href="#">Ptosis</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Watery Eye Tear Duct Surgery »</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Endonasal DCR</a></li>
+                                <li><a href="#">External DCR</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="https://gallery.swankang.co.uk">Gallery</a></li>
+                <li><a href="https://blog.swankang.co.uk">Blog</a></li>
+                <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right-controls">
+            <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg-wrapper">
+            <img src="hero-eyes-5.png" alt="Exceptional Eyelid Surgery Background" class="hero-bg-img">
+        </div>
+        <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <div class="hero-doctify">
-                <img src="doctify-logo.png" alt="Doctify">
-                <img src="doctify-score-stars.png" alt="5 Stars">
+            <h1 class="text-huge typing-target typing-cursor"></h1>
+            <p>Consultant oculoplastic surgeon bringing fellowship-trained expertise and a reputation for natural, balanced outcomes to every patient – whether functional or cosmetic, simple or complex.</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-solid">Book Now</a>
+                <a href="#about" class="btn-outline">See More</a>
             </div>
-            
-            <h1>EXCEPTIONAL<br>EYELID SURGERY.</h1>
-            
-            <p class="mixed-case-heading">Consultant oculoplastic surgeon bringing fellowship-trained expertise and a reputation for natural, 
-                balanced outcomes to every patient - whether functional or cosmetic, simple or complex.
-</p>
-            
-            <div class="hero-actions">
-    <a href="https://contact.swankang.co.uk" class="btn-teal hero-cta">Book Now</a>
-    <a href="#about-strip" class="btn-outline hero-cta">See More</a>
-</div>
-        </div>
-    </header>
-
-    <section class="trust-bar" id="trust-bar">
-    <div class="trust-group">
-        <img src="doctify.png" alt="Doctify" class="trust-logo doctify">
-        <img src="doctify-score-stars.png" alt="Stars" class="trust-logo doctify">
-        <span class="mixed-case-heading">4.98/5 · 19 reviews</span>
-    </div>
-    
-    <img src="bopss.png" alt="BOPSS" class="trust-logo filter-white">
-    <img src="rcop.png" alt="RCOphth" class="trust-logo filter-white rcop">
-    <img src="rsm.png" alt="RSM" class="trust-logo filter-white">
-    
-    <div class="trust-qualifications">
-        MBioch (Oxon) • MBBS • FRCOphth
-    </div>
-</section>
-
-    <section class="about-strip" id="about-strip">
-    <div class="about-image-container">
-        <img src="sk1.png" alt="Dr Swan Kang">
-    </div>
-    <div class="about-content">
-        <h2 class="mixed-case-heading">Expertise & Precision</h2>
-        <p>I am a Consultant Oculoplastic Surgeon practising in Central London, with specialist training at Oxford University and Moorfields Eye Hospital. 
-        Oculoplastic surgery demands absolute precision - the margins are small, 
-        the anatomy complex, and the results permanent. That standard of exactness is what drew me to this field, and it underpins everything I do.</p>
-        <a href="https://about.swankang.co.uk" class="about-link">
-            Discover My Approach
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-    </div>
-</section>
-
-    <section class="parallax-video-section">
-        <video src="woman-blinking-2.mp4" autoplay loop muted playsinline></video>
-        <div class="video-overlay-text">
-            <h2>PRECISION OCULOPLASTICS</h2>
         </div>
     </section>
 
-    <section class="procedures" id="procedures">
-    <div class="section-header">
-        <h2>TREATMENTS</h2>
-        <p class="mixed-case-heading" style="color: var(--deep-teal); font-size: 1.1rem; margin-top: 1rem;">Enhancing your natural beauty with gentle, expert care.</p>
-    </div>
-    
-    <div class="procedures-grid">
-        <div class="proc-card">
-            <img src="blepharoplasty (1).jpg" alt="Blepharoplasty" class="proc-bg">
-            <div class="proc-overlay"></div>
-            <div class="proc-glass-edge"></div>
-            <div class="proc-content">
-                <h3>Upper & Lower Blepharoplasty</h3>
-            </div>
-        </div>
-        
-        <div class="proc-card">
-            <img src="asianblepharoplasty.png" alt="Asian Blepharoplasty" class="proc-bg" style="object-position: right center;">
-            <div class="proc-overlay"></div>
-            <div class="proc-glass-edge"></div>
-            <div class="proc-content">
-                <h3>Asian Blepharoplasty</h3>
-            </div>
-        </div>
-        
-        <div class="proc-card">
-            <img src="hero-eyes-3.png" alt="Cosmetic Treatments" class="proc-bg">
-            <div class="proc-overlay"></div>
-            <div class="proc-glass-edge"></div>
-            <div class="proc-content">
-                <h3>Cosmetic Eyelid Surgery</h3>
-            </div>
-        </div>
-        
-        <div class="proc-card">
-            <img src="visioncorrection.png" alt="Functional Treatments" class="proc-bg">
-            <div class="proc-overlay"></div>
-            <div class="proc-glass-edge"></div>
-            <div class="proc-content">
-                <h3>Functional Eyelid Correction</h3>
-            </div>
+    <div class="trust-bar-section">
+        <img src="bopss.png" alt="BOPSS" class="trust-logo">
+        <img src="rcop.png" alt="RCOphth" class="trust-logo">
+        <img src="rsm.png" alt="RSM" class="trust-logo">
+        <div class="trust-qualifications">
+            MBioch (Oxon) <span class="ampersand">&</span> MBBS <span class="ampersand">&</span> FRCOphth
         </div>
     </div>
-</section>
 
-    <section class="before-after-section">
-        <div class="section-header">
-            <h2>PATIENT RESULTS</h2>
-            <p>Transformations</p>
-        </div>
-        
-        <div class="sliders-container">
-            <div class="slider-wrapper">
-                <img src="thebefore1.png" alt="Before" class="slider-img">
-                <img src="theafter1.png" alt="After" class="slider-img slider-after" id="after-img-1">
-                <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-1">
-                <div class="slider-line" id="slider-line-1"></div>
-                <div class="slider-button" id="slider-btn-1"></div>
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-image-wrapper fade-up">
+                <img src="SK1 - S K.jpg" alt="Dr Swan Kang" class="about-image">
             </div>
-            
-            <!--div class="slider-wrapper">
-                <img src="before2.png" alt="Before" class="slider-img">
-                <img src="after2.png" alt="After" class="slider-img slider-after" id="after-img-2">
-                <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-2">
-                <div class="slider-line" id="slider-line-2"></div>
-                <div class="slider-button" id="slider-btn-2"></div>
-            </div-->
+            <div class="about-content fade-up">
+                <span class="text-sm">Dr Swan Kang</span>
+                <h2 class="text-lg">Precision <span class="ampersand">&</span><br>Artistry</h2>
+                <p>I am a Consultant Oculoplastic Surgeon practicing in Central London, with specialist training at Oxford University and Moorfields Eye Hospital. Oculoplastic surgery demands absolute precision – the margins are small, the anatomy complex, and the results permanent. That standard of exactness is what drew me to this field, and it underpins everything I do.</p>
+                <a href="https://about.swankang.co.uk" class="btn-outline">Discover My Approach</a>
+            </div>
         </div>
-        
-        <a href="https://gallery.swankang.co.uk" class="ba-link">View Full Gallery &rarr;</a>
     </section>
 
-    <section class="testimonials-section">
-        <div class="testi-bg"></div>
-        <div class="testi-content-wrapper">
-            <div class="section-header" style="margin-bottom: 2rem;">
-                <h2>PATIENT EXPERIENCES</h2>
+    <section class="parallax-section">
+        <video src="woman-blinking-2.mp4" id="parallax-media" class="parallax-video" autoplay loop muted playsinline></video>
+        <div class="parallax-content fade-up">
+            <p class="parallax-quote">"The eyes are the canvas of human expression; every micro-adjustment requires an absolute reverence for natural anatomy."</p>
+            <span class="text-sm tracking-wide" style="color: var(--color-white); opacity: 0.85;">— Dr. Swan Kang</span>
+        </div>
+    </section>
+
+    <section class="treatments-section" id="treatments">
+        <div class="container treatments-header-container">
+            <span class="text-sm">Precision Oculoplastics</span>
+            <h2 class="text-lg">Treatments</h2>
+        </div>
+        
+        <div class="treatments-grid">
+            
+            <div class="treatment-card">
+                <img src="blepharoplasty (1).jpg" alt="Blepharoplasty" class="treatment-bg">
+                <div class="treatment-content">
+                    <span class="text-sm">Blepharoplasty</span>
+                    <h3>Upper <span class="ampersand">&</span> Lower<br>Blepharoplasty</h3>
+                    <p>Subtle refinement to restore a rested, youthful appearance while preserving natural structural integrity.</p>
+                </div>
             </div>
             
-            <div class="carousel-container">
-                <button class="carousel-btn prev-btn" id="prevBtn">&larr;</button>
+            <div class="treatment-card">
+                <img src="asianblepharoplasty.png" alt="Asian Blepharoplasty" class="treatment-bg">
+                <div class="treatment-content">
+                    <span class="text-sm">Asian Blepharoplasty</span>
+                    <h3>Double Eyelid<br>Surgery</h3>
+                    <p>Bespoke specialized surgical techniques designed carefully to enhance and define the natural eyelid crease.</p>
+                </div>
+            </div>
+            
+            <div class="treatment-card">
+                <img src="hero-eyes-3.png" alt="Cosmetic Treatments" class="treatment-bg">
+                <div class="treatment-content">
+                    <span class="text-sm">Cosmetic Treatments</span>
+                    <h3>Cosmetic Eyelid<br>Surgery</h3>
+                    <p>Advanced non-surgical and precision surgical interventions engineered for absolute aesthetic facial harmony.</p>
+                </div>
+            </div>
+            
+            <div class="treatment-card">
+                <img src="visioncorrection.png" alt="Functional Treatments" class="treatment-bg">
+                <div class="treatment-content">
+                    <span class="text-sm">Functional Treatments</span>
+                    <h3>Functional Eyelid<br>Correction</h3>
+                    <p>Restoring symmetry, field of view, and daily comfort through highly precise oculoplastic corrective techniques.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <span class="text-sm">Patient Results</span>
+            <h2 class="text-lg fade-up">Transformations</h2>
+            
+            <div class="sliders-wrapper-flex fade-up">
                 
-                <div class="carousel-viewport">
-                    <div class="carousel-track" id="carouselTrack">
-                        <!--div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"I had two appointments with Miss Swan Kang to treat my stubborn chalazion. Miss Kang diagnosed the lump and my lid skin condition with a microscope and carefully explained the mechanics of how the eyelid and meibomian glands work. The treatment options were well explained. Miss Kang's medical approach is empathetic — I felt respected and trusted throughout the process. My condition improved after the first consultation and no surgery was needed."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">24 Sep 2025</div>
-                        </div-->
-                        
-                        <!--div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="Doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"Dr Swan Kang was very thorough with all my eye issues and went further to track down my glaucoma history with Moorfields NHS. She was friendly, highly professional, and explained clearly what would be involved with upper eyelid surgery. She spent a lot of time understanding my full health history. I was very happy with my first consultation."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">21 Nov 2025</div>
-                        </div-->
-
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"Dr Kang is a real professional, a good listener, and takes time to explain everything about your operation. Her aftercare is second to none."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">12 Dec 2025</div>
-                        </div>
-
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"A highly professional, first-class practitioner. The advice, procedure, and aftercare could not have been better."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">21 Mar 2026</div>
-                        </div>
-
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"She is lovely and corrected more things in my eye surgery than I even knew were there. Follow-up was excellent."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">13 Mar 2026</div>
-                        </div>
-
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-stars">★★★★★</div>
-                                <img src="doctify.png" alt="Doctify" class="testi-doctify-logo">
-                            </div>
-                            <p class="testi-quote">"Excellent communication and the procedure was explained in great detail. Great follow-up too."</p>
-                            <div class="testi-author">Patient</div>
-                            <div class="testi-date">13 Mar 2026</div>
-                        </div>
+                <div class="sliders-container">
+                    <div class="slider-wrapper">
+                        <img src="thebefore1.png" alt="Before" class="slider-img">
+                        <img src="theafter1.png" alt="After" class="slider-img slider-after" id="after-img-1">
+                        <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-1" aria-label="Image comparison slider">
+                        <div class="slider-line" id="slider-line-1"></div>
+                        <div class="slider-button" id="slider-btn-1"></div>
                     </div>
                 </div>
-                
-                <button class="carousel-btn next-btn" id="nextBtn">&rarr;</button>
+
             </div>
             
-            <a href="https://about.swankang.co.uk" class="testi-link">See all testimonials &rarr;</a>
+            <div style="margin-top: 4.5rem;">
+                <a href="https://gallery.swankang.co.uk" class="btn-outline">View Full Gallery →</a>
+            </div>
         </div>
     </section>
 
-    <section class="booking-section">
-        <div class="booking-overlay"></div>
-        <div class="booking-content">
-                                            <h2 style="margin-bottom: 20px; font-size: 2.5rem;">LOCATIONS</h2>
+    <section class="testimonials-section fade-up">
+        <div class="container">
+            <span class="text-sm">Patient Experiences</span>
+            <h2 class="text-lg">4.98/5 · 19 Reviews</h2>
+            
+            <div style="margin-top: 1.5rem;">
+                <button id="testimonial-play-pause" class="btn-outline" style="padding: 0.6rem 2rem;">Pause Auto-Scroll</button>
+            </div>
+            
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-source">Doctify</span>
+                        <p class="testimonial-text">"Dr Kang is a real professional, a good listener and takes time explaining everything about your operation. Also her aftercare is second to none."</p>
+                    </div>
+                    <span class="testimonial-author">Patient · 12 Dec 25</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-source">Doctify</span>
+                        <p class="testimonial-text">"She is lovely and corrected more things in my eye surgery than I knew were there. Follow up was good."</p>
+                    </div>
+                    <span class="testimonial-author">Patient · 13 Mar 26</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-source">Doctify</span>
+                        <p class="testimonial-text">"A highly professional, first-class practitioner. The advice, procedure, and aftercare could not have been better."</p>
+                    </div>
+                    <span class="testimonial-author">Patient · 21 Mar 2026</span>
+                </div>
 
-            <div class="locations-container">
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-source">Doctify</span>
+                        <p class="testimonial-text">"Outstanding attention to detail. My results are beautifully natural, and the entire surgical journey felt exceptionally well-supported."</p>
+                    </div>
+                    <span class="testimonial-author">Patient · 04 Jan 2026</span>
+                </div>
+                
+            </div>
+            
+            <a href="#" class="btn-outline">See all testimonials →</a>
+        </div>
+    </section>
 
-            <div class="location-card">
-                    <h4>New Cavendish Street</h4>
-                    <p>50–52 New Cavendish Street, London W1G 8TL</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1481766840748117!3d51.51939871804245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c672b1!2sNew%20Cavendish%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000000!5m2!1sen!2suk" loading="lazy"></iframe>
-                    <a href="#">Get Directions</a>
+    <section class="locations-section fade-up">
+        <div class="container">
+            <span class="text-sm">Locations</span>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>New Cavendish Street</h3>
+                    <p>50–52 New Cavendish Street<br>London W1G 8TL</p>
+                    <div class="map-iframe-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.43482596825!2d-0.1472534!3d51.5200251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad0090ad3ab%3A0x6001ab49dfcc8d6!2s50-52%20New%20Cavendish%20St%2C%20London%20W1G%208TL!5e0!3m2!1sen!2suk!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <a href="#" class="btn-outline">Get Directions</a>
                 </div>
                 
                 <div class="location-card">
-                    <h4>Bath Street</h4>
-                    <p>9–11 Bath Street, London EC1V 9LF</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6853755331393!2d-0.093498884074668!3d51.52766871767664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca607b973f7%3A0x6b5a3cb5b9c0889!2sBath%20St%2C%20London!5e0!3m2!1sen!2suk!4v1655000000001!5m2!1sen!2suk" loading="lazy"></iframe>
-                    <a href="#">Get Directions</a>
+                    <h3>Bath Street</h3>
+                    <p>9–11 Bath Street<br>London EC1V 9LF</p>
+                    <div class="map-iframe-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.82110196825!2d-0.09051!3d51.52684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca39b82fd1f%3A0x899ffb4cf28678!2s9-11%20Bath%20St%2C%20London%20EC1V%209LF!5e0!3m2!1sen!2suk!4v1650000000001" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <a href="#" class="btn-outline">Get Directions</a>
                 </div>
-                </div>
-                                                <h2 style="margin-bottom: 15px; font-size: 2.5rem;">BOOKING</h2>
-            <div class="booking-form-container">
-                <div class="form-glass-edge"></div>
-                <h2 style="margin-bottom: 20px; font-size: 2.5rem;">ARRANGE A CONSULTATION</h2>
-                <p class="mixed-case-heading" style="margin-bottom: 30px; font-size: 1.1rem;">Take the first step towards exceptional care.</p>
-                
-                <form class="booking-form">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <select required>
-                        <option value="" disabled selected>Preferred Procedure / Reason for Visit</option>
-                        <option value="blepharoplasty">Upper/Lower Blepharoplasty</option>
-                        <option value="asian_blepharoplasty">Asian Blepharoplasty</option>
-                        <option value="ptosis">Ptosis Correction</option>
-                        <option value="lump">Eyelid Lump Removal</option>
-                        <option value="watery">Watery Eye Treatment</option>
-                        <option value="non_surgical">Non-Surgical / Botox</option>
-                        <option value="other">Other / Consultation</option>
-                    </select>
-                    <textarea rows="4" placeholder="Brief Message (Optional)"></textarea>
-                    <button type="submit" class="btn-gold">Request Appointment</button>
-                </form>
             </div>
-            <div></div>
-            <div class="locations-container">
-</div>
         </div>
     </section>
 
-   <footer>
-    <div class="footer-col">
-        <img src="swankanglogo.png" alt="Swan Kang Logo" style="filter: brightness(0) invert(1); height: 80px; margin-bottom: 20px;">
-        <p>Consultant Oculoplastic Surgeon specialising in bespoke eyelid and facial aesthetic treatments.</p>
-    </div>
-    
-    <div class="footer-col">
-        <h5>Quick Links</h5>
-        <ul>
-            <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
-            <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
-            <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
-            <li><a href="https://cosmetic.swankang.co.uk">Cosmetic Gallery</a></li>
-        </ul>
-    </div>
-    
-    <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-            <li>Practice Manager: Robyn Waya</li>
-            <li>Email: moorfields.skang@nhs.net</li>
-            <li>Tel: +44 (0)7353 760 871</li>
-        </ul>
-    </div>
-    
-    <div class="footer-col">
-        <h5>Locations</h5>
-        <ul>
-            <li>50–52 New Cavendish Street, London</li>
-            <li>9–11 Bath Street, London</li>
-        </ul>
-    </div>
-    
-    <div class="footer-bottom">
-        © 2026 Dr. Swan Kang. All Rights Reserved. General Medical Council Registered.
-    </div>
-</footer>
+    <section id="booking" class="booking-section fade-up">
+        <img src="moorfields.jpg" alt="Moorfields" class="booking-bg">
+        <div class="booking-overlay"></div>
+        
+        <div class="booking-container">
+            <div class="booking-text">
+                <span class="text-sm">Booking</span>
+                <h2 class="text-lg">Arrange a<br>Consultation</h2>
+                <p>Take the first step towards exceptional care. Fill out the form to request your appointment layout details.</p>
+            </div>
+            
+            <div class="booking-form-wrapper">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Preferred Procedure / Reason for Visit" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Brief Message (Optional)"></textarea>
+                    </div>
+                    <button type="submit" class="btn-solid">Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div>
+                    <img src="swankanglogo.png" alt="Swan Kang Logo" class="footer-logo">
+                    <p class="footer-desc">Consultant Oculoplastic Surgeon specializing in bespoke high-end eyelid and facial aesthetic treatments.</p>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
+                        <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
+                        <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
+                        <li><a href="https://gallery.swankang.co.uk">Cosmetic Gallery</a></li>
+                        <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <p>Practice Manager: Robyn Waya</p>
+                    <p>Email: moorfields.skang@nhs.net</p>
+                    <p>Tel: +44 (0)7353 760 871</p>
+                </div>
+                
+                <div>
+                    <h4>Locations</h4>
+                    <p>50–52 New Cavendish Street, London</p>
+                    <p>9–11 Bath Street, London</p>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Dr. Swan Kang. All Rights Reserved.</p>
+                <p>General Medical Council Registered.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. Navbar Scroll Effect
+            // 1. Transparent Navbar to Solid Scroll Interaction Setup
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
+                if (window.scrollY > 40) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
             });
+            
+            // 2. High-Fidelity Luxurious Typewriter Typing Effect Architecture
+            const typeTarget = document.querySelector('.typing-target');
+            const textToType = "Exceptional\nEyelid Surgery.";
+            let charIndex = 0;
 
-          
+            function executeTypingAnimation() {
+                if (charIndex < textToType.length) {
+                    const nextChar = textToType.charAt(charIndex);
+                    if (nextChar === '\n') {
+                        typeTarget.innerHTML += '<br>';
+                    } else {
+                        typeTarget.innerHTML += nextChar;
+                    }
+                    charIndex++;
+                    setTimeout(executeTypingAnimation, 75);
+                } else {
+                    setTimeout(() => {
+                        typeTarget.classList.remove('typing-cursor');
+                    }, 1200);
+                }
+            }
+            
+            setTimeout(executeTypingAnimation, 400);
 
-            // 3. Scroll Animations (Intersection Observer)
+            // 3. Section Scroll Intersections featuring Depth Of Field Focus Modulations
+            const fadeElements = document.querySelectorAll('.fade-up');
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -100px 0px"
+                root: null,
+                rootMargin: '-5% 0px -5% 0px',
+                threshold: 0.1
             };
 
-            const observer = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -1822,80 +1546,120 @@
                 });
             }, observerOptions);
 
-            // Elements to observe
-            const trustBar = document.getElementById('trust-bar');
-            const aboutStrip = document.getElementById('about-strip');
-            const proceduresSection = document.getElementById('procedures');
-            
-            if(trustBar) observer.observe(trustBar);
-            if(aboutStrip) observer.observe(aboutStrip);
-            if(proceduresSection) observer.observe(proceduresSection);
+            fadeElements.forEach(el => observer.observe(el));
 
-            // 4. Before & After Sliders Logic
-            function initSlider(sliderId, afterImgId, lineId, btnId) {
-                const slider = document.getElementById(sliderId);
-                const afterImg = document.getElementById(afterImgId);
-                const line = document.getElementById(lineId);
-                const btn = document.getElementById(btnId);
+            // 4. Parallax Frame-Rate Optimized Cinematic Travel Logic
+            const parallaxMedia = document.getElementById('parallax-media');
+            window.addEventListener('scroll', () => {
+                if (parallaxMedia) {
+                    const bounding = parallaxMedia.parentElement.getBoundingClientRect();
+                    const viewHeight = window.innerHeight;
+                    if (bounding.top < viewHeight && bounding.bottom > 0) {
+                        const offset = (window.pageYOffset - parallaxMedia.parentElement.offsetTop) * 0.35;
+                        parallaxMedia.style.transform = `translate3d(0, ${offset}px, 0)`;
+                    }
+                }
+            });
 
-                if(!slider) return;
-
-                slider.addEventListener('input', (e) => {
-                    const val = e.target.value;
-                    // Clip-path syntax: polygon(left top, right top, right bottom, left bottom)
-                    // We reveal the left side of the 'after' image by moving the left boundary
-                    afterImg.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
-                    line.style.left = `${val}%`;
-                    btn.style.left = `${val}%`;
-                });
-            }
-
-            initSlider('slider-1', 'after-img-1', 'slider-line-1', 'slider-btn-1');
-            initSlider('slider-2', 'after-img-2', 'slider-line-2', 'slider-btn-2');
-
-            // 5. Testimonials Carousel
-            const track = document.getElementById('carouselTrack');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const cards = document.querySelectorAll('.testi-card');
-            
-            let currentIndex = 0;
-            // 3 cards visible on desktop, gap is 30px
-            // Card width + gap percentage
-            
-            function updateCarousel() {
-                // Calculate translation based on viewport width
-                let cardsVisible = window.innerWidth <= 768 ? 1 : 3;
-                let maxIndex = cards.length - cardsVisible;
-                
-                if (currentIndex > maxIndex) currentIndex = maxIndex;
-                if (currentIndex < 0) currentIndex = 0;
-                
-                const cardWidth = cards[0].offsetWidth;
-                const gap = 30;
-                const moveAmount = (cardWidth + gap) * currentIndex;
-                
-                track.style.transform = `translateX(-${moveAmount}px)`;
-            }
-
-            if(nextBtn && prevBtn) {
-                nextBtn.addEventListener('click', () => {
-                    let cardsVisible = window.innerWidth <= 768 ? 1 : 3;
-                    if (currentIndex < cards.length - cardsVisible) {
-                        currentIndex++;
-                        updateCarousel();
+            // 5. Treatment Accordion Click Mechanics for Content Display
+            const treatmentCards = document.querySelectorAll('.treatment-card');
+            treatmentCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const textIsActive = card.classList.contains('active-click');
+                    treatmentCards.forEach(c => c.classList.remove('active-click'));
+                    if (!textIsActive) {
+                        card.classList.add('active-click');
                     }
                 });
+            });
 
-                prevBtn.addEventListener('click', () => {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        updateCarousel();
+            // 6. Patient Outcome Transformation Slider Interactions
+            function setupSlider(idNum) {
+                const slider = document.getElementById(`slider-${idNum}`);
+                const afterImg = document.getElementById(`after-img-${idNum}`);
+                const sliderLine = document.getElementById(`slider-line-${idNum}`);
+                const sliderBtn = document.getElementById(`slider-btn-${idNum}`);
+
+                if(slider && afterImg && sliderLine && sliderBtn) {
+                    slider.addEventListener('input', (e) => {
+                        const val = e.target.value;
+                        afterImg.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
+                        sliderLine.style.left = `${val}%`;
+                        sliderBtn.style.left = `${val}%`;
+                    });
+                }
+            }
+
+            setupSlider(1);
+            setupSlider(2);
+
+            // 7. Mobile Navigation Interaction Control Handlers
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(hamburger) {
+                hamburger.addEventListener('click', () => {
+                    if(navLinks.style.display === 'flex') {
+                        navLinks.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    } else {
+                        navLinks.style.display = 'flex';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.width = '100%';
+                        navLinks.style.backgroundColor = 'rgba(250,250,250,0.98)';
+                        navLinks.style.padding = '3rem 0';
+                        navLinks.style.borderBottom = '1px solid var(--color-border)';
+                        document.body.style.overflow = 'hidden';
                     }
                 });
             }
 
-            window.addEventListener('resize', updateCarousel);
+            // 8. Auto-Scroll Testimonials with Play/Pause Mechanics
+            const testimonialsGrid = document.querySelector('.testimonials-grid');
+            const playPauseBtn = document.getElementById('testimonial-play-pause');
+
+            if (testimonialsGrid && playPauseBtn) {
+                let scrollInterval;
+                let isPlaying = true;
+
+                const startScroll = () => {
+                    scrollInterval = setInterval(() => {
+                        const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
+                        // Snap back to start if we reached the very end
+                        if (testimonialsGrid.scrollLeft >= maxScroll - 10) {
+                            testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            // Scroll cleanly by one card width plus layout gap
+                            const cardWidth = testimonialsGrid.querySelector('.testimonial-card').offsetWidth;
+                            const gap = parseInt(window.getComputedStyle(testimonialsGrid).gap) || 32;
+                            testimonialsGrid.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+                        }
+                    }, 3500); // 3.5s timing rhythm
+                };
+
+                const stopScroll = () => {
+                    clearInterval(scrollInterval);
+                };
+
+                // Initialize loop
+                startScroll();
+
+                // Assign event listeners
+                playPauseBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (isPlaying) {
+                        stopScroll();
+                        playPauseBtn.textContent = 'Play Auto-Scroll';
+                    } else {
+                        startScroll();
+                        playPauseBtn.textContent = 'Pause Auto-Scroll';
+                    }
+                    isPlaying = !isPlaying;
+                });
+            }
         });
     </script>
 </body>
