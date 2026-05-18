@@ -263,8 +263,8 @@
             align-items: center;
         }
         
-        /* Desktop specific spacing */
-        @media (min-width: 771px) {
+        /* Large Desktop specific spacing (Only apply when there is plenty of room) */
+        @media (min-width: 1025px) {
             /* Counter-weight: pushes the group right to keep Google dead center */
             .stat-item:nth-child(1) {
                 margin-right: 100px; 
@@ -272,6 +272,20 @@
             /* Adds the extra space you wanted before Education */
             .stat-item:nth-child(3) {
                 margin-left: 100px; 
+            }
+        }
+        
+        /* Tablet / Intermediate screen fix (771px to 1024px) */
+        @media (min-width: 771px) and (max-width: 1024px) {
+            .stats-grid {
+                gap: 30px; /* Tighter gap so they try to stay side-by-side */
+            }
+            /* Strip the giant margins that cause uneven wrapping */
+            .stat-item:nth-child(1) {
+                margin-right: 0; 
+            }
+            .stat-item:nth-child(3) {
+                margin-left: 0; 
             }
         }
         
@@ -288,10 +302,15 @@
             
             /* Nudge Doctify to the right ONLY on mobile to fix its internal centering */
             .stat-item:nth-child(1) {
-                transform: translateX(15px); 
+                transform: translateX(0px); 
+            }
+
+            /* REMOVE THE HOVER LIFT ON MOBILE */
+            .stat-item:hover {
+                transform: none; /* Stops the 2nd and 3rd items from shifting up */
             }
             .stat-item:nth-child(1):hover {
-                transform: translate(15px, -5px); 
+                transform: translateY(-10px); /* Keeps Doctify aligned without moving up */
             }
 
             /* Adds exactly 20px MORE space between Google and Education vertically */
@@ -302,7 +321,7 @@
 
         .stat-item:hover { transform: translateY(-5px); }
         .stat-title { color: var(--primary); font-family: 'DM Sans', sans-serif; font-size: 1.4rem; font-weight: 500; }
-        .stat-desc { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); text-align: center; }
+        .stat-desc { font-size: 1.1rem; font-weight: 500; color: var(--text-dark); text-align: center; }
         .stat-desc small { font-size: 0.85rem; color: var(--text-light); font-weight: 400; }
 
         /* ==========================================================================
