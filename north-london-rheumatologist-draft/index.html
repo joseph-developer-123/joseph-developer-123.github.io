@@ -131,7 +131,9 @@
         
         .hero {
             position: relative; 
-            min-height: 80vh; 
+            height: 80vh;       /* Try to be 80% of the screen */
+    max-height: 600px;  /* But STOP growing if you hit 600px */
+    min-height: 400px;
             margin-top: 110px; 
             display: flex; 
             align-items: flex-end; 
@@ -671,7 +673,7 @@
             <div class="mobile-doctor-name">Dr Anna Nuttall <span style="font-weight: 400; opacity: 0.75; position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></div>
             
             <div class="desktop-google-wrapper" style="position: relative; height: 0; width: 100%; overflow: visible;">
-                <div class="desktop-google-widget" style="position: absolute; bottom: 15px; left: 0; z-index: 10;">
+                <div class="desktop-google-widget" style="position: absolute; bottom: 20px; left: 0; z-index: 10;">
                     <script defer async src='https://cdn.trustindex.io/loader.js?cb203c57224f0899af568d1334e'></script>
                 </div>
             </div>
