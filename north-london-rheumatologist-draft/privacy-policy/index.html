@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Notice - Dr Anna Nuttall | North London Rheumatologist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary: #167889; 
+            --primary-dark: #105966; 
+            --accent-blue: #5C9CE6; 
+            --contact-bg: #0D4467; 
+            --text-dark: #1A1A24; 
+            --text-light: #5A5A6A; 
+            --white: #FFFFFF; 
+            --off-white: #F4F7F9; 
+            --shadow-lg: 0 30px 60px rgba(0,0,0,0.12); 
+            --radius-lg: 32px; 
+            --transition: all 0.3s ease; 
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-family: 'Figtree', sans-serif; color: var(--text-dark); background-color: var(--white); overflow-x: hidden; }
+        h1, h2, h3, .logo { font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; }      
+
+        ::-webkit-scrollbar { width: 14px; }
+        ::-webkit-scrollbar-track { background: var(--off-white); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border: 3px solid var(--off-white); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 110px; 
+            background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid rgba(0,0,0,0.05); 
+            z-index: 1000; transition: var(--transition); 
+        }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 40px; height: 100%; max-width: 1300px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; text-decoration: none; font-size: 1.6rem; color: var(--text-dark); }
+        .logo img { height: 75px; margin-right: 20px; } 
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; white-space: nowrap; }
+        .logo-subtext { font-family: 'Figtree', sans-serif; font-size: 0.85rem; color: #167889; letter-spacing: 0.05em; font-weight: 600; text-transform: uppercase; margin-top: 4px; display: flex; align-items: flex-end; line-height: 1; gap: 6px; white-space: nowrap; }      
+        .logo-subtext span { white-space: nowrap; }
+
+        .nav-links { display: flex; gap: 17px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: var(--transition); font-size: 0.87rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .header-btn { padding: 10px 16px; border-radius: 8px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1rem; cursor: pointer; }
+
+        .header-right-actions { display: flex; align-items: center; justify-content: flex-end; gap: 17px; flex: 0 1 50%; max-width: 50%; }
+        .nav-links { display: flex; gap: 17px; align-items: center; justify-content: flex-end; }
+        .header-book-btn { padding: 10px 20px !important; font-size: 1rem !important; white-space: nowrap; height: auto; }
+     
+        .btn-primary { background: var(--primary); color: var(--white); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: var(--transition); display: inline-flex; justify-content: center; align-items: center; border: none; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 1.1rem; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        /* HEADING PARALLAX */
+        .heading-parallax {
+            background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=2000');
+            background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+            position: relative; padding: 40px 20px 20px 20px; margin-top: 110px; text-align: center; min-height: 150px;
+        }
+        .heading-parallax::before { content: ''; position: absolute; inset: 0; background: rgba(22, 120, 137, 0.85); }
+        .heading-parallax .parallax-overlay {
+            position: relative; z-index: 2; background: transparent; padding: 20px;
+            max-width: 800px; margin: 0 auto;
+        }
+        .heading-parallax h1 { font-size: clamp(2.4rem, 4vw, 4rem); margin-bottom: 0.5rem; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+        /* POLICY CONTENT SECTION */
+        .policy-section { background: var(--off-white); padding: 80px 20px; }
+        .container { width: 90%; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+        
+        .policy-card { 
+            background: var(--white); 
+            border-radius: var(--radius-lg); 
+            padding: 60px 80px; 
+            box-shadow: var(--shadow-lg); 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .policy-meta { 
+            font-size: 1.1rem; 
+            color: var(--primary); 
+            font-weight: 600; 
+            margin-bottom: 40px; 
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding-bottom: 15px;
+        }
+        
+        .policy-block { margin-bottom: 35px; }
+        .policy-block h2 { 
+            font-size: 1.8rem; 
+            color: var(--primary-dark); 
+            margin-bottom: 12px; 
+            font-weight: 500;
+        }
+        .policy-block p { 
+            color: var(--text-light); 
+            line-height: 1.8; 
+            font-size: 1.05rem; 
+        }
+        .policy-block a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+        .policy-block a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-dark);
+        }
+
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* FOOTER */
+        footer { background: var(--text-dark); color: var(--white); padding: 80px 0 40px 0; text-align: center; }
+        .footer-logo { font-size: 1.8rem; color: var(--white); margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .footer-logo img { height: 120px; margin-bottom: 15px; transition: transform 0.5s; }
+        .footer-text { opacity: 0.5; font-size: 0.95rem; margin-top: 40px; margin-bottom: 0; font-family: 'Figtree', sans-serif; }
+        .footer-text a { color: rgba(255,255,255,0.9); text-decoration: underline; }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 999px) {
+            .nav-links { 
+                position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); 
+                background: var(--white); flex-direction: column; justify-content: center; gap: 40px; 
+                transition: left 0.3s ease;
+            }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1278px) {
+            .header-right-actions { flex: 0 1 50%; max-width: 50%; }
+            .nav-links { flex-wrap: wrap; justify-content: flex-end; row-gap: 6px; }
+        }
+
+        @media (max-width: 1024px) {
+            .logo-text { display: none; }
+            .policy-card { padding: 40px 40px; }
+        }
+
+        @media (max-width: 770px) {
+            header { height: 100px; }
+            .nav-links { width: 66.66%; top: 100px; height: calc(100vh - 100px); right: -100%; left: auto; }
+            .nav-links.active { right: 0; left: auto; }
+            .policy-card { padding: 30px 20px; }
+            .policy-block h2 { font-size: 1.5rem; }
+            .container { width: 95% !important; padding: 0 10px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="header-container">
+            <a href="https://alethara.com/north-london-rheumatologist-draft/" class="logo">
+                <img src="../nlrlogo4.png" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
+                <span class="logo-text">
+                    North London Rheumatologist
+                    <span class="logo-subtext" style="position: relative; top: 8px;">Dr Anna Nuttall <span style="font-weight: 400; opacity: 0.75; position: relative; top: 0.35px;">BA (OXON), MBBS, MRCP, MD</span></span>
+                </span>
+            </a>
+            
+            <div class="header-right-actions">
+                <nav class="nav-links" id="navLinks">
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/">Home</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/about">About</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/conditions-treated">Conditions Treated</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/testimonials">Testimonials</a>
+                    <a href="https://alethara.com/north-london-rheumatologist-draft/contact">Contact & Pricing</a>
+                </nav>
+                
+                <a href="https://alethara.com/north-london-rheumatologist-draft/contact" class="btn btn-primary header-book-btn">Book Now</a>
+                <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="heading-parallax fade-up">
+        <div class="parallax-overlay">
+            <h1>Privacy Notice</h1>
+        </div>
+    </section>
+
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-card fade-up">
+                <div class="policy-meta">
+                    Dr Anna Nuttall &middot; Last updated: May 2026
+                </div>
+
+                <div class="policy-block">
+                    <h2>Who we are</h2>
+                    <p>Dr Anna Nuttall is a specialist medical consultant practising in England and is the data controller for information collected through this website. Contact: <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a></p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>What we collect</h2>
+                    <p>When you submit an enquiry form, we collect the details you provide &mdash; typically your name, contact details, and a description of your medical query.</p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>Why we collect it</h2>
+                    <p>Your information is used solely to respond to your consultation enquiry. Our lawful bases under UK GDPR are consent (Article 6(1)(a)) and, for health information, the provision of healthcare (Article 9(2)(h) and UK DPA 2018 Schedule 1).</p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>How it's handled</h2>
+                    <p>Submissions are transmitted securely via Formspree, our email delivery processor, and received directly by Dr Nuttall. Formspree does not use your data for any other purpose. Their privacy policy is at <a href="https://formspree.io" target="_blank" rel="noopener">formspree.io</a>.</p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>How long we keep it</h2>
+                    <p>Patient records are retained for a minimum of 8 years after last contact, in line with GMC guidance. Enquiries that do not lead to treatment are deleted within 12 months.</p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>Who we share it with</h2>
+                    <p>Your data is not sold or shared for marketing purposes. It may be shared with healthcare professionals directly involved in your care, or where required by law.</p>
+                </div>
+
+                <div class="policy-block">
+                    <h2>Your rights</h2>
+                    <p>You have the right to access, correct, delete, or restrict your data, to receive a portable copy, and to withdraw your consent at any time. If you're unhappy with how we handle your data, you also have the right to complain to the ICO at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>. To exercise any of these rights, email <a href="mailto:info@northlondonrheumatologist.org">info@northlondonrheumatologist.org</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo fade-up">
+                <img src="../nlrlogo1.PNG" alt="North London Rheumatologist Logo" onerror="this.style.display='none'">
+                North London Rheumatologist
+            </div>
+            <p style="color: rgba(255,255,255,0.8);">Dr Anna Nuttall</p>
+            <p class="footer-text">©2026 North London Rheumatologist. Designed by <a href="https://alethara.com">ALETHARA</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menuBtn');
+            const navLinks = document.getElementById('navLinks');
+            menuBtn.addEventListener('click', () => { 
+                navLinks.classList.toggle('active'); 
+                menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰'; 
+            });
+            
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
+     
+</body>
+</html>
