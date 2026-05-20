@@ -137,7 +137,25 @@
         .reason-card { background: var(--cheerful-blue); border-radius: 12px; padding: 20px; border: 1px solid rgba(22, 120, 137, 0.08); box-shadow: var(--shadow-sm); transition: var(--transition); display: flex; align-items: center; justify-content: center; text-align: center; }
         .reason-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(22, 120, 137, 0.15); border-color: rgba(22, 120, 137, 0.2); background: #D8EEFC; }
         .reason-card p { margin: 0; font-size: 1.05rem; color: var(--text-dark); font-weight: 500; line-height: 1.4; }
-        .virtual-note { background: var(--white); border: 1px solid rgba(22, 120, 137, 0.2); padding: 18px 24px; border-radius: 12px; color: var(--text-dark); font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: 500; box-shadow: var(--shadow-sm); grid-column: span 2; margin: 20px auto 0; max-width: 600px;}
+.virtual-note { 
+    background: var(--white); 
+    border: 1px solid rgba(22, 120, 137, 0.2); 
+    padding: 18px 24px; 
+    border-radius: 12px; 
+    color: var(--text-dark); 
+    font-size: 1.05rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;  /* Centers the icon and text horizontally inside the box */
+    text-align: center;       /* Ensures wrapped text stays centered on smaller screens */
+    gap: 15px; 
+    font-weight: 500; 
+    box-shadow: var(--shadow-sm); 
+    grid-column: span 2; 
+    width: fit-content;       /* Prevents the box from stretching full-width */
+    max-width: 100%;          /* Keeps it responsive on mobile screens */
+    margin: 30px auto 0 auto; /* Centers the box itself within the main container */
+}
         .virtual-note svg { color: var(--primary); flex-shrink: 0; }
 
         /* ==========================================================================
