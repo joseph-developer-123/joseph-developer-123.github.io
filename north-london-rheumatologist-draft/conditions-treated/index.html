@@ -79,15 +79,28 @@
         /* Bigger Book Now Button in Header */
         .header-book-btn { padding: 10px 20px !important; font-size: 1rem !important; white-space: nowrap; height: auto; }
 
-                @media (max-width: 1278px) {
-            .nav-links { 
-                position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); 
-                background: var(--white); flex-direction: column; justify-content: center; gap: 40px; 
-                transition: left 0.3s ease;
-            }
-            .nav-links.active { left: 0; }
-            .mobile-menu-btn { display: block; }
-        }
+                  @media (max-width: 999px) {
+    .nav-links { 
+        position: fixed; top: 110px; left: -100%; width: 100%; height: calc(100vh - 110px); 
+        background: var(--white); flex-direction: column; justify-content: center; gap: 40px; 
+        transition: left 0.3s ease;
+    }
+    .nav-links.active { left: 0; }
+    .mobile-menu-btn { display: block; }
+}
+
+@media (min-width: 1000px) and (max-width: 1278px) {
+    .header-right-actions {
+        flex: 0 1 50%; 
+        max-width: 50%; 
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        row-gap: 6px; 
+    }
+}
+
         
         /* BUTTONS */
         .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 8px; font-weight: 500; font-family: 'Figtree', sans-serif; text-decoration: none; transition: var(--transition); font-size: 1.1rem; border: none; cursor: pointer; }
