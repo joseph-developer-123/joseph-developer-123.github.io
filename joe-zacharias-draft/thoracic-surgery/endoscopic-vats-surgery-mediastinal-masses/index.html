@@ -1,13 +1,995 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mr Joseph Zacharias, Consultant Cardiothoracic Surgeon. UK's longest experience in endoscopic heart surgery. Specialising in safe, minimally invasive mitral valve repair.">
+    <meta name="keywords" content="Joseph Zacharias, Cardiothoracic Surgeon, Endoscopic Heart Surgery, Mitral Valve Repair, Minimally Invasive Heart Surgery, UK Heart Surgeon, Second Opinion Heart Surgery">
+    <meta property="og:title" content="Joseph Zacharias | Endoscopic Heart Surgeon">
+    <meta property="og:description" content="Consultant Cardiothoracic Surgeon offering the UK's longest experience in endoscopic heart surgery for faster, safer recoveries.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://josephzacharias.com/">
+    
+    <title>Joseph Zacharias | Endoscopic Heart Surgeon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Gilda+Display&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Mr Joseph Zacharias",
+      "description": "Consultant Cardiothoracic Surgeon specialising in endoscopic heart surgery.",
+      "image": "jz.jpg",
+      "medicalSpecialty": "Cardiothoracic Surgery",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mill Lane, Cheadle",
+        "addressLocality": "Manchester",
+        "postalCode": "SK8 2PX",
+        "addressCountry": "UK"
+      },
+      "telephone": "01614957008",
+      "url": "https://josephzacharias.com"
+    }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            --color-primary: #1e293b; 
+            --color-primary-light: #334155;
+            --color-accent: #eaddff; 
+            --color-accent-dark: #d0bcff;
+            --color-background: #faf9fd; 
+            --color-surface: #ffffff;
+            --color-text-main: #0f172a;
+            --color-text-muted: #475569;
+            
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-testimonial: 'Arapey', serif;
+            
+            --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-fast: 0.3s ease;
+            
+            --section-padding: 8rem 5%;
+            --border-radius-lg: 24px;
+            --border-radius-md: 12px;
+            --box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-accent-dark) var(--color-background);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--color-accent-dark);
+            border-radius: 10px;
+            border: 3px solid var(--color-background); 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #7b61ff; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-main);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY
+           ========================================================================== */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 500; }
+        
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* ==========================================================================
+           COMPONENTS & BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-surface);
+        }
+        .btn-primary:hover { background-color: var(--color-primary-light); }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        .btn-accent:hover { background-color: var(--color-accent-dark); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-surface);
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 1px solid var(--color-surface);
+            color: var(--color-surface);
+        }
+        .btn-outline-light:hover {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition-fast);
+            background: rgba(250, 249, 253, 0);
+            backdrop-filter: blur(0px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--color-text-main);
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #7b61ff; }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--color-primary);
+            border-radius: 2px;
+            transition: 0.25s ease-in-out;
+        }
+        .hamburger span:nth-child(1) { top: 0px; }
+        .hamburger span:nth-child(2) { top: 9px; }
+        .hamburger span:nth-child(3) { top: 18px; }
+        .hamburger.open span:nth-child(1) { top: 9px; transform: rotate(135deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; left: -20px; }
+        .hamburger.open span:nth-child(3) { top: 9px; transform: rotate(-135deg); }
+
+        @media (min-width: 1150px) and (max-width: 1300px) {
+            .nav-links { gap: 1.5rem; }
+        }
+
+        /* ==========================================================================
+           3. Hero Section (Parallax)
+           ========================================================================== */
+        .hero {
+            position: relative;
+            padding: 0 5%;
+            height: calc(33vh + 100px); 
+            min-height: 400px; 
+            display: flex;
+            align-items: center;
+            padding-top: 100px; 
+            background-image: linear-gradient(rgba(58, 50, 84, 0.4), rgba(58, 50, 84, 0.6)), url('../herojoseph.png');
+            background-attachment: fixed; 
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0; 
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--color-background) 0%, rgba(250, 249, 253, 0.85) 30%, rgba(250, 249, 253, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero h1 { color: var(--color-primary); margin-bottom: 1.5rem; }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================================================
+           NEW CONTENT SECTIONS & COMPONENTS
+           ========================================================================== */
+        .content-section {
+            padding: var(--section-padding);
+        }
+
+        .alt-bg {
+            background-color: #f8fafc;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text-main);
+        }
+
+        .benefits-list li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-container img {
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .stats-section {
+            background-color: var(--color-primary);
+            color: var(--color-surface);
+            padding: 5rem 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-family: var(--font-heading);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            padding: var(--section-padding);
+            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.95)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--color-surface);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            color: var(--color-surface);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-surface);
+            padding: 6rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 4rem;
+        }
+
+        .footer-col h4 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--color-primary); }
+        .footer-col p, .footer-col a { color: var(--color-text-muted); margin-bottom: 0.75rem; display: block; }
+        .footer-bottom { display: flex; justify-content: space-between; color: var(--color-text-muted); font-size: 0.875rem; }
+
+        /* ==========================================================================
+           ANIMATIONS & UTILS
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px); 
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+        .reveal-delay-4 { transition-delay: 0.6s; }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           MEDIA QUERIES (MOBILE OPTIMISED)
+           ========================================================================== */
+           @media (max-width: 1200px) {
+            .nav-links {
+                position: absolute; 
+                top: 100%; 
+                right: -100%; 
+                height: auto; 
+                width: 33.333%;
+                background: var(--color-surface); 
+                flex-direction: column; 
+                justify-content: flex-start; 
+                align-items: center; 
+                padding-top: 2rem; 
+                transition: var(--transition-smooth); 
+                z-index: 999;
+                box-shadow: -10px 10px 30px rgba(0,0,0,0.08);
+                gap: 0.9rem;
+                padding-bottom: 2rem;
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: block; }
+        }
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                width: 66.666%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-image: url('../herojoseph4.png');
+                background-position: center top;
+                align-items: flex-end; 
+                padding-top: 80px; 
+                padding-bottom: 10vh; 
+                margin-top: 0;
+                height: auto;
+            }
+            
+            .hero::before {
+                background: linear-gradient(0deg, var(--color-background) 0%, rgba(250, 249, 253, 0.7) 40%, transparent 100%);
+            }
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                color: #000;
+                max-width: 800px;
+            }
+
+            .hero h1 {
+                color: #000;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                font-weight: 300;
+                margin-bottom: 0; 
+                color: #000;
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .nav-icons a {
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast), color var(--transition-fast);
+        }
+
+        .nav-icons a:hover {
+            opacity: 1;
+            color: #7b61ff;
+        }
+
+        /* Dropdown Styles (Desktop) */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-surface);
+            min-width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: var(--border-radius-md);
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-fast);
+            list-style: none;
+            z-index: 1002;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-main);
+            transition: background-color 0.2s, color 0.2s;
+            line-height: 1.4;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: var(--color-background);
+            color: #7b61ff;
+        }
+
+        /* Responsive Dropdown for Mobile (Hamburger Only) */
+        @media (max-width: 1200px) {
+            .nav-links > li {
+                width: 100%;
+                text-align: center;
+                margin: 0.25rem 0;
+            }
+
+            .dropdown {
+                cursor: pointer;
+            }
+
+            .dropdown > a::after {
+                content: '';
+                display: inline-block;
+                margin-left: 8px;
+                vertical-align: middle;
+                width: 0;
+                height: 0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 5px solid currentColor;
+                transition: transform var(--transition-fast);
+            }
+
+            .dropdown:hover > a::after,
+            .dropdown:active > a::after,
+            .dropdown:focus-within > a::after {
+                transform: rotate(180deg);
+            }
+
+            .dropdown > a {
+                pointer-events: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .dropdown-menu a {
+                pointer-events: auto;
+            }
+
+            .dropdown-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                border: none;
+                padding: 0; 
+                transform: none;
+                opacity: 0;
+                visibility: hidden;
+                display: block; 
+                max-height: 0;
+                overflow: hidden;
+                width: 100%;
+                transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out, visibility 0.4s;
+            }
+            
+            .dropdown:hover .dropdown-menu,
+            .dropdown:active .dropdown-menu,
+            .dropdown:focus-within .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                max-height: 600px; 
+                padding: 0;
+            }
+
+            .dropdown-menu li {
+                margin: 0; 
+                width: 100%;
+            }
+
+            .dropdown-menu li a {
+                text-align: center;
+                padding: 0.75rem 1rem;
+                display: block;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .nav-icons {
+                display: none !important;
+            } 
+        }
+
+        @media (max-width: 768px) {
+            .nav-icons {
+                display: none !important;
+            }
+        }
+
+                        /* ==========================================================================
+           CONTACT FORM SECTION
+           ========================================================================== */
+        .contact-form-section {
+            padding: var(--section-padding);
+            background: linear-gradient(rgba(240, 244, 248, 0.92), rgba(240, 244, 248, 0.95)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--color-text-main);
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 4rem;
+            border-radius: var(--border-radius-lg);
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .contact-card h2 { text-align: center; margin-bottom: 0.5rem; color: var(--color-primary); }
+        .contact-card p { text-align: center; color: var(--color-text-muted); margin-bottom: 3rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: var(--color-text-main);
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.1);
+        }
+        .form-control::placeholder { color: #94a3b8; }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            background: var(--color-primary);
+            color: var(--color-surface);
+        }
+        .submit-btn:hover { background: var(--color-primary-light); }
+
+                @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .contact-card { padding: 2rem; }
+        }
+    </style>
 </head>
 <body>
-  <p>Coming Soon</p>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><a href="https://alethara.com/joe-zacharias-draft/home">Joseph Zacharias</a></div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="https://alethara.com/joe-zacharias-draft/about">About</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/team">Team</a></li>
+            <li class="dropdown">
+                <a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery">Cardiac Surgery</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-mitral-valve-surgery">Endoscopic mitral valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/anterior-right-thoracotomy-aortic-valve-replacement/">Anterior right thoracotomy for aortic valve replacement</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-tricuspid-valve-surgery">Endoscopic tricuspid valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/endoscopic-redo-heart-valve-surgery">Endoscopic redo heart valve surgery</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/other-endoscopic-procedures">Other Endoscopic procedures (Atrial fibrillation, ASD closure and HOCM surgery)</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/cardiac-surgery/coronary-artery-bypass-grafting">Coronary artery bypass grafting</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery">Thoracic Surgery</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-lung-cancer">Endoscopic (VATS) surgery for lung cancer</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-mediastinal-masses">Endoscopic (VATS) surgery of Mediastinal masses</a></li>
+                    <li><a href="https://alethara.com/joe-zacharias-draft/thoracic-surgery/endoscopic-vats-surgery-pneumothorax">Endoscopic (VATS) surgery for Pneumothorax</a></li>
+                </ul>
+            </li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/patient-stories">Patient Stories</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/faqs">FAQ</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/blog">Blog</a></li>
+            <li><a href="https://alethara.com/joe-zacharias-draft/academic">Academic</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contact</a>
+                
+                <div class="nav-icons">
+                    <a href="tel:01614957008" aria-label="Call us">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                    <a href="mailto:info@josephzacharias.com" aria-label="Email us">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+<header class="hero">
+        <div class="hero-content">
+            <h1>Endoscopic (VATS) Surgery of Mediastinal Masses</h1>
+            <p>An overview of minimally invasive chest mass resections, clinical outcomes, and patient suitability under the care of Consultant Cardiothoracic Surgeon Mr Joseph Zacharias.</p>
+        </div>
+    </header>
+
+    <section id="clinical-approach" class="content-section">
+        <div class="content-grid">
+            <div class="text-block reveal">
+                <h2>The Clinical Approach</h2>
+                <p>Following medical investigations, a proportion of patients can be found to have abnormal masses within the chest. These can range from being innocent collections of fluid to large tumours from glands in the chest. Mr Zacharias and his team have extensive experience in resecting these tumours with an endoscopic (key hole) approach, offering clear physiological benefits for patient recovery, including:</p>
+                
+                <ul class="benefits-list">
+                    <li>Shorter inpatient hospital stay</li>
+                    <li>Significantly smaller scars</li>
+                    <li>Less post-operative pain experienced</li>
+                    <li>Accelerated return to baseline activities</li>
+                    <li>Avoidance of median sternotomy</li>
+                </ul>
+
+                <p>This Video-Assisted Thoracoscopic Surgery (VATS) methodology aligns fully with clinical best practices for managing mediastinal masses in anatomically suitable patients.</p>
+            </div>
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?q=80&w=1000&auto=format&fit=crop" alt="Patient recovery and care">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <h3>1,000+</h3>
+                <p>Documented Endoscopic Cases</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>20+</h3>
+                <p>Years Consultant Experience</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>&lt;2%</h3>
+                <p>Sternotomy Conversion Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="content-section alt-bg">
+        <div class="content-grid">
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1000&auto=format&fit=crop" alt="Medical professional in an operating room">
+                <div class="image-caption">An endoscopic view during a VATS procedure</div>
+            </div>
+            <div class="text-block reveal">
+                <h2>Procedural Overview & Surgeon Experience</h2>
+                <p class="lead">Avoiding the structural trauma of a median sternotomy through specialised instrumentation.</p>
+                <p>Standard surgery for mediastinal masses generally requires a full vertical division of the sternum to access the thoracic cavity. Endoscopic (VATS) surgery bypasses this entirely. The procedure utilises specialised long-shafted instruments and a high-definition thoracoscopic camera inserted through a lateral mini-thoracotomy.</p>
+                <br>
+
+                <p>Mr Zacharias completed his advanced fellowships under European pioneers in Belgium in 2005, subsequently adapting strict protocols to introduce and establish a high-volume endoscopic programme in the UK. His surgical team continues to contribute regularly to clinical research to evaluate and advance minimally invasive outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+<section id="suitability" class="content-section" style="background-color: var(--color-accent); color: var(--color-primary);">
+        <div class="text-block reveal" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2>Patient Assessment and Suitability</h2>
+            <p>If there is a concerning shadow picked up on a CT scan and you would like to discuss this, we would be happy to give you an opinion regarding the safety and likelihood of removing this by an endoscopic (VATS) approach.</p>
+            <br>
+            <p>Following imaging, cases are reviewed by a multi-disciplinary clinical team (MDT) to ensure that a keyhole approach represents the safest and most functionally effective option based on the individual's specific pathology and anatomy.</p>
+        </div>
+    </section>
+
+        <section class="contact-form-section" id="contact">
+        <div class="contact-card reveal">
+            <h2>Get in Touch</h2>
+            <p>Send a secure message directly to our clinic team to ask a general question, request a callback, or arrange a private consultation.</p>
+            
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Form submitted successfully!');">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="07123 456789">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">How can we help you?</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Please provide brief details about your diagnosis or query..." required></textarea>
+                </div>
+                <button type="submit" class="btn submit-btn">Send Secure Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col reveal reveal-delay-1">
+                <h4>Joseph Zacharias</h4>
+                <p>MBBS · FRCS (Surg in Gen) · FRCS (CTh)<br>Consultant Cardiothoracic Surgeon</p>
+                <p style="margin-top: 1rem; max-width: 300px;">Providing world-class endoscopic heart and lung surgery, accepting GP referrals, self-referrals, and all major UK insurers.</p>
+            </div>
+            <div class="footer-col reveal reveal-delay-2">
+                <h4>Private Consulting</h4>
+                <p><strong>The Alexandra Hospital</strong><br>Mill Lane, Cheadle<br>Manchester SK8 2PX</p>
+                <p style="margin-top: 1rem;"><strong>NHS Practice</strong><br>Lancashire Cardiac Centre<br>Blackpool Victoria Hospital</p>
+            </div>
+            <div class="footer-col reveal reveal-delay-3">
+                <h4>Contact Details</h4>
+                <a href="tel:01614957008">0161 495 7008</a>
+                <a href="mailto:info@josephzacharias.com">info@josephzacharias.com</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">Private secretary:<br>lesley.wilson3@circlehealthpartners.co.uk</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Joseph Zacharias. All rights reserved.</p>
+            <p>GMC Number: 4366135</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Scroll Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -40px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+        });
+    </script>
 </body>
 </html>
