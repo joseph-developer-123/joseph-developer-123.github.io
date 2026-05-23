@@ -10,8 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+
+       /* Custom Charcoal Scrollbars (No Arrows) */
+        * {
+            scrollbar-width: normal;
+            scrollbar-color: var(--color-text) transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--color-text);
+            border-radius: 6px;
+        }
+        /* Completely removes the top and bottom directional arrows */
+        ::-webkit-scrollbar-button {
+            display: none !important;
+            width: 0;
+            height: 0;
+        }
         /* ==========================================================================
-           1. CSS VARIABLES & RESET
+           1. CSS VARIABLES & RESET (Elevated for Premium Breathing Room)
            ========================================================================== */
         :root {
             --color-bg: #FAFAFA;
@@ -27,6 +49,7 @@
             --font-quote: 'Crimson Text', serif;
             --font-body: 'Figtree', 'Avenir', 'Helvetica Neue', sans-serif;
             
+            /* Drastically expanded whitespace to deliver luxury breathing room */
             --space-xs: 1.5rem;
             --space-sm: 3rem;
             --space-md: 6rem;
@@ -59,6 +82,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Confident, ultra-smooth background element transitions */
         .bg-blur-element {
             filter: blur(8px);
             transition: filter var(--transition-slow);
@@ -86,7 +110,8 @@
             color: var(--color-black);
         }
 
-        .ampersand {
+        /* Luxe adjustment for ampersands */
+        h1 option, h2 option, .ampersand {
             font-family: var(--font-display);
             font-style: italic;
         }
@@ -108,6 +133,7 @@
             padding: 0 6vw;
         }
 
+        /* Soft Depth-of-Field Section Animations */
         .fade-up {
             opacity: 0;
             transform: translateY(50px);
@@ -121,6 +147,7 @@
             filter: blur(0px);
         }
 
+        /* Adjusted padding to reduce button height */
         .btn-solid, .btn-outline {
             display: inline-block;
             padding: 0.85rem 3.5rem; 
@@ -156,7 +183,7 @@
         }
 
         /* ==========================================================================
-           3. NAVIGATION
+           3. NAVIGATION (Transparent with elegant scroll transitions)
            ========================================================================== */
         .navbar {
             position: fixed;
@@ -173,17 +200,19 @@
             transition: padding var(--transition-confident), background-color var(--transition-confident), border-color var(--transition-confident), backdrop-filter var(--transition-confident);
         }
 
+        /* Hero state (white text) */
         .nav-links a {
             font-family: var(--font-body);
             font-weight: 400;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--color-white); 
+            color: var(--color-white); /* White text in hero */
             transition: color var(--transition-fast);
         }
 
         .nav-logo {
+            display: block;       
             height: 60px;
             width: auto;
             object-fit: contain;
@@ -222,6 +251,7 @@
             transition: all 0.3s;
         }
 
+        /* Scrolled State */
         .navbar.scrolled {
             padding: 1.25rem 6vw;
             background-color: rgba(250, 250, 250, 0.85);
@@ -254,6 +284,8 @@
 
         .nav-logo-container {
             flex: 0 0 auto;
+            display: flex;        
+            align-items: center;  
         }
 
         .mobile-logo { display: none; }
@@ -282,6 +314,7 @@
             margin: 0;
         }
 
+        /* Premium Minimalist Dropdowns */
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -311,7 +344,7 @@
         .dropdown-menu a {
             font-size: 0.75rem;
             white-space: nowrap;
-            color: var(--color-text) !important; 
+            color: var(--color-text) !important; /* Forces dropdown links to remain dark */
         }
 
         .dropdown-submenu {
@@ -336,7 +369,7 @@
         }
 
         /* ==========================================================================
-           4. HERO SECTION
+           4. HERO SECTION (Safe Under Navbar Layout & Within-Fold Target Setup)
            ========================================================================== */
         .hero {
             position: relative;
@@ -344,7 +377,7 @@
             max-height: 100vh;
             display: flex;
             align-items: flex-end;
-            padding-bottom: 15vh;
+            padding-bottom: 5vh;
             overflow: hidden;
             background-color: #2A2A2A; 
             padding-top: 100px; 
@@ -376,7 +409,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(45, 45, 45, 0.55); 
+            background-color: rgba(45, 45, 45, 0.55); /* Subtle grey overlay to dim background */
             z-index: 1;
             pointer-events: none;
         }
@@ -386,15 +419,16 @@
             z-index: 2;
             width: 55vw;
             padding-left: 6vw;
-            margin-top: -2rem; 
+            margin-top: -2rem; /* Retains layout cleanly above the fold limits */
         }
 
         .hero h1 {
-            color: var(--color-white); 
+            color: var(--color-white); /* Force white heading */
             margin-bottom: 1.5rem;
             min-height: 2.3em;
         }
 
+        /* Typographic Cursor Effect */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-start infinite;
@@ -410,7 +444,7 @@
             font-weight: 400;
             max-width: 85%;
             margin-bottom: 2.5rem;
-            color: var(--color-white); 
+            color: var(--color-white); /* Force white text */
             opacity: 0.9;
         }
 
@@ -440,12 +474,13 @@
             color: var(--color-black);
         }
 
+        /* Premium Trust Bar Relocated Out Of Fold to Separate Structural Row */
         .trust-bar-section {
             width: 100%;
             padding: 3rem 6vw;
             display: flex;
             align-items: center;
-            justify-content: space-between; 
+            justify-content: space-between; /* Equally spaces direct children */
             background-color: var(--color-grey-bg);
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
@@ -513,7 +548,7 @@
         }
 
         /* ==========================================================================
-           6. PARALLAX VIDEO SECTION
+           6. PARALLAX VIDEO SECTION (Cinematic Quote Architectural Layout)
            ========================================================================== */
         .parallax-section {
             position: relative;
@@ -556,7 +591,7 @@
         }
 
         /* ==========================================================================
-           7. TREATMENTS SECTION
+           7. TREATMENTS SECTION (Isolated Headings & Brightening Modulations)
            ========================================================================== */
         .treatments-section {
             padding: var(--space-xl) 0;
@@ -596,6 +631,7 @@
             flex: 1.8;
         }
 
+        /* Linear gradient shield protecting typography clarity while enabling raw brightening underneath */
         .treatment-card::after {
             content: '';
             position: absolute;
@@ -616,6 +652,7 @@
             transition: transform var(--transition-slow), filter var(--transition-slow);
         }
 
+        /* Dynamic interaction setup: transforms to bright states on user click actions */
         .treatment-card:hover .treatment-bg,
         .treatment-card.active-click .treatment-bg {
             transform: scale(1.03);
@@ -664,6 +701,624 @@
         }
 
         /* ==========================================================================
+           8. PATIENT RESULTS (SLIDER PANEL)
+           ========================================================================== */
+        .results-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .sliders-wrapper-flex {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin-top: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .sliders-container {
+            width: 100%;
+            max-width: 580px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: #F0F0F0;
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-after {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+
+        .slider-range {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: var(--color-white);
+            transform: translateX(-50%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .slider-button::before, .slider-button::after {
+            content: '';
+            border: solid var(--color-black);
+            border-width: 0 1px 1px 0;
+            display: inline-block;
+            padding: 3px;
+        }
+        
+        .slider-button::before {
+            transform: rotate(135deg);
+            margin-right: 3px;
+        }
+        
+        .slider-button::after {
+            transform: rotate(-45deg);
+            margin-left: 3px;
+        }
+
+        /* ==========================================================================
+           9. TESTIMONIALS (Shorter Cards & Horizontal Scroll Architecture)
+           ========================================================================== */
+        .testimonials-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-md);
+            text-align: left;
+            padding: 1rem 6vw;
+            margin-left: -6vw;
+            margin-right: -6vw;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Custom minimalist scrollbar to maintain elegant scannability design */
+        .testimonials-grid::-webkit-scrollbar {
+            height: 4px;
+        }
+        .testimonials-grid::-webkit-scrollbar-track {
+            background: var(--color-grey-bg);
+        }
+        .testimonials-grid::-webkit-scrollbar-thumb {
+            background: var(--color-black);
+        }
+
+        /* Shorter structure layout configuration */
+        .testimonial-card {
+            flex: 0 0 380px;
+            scroll-snap-align: start;
+            background-color: transparent;
+            padding: 2.25rem 2rem;
+            border: 1px solid var(--color-grey-outline);
+            transition: border-color var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--color-black);
+        }
+
+        .testimonial-stars {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        .testimonial-source {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-text-light);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .testimonial-text {
+            font-family: var(--font-quote);
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 1.75rem;
+            color: var(--color-text);
+        }
+
+        .testimonial-author {
+            font-size: 0.72rem;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-light);
+            margin-top: auto;
+        }
+
+        /* ==========================================================================
+           10. LOCATIONS (Google Maps Inline Integration)
+           ========================================================================== */
+        .locations-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--color-bg);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6vw;
+            margin-top: var(--space-md);
+        }
+
+        .location-card {
+            border-top: 1px solid var(--color-black);
+            padding-top: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .location-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .location-card p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+        }
+
+        .map-iframe-wrapper {
+            width: 100%;
+            height: 280px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--color-grey-outline);
+            overflow: hidden;
+        }
+
+        .map-iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ==========================================================================
+           11. CONTACT / BOOKING FORM (Compact Balanced Footprint Modulations)
+           ========================================================================== */
+        .booking-section {
+            position: relative;
+            display: flex;
+            min-height: 65vh; /* Reduced height footprint constraints */
+            background-color: var(--color-white);
+        }
+
+        .booking-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .booking-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            z-index: 1;
+        }
+
+        .booking-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            max-width: 1100px; /* Reduced layout width architecture */
+            margin: 0 auto;
+            padding: var(--space-md) 6vw; /* Reduced interior vertical margins */
+            gap: 6vw;
+            align-items: center;
+        }
+
+        .booking-text h2 {
+            margin-bottom: 1.25rem;
+        }
+
+        .booking-text p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem; /* Tighter input spacing alignment */
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.95rem 0; /* Shorter field tracking frames */
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--color-black);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--color-black);
+            transition: border-color var(--transition-fast);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.72rem;
+        }
+
+        .form-control:focus {
+            border-bottom-width: 1.5px;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 90px; /* More compact viewport space mapping */
+        }
+
+        /* ==========================================================================
+           12. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-bg);
+            padding: var(--space-lg) 0 3rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr 1.5fr 1.5fr;
+            gap: 5rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-logo {
+            height: 45px;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-desc {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+            max-width: 85%;
+        }
+
+        .footer h4 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2.5rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 1.25rem;
+        }
+
+        .footer ul a, .footer p {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .mobile-menu-close { display: none; }
+
+        /* ==========================================================================
+           13. RESPONSIVE MEDIA QUERIES (Updated Alignment, Spacing & Arrow Fixes)
+           ========================================================================== */
+        
+        /* 13A. Hamburger Color Rules (White initially, Black when header scrolls/changes) */
+        .hamburger span {
+            background-color: var(--color-white) !important; /* Initially white */
+        }
+        header.scrolled .hamburger span,
+        .header.scrolled .hamburger span,
+        .scrolled .hamburger span {
+            background-color: var(--color-black) !important;
+        }
+
+        @media (max-width: 1120px) {
+            .nav-break {
+                display: none !important;
+            }
+
+            /* Hamburger positioned halfway between the right edge of the button and the right edge of the screen */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 1001;
+                position: fixed; /* Positions independently from the button's layout wrapper */
+                right: calc(3vw - 14px); /* Halfway line of the 6vw screen padding minus half of its 28px width */
+                cursor: pointer;
+            }
+            .hamburger span {
+                display: block;
+                width: 28px;
+                height: 2px;
+                transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+                transform-origin: center;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Floating Panel (Vertically Centered with Sharp Edges) */
+            .nav-links-wrapper { 
+                position: fixed;
+                top: 90px;       
+                bottom: 25px;    
+                right: -100%;    
+                width: 420px;    
+                max-width: 85vw; 
+                background-color: var(--color-white); 
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center; /* VERTICALLY CENTERED: Links fit perfectly in the middle */
+                align-items: center;
+                padding: 2rem 1rem;
+                transition: right var(--transition-confident);
+                z-index: 999;
+                box-shadow: -10px 15px 35px rgba(0,0,0,0.12);
+                border-radius: 0px !important; /* Sharp, clean edges */
+                overflow-y: auto;
+            }
+            
+            .nav-links-wrapper.active {
+                right: 0; 
+            }
+
+            /* --- Spacing & Clean Layout Alignment --- */
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-links > li, 
+            .dropdown-menu li {
+                width: 100%;
+                text-align: center !important;
+                margin: 0.4rem 0 !important;
+                padding: 0 !important;
+                display: block;
+            }
+
+            .nav-links a, 
+            .dropdown-menu a {
+                color: var(--color-black) !important; 
+                font-size: 0.95rem;
+                display: inline-block;
+                width: 100%;
+                text-align: center !important;
+                padding: 0.2rem 0 !important;
+            }
+            
+            /* --- Clean Single-Arrow Rules --- */
+            /* Main option items get a single clean down triangle arrow */
+            .nav-item-dropdown > a::after {
+                content: '';
+                display: inline-block;
+                margin-left: 8px;
+                vertical-align: middle;
+                width: 0; height: 0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 5px solid currentColor;
+                transition: transform var(--transition-fast);
+            }
+
+            .nav-item-dropdown.mobile-expanded > a::after {
+                transform: rotate(180deg);
+            }
+
+            /* Submenu links already have an intrinsic text arrow (») in the HTML. 
+               This completely prevents duplicate CSS arrows. */
+            .dropdown-submenu > a::after {
+                content: none !important;
+                display: none !important;
+            }
+
+            /* Accordion dropdown positioning fallbacks */
+            .dropdown-menu, .dropdown-submenu .dropdown-menu {
+                position: relative;
+                top: 0; left: 0;
+                transform: none !important;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                opacity: 0;
+                visibility: hidden;
+                display: none;
+                width: 100%;
+            }
+
+            .nav-item-dropdown.mobile-expanded > .dropdown-menu,
+            .dropdown-submenu.mobile-expanded > .dropdown-menu {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                margin-top: 0.2rem;
+            }
+            
+            .about-grid, .locations-grid, .booking-container { grid-template-columns: 1fr; gap: 4rem; }
+            .treatments-grid { flex-direction: column; height: auto; }
+            .treatment-card { flex: none; height: 350px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+            .testimonial-card { flex: 0 0 300px; }
+        }
+
+        @media (max-width: 850px) {
+            .hamburger {
+                position: relative !important;
+                right: auto !important;
+                margin-left: 1rem;
+            }
+            .nav-links-wrapper {
+                top: 80px; 
+                width: 85%;
+            }
+            .hamburger {
+                right: calc(3vw - 14px);
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-wrap: nowrap; width: 100%; gap: 1rem; }
+            .hero-buttons .btn-solid, .hero-buttons .btn-outline { flex: 1; text-align: center; }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --space-xl: 10rem;
+                --space-lg: 7rem;
+                --space-md: 4rem;
+            }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .trust-bar-section { flex-direction: column; gap: 2rem; text-align: center; justify-content: center; }
+        }
+
+        @media (max-width: 700px) {
+            .hero-bg-wrapper {
+                right: -15vw;
+                width: 135vw;
+            }
+            .hero-bg-img {
+                object-position: 90% center; /* Adjusts image position to keep furthest right eye in view */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .text-huge { font-size: clamp(2rem, 8vw, 2.5rem); }
+            .text-lg { font-size: clamp(1.8rem, 7vw, 2.2rem); }
+            .text-md { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 7vw, 2.2rem);
+            }
+            .hero p {
+                font-size: 0.85rem;
+            }
+            .hero-buttons .btn-solid, 
+            .hero-buttons .btn-outline {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.65rem;
+                letter-spacing: 0.05em;
+            }
+            .nav-cta {
+                transform: translateX(12px); /* Moves button slightly right without colliding with hamburger */
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-logo {
+                margin-top: 10px;
+                max-height: 40px;
+            }
+        }
+
+
+            /* ==========================================================================
            7.8 ARCHITECTURAL RENDERINGS: PROCEDURE DETAILS & FAQS (Separated Backgrounds)
            ========================================================================== */
         .procedure-glance-section {
@@ -814,7 +1469,7 @@
         }
 
         .faq-accordion-content p {
-            font-size: 1rem;
+                        font-size: 1rem;
             color: var(--color-text-light);
             line-height: 1.75;
             font-weight: 300;
@@ -827,517 +1482,14 @@
             margin-top: 0.5rem;
         }
 
-        /* ==========================================================================
-           8. PATIENT RESULTS
-           ========================================================================== */
-        .results-section {
-            padding: var(--space-xl) 0;
-            background-color: var(--color-white);
-            text-align: center;
-        }
-
-        .sliders-wrapper-flex {
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        .sliders-container {
-            width: 100%;
-            max-width: 580px;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/10;
-            overflow: hidden;
-            background: #F0F0F0;
-        }
-
-        .slider-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-after {
-            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-        }
-
-        .slider-range {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: ew-resize;
-            z-index: 10;
-        }
-
-        .slider-line {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 1px;
-            height: 100%;
-            background-color: var(--color-white);
-            transform: translateX(-50%);
-            z-index: 5;
-            pointer-events: none;
-        }
-
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 44px;
-            height: 44px;
-            background-color: var(--color-white);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .slider-button::before, .slider-button::after {
-            content: '';
-            border: solid var(--color-black);
-            border-width: 0 1px 1px 0;
-            display: inline-block;
-            padding: 3px;
-        }
-        
-        .slider-button::before {
-            transform: rotate(135deg);
-            margin-right: 3px;
-        }
-        
-        .slider-button::after {
-            transform: rotate(-45deg);
-            margin-left: 3px;
-        }
-
-        /* ==========================================================================
-           9. TESTIMONIALS
-           ========================================================================== */
-        .testimonials-section {
-            padding: var(--space-xl) 0;
-            background-color: var(--color-white);
-            text-align: center;
-        }
-
-        .testimonials-grid {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 2rem;
-            margin-top: var(--space-md);
-            margin-bottom: var(--space-md);
-            text-align: left;
-            padding: 1rem 6vw;
-            margin-left: -6vw;
-            margin-right: -6vw;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .testimonials-grid::-webkit-scrollbar {
-            height: 4px;
-        }
-        .testimonials-grid::-webkit-scrollbar-track {
-            background: var(--color-grey-bg);
-        }
-        .testimonials-grid::-webkit-scrollbar-thumb {
-            background: var(--color-black);
-        }
-
-        .testimonial-card {
-            flex: 0 0 380px;
-            scroll-snap-align: start;
-            background-color: transparent;
-            padding: 2.25rem 2rem;
-            border: 1px solid var(--color-grey-outline);
-            transition: border-color var(--transition-fast);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--color-black);
-        }
-
-        .testimonial-stars {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.1em;
-        }
-
-        .testimonial-source {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-text-light);
-            margin-bottom: 1.25rem;
-            display: block;
-        }
-
-        .testimonial-text {
-            font-family: var(--font-quote);
-            font-size: 1.25rem;
-            font-style: italic;
-            font-weight: 400;
-            line-height: 1.5;
-            margin-bottom: 1.75rem;
-            color: var(--color-text);
-        }
-
-        .testimonial-author {
-            font-size: 0.72rem;
-            font-family: var(--font-body);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-light);
-            margin-top: auto;
-        }
-
-        /* ==========================================================================
-           10. LOCATIONS
-           ========================================================================== */
-        .locations-section {
-            padding: var(--space-xl) 0;
-            background-color: var(--color-bg);
-        }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6vw;
-            margin-top: var(--space-md);
-        }
-
-        .location-card {
-            border-top: 1px solid var(--color-black);
-            padding-top: 3rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .location-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .location-card p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: var(--color-text-light);
-            margin-bottom: 2rem;
-        }
-
-        .map-iframe-wrapper {
-            width: 100%;
-            height: 280px;
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--color-grey-outline);
-            overflow: hidden;
-        }
-
-        .map-iframe-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* ==========================================================================
-           11. CONTACT / BOOKING FORM
-           ========================================================================== */
-        .booking-section {
-            position: relative;
-            display: flex;
-            min-height: 65vh; 
-            background-color: var(--color-white);
-        }
-
-        .booking-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .booking-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.92);
-            z-index: 1;
-        }
-
-        .booking-container {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-            max-width: 1100px; 
-            margin: 0 auto;
-            padding: var(--space-md) 6vw; 
-            gap: 6vw;
-            align-items: center;
-        }
-
-        .booking-text h2 {
-            margin-bottom: 1.25rem;
-        }
-
-        .booking-text p {
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: var(--color-text-light);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem; 
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.95rem 0; 
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--color-black);
-            font-family: var(--font-body);
-            font-weight: 400;
-            font-size: 1rem;
-            color: var(--color-black);
-            transition: border-color var(--transition-fast);
-            outline: none;
-        }
-
-        .form-control::placeholder {
-            color: var(--color-text-light);
-            font-family: var(--font-body);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.72rem;
-        }
-
-        .form-control:focus {
-            border-bottom-width: 1.5px;
-        }
-
-        textarea.form-control {
-            resize: none;
-            height: 90px; 
-        }
-
-        /* ==========================================================================
-           12. FOOTER
-           ========================================================================== */
-        .footer {
-            background-color: var(--color-bg);
-            padding: var(--space-lg) 0 3rem;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2.5fr 1.5fr 1.5fr 1.5fr;
-            gap: 5rem;
-            margin-bottom: var(--space-lg);
-        }
-
-        .footer-logo {
-            height: 45px;
-            margin-bottom: 2.5rem;
-        }
-
-        .footer-desc {
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: var(--color-text-light);
-            max-width: 85%;
-        }
-
-        .footer h4 {
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2.5rem;
-            color: var(--color-black);
-            font-weight: 600;
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 1.25rem;
-        }
-
-        .footer ul a, .footer p {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--color-text-light);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--color-border);
-            font-size: 0.75rem;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* ==========================================================================
-           13. RESPONSIVE MEDIA QUERIES
-           ========================================================================== */
-        @media (max-width: 1120px) {
-            .nav-links-wrapper { display: none; }
-            .hamburger { display: flex; }
-            
-            .about-grid, .locations-grid, .booking-container { grid-template-columns: 1fr; gap: 4rem; }
-            
-            .treatments-grid { flex-direction: column; height: auto; }
-            .treatment-card { flex: none; height: 350px; }
-            .treatment-card:hover { flex: none; }
-            
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
-            .testimonial-card { flex: 0 0 300px; }
-
-            .procedure-specs-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-            .proc-faq-row { grid-template-columns: 1fr; gap: 3rem; }
-            .img-left-text-right .proc-faq-image { order: 2; }
-            .proc-faq-image { aspect-ratio: 16/10; }
-        }
-
-        @media (max-width: 850px) {
-            .hero {
-                padding-top: 100px;
-                align-items: center;
-            }
-            .hero-content {
-                width: 90vw;
-                margin-top: 0;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-                min-height: auto;
-                margin-bottom: 1rem;
-            }
-            .hero p {
-                font-size: 1rem;
-                max-width: 100%;
-                margin-bottom: 1.5rem;
-            }
-            .hero-buttons {
-                flex-wrap: nowrap;
-                width: 100%;
-                gap: 1rem;
-            }
-            .hero-buttons .btn-solid, 
-            .hero-buttons .btn-outline {
-                flex: 1;
-                text-align: center;
-                padding: 0.85rem 1rem;
-                white-space: nowrap;
-            }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --space-xl: 10rem;
-                --space-lg: 7rem;
-                --space-md: 4rem;
-            }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
-            .trust-bar-section { flex-direction: column; gap: 2rem; text-align: center; justify-content: center; }
-        }
-
-        @media (max-width: 700px) {
-            .hero-bg-wrapper {
-                right: -15vw;
-                width: 135vw;
-            }
-            .hero-bg-img {
-                object-position: 90% center; 
-            }
-        }
-
-        @media (max-width: 600px) {
-            .text-huge { font-size: clamp(2rem, 8vw, 2.5rem); }
-            .text-lg { font-size: clamp(1.8rem, 7vw, 2.2rem); }
-            .text-md { font-size: clamp(1.4rem, 6vw, 1.8rem); }
-
-            .hero h1 {
-                font-size: clamp(1.8rem, 7vw, 2.2rem);
-            }
-            .hero p {
-                font-size: 0.85rem;
-            }
-            .hero-buttons .btn-solid, 
-            .hero-buttons .btn-outline {
-                padding: 0.8rem 0.5rem;
-                font-size: 0.65rem;
-                letter-spacing: 0.05em;
-            }
-            .nav-cta {
-                transform: translateX(12px); 
-                padding: 0.75rem 1.5rem;
-            }
-            .procedure-specs-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .row-heading {
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .nav-logo {
-                margin-top: 10px;
-                max-height: 40px;
-            }
-        }
-
-        .two-column-explanation {
+                .two-column-explanation {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             padding: 6rem 6%;
         }
-    </style>
+            </style>
+
 </head>
 <body>
 
@@ -1348,49 +1500,50 @@
         </div>
         
         <div class="nav-links-wrapper">
+            <div class="mobile-menu-close">&times;</div>
             <ul class="nav-links">
-                <li><a href="https://about.swankang.co.uk">About</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/about/">About</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a>
+                    <a href="https://alethara.com/swan-kang-draft/blepharoplasty/">Blepharoplasty</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
-                        <li><a href="#">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
-                        <li><a href="#">Brow Lift</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/brow-lift/">Brow Lift</a></li>
                     </ul>
                 </li>
                 <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
                 <li class="nav-item-dropdown">
                     <a href="#">Eyelid Lumps</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Chalazion</a></li>
-                        <li><a href="#">Skin Lesion</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/chalazion/">Chalazion</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/skin-lesion/">Skin Lesion</a></li>
                     </ul>
                 </li>
                 <li class="nav-break"></li>
                 
                 <li class="nav-item-dropdown">
-                    <a href="https://functional.swankang.co.uk">Functional Surgery</a>
+                    <a href="https://alethara.com/swan-kang-draft/functional-surgery/">Functional Surgery</a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <a href="#">Lid Surgery »</a>
+                            <a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/">Lid Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Ectropion</a></li>
-                                <li><a href="#">Entropion</a></li>
-                                <li><a href="#">Ptosis</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ectropion">Ectropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/entropion">Entropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ptosis">Ptosis</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="#">Watery Eye Tear Duct Surgery »</a>
+                            <a href="https://alethara.com/swan-kang-draft/tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Endonasal DCR</a></li>
-                                <li><a href="#">External DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="https://gallery.swankang.co.uk">Before & After</a></li>
-                <li><a href="https://blog.swankang.co.uk">Blog</a></li>
-                <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/before-and-after/">Before &amp; After</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/blog/">Blog</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/contact/">Contact</a></li>
             </ul>
         </div>
         
@@ -1402,7 +1555,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+       <section class="hero">
         <div class="hero-bg-wrapper">
             <img src="hero-eyes-5.png" alt="Exceptional Eyelid Surgery Background" class="hero-bg-img">
         </div>
@@ -1746,7 +1899,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -1774,7 +1926,7 @@
                         typeTarget.innerHTML += nextChar;
                     }
                     charIndex++;
-                    setTimeout(executeTypingAnimation, 50);
+                    setTimeout(executeTypingAnimation, 75);
                 } else {
                     setTimeout(() => {
                         typeTarget.classList.remove('typing-cursor');
@@ -1846,57 +1998,65 @@
             }
 
             setupSlider(1);
+            setupSlider(2);
 
-            // 6.5 Combined Section FAQ Accordion Smooth Toggle Logic
-            const accordionItems = document.querySelectorAll('.faq-accordion-item');
-            accordionItems.forEach(item => {
-                const trigger = item.querySelector('.faq-accordion-trigger');
-                if (trigger) {
-                    trigger.addEventListener('click', () => {
-                        const isActive = item.classList.contains('active');
-                        accordionItems.forEach(i => i.classList.remove('active'));
-                        if (!isActive) {
-                            item.classList.add('active');
+            // 7. Mobile Navigation Side-Panel & Hamburger Interaction Control
+            const hamburger = document.querySelector('.hamburger');
+            const navLinksWrapper = document.querySelector('.nav-links-wrapper');
+
+            if (hamburger && navLinksWrapper) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburger.classList.toggle('active'); // Toggles lines into an 'X'
+                    navLinksWrapper.classList.toggle('active'); // Triggers slide down panel
+                    
+                    if (navLinksWrapper.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+
+                // Closes side panel if clicking outside the menu box container area
+                document.addEventListener('click', (e) => {
+                    if (navLinksWrapper.classList.contains('active')) {
+                        if (!navLinksWrapper.contains(e.target) && !hamburger.contains(e.target)) {
+                            hamburger.classList.remove('active');
+                            navLinksWrapper.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+
+                // Close menu cleanly upon tapping simple navigational text links
+                const nonDropdownLinks = navLinksWrapper.querySelectorAll('a:not(.nav-item-dropdown > a):not(.dropdown-submenu > a)');
+                nonDropdownLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinksWrapper.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+
+            // 8. Mobile Accordion Submenu Expanding Control Setup
+            const dropdownItems = document.querySelectorAll('.nav-item-dropdown, .dropdown-submenu');
+            
+            dropdownItems.forEach(item => {
+                const targetLink = item.querySelector('a');
+                
+                if (targetLink) {
+                    targetLink.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 1120) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            item.classList.toggle('mobile-expanded');
                         }
                     });
                 }
             });
 
-            // 7. Mobile Navigation Interaction Control Handlers
-            const hamburger = document.querySelector('.hamburger');
-            const navLinksWrapper = document.querySelector('.nav-links-wrapper');
-            const navLinks = document.querySelector('.nav-links');
-
-            if(hamburger && navLinksWrapper) {
-                hamburger.addEventListener('click', () => {
-                    if(navLinksWrapper.style.display === 'flex') {
-                        navLinksWrapper.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    } else {
-                        navLinksWrapper.style.display = 'flex';
-                        navLinksWrapper.style.position = 'absolute';
-                        navLinksWrapper.style.top = '100%';
-                        navLinksWrapper.style.left = '0';
-                        navLinksWrapper.style.width = '100%';
-                        navLinksWrapper.style.backgroundColor = 'var(--color-bg)';
-                        navLinksWrapper.style.padding = '3rem 0';
-                        navLinksWrapper.style.borderBottom = '1px solid var(--color-border)';
-                        
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.width = '100%';
-                        
-                        const mobileLinks = navLinksWrapper.querySelectorAll('a');
-                        mobileLinks.forEach(link => {
-                            link.style.color = 'var(--color-black)';
-                        });
-                        
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-            }
-
-            // 8. Auto-Scroll Testimonials with Play/Pause Mechanics
+            // 9. Auto-Scroll Testimonials with Play/Pause Mechanics
             const testimonialsGrid = document.querySelector('.testimonials-grid');
             const playPauseBtn = document.getElementById('testimonial-play-pause');
 
@@ -1907,22 +2067,26 @@
                 const startScroll = () => {
                     scrollInterval = setInterval(() => {
                         const maxScroll = testimonialsGrid.scrollWidth - testimonialsGrid.clientWidth;
+                        // Snap back to start if we reached the very end
                         if (testimonialsGrid.scrollLeft >= maxScroll - 10) {
                             testimonialsGrid.scrollTo({ left: 0, behavior: 'smooth' });
                         } else {
+                            // Scroll cleanly by one card width plus layout gap
                             const cardWidth = testimonialsGrid.querySelector('.testimonial-card').offsetWidth;
                             const gap = parseInt(window.getComputedStyle(testimonialsGrid).gap) || 32;
                             testimonialsGrid.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
                         }
-                    }, 3500);
+                    }, 3500); // 3.5s timing rhythm
                 };
 
                 const stopScroll = () => {
                     clearInterval(scrollInterval);
                 };
 
+                // Initialize loop
                 startScroll();
 
+                // Assign event listeners
                 playPauseBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (isPlaying) {
