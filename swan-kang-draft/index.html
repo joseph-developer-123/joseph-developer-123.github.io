@@ -11,27 +11,7 @@
     
     <style>
 
-       /* Custom Charcoal Scrollbars (No Arrows) */
-        * {
-            scrollbar-width: normal;
-            scrollbar-color: var(--color-text) transparent;
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: var(--color-text);
-            border-radius: 6px;
-        }
-        /* Completely removes the top and bottom directional arrows */
-        ::-webkit-scrollbar-button {
-            display: none !important;
-            width: 0;
-            height: 0;
-        }
+      
         /* ==========================================================================
            1. CSS VARIABLES & RESET (Elevated for Premium Breathing Room)
            ========================================================================== */
@@ -66,6 +46,11 @@
             margin: 0;
             padding: 0;
         }
+
+        ::-webkit-scrollbar { width: 14px; }
+        ::-webkit-scrollbar-track { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--color-black); border: 3px solid var(--color-bg); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-black); }
 
         html {
             scroll-behavior: smooth;
