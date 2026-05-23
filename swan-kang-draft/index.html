@@ -10,6 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+
+       /* Custom Charcoal Scrollbars (No Arrows) */
+        * {
+            scrollbar-width: normal;
+            scrollbar-color: var(--color-text) transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--color-text);
+            border-radius: 6px;
+        }
+        /* Completely removes the top and bottom directional arrows */
+        ::-webkit-scrollbar-button {
+            display: none !important;
+            width: 0;
+            height: 0;
+        }
         /* ==========================================================================
            1. CSS VARIABLES & RESET (Elevated for Premium Breathing Room)
            ========================================================================== */
@@ -190,10 +212,11 @@
         }
 
         .nav-logo {
+            display: block;       
             height: 60px;
             width: auto;
             object-fit: contain;
-            filter: invert(1) brightness(2); /* Makes logo white initially if it's black */
+            filter: invert(1) brightness(2); 
             transition: filter var(--transition-fast);
         }
 
@@ -261,6 +284,8 @@
 
         .nav-logo-container {
             flex: 0 0 auto;
+            display: flex;        
+            align-items: center;  
         }
 
         .mobile-logo { display: none; }
@@ -1067,56 +1092,179 @@
             letter-spacing: 0.1em;
         }
 
+        .mobile-menu-close { display: none; }
+
         /* ==========================================================================
-           13. RESPONSIVE MEDIA QUERIES
+           13. RESPONSIVE MEDIA QUERIES (Updated Alignment, Spacing & Arrow Fixes)
            ========================================================================== */
+        
+        /* 13A. Hamburger Color Rules (White initially, Black when header scrolls/changes) */
+        .hamburger span {
+            background-color: var(--color-white) !important; /* Initially white */
+        }
+        header.scrolled .hamburger span,
+        .header.scrolled .hamburger span,
+        .scrolled .hamburger span {
+            background-color: var(--color-black) !important;
+        }
+
         @media (max-width: 1120px) {
-            .nav-links-wrapper { display: none; }
-            .hamburger { display: flex; }
+            .nav-break {
+                display: none !important;
+            }
+
+            /* Hamburger positioned halfway between the right edge of the button and the right edge of the screen */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 1001;
+                position: fixed; /* Positions independently from the button's layout wrapper */
+                right: calc(3vw - 14px); /* Halfway line of the 6vw screen padding minus half of its 28px width */
+                cursor: pointer;
+            }
+            .hamburger span {
+                display: block;
+                width: 28px;
+                height: 2px;
+                transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+                transform-origin: center;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Floating Panel (Vertically Centered with Sharp Edges) */
+            .nav-links-wrapper { 
+                position: fixed;
+                top: 90px;       
+                bottom: 25px;    
+                right: -100%;    
+                width: 420px;    
+                max-width: 85vw; 
+                background-color: var(--color-white); 
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center; /* VERTICALLY CENTERED: Links fit perfectly in the middle */
+                align-items: center;
+                padding: 2rem 1rem;
+                transition: right var(--transition-confident);
+                z-index: 999;
+                box-shadow: -10px 15px 35px rgba(0,0,0,0.12);
+                border-radius: 0px !important; /* Sharp, clean edges */
+                overflow-y: auto;
+            }
+            
+            .nav-links-wrapper.active {
+                right: 0; 
+            }
+
+            /* --- Spacing & Clean Layout Alignment --- */
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-links > li, 
+            .dropdown-menu li {
+                width: 100%;
+                text-align: center !important;
+                margin: 0.4rem 0 !important;
+                padding: 0 !important;
+                display: block;
+            }
+
+            .nav-links a, 
+            .dropdown-menu a {
+                color: var(--color-black) !important; 
+                font-size: 0.95rem;
+                display: inline-block;
+                width: 100%;
+                text-align: center !important;
+                padding: 0.2rem 0 !important;
+            }
+            
+            /* --- Clean Single-Arrow Rules --- */
+            /* Main option items get a single clean down triangle arrow */
+            .nav-item-dropdown > a::after {
+                content: '';
+                display: inline-block;
+                margin-left: 8px;
+                vertical-align: middle;
+                width: 0; height: 0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 5px solid currentColor;
+                transition: transform var(--transition-fast);
+            }
+
+            .nav-item-dropdown.mobile-expanded > a::after {
+                transform: rotate(180deg);
+            }
+
+            /* Submenu links already have an intrinsic text arrow (») in the HTML. 
+               This completely prevents duplicate CSS arrows. */
+            .dropdown-submenu > a::after {
+                content: none !important;
+                display: none !important;
+            }
+
+            /* Accordion dropdown positioning fallbacks */
+            .dropdown-menu, .dropdown-submenu .dropdown-menu {
+                position: relative;
+                top: 0; left: 0;
+                transform: none !important;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                opacity: 0;
+                visibility: hidden;
+                display: none;
+                width: 100%;
+            }
+
+            .nav-item-dropdown.mobile-expanded > .dropdown-menu,
+            .dropdown-submenu.mobile-expanded > .dropdown-menu {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                margin-top: 0.2rem;
+            }
             
             .about-grid, .locations-grid, .booking-container { grid-template-columns: 1fr; gap: 4rem; }
-            
             .treatments-grid { flex-direction: column; height: auto; }
             .treatment-card { flex: none; height: 350px; }
-            .treatment-card:hover { flex: none; }
-            
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
             .testimonial-card { flex: 0 0 300px; }
         }
 
         @media (max-width: 850px) {
-            .hero {
-                padding-top: 100px;
-                align-items: center;
+            .hamburger {
+                position: relative !important;
+                right: auto !important;
+                margin-left: 1rem;
             }
-            .hero-content {
-                width: 90vw;
-                margin-top: 0;
+            .nav-links-wrapper {
+                top: 80px; 
+                width: 85%;
             }
-            .hero h1 {
-                font-size: 2.8rem;
-                min-height: auto;
-                margin-bottom: 1rem;
+            .hamburger {
+                right: calc(3vw - 14px);
             }
-            .hero p {
-                font-size: 1rem;
-                max-width: 100%;
-                margin-bottom: 1.5rem;
-            }
-            .hero-buttons {
-                flex-wrap: nowrap;
-                width: 100%;
-                gap: 1rem;
-            }
-            .hero-buttons .btn-solid, 
-            .hero-buttons .btn-outline {
-                flex: 1;
-                text-align: center;
-                padding: 0.85rem 1rem;
-                white-space: nowrap;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-wrap: nowrap; width: 100%; gap: 1rem; }
+            .hero-buttons .btn-solid, .hero-buttons .btn-outline { flex: 1; text-align: center; }
         }
-
+        
         @media (max-width: 768px) {
             :root {
                 --space-xl: 10rem;
@@ -1178,49 +1326,50 @@
         </div>
         
         <div class="nav-links-wrapper">
+            <div class="mobile-menu-close">&times;</div>
             <ul class="nav-links">
-                <li><a href="https://about.swankang.co.uk">About</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/about/">About</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a>
+                    <a href="https://alethara.com/swan-kang-draft/blepharoplasty/">Blepharoplasty</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
-                        <li><a href="#">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
-                        <li><a href="#">Brow Lift</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/brow-lift/">Brow Lift</a></li>
                     </ul>
                 </li>
                 <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
                 <li class="nav-item-dropdown">
                     <a href="#">Eyelid Lumps</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Chalazion</a></li>
-                        <li><a href="#">Skin Lesion</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/chalazion/">Chalazion</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/skin-lesion/">Skin Lesion</a></li>
                     </ul>
                 </li>
                 <li class="nav-break"></li>
                 
                 <li class="nav-item-dropdown">
-                    <a href="https://functional.swankang.co.uk">Functional Surgery</a>
+                    <a href="https://alethara.com/swan-kang-draft/functional-surgery/">Functional Surgery</a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <a href="#">Lid Surgery »</a>
+                            <a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/">Lid Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Ectropion</a></li>
-                                <li><a href="#">Entropion</a></li>
-                                <li><a href="#">Ptosis</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ectropion">Ectropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/entropion">Entropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ptosis">Ptosis</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="#">Watery Eye Tear Duct Surgery »</a>
+                            <a href="https://alethara.com/swan-kang-draft/tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Endonasal DCR</a></li>
-                                <li><a href="#">External DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="https://gallery.swankang.co.uk">Before &amp; After</a></li>
-                <li><a href="https://blog.swankang.co.uk">Blog</a></li>
-                <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/before-and-after/">Before &amp; After</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/blog/">Blog</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/contact/">Contact</a></li>
             </ul>
         </div>
         
@@ -1607,44 +1756,63 @@
             setupSlider(1);
             setupSlider(2);
 
-            // 7. Mobile Navigation Interaction Control Handlers
+            // 7. Mobile Navigation Side-Panel & Hamburger Interaction Control
             const hamburger = document.querySelector('.hamburger');
             const navLinksWrapper = document.querySelector('.nav-links-wrapper');
-            const navLinks = document.querySelector('.nav-links');
 
-            if(hamburger && navLinksWrapper) {
-                hamburger.addEventListener('click', () => {
-                    if(navLinksWrapper.style.display === 'flex') {
-                        navLinksWrapper.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    } else {
-                        // Ensure wrapper overrides standard display rules to show overlay
-                        navLinksWrapper.style.display = 'flex';
-                        navLinksWrapper.style.position = 'absolute';
-                        navLinksWrapper.style.top = '100%';
-                        navLinksWrapper.style.left = '0';
-                        navLinksWrapper.style.width = '100%';
-                        navLinksWrapper.style.backgroundColor = 'var(--color-bg)';
-                        navLinksWrapper.style.padding = '3rem 0';
-                        navLinksWrapper.style.borderBottom = '1px solid var(--color-border)';
-                        
-                        // Enforce vertical flex mapping for the inner list items 
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.width = '100%';
-                        
-                        // Shift mobile dropdown links to black text for visibility against the new background
-                        const mobileLinks = navLinksWrapper.querySelectorAll('a');
-                        mobileLinks.forEach(link => {
-                            link.style.color = 'var(--color-black)';
-                        });
-                        
+            if (hamburger && navLinksWrapper) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburger.classList.toggle('active'); // Toggles lines into an 'X'
+                    navLinksWrapper.classList.toggle('active'); // Triggers slide down panel
+                    
+                    if (navLinksWrapper.classList.contains('active')) {
                         document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = 'auto';
                     }
+                });
+
+                // Closes side panel if clicking outside the menu box container area
+                document.addEventListener('click', (e) => {
+                    if (navLinksWrapper.classList.contains('active')) {
+                        if (!navLinksWrapper.contains(e.target) && !hamburger.contains(e.target)) {
+                            hamburger.classList.remove('active');
+                            navLinksWrapper.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+
+                // Close menu cleanly upon tapping simple navigational text links
+                const nonDropdownLinks = navLinksWrapper.querySelectorAll('a:not(.nav-item-dropdown > a):not(.dropdown-submenu > a)');
+                nonDropdownLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinksWrapper.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
                 });
             }
 
-            // 8. Auto-Scroll Testimonials with Play/Pause Mechanics
+            // 8. Mobile Accordion Submenu Expanding Control Setup
+            const dropdownItems = document.querySelectorAll('.nav-item-dropdown, .dropdown-submenu');
+            
+            dropdownItems.forEach(item => {
+                const targetLink = item.querySelector('a');
+                
+                if (targetLink) {
+                    targetLink.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 1120) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            item.classList.toggle('mobile-expanded');
+                        }
+                    });
+                }
+            });
+
+            // 9. Auto-Scroll Testimonials with Play/Pause Mechanics
             const testimonialsGrid = document.querySelector('.testimonials-grid');
             const playPauseBtn = document.getElementById('testimonial-play-pause');
 
