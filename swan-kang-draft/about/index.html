@@ -1473,16 +1473,172 @@
             gap: 60px;
             padding: 6rem 6%;
         }
+
+        /* ==========================================================================
+   EXPANDED ABOUT SECTIONS (BRITISH ENGLISH & EN DASH LAYOUT)
+   ========================================================================== */
+.about-narrative {
+    font-size: 1.15rem !important;
+    font-family: var(--font-body) !important;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 2rem !important;
+}
+
+.about-quote-lead {
+    font-family: var(--font-quote);
+    font-size: 1.45rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+}
+
+.about-meta-section {
+    padding: var(--space-md) 0 var(--space-xl);
+    background-color: var(--color-grey-bg);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem var(--space-md);
+    margin-top: var(--space-sm);
+}
+
+.credential-block {
+    border-top: 1px solid var(--color-black);
+    padding-top: 1.5rem;
+}
+
+.credential-block h3 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+.credential-list {
+    list-style: none;
+}
+
+.credential-list li {
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.credential-list strong {
+    font-weight: 500;
+}
+
+.research-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    color: var(--color-black);
+    border-bottom: 1px solid var(--color-black);
+    padding-bottom: 4px;
+    transition: all var(--transition-fast);
+}
+
+.research-link:hover {
+    opacity: 0.6;
+    letter-spacing: 0.18em;
+}
+
+.consultation-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+}
+
+.consultation-grid {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: 6vw;
+    align-items: center;
+}
+
+.practice-pill-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.practice-pill {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--color-text);
+}
+
+.consultation-image-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.consultation-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(101%);
+}
+
+@media (max-width: 992px) {
+    .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .consultation-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+.about-publications-full {
+    margin-top: 5rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 3.5rem;
+    width: 100%;
+}
+
+.about-publications-full .about-narrative {
+    max-width: 52rem; /* Limits line length to a premium, easy-to-read editorial width */
+}
+
+@media (max-width: 768px) {
+    .about-publications-full {
+        margin-top: 3.5rem;
+        padding-top: 2.5rem;
+    }
+}
             </style>
 
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
-        <div class="nav-logo-container">
-            <img src="../swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
-            <img src="../swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
-        </div>
+<a href="https://alethara.com/swan-kang-draft/" class="nav-logo-container">
+    <img src="../swankanglogo.png" alt="Swan Kang Logo" class="nav-logo desktop-logo">
+    <img src="../swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
+</a>
         
         <div class="nav-links-wrapper">
             <div class="mobile-menu-close">&times;</div>
@@ -1550,24 +1706,117 @@
             <h1 class="text-huge typing-target typing-cursor"></h1>
         </div>
     </section>
-<section class="two-column-explanation">
-        <div>
-            <h2 class="mixed-case-heading" style="z-index: 1; color: var(--deep-teal); margin-bottom: 20px;">Your Vision, Your Journey</h2>
-            <p style="line-height: 1.8; margin-bottom: 1.5rem; text-align: justify;">
-                When you look in the mirror, you should see an accurate reflection of how you feel inside. For many patients, enhancing the upper eyelid is about achieving a brighter, more open appearance while fully preserving their beautiful ethnic heritage. You might be considering double eyelid surgery because you lack a natural crease, or perhaps you have noticed heaviness and asymmetry that makes your eyes feel tired or less defined. 
-            </p>
-            <p style="line-height: 1.8; text-align: justify;">
-                Whatever your situation, my approach to care completely leaves surgical ego at the door. I believe that meaningful enhancement is never about a doctor telling you what to fix. It is entirely about you. My first priority is to create a safe space where you feel genuinely heard, validated, and understood, so I can find out exactly what is bothering you and what you would most like improved.
-            </p>
+
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-image-wrapper fade-up">
+                <img src="../SK1 - S K.jpg" alt="Miss Swan Kang" class="about-image">
+            </div>
+            <div class="about-content fade-up">
+                <span class="text-sm">Miss Swan Kang</span>
+                <h2 class="text-lg">Precision <span class="ampersand">&amp;</span><br>Artistry</h2>
+                
+                <p class="about-quote-lead">
+                    "Great surgical outcomes begin with truly listening. That deep human connection is what drew me to this field, and it underpins everything I do."
+                </p>
+                
+                <p class="about-narrative">
+                    Miss Swan Kang is a Consultant Oculoplastic Surgeon practising in Central London, operating at the delicate intersection of specialised ophthalmology and reconstructive plastic surgery. Her clinical practice is defined by an uncompromising dual standard: a profound preservation of ocular health paired with natural, refined aesthetic artistry.
+                </p>
+                
+                <p class="about-narrative">
+                    While purely cosmetic practitioners view the eyelids simply as a canvas of skin, Miss Kang’s rigorous training dictates that every line, curve, and contour is evaluated through the lens of structural protection and anatomical integrity. Operating across both high-complexity reconstructive NHS cases and elegant cosmetic enhancements grants her a rare, profound depth of micro-architectural facial mastery that cosmetic generalists simply cannot match.
+                </p>
+            </div>
         </div>
-        <div>
-            <p style="line-height: 1.8; margin-bottom: 1.5rem; margin-top: 50px; text-align: justify;"> 
-                As an Ophthalmologist and triple-fellowship trained Oculoplastic Surgeon, my clinical focus is entirely dedicated to the delicate balance of the eyes. When we sit down together, we will explore your unique facial structure, look at how your eyelids naturally rest, and discuss whether an incisional method or a gentle non-incisional (suture) approach aligns with your personal comfort.
+
+        <div class="container about-publications-full fade-up">
+            <span class="text-sm" style="display: block; margin-bottom: 1.25rem;">Publications</span>
+            <p class="about-narrative" style="margin-bottom: 1.5rem !important;">
+                Miss Kang is also an active clinical researcher and published author, with work appearing frequently in world-renowned medical journals including the <em>Cochrane Database of Systematic Reviews</em>, <em>Eye</em>, and the <em>European Journal of Ophthalmology</em>. Her published research actively spans advanced surgical techniques, telemedicine, and optimising patient safety – meaning her modern Harley Street practice is perpetually informed by the latest global clinical innovations.
             </p>
-            <p style="line-height: 1.8; text-align: justify;">
-                Using high-resolution photography and mirrors, we will look at the possibilities together. We will openly discuss what can honestly and beautifully be achieved to maintain the harmony of your expressions, ensuring you feel completely confident before making any choices. We will only move forward when you feel entirely ready and fully supported.
-            </p>
-            <br>
+            <a href="https://www.researchgate.net/profile/Swan-Kang-2" target="_blank" class="research-link">View her publications on ResearchGate →</a>
+        </div>
+    </section>
+
+    <section id="about-credentials" class="about-meta-section fade-up">
+        <div class="container">
+            <span class="text-sm">Clinical Excellence</span>
+            <h2 class="text-md" style="margin-top: 0.5rem; margin-bottom: 3rem;">Professional Profile</h2>
+            
+            <div class="credentials-grid">
+                <div class="credential-block">
+                    <h3>Credentials & Education</h3>
+                    <ul class="credential-list">
+                        <li><strong>MBioch (Oxon) · MBBS · FRCOphth</strong></li>
+                        <li><strong>Biochemistry & Molecular Biology (BSc + MSc)</strong> – University of Oxford</li>
+                        <li><strong>Medicine (MBBS)</strong> – UCL Medical School</li>
+                    </ul>
+                </div>
+                
+                <div class="credential-block">
+                    <h3>NHS Appointments & Leadership</h3>
+                    <ul class="credential-list">
+                        <li><strong>Consultant Oculoplastic Surgeon</strong>, Adnexal Service – Moorfields Eye Hospital NHS FT</li>
+                        <li><strong>Consultant in Digital Medicine</strong> – Moorfields Eye Hospital NHS FT</li>
+                        <li><strong>Adnexal Training Director</strong> – Moorfields Eye Hospital</li>
+                        <li><strong>Adnexal Deputy Service Director</strong> – Moorfields Eye Hospital</li>
+                    </ul>
+                </div>
+
+                <div class="credential-block">
+                    <h3>Fellowships & Memberships</h3>
+                    <ul class="credential-list">
+                        <li><strong>Dual Advanced Oculoplastic Fellowships</strong> – Moorfields Eye Hospital (2017–2020)</li>
+                        <li><strong>Fellow</strong> – Royal College of Ophthalmologists (FRCOphth)</li>
+                        <li><strong>Member</strong> – British Oculoplastic Surgery Society (BOPSS)</li>
+                        <li><strong>Member</strong> – Faculty of Clinical Informatics</li>
+                        <li>Royal Society of Medicine · GMC · MPS · BMA</li>
+                    </ul>
+                </div>
+
+                <div class="credential-block">
+                    <h3>Practice Framework</h3>
+                    <ul class="credential-list" style="margin-bottom: 1rem;">
+                        <li><strong>Approved Insurers:</strong> Aviva · AXA PPP · Bupa · Cigna · Healix · WPA · Vitality</li>
+                        <li><strong>Referral Pathways:</strong> GP referral · Self-referral · Optometrist referral & insurance</li>
+                        <li><strong>Patient Demographics:</strong> Adults (Ages 16 and above)</li>
+                        <li><strong>Languages Spoken:</strong> English · Korean</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-consultation" class="consultation-section fade-up">
+        <div class="container consultation-grid">
+            <div class="consultation-content">
+                <span class="text-sm">Your Journey</span>
+                <h2 class="text-md" style="margin-top: 0.5rem; margin-bottom: 2rem;">What to Expect from Your Consultation</h2>
+                
+                <p class="about-narrative">
+                    Choosing to undergo an oculoplastic procedure is a deeply personal decision, and your consultation is structured to serve as an oasis of clarity, absolute safety, and personalised reassurance. Held in an unhurried environment, this foundational conversation is designed around your specific concerns, your long-term goals, and what you hope to experience on the other side.
+                </p>
+                
+                <p class="about-narrative" style="margin-bottom: 2.5rem !important;">
+                    There is no pressure, no rushing, and no clinical preconceptions. Miss Kang will meticulously analyse your unique facial architecture, transparently outline clinical possibilities, and work collaboratively with you to design a tailored surgical layout. You will leave the clinic feeling fully heard, thoroughly informed, and fully empowered to take the next step.
+                </p>
+                
+                <div class="consultation-affiliations" style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                    <h3 style="font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-text-light); margin-bottom: 1rem; font-weight: 600;">Affiliated Care Networks</h3>
+                    <div class="practice-pill-box">
+                        <span class="practice-pill">BOPSS Member</span>
+                        <span class="practice-pill">Moorfields Consultant</span>
+                        <span class="practice-pill">Oxford Alumna</span>
+                        <span class="practice-pill">RCOphth Fellow</span>
+                        <span class="practice-pill">Adult Specialty Care</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="consultation-image-wrapper">
+                <img src="../blepharoplasty (1).jpg" alt="Miss Swan Kang performing surgical treatment" class="consultation-image">
+            </div>
         </div>
     </section>
 
