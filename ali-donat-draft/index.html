@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ali Donat - UKCP Accredited Psychotherapist & Executive Coach based in Belgravia, London Bridge, and online. A safe, creative space to explore your internal world and set new goals.">
+    <title>Ali Donat | Psychotherapist & Executive Coach in London</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ali Donat Psychotherapy & Coaching",
+      "image": "WhatsApp Image 2026-05-20 at 14.17.55 - Ali Donat.jpeg",
+      "url": "https://www.alidonat.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Belgravia",
+          "addressRegion": "London",
+          "addressCountry": "UK"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "London Bridge",
+          "addressRegion": "London",
+          "addressCountry": "UK"
+        }
+      ],
+      "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           ROOT VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            /* Theme Colors */
+            --theme-teal: #41777B;
+            --theme-teal-light: #5a9ca1;
+            --theme-teal-dark: #2c5457;
+            --bg-main: #fdfdfd;
+            --bg-alt: #f4f8f8; /* Soft teal-tinted white for alternating sections */
+            --text-dark: #1a202c;
+            --text-body: #4a5568;
+            --white: #ffffff;
+            
+            /* Typography */
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            
+            /* Layout */
+            --max-width: 1200px;
+            --section-padding: 100px 20px;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-body);
+            background-color: var(--bg-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5 {
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            color: var(--theme-teal-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            color: var(--text-body);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--theme-teal);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: 2px solid var(--theme-teal);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--theme-teal);
+        }
+
+        .btn-white {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            background-color: var(--white);
+            color: var(--theme-teal-dark);
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            background-color: transparent;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            z-index: 1002;
+        }
+
+        header.scrolled .logo {
+            color: var(--theme-teal-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--theme-teal-light);
+            text-decoration: none;
+        }
+
+        .nav-separator {
+            color: var(--white);
+            font-weight: 300;
+            user-select: none;
+        }
+
+        header.scrolled .nav-separator {
+            color: var(--text-dark);
+        }
+
+        .nav-icon {
+            color: var(--white);
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        header.scrolled .nav-icon {
+            color: var(--theme-teal);
+        }
+
+        .nav-icon:hover {
+            transform: scale(1.1);
+            color: var(--theme-teal-light);
+        }
+
+        .right-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        header.scrolled .hamburger span {
+            background-color: var(--text-dark);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(44, 84, 87, 0.5), rgba(65, 119, 123, 0.6)), 
+                        url('lighthouse.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+            padding: 0 10%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           ABOUT / INTRO SECTION
+           ========================================================================== */
+        .about-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-main);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(65, 119, 123, 0.15);
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--theme-teal-light);
+            border-radius: var(--border-radius);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--theme-teal-dark);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .qualifications-list {
+            list-style: none;
+            margin-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 30px;
+        }
+
+        .qualifications-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .qualifications-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--theme-teal);
+            font-weight: bold;
+        }
+
+        /* ==========================================================================
+           PARALLAX & TRANSPARENT BOXES (THERAPY APPROACH)
+           ========================================================================== */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        /* Therapy Parallax Background */
+        .bg-therapy {
+            background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1920&q=80');
+            
+            /*background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');*/
+        }
+
+        .parallax-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65); /* Darkened overlay */
+            z-index: 1;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .parallax-content .section-title {
+            color: var(--white);
+        }
+
+        .parallax-content .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .glass-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .glass-box {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: background 0.4s ease;
+        }
+
+        .glass-box:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--white);
+        }
+
+        .glass-box h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .glass-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           WAYS OF WORKING (ISSUES & INSURANCE)
+           ========================================================================== */
+        .ways-working-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-alt);
+        }
+
+        .issues-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-body);
+            margin-bottom: 25px;
+        }
+
+        .issues-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+        }
+
+        .issue-tag {
+            background-color: var(--white);
+            color: var(--theme-teal-dark);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid rgba(65, 119, 123, 0.1);
+        }
+
+        .insurance-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .insurance-logos img {
+            max-height: 50px;
+            opacity: 0.7;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .insurance-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* ==========================================================================
+           PARALLAX & TRANSPARENT BOXES (EXECUTIVE COACHING)
+           ========================================================================== */
+        /* Coaching Parallax Background */
+        .bg-coaching {
+            background-image: url('london.jpg');
+        }
+
+        .coaching-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .coaching-header p {
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================================================
+           TESTIMONIALS
+           ========================================================================== */
+        .testimonials-section {
+            padding: var(--section-padding);
+            background-color: var(--bg-main);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(65, 119, 123, 0.08);
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: serif;
+            font-size: 80px;
+            color: var(--bg-alt);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .testimonial-card p {
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--theme-teal);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 20px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: var(--max-width);
+            margin: 0 auto 60px auto;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col a {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer-logos img {
+            max-height: 60px;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image-wrapper { max-width: 500px; margin: 0 auto; display: block; }
+            .glass-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero { justify-content: flex-end; text-align: right; padding: 0 5%; }
+            .hero-buttons { justify-content: flex-end; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-separator, .nav-icon { display: none; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 280px;
+                background-color: var(--theme-teal-dark);
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links.active a { color: var(--white) !important; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-buttons { flex-direction: column; gap: 15px; align-items: flex-end; }
+            .glass-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .insurance-logos { gap: 30px; }
+            .right-actions { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Ali Donat.</a>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about">About</a>
+                <a href="#psychotherapy">Psychotherapy</a>
+                <a href="#testimonials">Testimonials</a>
+                <span class="nav-separator">|</span>
+                <a href="#coaching">Executive Coaching</a>
+                <a href="tel:+442012345678" class="nav-icon" title="Call Us">
+                    <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                    </svg>
+                </a>
+                <a href="mailto:contact@alidonat.com" class="nav-icon" title="Email Us">
+                    <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <polyline points="3 7 12 13 21 7" />
+                    </svg>
+                </a>
+            </nav>
+            <div class="right-actions">
+                <a href="#contact" class="btn-primary">Contact</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>A Safe Space for Growth & Healing</h1>
+            <p>Ali Donat - UKCP Accredited Psychotherapist & Executive Coach.<br>In-person sessions in Belgravia and London Bridge, and online globally.</p>
+            <div class="hero-buttons">
+                <a href="#psychotherapy" class="btn-primary">Explore Psychotherapy</a>
+                <a href="#coaching" class="btn-white">Discover Coaching</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container about-grid">
+            <div class="about-image-wrapper">
+                <img src="WhatsApp Image 2026-05-20 at 14.17.55 - Ali Donat.jpeg" alt="Ali Donat - Psychotherapist and Executive Coach" class="about-image">
+            </div>
+            <div class="about-text">
+                <h2>Welcome.</h2>
+                <p>I am a psychotherapist and executive coach in private practice. I provide a safe space for individuals to explore, often in a creative way, their internal worlds. If you are reading this, you might be looking to navigate difficult relationships, process past trauma, or simply find balance in a demanding professional life.</p>
+                <p>My background as a practising lawyer with extensive international experience has given me a deep understanding of the pressures faced by professionals leading busy lives, and how these demands can impact personal and emotional well-being.</p>
+                
+                <ul class="qualifications-list">
+                    <li>UKCP Accredited Psychotherapist</li>
+                    <li>Member of the BACP</li>
+                    <li>International Coaching Federation: PCC</li>
+                    <li>Columbia University Coaching Certification Program</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section bg-therapy" id="psychotherapy">
+        <div class="container parallax-content">
+            <h2 class="section-title">My Approach to Therapy</h2>
+            <p class="section-subtitle">Working integratively, I draw upon a variety of modalities to create a tailored approach that meets you exactly where you are.</p>
+            
+            <div class="glass-grid">
+                <div class="glass-box">
+                    <h3>Psychodynamic</h3>
+                    <p>Exploring how past experiences and unconscious patterns influence your present thoughts, behaviours, and relationships.</p>
+                </div>
+                <div class="glass-box">
+                    <h3>Existential & Intercultural</h3>
+                    <p>Understanding your unique worldview, exploring questions of meaning, and respecting the cultural contexts that shape your identity.</p>
+                </div>
+                <div class="glass-box">
+                    <h3>Person-Centred</h3>
+                    <p>Providing an empathetic, non-judgemental space where you are the expert of your own life, empowering your personal growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ways-working-section">
+        <div class="container">
+            <h2 class="section-title">Who I Help</h2>
+            <p class="section-subtitle">I work with adults navigating a wide range of personal, relational, and emotional challenges. Typical sessions last 50 minutes, beginning with an initial consultation.</p>
+            
+            <p class="issues-intro">I help people with a range of issues including:</p>
+            
+            <div class="issues-container">
+                <span class="issue-tag">Anxiety</span>
+                <span class="issue-tag">Depression</span>
+                <span class="issue-tag">Relationship Issues</span>
+                <span class="issue-tag">Trauma Recovery</span>
+                <span class="issue-tag">Addiction</span>
+                <span class="issue-tag">Behavioural Challenges</span>
+                <span class="issue-tag">Professional Burnout</span>
+                <span class="issue-tag">Life Transitions</span>
+            </div>
+
+            <p style="text-align: center; font-size: 0.95rem; margin-top: 40px; color: var(--text-body);">I am a registered provider for the following health insurance networks:</p>
+            <div class="insurance-logos">
+                <img src="axa.png" alt="AXA Health Insurance">
+                <img src="avivalogo.png" alt="Aviva Health Insurance">
+                <img src="vitality.png" alt="Vitality Health Insurance">
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section bg-coaching" id="coaching">
+        <div class="container parallax-content">
+            <div class="coaching-header">
+                <h2 class="section-title">Executive Coaching</h2>
+                <p>Drawing on the Context-Content-Conduct framework and Columbia University methodology, I work with high-performing professionals at all levels to set new goals, transform their careers, and improve work-life balance.</p>
+            </div>
+            
+            <div class="glass-grid">
+                <div class="glass-box">
+                    <h3>Performance</h3>
+                    <p>Unlocking your potential to operate at your highest level, overcoming internal barriers to professional success.</p>
+                </div>
+                <div class="glass-box">
+                    <h3>Career Transformation</h3>
+                    <p>Providing structured guidance to identify your next major career move, ensuring it aligns with your core values.</p>
+                </div>
+                <div class="glass-box">
+                    <h3>Work-Life Integration</h3>
+                    <p>Helping demanding professionals build sustainable routines that protect emotional well-being without sacrificing ambition.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#contact" class="btn-primary">Book a 30-min Free Intro</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Experiences</h2>
+            <p class="section-subtitle">Hear from individuals I've had the privilege of supporting through therapy and coaching.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">“</div>
+                    <p>Ali provides an incredibly safe and supportive space. His understanding of corporate pressures combined with his empathetic approach to therapy helped me navigate a very difficult period of burnout and personal transition.</p>
+                    <div class="testimonial-author">Therapy Client</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">“</div>
+                    <p>The coaching methodology Ali uses is structured yet highly personalised. He helped me identify clear goals for my career transition and gave me the tools to achieve them while maintaining a healthy personal life.</p>
+                    <div class="testimonial-author">Executive Coaching Client</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">“</div>
+                    <p>An exceptional professional. The space provided allowed me to explore aspects of my leadership style I had previously ignored, leading to tangible improvements and much better communication with my team.</p>
+                    <div class="testimonial-author">Executive Coaching Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Ali Donat</h4>
+                <p>Psychotherapist & Executive Coach</p>
+                <p>Working to provide a creative, secure space for your internal world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Locations & Hours</h4>
+                <p><strong>Belgravia</strong>, London</p>
+                <p><strong>London Bridge</strong>, London</p>
+                <p><strong>Online</strong> via secure video</p>
+                <p style="margin-top: 15px;">Monday - Friday: 9am - 6pm</p>
+            </div>
+            <div class="footer-col">
+                <h4>Accreditations</h4>
+                <p>Dedicated to the highest standards of clinical and coaching practice.</p>
+                <div class="footer-logos">
+                    <img src="BACP Logo - 386263 (2) - Ali Donat.png" alt="BACP Registered Member">
+                    <img src="UKCP_PSA_combined_newlogo[75][82][23][91][31] - Ali Donat.jpg" alt="UKCP Accredited">
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Ali Donat. All rights reserved. | Built securely for web & mobile.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const links = navLinks.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
