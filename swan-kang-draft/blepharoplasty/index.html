@@ -342,9 +342,13 @@
             transform: translateX(15px);
         }
 
-        .dropdown-submenu:hover > .dropdown-menu {
-            transform: translateX(0);
-        }
+           .dropdown-submenu:hover > .dropdown-menu {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+} 
+
 
         .hamburger {
             display: none;
@@ -1473,6 +1477,38 @@
             gap: 60px;
             padding: 6rem 6%;
         }
+
+               @media (min-width: 1121px) {
+    .nav-item-dropdown {
+        position: relative; 
+    }
+
+    .nav-item-dropdown:hover,
+    .dropdown-submenu:hover {
+        z-index: 9999;
+    }
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 10px; /* Increased from 4px so it's clearly visible */
+}
+.testimonials-grid::-webkit-scrollbar-track {
+    background: var(--color-grey-bg);
+    border-radius: 10px; /* Added softer edges */
+}
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: var(--color-black);
+    border-radius: 10px; /* Added softer edges */
+}
+
+@media (max-width: 1120px) {
+    .treatments-grid { flex-direction: column; height: auto; }
+    .treatment-card { flex: none; height: 350px; }
+    
+    .treatment-card:hover, .treatment-card.active-click { flex: none; }
+}
+
+        
             </style>
 
 </head>
@@ -1484,6 +1520,7 @@
             <img src="../swankang-name-logo.png" alt="Swan Kang" class="nav-logo mobile-logo">
         </a>
         
+                
         <div class="nav-links-wrapper">
             <div class="mobile-menu-close">&times;</div>
             <ul class="nav-links">
@@ -1491,14 +1528,14 @@
                 <li class="nav-item-dropdown">
                     <a href="https://alethara.com/swan-kang-draft/blepharoplasty/">Blepharoplasty</a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://alethara.com/swan-kang-draft/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
-                        <li><a href="https://alethara.com/swan-kang-draft/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
-                        <li><a href="https://alethara.com/swan-kang-draft/brow-lift/">Brow Lift</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/brow-lift/">Brow Lift</a></li>
                     </ul>
                 </li>
-                <li><a href="https://asianblepharoplasty.swankang.co.uk">Double Eyelid Surgery</a></li>
+                <li><a href="https://alethara.com/swan-kang-draft/double-eyelid-surgery/">Double Eyelid Surgery</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="#">Eyelid Lumps</a>
+                    <a href="https://alethara.com/swan-kang-draft/eyelid-lumps/">Eyelid Lumps</a>
                     <ul class="dropdown-menu">
                         <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/chalazion/">Chalazion</a></li>
                         <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/skin-lesion/">Skin Lesion</a></li>
@@ -1512,16 +1549,16 @@
                         <li class="dropdown-submenu">
                             <a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/">Lid Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ectropion">Ectropion</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/entropion">Entropion</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/ptosis">Ptosis</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/ectropion">Ectropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/entropion">Entropion</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/ptosis">Ptosis</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="https://alethara.com/swan-kang-draft/tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
+                            <a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
+                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -1531,6 +1568,7 @@
                 <li><a href="https://alethara.com/swan-kang-draft/contact/">Contact</a></li>
             </ul>
         </div>
+    
         
         <div class="nav-right-controls">
             <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
@@ -1727,22 +1765,25 @@
         </div>
     </div>
 
+    
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
+                
                 <div>
                     <img src="../swankanglogo.png" alt="Swan Kang Logo" class="footer-logo">
-                    <p class="footer-desc">Consultant Oculoplastic Surgeon specializing in bespoke high-end eyelid and facial aesthetic treatments.</p>
+                    <p class="footer-desc">Consultant Oculoplastic Surgeon specialising in bespoke high-end eyelid and facial aesthetic treatments.</p>
                 </div>
                 
                 <div>
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="https://about.swankang.co.uk">About Dr Kang</a></li>
-                        <li><a href="https://blepharoplasty.swankang.co.uk">Blepharoplasty</a></li>
-                        <li><a href="https://asianblepharoplasty.swankang.co.uk">Asian Blepharoplasty</a></li>
-                        <li><a href="https://gallery.swankang.co.uk">Cosmetic Gallery</a></li>
-                        <li><a href="https://contact.swankang.co.uk">Contact</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/about/">About</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/">Blepharoplasty</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/double-eyelid-surgery">Double Eyelid Surgery</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/">Functional Surgery</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/before-and-after/">Before & After</a></li>
+                        <li><a href="https://alethara.com/swan-kang-draft/contact/">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -1758,14 +1799,16 @@
                     <p>50–52 New Cavendish Street, London</p>
                     <p>9–11 Bath Street, London</p>
                 </div>
+                
             </div>
             
             <div class="footer-bottom">
-                <p>© 2026 Dr. Swan Kang. All Rights Reserved.</p>
+                <p>© 2026 Dr. Swan Kang. All Rights Reserved. Designed by <a href="https://alethara.com"><u>ALETHARA</u></a>.</p>
                 <p>General Medical Council Registered.</p>
             </div>
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
