@@ -1508,6 +1508,37 @@
     .treatment-card:hover, .treatment-card.active-click { flex: none; }
 }
 
+               @media (min-width: 1121px) {
+    .nav-item-dropdown {
+        position: relative; 
+    }
+
+    .nav-item-dropdown:hover,
+    .dropdown-submenu:hover {
+        z-index: 9999;
+    }
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 10px; /* Increased from 4px so it's clearly visible */
+}
+.testimonials-grid::-webkit-scrollbar-track {
+    background: var(--color-grey-bg);
+    border-radius: 10px; /* Added softer edges */
+}
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: var(--color-black);
+    border-radius: 10px; /* Added softer edges */
+}
+
+@media (max-width: 1120px) {
+    .treatments-grid { flex-direction: column; height: auto; }
+    .treatment-card { flex: none; height: 350px; }
+    
+    .treatment-card:hover, .treatment-card.active-click { flex: none; }
+}
+
+
         
             </style>
 
@@ -1766,6 +1797,7 @@
     </div>
 
     
+    
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1808,6 +1840,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
