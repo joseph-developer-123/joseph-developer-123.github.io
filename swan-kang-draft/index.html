@@ -713,7 +713,7 @@
         .slider-wrapper {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/7;
             overflow: hidden;
             background: #F0F0F0;
         }
@@ -1267,7 +1267,7 @@
 
         @media (max-width: 700px) {
             .hero-bg-wrapper {
-                right: -15vw;
+                right: -35vw;
                 width: 135vw;
             }
             .hero-bg-img {
@@ -1335,6 +1335,54 @@
     .treatment-card:hover, .treatment-card.active-click { flex: none; }
 }
 
+        /* Direct Contact Details Replacement (Maintains form footprint structure) */
+        .contact-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem; 
+        }
+
+        .detail-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.95rem 0;
+            /*border-bottom: 1px solid var(--color-black);*/
+            transition: opacity var(--transition-fast);
+        }
+
+        .detail-group.no-border {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-top: 0rem;
+            align-items: flex-start;
+        }
+
+        .detail-group .text-sm {
+            color: var(--color-text-light);
+            margin-bottom: 0.2rem;
+            font-size: 0.72rem;
+        }
+
+        .detail-link {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--color-black);
+        }
+
+        .slider-caption {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+
     </style>
 </head>
 <body>
@@ -1395,7 +1443,7 @@
         </div>
         
         <div class="nav-right-controls">
-            <a href="https://carebit.co/book/dr-swan-kang" class="nav-cta">Book Now</a>
+            <a href="https://miss-swan-kang.carebit.co/patients/bookings/new?service=initial-consultation" class="nav-cta">Book Now</a>
             <div class="hamburger">
                 <span></span><span></span><span></span>
             </div>
@@ -1516,10 +1564,20 @@
                     </div>
                 </div>
 
+                <div class="sliders-container">
+                    <div class="slider-wrapper">
+                        <img src="thebefore2.png" alt="Before" class="slider-img">
+                        <img src="theafter2.png" alt="After" class="slider-img slider-after" id="after-img-2">
+                        <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-2" aria-label="Image comparison slider">
+                        <div class="slider-line" id="slider-line-2"></div>
+                        <div class="slider-button" id="slider-btn-2"></div>                  
+                    </div>
+                </div>
+
             </div>
             
             <div style="margin-top: 4.5rem;">
-                <a href="https://gallery.swankang.co.uk" class="btn-outline">View Full Gallery →</a>
+                <a href="https://alethara.com/swan-kang-draft/before-and-after/" class="btn-outline">View Full Gallery →</a>
             </div>
         </div>
     </section>
@@ -1577,32 +1635,34 @@
         </div>
     </section>
 
-    <section class="locations-section fade-up">
+       <section class="locations-section fade-up">
         <div class="container">
             <span class="text-sm">Locations</span>
             
             <div class="locations-grid">
                 <div class="location-card">
-                    <h3>New Cavendish Street</h3>
-                    <p>50–52 New Cavendish Street<br>London W1G 8TL</p>
-                    <div class="map-iframe-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.43482596825!2d-0.1472534!3d51.5200251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad0090ad3ab%3A0x6001ab49dfcc8d6!2s50-52%20New%20Cavendish%20St%2C%20London%20W1G%208TL!5e0!3m2!1sen!2suk!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <a href="#" class="btn-outline">Get Directions</a>
+                <h3>New Cavendish Street</h3>
+                <p>50-52 New Cavendish Street<br>London W1G 8TL</p>
+                <div class="map-iframe-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.43482596825!2d-0.1472534!3d51.5200251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad0090ad3ab%3A0x6001ab49dfcc8d6!2s50-52%20New%20Cavendish%20St%2C%20London%20W1G%208TL!5e0!3m2!1sen!2suk!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                
-                <div class="location-card">
-                    <h3>Bath Street</h3>
-                    <p>9–11 Bath Street<br>London EC1V 9LF</p>
-                    <div class="map-iframe-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.82110196825!2d-0.09051!3d51.52684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca39b82fd1f%3A0x899ffb4cf28678!2s9-11%20Bath%20St%2C%20London%20EC1V%209LF!5e0!3m2!1sen!2suk!4v1650000000001" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <a href="#" class="btn-outline">Get Directions</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=50-52+New+Cavendish+Street,+London+W1G+8TL" target="_blank" class="btn-outline">Get Directions</a>
+            </div>
+
+            <div class="location-card">
+                <h3>Bath Street</h3>
+                <p>9-11 Bath Street<br>London EC1V 9LF</p>
+                <div class="map-iframe-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.82110196825!2d-0.09051!3d51.52684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ca39b82fd1f%3A0x899ffb4cf28678!2s9-11%20Bath%20St%2C%20London%20EC1V%209LF!5e0!3m2!1sen!2suk!4v1650000000001" allowfullscreen="" loading="lazy"></iframe>
                 </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=9-11+Bath+Street,+London+EC1V+9LF" target="_blank" class="btn-outline">Get Directions</a>
+            </div>
             </div>
         </div>
     </section>
 
+
+    
     <section id="booking" class="booking-section fade-up">
         <img src="moorfields.jpg" alt="Moorfields" class="booking-bg">
         <div class="booking-overlay"></div>
@@ -1611,31 +1671,27 @@
             <div class="booking-text">
                 <span class="text-sm">Booking</span>
                 <h2 class="text-lg">Arrange a<br>Consultation</h2>
-                <p>Take the first step towards exceptional care. Fill out the form to request your appointment layout details.</p>
+                <p>Take the first step towards exceptional care. Reach out directly via phone or email, or securely book your appointment online.</p>
             </div>
             
             <div class="booking-form-wrapper">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name" required>
+                <div class="contact-details-list">
+                    <div class="detail-group">
+                        <span class="text-sm">Email Address</span>
+                        <a href="mailto:moorfields.skang@nhs.net" class="detail-link">moorfields.skang@nhs.net</a>
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address" required>
+                    <div class="detail-group">
+                        <span class="text-sm">Phone Number</span>
+                        <a href="tel:+447353760871" class="detail-link">+44 (0)7353 760 871</a>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number">
+                    <div class="detail-group no-border">
+                        <a href="https://miss-swan-kang.carebit.co/patients/bookings/new?service=initial-consultation" target="_blank" rel="noopener" class="btn-solid">Book via Carebit</a>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Preferred Procedure / Reason for Visit" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Brief Message (Optional)"></textarea>
-                    </div>
-                    <button type="submit" class="btn-solid">Request Appointment</button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
+
 
     
     <footer class="footer">
@@ -1779,6 +1835,17 @@
                     });
                 }
             }
+
+            const labels = ["Upper Blepharoplasty", "Direct Brow Lift"];
+document.querySelectorAll('.sliders-container').forEach((col, i) => {
+    col.insertAdjacentHTML('afterbegin', `<div style="font-family:var(--font-body); font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; color:var(--color-text); margin-bottom:1.5rem; text-align:center;">${labels[i]}</div>`);
+    const range = col.querySelector('.slider-range');
+    range.addEventListener('input', e => {
+        const wrap = range.parentElement, v = e.target.value;
+        wrap.querySelector('.slider-after').style.clipPath = `polygon(${v}% 0, 100% 0, 100% 100%, ${v}% 100%)`;
+        wrap.querySelector('.slider-line').style.left = wrap.querySelector('.slider-button').style.left = `${v}%`;
+    });
+});
 
             setupSlider(1);
             setupSlider(2);
