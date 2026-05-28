@@ -372,10 +372,12 @@
             padding-top: 100px; 
         }
 
+        
         .hero-bg-wrapper {
             position: absolute;
             top: 0;
-            right: 0;
+            right: -15vw;
+                        
             width: 120vw;
             height: 100vh;
             z-index: 0;
@@ -1268,7 +1270,7 @@
 
         @media (max-width: 700px) {
             .hero-bg-wrapper {
-                right: -15vw;
+                right: -35vw;
                 width: 135vw;
             }
             .hero-bg-img {
@@ -1305,7 +1307,6 @@
                 max-height: 40px;
             }
         }
-
 
             /* ==========================================================================
            7.8 ARCHITECTURAL RENDERINGS: PROCEDURE DETAILS & FAQS (Separated Backgrounds)
@@ -1725,503 +1726,153 @@
     </section>
 
     <section class="gallery-section">
-   <style>
-    /* Spacing & Centering for Sliders and Static Comparisons */
-    .sliders-container, .static-compare-container {
-        width: 100%;
-        max-width: 900px; 
-        margin: 7rem auto 0 auto; /* Greater spacing ABOVE the section */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers everything horizontally */
-    }
-
-    .section-heading-wrapper {
-        text-align: center;
-        margin-bottom: 3rem; /* Less spacing BELOW heading compared to above */
-        width: 100%;
-    }
-
-    .slider-wrapper {
-        margin: 0 auto;
-        position: relative;
-        max-width: 100%;
-    }
-
-    /* Elegant Luxury Caption Styling under the images */
-    .media-caption {
-        text-align: center;
-        margin-top: 1.5rem;
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        font-style: italic;
-        color: var(--color-text-light);
-        max-width: 550px;
-        line-height: 1.6;
-        letter-spacing: 0.02em;
-    }
-
-    .static-compare-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        width: 100%;
-        justify-items: center;
-    }
-    
-    .static-compare-item {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .static-compare-item img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-
-    .static-label {
-        text-align: center;
-        margin-top: 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--color-text-light);
-    }
-
-    @media (max-width: 600px) {
-        .static-compare-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        .sliders-container, .static-compare-container {
-            margin-top: 5rem;
-        }
-        .section-heading-wrapper {
-            margin-bottom: 2rem;
-        }
-    }
-</style>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Upper Blepharoplasty</h4>
-        <p class="text-sm">After 3 weeks</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore3.png" alt="Before" class="slider-img">
-        <img src="../theafter3.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Restoration of a naturally refreshed upper eyelid contour and optimal symmetry.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Upper Blepharoplasty</h4>
-        <p class="text-sm">After 3 weeks</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore4.png" alt="Before" class="slider-img">
-        <img src="../theafter4.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Precise alleviation of upper hooding to reveal a lighter, more awakened appearance.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Upper Blepharoplasty</h4>
-        <p class="text-sm">After 3 weeks</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore5.png" alt="Before" class="slider-img">
-        <img src="../theafter5.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Rejuvenation of the eye frame while seamlessly maintaining natural structural characteristics.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Eyelid Rejuvenation</h4>
-        <p class="text-sm">After 7 days</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore6.png" alt="Before" class="slider-img">
-        <img src="../theafter6.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Beautiful early-stage resolution of heaviness, presenting exceptional definition by day 7.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Upper Blepharoplasty</h4>
-        <p class="text-sm">Post-Operative Result</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore7.png" alt="Before" class="slider-img">
-        <img src="../theafter7.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Balanced contouring focused on bringing crisp elegance back to the upper gaze.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Upper Blepharoplasty</h4>
-        <p class="text-sm">Post-Operative Result</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore8.png" alt="Before" class="slider-img">
-        <img src="../theafter8.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Meticulous correction targeting heavy skin folds for a significantly clearer eye field.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Eyelid Rejuvenation</h4>
-        <p class="text-sm">Post-Operative Result</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore9.png" alt="Before" class="slider-img">
-        <img src="../theafter9.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Elegant preservation of shape combined with a notable reduction in tired-looking presentation.</p>
-</div>
-
-<div class="sliders-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.5rem;">Eyelid Rejuvenation</h4>
-        <p class="text-sm">Post-Operative Result</p>
-    </div>
-    <div class="slider-wrapper">
-        <img src="../thebefore10.png" alt="Before" class="slider-img">
-        <img src="../theafter10.png" alt="After" class="slider-img slider-after">
-        <input type="range" min="0" max="100" value="50" class="slider-range" oninput="updateSlider(this)">
-        <div class="slider-line"></div>
-        <div class="slider-button"></div>
-    </div>
-    <p class="media-caption">Harmonious post-surgical outcome exhibiting an overall softer, restfully balanced aesthetic.</p>
-</div>
-
-<div class="static-compare-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.8rem;">Patient Progress</h4>
-        <p class="text-sm">Before & After</p>
-    </div>
-    <div class="static-compare-grid">
-        <div class="static-compare-item">
-            <img src="../thebefore11.png" alt="Before">
-            <div class="static-label">Before</div>
-        </div>
-        <div class="static-compare-item">
-            <img src="../theafter11.png" alt="After">
-            <div class="static-label">After</div>
-        </div>
-    </div>
-    <p class="media-caption">Side-by-side assessment illustrating improved definition across the upper orbital plane.</p>
-</div>
-
-<div class="static-compare-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.8rem;">Patient Progress</h4>
-        <p class="text-sm">Before & After</p>
-    </div>
-    <div class="static-compare-grid">
-        <div class="static-compare-item">
-            <img src="../thebefore12.png" alt="Before">
-            <div class="static-label">Before</div>
-        </div>
-        <div class="static-compare-item">
-            <img src="../theafter12.png" alt="After">
-            <div class="static-label">After</div>
-        </div>
-    </div>
-    <p class="media-caption">Clear presentation of youthful vitality restored via refined tissue alignment.</p>
-</div>
-
-<style>
-    /* Styling for the side-by-side comparison */
-    .static-compare-container {
-        width: 100%;
-        max-width: 900px;
-        /* Greater spacing above (6rem) than below (3rem) */
-        margin: 6rem auto 3rem auto;
-    }
-    
-    .section-heading-wrapper {
-        text-align: center;
-        margin-top: 5rem;
-        margin-bottom: 2rem; /* Less spacing below the heading than above */
-    }
-
-    .static-compare-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: stretch; /* Forces equal heights for the grid items */
-    }
-    
-    .static-compare-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center; /* Centers the image */
-    }
-    
-    .static-compare-item img {
-        width: 100%;
-        height: 100%; 
-        object-fit: cover; /* Ensures images are exactly the same height without distortion */
-        aspect-ratio: 4/3; /* Provides a uniform baseline aspect ratio */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .static-label {
-        text-align: center;
-        margin-top: 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--color-text-light);
-    }
-    
-    /* Styling for the Patient Journey case study */
-    .case-study-section {
-        width: 100%;
-        max-width: 1000px;
-        margin: 7rem auto 4rem auto; /* Greater spacing above */
-        padding: 0 6vw;
-        border-top: 1px solid var(--color-border);
-        padding-top: 5rem;
-    }
-    
-    .case-study-layout {
-        display: flex;
-        flex-direction: column; /* Stacked layout instead of side-by-side */
-        gap: 4rem;
-        align-items: center; /* Centers the whole container */
-    }
-    
-    .case-study-text {
-        max-width: 800px;
-        text-align: center; /* Centers the text block */
-    }
-    
-    .case-study-text p {
-        font-family: var(--font-quote);
-        font-size: 1.25rem;
-        line-height: 1.8;
-        color: var(--color-text-light);
-        margin-bottom: 1.5rem;
-    }
-    
-    .case-timeline-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        width: 100%;
-    }
-    
-    .timeline-item {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers the image */
-    }
-    
-    .timeline-item img {
-        width: 100%;
-        max-width: 450px;
-        height: auto;
-        display: block;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        margin: 0 auto; /* Centers the image */
-    }
-    
-    .timeline-full {
-        grid-column: 1 / -1;
-    }
-    
-    .timeline-label {
-        font-family: var(--font-body);
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-top: 0.75rem;
-        text-align: center;
-        color: var(--color-text);
-    }
-    
-    /* Media Queries */
-    @media (max-width: 600px) {
-        .static-compare-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        .static-compare-item img {
-            aspect-ratio: auto; /* Allow natural height stacking on mobile */
-            height: auto;
-        }
-    }
-    
-    /* New rule for screens smaller than 400px (1 column for journey images) */
-    @media (max-width: 399px) {
-        .case-timeline-grid {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-        .timeline-full {
-            grid-column: 1 / -1;
-        }
-    }
-</style>
-
-<div class="static-compare-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.8rem;">Patient Progress</h4>
-        <p class="text-sm">Before & After</p>
-    </div>
-    <div class="static-compare-grid">
-        <div class="static-compare-item">
-            <img src="../thebefore11.png" alt="Before">
-            <div class="static-label">Before</div>
-        </div>
-        <div class="static-compare-item">
-            <img src="../theafter11.png" alt="After">
-            <div class="static-label">After</div>
-        </div>
-    </div>
-</div>
-
-<div class="static-compare-container">
-    <div class="section-heading-wrapper">
-        <h4 style="margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.8rem;">Patient Progress</h4>
-        <p class="text-sm">Before & After</p>
-    </div>
-    <div class="static-compare-grid">
-        <div class="static-compare-item">
-            <img src="../thebefore12.png" alt="Before">
-            <div class="static-label">Before</div>
-        </div>
-        <div class="static-compare-item">
-            <img src="../theafter12.png" alt="After">
-            <div class="static-label">After</div>
-        </div>
-    </div>
-</div>
-
-<div class="case-study-section">
-    <div class="case-study-layout">
-        <div class="case-study-text">
-            <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 2rem; color: var(--color-black);">Patient Journey</h3>
-            <p>This gentleman presented with a longstanding sensation of heaviness affecting the upper eyelids together with a persistently tired appearance around the eyes.</p>
-            <p>He underwent upper eyelid blepharoplasty to restore a lighter, more refreshed appearance while also addressing the excess upper eyelid skin contributing to the heavy sensation.</p>
-            <p>Recovery was very smooth, with sutures removed on day 7 and only minimal bruising and swelling, which settled quickly. He was delighted with the natural, rejuvenated outcome and felt that he looked significantly less tired. Most importantly, he noticed a clear improvement in the heaviness of the upper eyelids, with the eye area feeling much lighter and more comfortable following surgery.</p>
-            <p>A huge thank you to him for trusting me with his eyelid surgery and for kindly giving permission to share these photographs.</p>
-        </div>
+    <div class="container">
         
-        <div class="case-timeline-grid">
-            <div class="timeline-item timeline-full">
-                <img src="../cbpreop.png" alt="Pre-Operative">
-                <div class="timeline-label">Pre-Operative</div>
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before1.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after1.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
             </div>
-            
-            <div class="timeline-item">
-                <img src="../cb-post-op-closed-day-1.png" alt="Day 1 Closed">
-                <div class="timeline-label">Day 1 (Closed)</div>
-            </div>
-            <div class="timeline-item">
-                <img src="../cb-post-op-open-day-1.png" alt="Day 1 Open">
-                <div class="timeline-label">Day 1 (Open)</div>
-            </div>
-            
-            <div class="timeline-item">
-                <img src="../cb-post-op-closed-day-5.png" alt="Day 5 Closed">
-                <div class="timeline-label">Day 5 (Closed)</div>
-            </div>
-            <div class="timeline-item">
-                <img src="../cb-post-op-open-day-5.png" alt="Day 5 Open">
-                <div class="timeline-label">Day 5 (Open)</div>
-            </div>
-            
-            <div class="timeline-item">
-                <img src="../cb-post-op-closed-day-7.png" alt="Day 7 Closed">
-                <div class="timeline-label">Day 7 (Closed)</div>
-            </div>
-            <div class="timeline-item">
-                <img src="../cb-post-op-open-day-7.png" alt="Day 7 Open">
-                <div class="timeline-label">Day 7 (Open)</div>
-            </div>
-            
-            <div class="timeline-item">
-                <img src="../cb-post-op-closed-day-9.png" alt="Day 9 Closed">
-                <div class="timeline-label">Day 9 (Closed)</div>
-            </div>
-            <div class="timeline-item">
-                <img src="../cb-post-op-open-day-9.png" alt="Day 9 Open">
-                <div class="timeline-label">Day 9 (Open)</div>
-            </div>
-            
-            <div class="timeline-item">
-                <img src="../cb-post-op-closed-day-21.png" alt="Day 21 Closed">
-                <div class="timeline-label">Day 21 (Closed)</div>
-            </div>
-            <div class="timeline-item">
-                <img src="../cb-post-op-open-day-21.png" alt="Day 21 Open">
-                <div class="timeline-label">Day 21 (Open)</div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Applying reconstructive skills to thyroid eye disease to restore a natural appearance and rebuild a sense of confidence.</p>
+                <a href="#" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
             </div>
         </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before2.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after2.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>A profound emotional change created by a simple procedure, helping eyes look familiar and completely natural once again.</p>
+                <a href="#" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before3.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after3.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Early one-week post-op results demonstrating a reduction in hooding, alongside typical early swelling and asymmetric healing.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before4.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after4.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Precision sculpting goes beyond simple skin removal. Small techniques create a large impact, proving planning is more crucial than execution.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before5.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after5.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Combined upper blepharoplasty and ptosis repair lifts and opens the eyes, uncovering natural beauty rather than artificially creating it.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before6.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after6.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>A combined blepharoplasty and direct brow lift addresses both excess eyelid skin and drooping brows for a clean, non-heavy, rejuvenated look.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before7.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after7.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Achieving meaningful change by opening the eyes wider, creating a more awake appearance while heavily prioritizing identity preservation.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before8.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after8.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>A balanced approach to upper and lower eyelids that carefully removes weight, reducing a tired appearance and restoring a youthful, light look.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
+        <div class="gallery-row fade-up">
+            <div class="gallery-slider-col">
+                <div class="slider-wrapper taller-slider">
+                    <img src="../before9.jpg" alt="Before Surgery" class="slider-img slider-before">
+                    <img src="../after9.jpg" alt="After Surgery" class="slider-img slider-after">
+                    <input type="range" min="0" max="100" value="50" class="slider-range">
+                    <div class="slider-line" style="left: 50%;"></div>
+                    <div class="slider-button" style="left: 50%;"></div>
+                </div>
+            </div>
+            <div class="gallery-text-col equal-height-text">
+                <p>Eye rejuvenation is a complex, multi-procedure approach. Properly addressing skin laxity, brow position, and eye opening ensures the greatest impact with minimal intervention.</p>
+                <a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty" class="more-link">MORE ABOUT UPPER BLEPHAROPLASTY</a>
+            </div>
+        </div>
+
     </div>
-</div>
-</div>
-
-<script>
-    function updateSlider(element) {
-        const wrapper = element.parentElement;
-        const afterImage = wrapper.querySelector('.slider-after');
-        const sliderLine = wrapper.querySelector('.slider-line');
-        const sliderBtn = wrapper.querySelector('.slider-button');
-        
-        const val = element.value;
-        afterImage.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
-        sliderLine.style.left = `${val}%`;
-        sliderBtn.style.left = `${val}%`;
-    }
-
-    // Attach listener to all new sliders natively just in case the previous logic was on-load only
-    document.querySelectorAll('.slider-range').forEach(slider => {
-        slider.addEventListener('input', (e) => {
-            updateSlider(e.target);
-        });
-    });
-</script>
 </section>
      
 
