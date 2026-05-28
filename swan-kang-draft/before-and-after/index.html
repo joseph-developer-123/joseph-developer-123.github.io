@@ -1762,49 +1762,69 @@
         letter-spacing: 0.02em;
     }
 
+      .static-compare-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+.static-compare-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    
+    /* NEW: Forces the wrapper to never clip its children */
+    overflow: visible !important; 
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.static-compare-item img {
+    height: 320px !important; 
+    width: auto !important;   
+    
+    /* FORCE the browser to ignore global max-widths */
+    max-width: none !important; 
+    
+    /* NEW: Absolutely guarantees the image contents cannot be cropped */
+    object-fit: contain !important; 
+    object-position: center !important;
+    background: transparent !important;
+    
+    display: block;
+    /*box-shadow: 0 4px 15px rgba(0,0,0,0.05);*/
+}
+
+@media (max-width: 600px) {
     .static-compare-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        width: 100%;
-        justify-items: center;
+        flex-direction: column;
+        gap: 2rem;
     }
     
     .static-compare-item {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .static-compare-item img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        height: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 400px !important;
+        object-fit: contain !important;
     }
 
-    .static-label {
-        text-align: center;
-        margin-top: 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--color-text-light);
+    .sliders-container, .static-compare-container {
+        margin-top: 5rem;
     }
 
-    @media (max-width: 600px) {
-        .static-compare-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        .sliders-container, .static-compare-container {
-            margin-top: 5rem;
-        }
-        .section-heading-wrapper {
-            margin-bottom: 2rem;
-        }
+    .section-heading-wrapper {
+        margin-bottom: 2rem;
     }
 </style>
 
@@ -1998,7 +2018,6 @@
         height: 100%; 
         object-fit: cover; /* Ensures images are exactly the same height without distortion */
         aspect-ratio: 4/3; /* Provides a uniform baseline aspect ratio */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         display: block;
         margin: 0 auto;
     }
