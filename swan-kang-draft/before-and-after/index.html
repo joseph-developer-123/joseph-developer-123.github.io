@@ -1131,26 +1131,27 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
 
-            /* Floating Panel (Vertically Centered with Sharp Edges) */
-            .nav-links-wrapper { 
-                position: fixed;
-                top: 90px;       
-                bottom: 25px;    
-                right: -100%;    
-                width: 420px;    
-                max-width: 85vw; 
-                background-color: var(--color-white); 
-                display: flex !important;
-                flex-direction: column;
-                justify-content: center; /* VERTICALLY CENTERED: Links fit perfectly in the middle */
-                align-items: center;
-                padding: 2rem 1rem;
-                transition: right var(--transition-confident);
-                z-index: 999;
-                box-shadow: -10px 15px 35px rgba(0,0,0,0.12);
-                border-radius: 0px !important; /* Sharp, clean edges */
-                overflow-y: auto;
-            }
+            .nav-links-wrapper {
+        position: absolute; /* Changed from fixed */
+        top: 100%;          /* Starts exactly at the bottom edge of the navbar */
+        right: -100%;
+        width: 420px;
+        max-width: 85vw;
+        height: 75vh;
+        /* Remove "bottom: 25px;" so it doesn't conflict with top: 100% */
+        
+        background-color: var(--color-white);
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+        transition: right var(--transition-confident);
+        z-index: 999;
+        box-shadow: -10px 15px 35px rgba(0,0,0,0.12);
+        border-radius: 0px !important;
+        overflow-y: auto;
+    }
             
             .nav-links-wrapper.active {
                 right: 0; 
@@ -1245,7 +1246,7 @@
                 margin-left: 1rem;
             }
             .nav-links-wrapper {
-                top: 80px; 
+                top: 100%; 
                 width: 85%;
             }
             .hamburger {
@@ -1660,51 +1661,51 @@
         <div class="nav-links-wrapper">
             <div class="mobile-menu-close">&times;</div>
             <ul class="nav-links">
-                <li><a href="https://alethara.com/swan-kang-draft/about/">About</a></li>
+                <li><a href="https://swankang.co.uk/about/">About</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="https://alethara.com/swan-kang-draft/blepharoplasty/">Blepharoplasty</a>
+                    <a href="https://swankang.co.uk/blepharoplasty/">Blepharoplasty</a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
-                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
-                        <li><a href="https://alethara.com/swan-kang-draft/blepharoplasty/brow-lift/">Brow Lift</a></li>
+                        <li><a href="https://swankang.co.uk/blepharoplasty/upper-blepharoplasty/">Upper Blepharoplasty (Hooded Eyelid Surgery)</a></li>
+                        <li><a href="https://swankang.co.uk/blepharoplasty/lower-blepharoplasty/">Lower Blepharoplasty (Eye Bag Surgery)</a></li>
+                        <li><a href="https://swankang.co.uk/blepharoplasty/brow-lift/">Brow Lift</a></li>
                     </ul>
                 </li>
-                <li><a href="https://alethara.com/swan-kang-draft/double-eyelid-surgery/">Double Eyelid Surgery</a></li>
+                <li><a href="https://swankang.co.uk/double-eyelid-surgery/">Double Eyelid Surgery</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="https://alethara.com/swan-kang-draft/eyelid-lumps/">Eyelid Lumps</a>
+                    <a href="https://swankang.co.uk/eyelid-lumps/">Eyelid Lumps</a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/chalazion/">Chalazion</a></li>
-                        <li><a href="https://alethara.com/swan-kang-draft/eyelid-lumps/skin-lesion/">Skin Lesion</a></li>
+                        <li><a href="https://swankang.co.uk/eyelid-lumps/chalazion/">Chalazion</a></li>
+                        <li><a href="https://swankang.co.uk/eyelid-lumps/skin-lesion/">Skin Lesion</a></li>
                     </ul>
                 </li>
                 <li class="nav-break"></li>
                 
                 <li class="nav-item-dropdown">
-                    <a href="https://alethara.com/swan-kang-draft/functional-surgery/">Functional Surgery</a>
+                    <a href="https://swankang.co.uk/functional-surgery/">Functional Surgery</a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/">Lid Surgery »</a>
+                            <a href="https://swankang.co.uk/functional-surgery/lid-surgery/">Lid Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/ectropion">Ectropion</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/entropion">Entropion</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/lid-surgery/ptosis">Ptosis</a></li>
+                                <li><a href="https://swankang.co.uk/functional-surgery/lid-surgery/ectropion">Ectropion</a></li>
+                                <li><a href="https://swankang.co.uk/functional-surgery/lid-surgery/entropion">Entropion</a></li>
+                                <li><a href="https://swankang.co.uk/functional-surgery/lid-surgery/ptosis">Ptosis</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
+                            <a href="https://swankang.co.uk/functional-surgery/watery-eye-tear-duct-surgery/">Watery Eye Tear Duct Surgery »</a>
                             <ul class="dropdown-menu">
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
-                                <li><a href="https://alethara.com/swan-kang-draft/functional-surgery/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
+                                <li><a href="https://swankang.co.uk/functional-surgery/watery-eye-tear-duct-surgery/endonasal-dcr/">Endonasal DCR</a></li>
+                                <li><a href="https://swankang.co.uk/functional-surgery/watery-eye-tear-duct-surgery/external-dcr/">External DCR</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="https://alethara.com/swan-kang-draft/before-and-after/">Before &amp; After</a></li>
-                <li><a href="https://alethara.com/swan-kang-draft/blog/">Blog</a></li>
-                <li><a href="https://alethara.com/swan-kang-draft/contact/">Contact</a></li>
+                <li><a href="https://swankang.co.uk/before-and-after/">Before &amp; After</a></li>
+                <li><a href="https://swankang.co.uk/blog/">Blog</a></li>
+                <li><a href="https://swankang.co.uk/contact/">Contact</a></li>
             </ul>
         </div>
-    
+        
         
         <div class="nav-right-controls">
             <a href="https://miss-swan-kang.carebit.co/patients/bookings/new?service=initial-consultation" class="nav-cta">Book Now</a>
