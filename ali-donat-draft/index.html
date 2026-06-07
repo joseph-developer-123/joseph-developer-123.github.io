@@ -33,7 +33,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================================
@@ -41,9 +41,9 @@
            ========================================================================== */
         :root {
             /* Theme Colors */
-            --theme-teal: #41777B;
-            --theme-teal-light: #5a9ca1;
-            --theme-teal-dark: #2c5457;
+            --theme-teal: #3A5A78;
+            --theme-teal-light: #5C7D9E;
+            --theme-teal-dark: #243B51;
             --bg-main: #fdfdfd;
             --bg-alt: #f4f8f8; /* Soft teal-tinted white for alternating sections */
             --text-dark: #1a202c;
@@ -51,7 +51,7 @@
             --white: #ffffff;
             
             /* Typography */
-            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-main: 'Manrope', sans-serif;
             
             /* Layout */
             --max-width: 1200px;
@@ -269,17 +269,19 @@
         /* ==========================================================================
            HERO SECTION
            ========================================================================== */
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            background: linear-gradient(rgba(44, 84, 87, 0.5), rgba(65, 119, 123, 0.6)), 
-                        url('lighthouse.jpeg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            text-align: right;
-            padding: 0 10%;
-        }
+       .hero {
+    height: 100vh;
+    min-height: 600px;
+    /* A soft, dark gradient radiating from the bottom right corner */
+    background: 
+                radial-gradient(ellipse at bottom right, rgba(50, 50, 50, 0.95) 0%, rgba(50, 50, 50, 0) 65%),
+                url('sunny.webp') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 0 5%;
+}
 
         .hero-content {
             max-width: 800px;
@@ -297,11 +299,17 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--white);
-            font-weight: 300;
             margin-bottom: 40px;
             opacity: 0.95;
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
         }
 
         .hero-buttons {
@@ -530,7 +538,7 @@
            ========================================================================== */
         /* Coaching Parallax Background */
         .bg-coaching {
-            background-image: url('london.jpg');
+            background-image: url('cityoflondon3.jpg');
         }
 
         .coaching-header {
@@ -665,6 +673,34 @@
             .hero-buttons { justify-content: flex-end; }
         }
 
+        @media (max-width: 950px) {
+           .hamburger { display: flex; }
+            .nav-separator, .nav-icon { display: none; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 280px;
+                background-color: var(--theme-teal-dark);
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links.active a { color: var(--white) !important; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+    .glass-grid .glass-box:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 15px);
+    }
+}
+
         @media (max-width: 768px) {
             .hamburger { display: flex; }
             .nav-separator, .nav-icon { display: none; }
@@ -689,13 +725,31 @@
             .insurance-logos { gap: 30px; }
             .right-actions { gap: 15px; }
         }
+
+        @media (max-width: 500px) {
+    .hero h1 { 
+        font-size: 2.2rem; /* Reduces the main heading size */
+        margin-bottom: 15px; /* Brings the paragraph slightly closer */
+    }
+    
+    .hero p { 
+        font-size: 1rem; /* Reduces the paragraph size */
+        margin-bottom: 30px; /* Adjusts spacing before the buttons */
+    }
+}
+
+@media (max-width: 300px) {
+    .logo-last-name {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
 
     <header id="main-header">
         <div class="container nav-container">
-            <a href="#" class="logo">Ali Donat.</a>
+            <a href="#" class="logo">Ali<span class="logo-last-name"> Donat</span></a>
             <nav class="nav-links" id="nav-links">
                 <a href="#about">About</a>
                 <a href="#psychotherapy">Psychotherapy</a>
@@ -730,7 +784,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>A Safe Space for Growth & Healing</h1>
-            <p>Ali Donat - UKCP Accredited Psychotherapist & Executive Coach.<br>In-person sessions in Belgravia and London Bridge, and online globally.</p>
+            <p>Ali Donat - UKCP Accredited Psychotherapist & Executive Coach.<br>In-person sessions in Belgravia and London Bridge,<br>and online globally.</p>
             <div class="hero-buttons">
                 <a href="#psychotherapy" class="btn-primary">Explore Psychotherapy</a>
                 <a href="#coaching" class="btn-white">Discover Coaching</a>
