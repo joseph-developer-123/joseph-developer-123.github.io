@@ -270,18 +270,18 @@
            HERO SECTION
            ========================================================================== */
        .hero {
-    height: 100vh;
-    min-height: 600px;
-    /* A soft, dark gradient radiating from the bottom right corner */
-    background: 
-                radial-gradient(ellipse at bottom right, rgba(50, 50, 50, 0.95) 0%, rgba(50, 50, 50, 0) 65%),
-                url('sunny.webp') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: right;
-    padding: 0 5%;
-}
+            height: 100vh;
+            min-height: 600px;
+            /* A soft, dark gradient radiating from the bottom right corner */
+            background: 
+                        radial-gradient(ellipse at bottom right, rgba(50, 50, 50, 0.95) 0%, rgba(50, 50, 50, 0) 65%),
+                        url('sunny.webp') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+            padding: 0 5%;
+        }
 
         .hero-content {
             max-width: 800px;
@@ -417,8 +417,6 @@
         /* Therapy Parallax Background */
         .bg-therapy {
             background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1920&q=80');
-            
-            /*background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');*/
         }
 
         .parallax-section::before {
@@ -643,6 +641,7 @@
             gap: 30px;
             align-items: center;
             margin-top: 20px;
+            flex-wrap: wrap; /* Added to ensure logos don't overflow on smaller screens */
         }
 
         .footer-logos img {
@@ -650,6 +649,10 @@
             background: white;
             padding: 5px;
             border-radius: 4px;
+        }
+        
+        .footer-logos img.large-badge {
+            max-height: 150px;
         }
 
         .footer-bottom {
@@ -694,12 +697,12 @@
         }
 
         @media (min-width: 769px) and (max-width: 992px) {
-    .glass-grid .glass-box:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: calc(50% - 15px);
-    }
-}
+            .glass-grid .glass-box:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(50% - 15px);
+            }
+        }
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
@@ -727,22 +730,22 @@
         }
 
         @media (max-width: 500px) {
-    .hero h1 { 
-        font-size: 2.2rem; /* Reduces the main heading size */
-        margin-bottom: 15px; /* Brings the paragraph slightly closer */
-    }
-    
-    .hero p { 
-        font-size: 1rem; /* Reduces the paragraph size */
-        margin-bottom: 30px; /* Adjusts spacing before the buttons */
-    }
-}
+            .hero h1 { 
+                font-size: 2.2rem; 
+                margin-bottom: 15px; 
+            }
+            
+            .hero p { 
+                font-size: 1rem; 
+                margin-bottom: 30px; 
+            }
+        }
 
-@media (max-width: 300px) {
-    .logo-last-name {
-        display: none;
-    }
-}
+        @media (max-width: 300px) {
+            .logo-last-name {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -934,6 +937,8 @@
                 <div class="footer-logos">
                     <img src="BACP Logo - 386263 (2) - Ali Donat.png" alt="BACP Registered Member">
                     <img src="UKCP_PSA_combined_newlogo[75][82][23][91][31] - Ali Donat.jpg" alt="UKCP Accredited">
+                    <img src="CCCP.png" alt="Columbia Coaching Certification Program" class="large-badge">
+                    <img src="PCC.png" alt="ICF PCC Credential" class="large-badge">
                 </div>
             </div>
         </div>
