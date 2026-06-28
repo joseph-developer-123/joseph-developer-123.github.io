@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edília Rodrigues | Chartered Psychologist & CBT Therapist</title>
+    <title>Meridian Wellbeing | Edília Rodrigues | Chartered Psychologist & CBT Therapist</title>
     <meta name="description" content="Trauma-informed CBT therapy and consultancy by Edília Rodrigues. Specialising in domestic abuse recovery, migration trauma, and systemic inequality.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,17 +91,17 @@
         }
 
        .btn-pill {
-    border: 1px solid var(--navy-light); /* Reduced from 2px for a more refined, elegant outline */
-    color: var(--navy-light);
-    padding: 0.75rem 2.5rem;
-    border-radius: 0.25rem; /* Reduced from 0.75rem to make the corners sharper and more professional */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 500;
-    display: inline-block;
-    text-align: center;
-    background-color: transparent;
-    cursor: pointer;
-}
+            border: 1px solid var(--navy-light);
+            color: var(--navy-light);
+            padding: 0.75rem 2.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            display: inline-block;
+            text-align: center;
+            background-color: transparent;
+            cursor: pointer;
+        }
 
         .btn-pill:hover {
             background-color: var(--navy-light);
@@ -176,12 +176,26 @@
             gap: 2rem;
         }
 
+        .nav-links-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .nav-links-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
         .nav-link {
             color: var(--gray-500);
             font-weight: 500;
-            padding: 0.25rem 0;
+            padding: 0.15rem 0;
             position: relative;
             transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .nav-link:hover {
@@ -223,21 +237,25 @@
         }
 
         .mobile-menu {
-            position: fixed;
-            inset: 0;
-            background-color: var(--white);
-            z-index: 40;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            border-bottom-left-radius: 1rem; 
-            border-bottom-right-radius: 1rem; 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
+    position: fixed;
+    inset: 0;
+    background-color: var(--white);
+    z-index: 60; /* Changed from 40 to 60 so it sits on top of the navbar */
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center so items don't push off the top */
+    padding-top: 5rem; /* Adds space at the top so links clear the close button */
+    padding-bottom: 2rem;
+    gap: 1.5rem; /* Slightly reduced from 2rem to fit standard screens better */
+    overflow-y: auto; /* Allows the user to scroll if their screen is very short */
+    border-bottom-left-radius: 1rem; 
+    border-bottom-right-radius: 1rem; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+            
 
         .mobile-menu-open {
             transform: translateX(0);
@@ -296,8 +314,8 @@
             position: relative;
             min-height: 80vh; 
             height: auto;
-            padding-top: 5rem; /* Reduced to move content up */
-            padding-bottom: 0; /* Removed to allow flush touching */
+            padding-top: 5rem;
+            padding-bottom: 0; 
             display: flex;
             align-items: stretch; 
             overflow: hidden;
@@ -308,28 +326,28 @@
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Anchors image to bottom */
+            align-items: flex-end;
             height: auto;
             order: 1; 
-            padding-bottom: 0; /* Ensures touching */
+            padding-bottom: 0;
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Moves text up */
+            justify-content: center;
             order: 2; 
-            padding: 2rem 0.5rem 2rem 0.5rem; /* Top padding pushes it slightly from very top edge */
+            padding: 2rem 0.5rem 2rem 0.5rem;
         }
 
         .hero-image {
             position: relative;
             z-index: 10;
-            width: 100%; /* Resizes naturally with grid */
+            width: 100%;
             max-width: 56rem; 
             max-height: 90vh; 
             object-fit: contain;
-            object-position: bottom; /* Anchors inside the object box to the bottom */
+            object-position: bottom;
             display: block;
         }
 
@@ -383,11 +401,11 @@
         }
 
         .hero-title {
-    font-size: 1.75rem;
-    font-weight: 500; /* Reduced from 700 to feel less forceful */
-    line-height: 1.2; /* Increased from 1.1 for better spacing between lines */
-    margin-bottom: 1.5rem; /* Increased from 1rem for more breathing room */
-}
+            font-size: 1.75rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
 
         .hero-title-accent {
             color: var(--navy-light);
@@ -451,21 +469,21 @@
         }
 
         .about-section-white {
-    background-color: var(--white);
-    padding-bottom: 0; /* Removes the bottom padding */
-}
+            background-color: var(--white);
+            padding-bottom: 0;
+        }
 
-.about-section-white .about-image-wrapper {
-    align-self: end;
-}
+        .about-section-white .about-image-wrapper {
+            align-self: end;
+        }
 
         .about-section-gray {
             background-color: rgba(249, 250, 251, 0.5);
         }
 
         .about-section-gray .about-image-wrapper {
-    align-self: end;
-}
+            align-self: end;
+        }
 
         .about-container {
             display: grid;
@@ -497,15 +515,15 @@
         }
 
         .about-image {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 44rem; 
-    aspect-ratio: 1 / 2.0; 
-    max-height: 90vh; 
-    object-fit: cover;
-    object-position: top; /* Keeps the top visible and crops the bottom as needed */
-}
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 44rem; 
+            aspect-ratio: 1 / 2.0; 
+            max-height: 90vh; 
+            object-fit: cover;
+            object-position: top;
+        }
 
         .about-content {
             padding: 0 0.5rem;
@@ -514,12 +532,12 @@
         .about-title {
             font-size: 1.875rem;
             font-weight: 700;
-            margin-bottom: 2rem; /* Adjusted to match gap between paragraphs */
+            margin-bottom: 2rem;
         }
 
         .about-text {
             font-size: 1.125rem;
-            margin-bottom: 2rem; /* Decreased to tighten up but match title gap */
+            margin-bottom: 2rem;
             line-height: 1.625;
         }
 
@@ -1055,7 +1073,7 @@
             }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 970px) {
             .navbar-brand {
                 font-size: 1.5rem;
             }
@@ -1202,14 +1220,22 @@
     <nav class="navbar">
         <div class="container navbar-container">
             <div class="navbar-brand">
-                EDÍLIA<span class="navbar-brand-light">RODRIGUES</span>
+                MERIDIAN<span class="navbar-brand-light">WELLBEING</span>
             </div>
             
             <div class="navbar-menu">
-                <a href="/" class="nav-link nav-link-active">Home</a>
-                <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
-                <a href="https://alethara.com/edilia-draft-site/services" class="nav-link">Services</a>
-                <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                <div class="nav-links-wrapper">
+                    <div class="nav-links-row">
+                        <a href="/" class="nav-link nav-link-active">Home</a>
+                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
+                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link">International</a>
+                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link">Groups</a>
+                    </div>
+                    <div class="nav-links-row">
+                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link">Training, Consultancy & Research</a>
+                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
                 <div class="lang-toggle">EN | PT</div>
                 <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill btn-dark">Book Free Consult</a>
             </div>
@@ -1230,7 +1256,9 @@
         </button>
         <a href="/" class="mobile-nav-link mobile-nav-link-active">Home</a>
         <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link">About</a>
-        <a href="https://alethara.com/edilia-draft-site/services" class="mobile-nav-link">Services</a>
+        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link">International</a>
+        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link">Groups</a>
+        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link">Training, Consultancy & Research</a>
         <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link">Contact</a>
         <div class="lang-toggle mobile-lang-toggle">EN | PT</div>
         <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill">Book Free Consult</a>
@@ -1252,7 +1280,7 @@
 <br><span class="hero-title-accent">Your pace.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Chartered Psychologist and CBT Therapist specialising in domestic abuse recovery, migration trauma, and navigating systemic and social barriers.
+                    Chartered Psychologist and CBT Therapist specialising in domestic abuse recovery, migration trauma, and navigating systemic inequality.
                 </p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn-pill btn-primary">Start Your Journey</a>
@@ -1289,7 +1317,7 @@
                 <h2 class="about-title">A Safe Space for Deep Healing</h2>
                 <p class="about-text">
                     I provide trauma-informed psychological support tailored for individuals experiencing depression, anxiety, and complex emotional difficulties. 
-                    My practice is grounded in an understanding of how experiences such as abuse, discrimination, migration, and inequality can shape a person’s sense of safety, identity, and wellbeing.
+                    My practice is grounded in understanding the profound impacts of abuse, discrimination, migration, and systemic marginalisation.
                 </p>
                 <p class="about-text">
                     Therapy should not feel cold or purely clinical. It is a collaborative relationship where we address both your individual experiences and the broader societal contexts that shape them, working together towards lasting empowerment.
@@ -1336,8 +1364,6 @@
     </div>
 </div>
 
-
-
     <section id="services" class="services-section">
         
         <div class="services-pattern"></div>
@@ -1359,7 +1385,7 @@
                     
                     <div class="service-info">
                         <h3 class="service-card-title">Complex Trauma</h3>
-                        <p class="service-card-text">Specialised CBT working with the impact of domestic abuse, repeated or overwhelming life experiences, and the ways these shape how you feel, relate, and cope - supporting you to rebuild safety and move forward.</p>
+                        <p class="service-card-text">Specialised CBT for domestic abuse recovery, managing triggers, and cultivating long-term survival and thriving strategies.</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
                             Learn more 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -1397,8 +1423,8 @@
                     <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600" alt="Focused Groups" class="service-img">
                     
                     <div class="service-info">
-                        <h3 class="service-card-title">Group Support</h3>
-                        <p class="service-card-text">Small, community-driven groups for individuals recovering from controlling or difficult relationship experiences, including coercive control. (LGBTQ+ inclusive).</p>
+                        <h3 class="service-card-title">Focused Groups</h3>
+                        <p class="service-card-text">Small, community-driven therapy pods recovering from coercive control in safe-space environments (LGBTQ+ inclusive).</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
                             Learn more 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -1500,7 +1526,7 @@
         <div class="container footer-grid">
             
             <div class="footer-brand">
-                <h3 class="footer-brand-title">EDÍLIA RODRIGUES</h3>
+                <h3 class="footer-brand-title">MERIDIAN WELLBEING</h3>
                 <p class="footer-brand-text">Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care.</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <img src="Chartered Psychologist Logo - Business Use - Edilia Rodrigues.jpg" alt="BPS Logo" class="footer-logo">
@@ -1531,7 +1557,7 @@
         
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Edília Rodrigues. All rights reserved.</p>
+                <p>&copy; 2026 Meridian Wellbeing. All rights reserved.</p>
                 </div>
         </div>
     </footer>
