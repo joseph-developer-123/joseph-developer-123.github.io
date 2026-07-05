@@ -237,24 +237,24 @@
         }
 
         .mobile-menu {
-    position: fixed;
-    inset: 0;
-    background-color: var(--white);
-    z-index: 60; /* Changed from 40 to 60 so it sits on top of the navbar */
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Changed from center so items don't push off the top */
-    padding-top: 5rem; /* Adds space at the top so links clear the close button */
-    padding-bottom: 2rem;
-    gap: 1.5rem; /* Slightly reduced from 2rem to fit standard screens better */
-    overflow-y: auto; /* Allows the user to scroll if their screen is very short */
-    border-bottom-left-radius: 1rem; 
-    border-bottom-right-radius: 1rem; 
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
+            position: fixed;
+            inset: 0;
+            background-color: var(--white);
+            z-index: 60; 
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            padding-top: 5rem; 
+            padding-bottom: 2rem;
+            gap: 1.5rem; 
+            overflow-y: auto; 
+            border-bottom-left-radius: 1rem; 
+            border-bottom-right-radius: 1rem; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
             
 
         .mobile-menu-open {
@@ -1226,18 +1226,18 @@
             <div class="navbar-menu">
                 <div class="nav-links-wrapper">
                     <div class="nav-links-row">
-                        <a href="/" class="nav-link nav-link-active">Home</a>
-                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
-                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link">International</a>
-                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link">Groups</a>
+                        <a href="/" class="nav-link nav-link-active" data-en="Home" data-pt="Início">Home</a>
+                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link" data-en="About" data-pt="Sobre Mim">About</a>
+                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link" data-en="International" data-pt="Internacional">International</a>
+                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link" data-en="Groups" data-pt="Grupos">Groups</a>
                     </div>
                     <div class="nav-links-row">
-                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link">Training, Consultancy & Research</a>
-                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
                     </div>
                 </div>
-                <div class="lang-toggle">EN | PT</div>
-                <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill btn-dark">Book Free Consult</a>
+                <div class="lang-toggle" onclick="switchLanguage(document.documentElement.lang === 'en' ? 'pt' : 'en')">EN | PT</div>
+                <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill btn-dark" data-en="Book Free Consult" data-pt="Marcar Consulta Gratuita">Book Free Consult</a>
             </div>
 
             <button class="navbar-toggle" id="menu-btn" aria-label="Toggle Menu">
@@ -1254,18 +1254,17 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <a href="/" class="mobile-nav-link mobile-nav-link-active">Home</a>
-        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link">About</a>
-        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link">International</a>
-        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link">Groups</a>
-        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link">Training, Consultancy & Research</a>
-        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link">Contact</a>
-        <div class="lang-toggle mobile-lang-toggle">EN | PT</div>
-        <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill">Book Free Consult</a>
+        <a href="/" class="mobile-nav-link mobile-nav-link-active" data-en="Home" data-pt="Início">Home</a>
+        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link" data-en="About" data-pt="Sobre Mim">About</a>
+        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link" data-en="International" data-pt="Internacional">International</a>
+        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link" data-en="Groups" data-pt="Grupos">Groups</a>
+        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
+        <div class="lang-toggle mobile-lang-toggle" onclick="switchLanguage(document.documentElement.lang === 'en' ? 'pt' : 'en')">EN | PT</div>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill" data-en="Book Free Consult" data-pt="Marcar Consulta Gratuita">Book Free Consult</a>
     </div>
 
-<!-- ABOUT HERO -->
-    <section class="hero">
+<section class="hero">
         <div class="container hero-container">
 
             <div class="hero-image-wrapper" data-aos="fade-right">
@@ -1275,52 +1274,50 @@
             </div>
 
             <div class="hero-content" data-aos="fade-left">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-en="About<br><span class='hero-title-accent'>Edília.</span>" data-pt="Sobre a<br><span class='hero-title-accent'>Edília.</span>">
                     About<br><span class="hero-title-accent">Edília.</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-en="CBT Therapist and Chartered Psychologist. Where mental health, justice, and social change meet." data-pt="Terapeuta CBT e Psicóloga Credenciada. Onde a saúde mental, a justiça e a mudança social se encontram.">
                     CBT Therapist and Chartered Psychologist. Where mental health, justice, and social change meet.
                 </p>
                 <div class="hero-actions">
-                    <a href="contact" class="btn-pill btn-primary">Book a Free Call</a>
-                    <a href="services" class="btn-pill">View Services</a>
+                    <a href="contact" class="btn-pill btn-primary" data-en="Book a Free Call" data-pt="Marcar Chamada Gratuita">Book a Free Call</a>
+                    <a href="services" class="btn-pill" data-en="View Services" data-pt="Ver Serviços">View Services</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- QUALIFICATIONS BAR -->
     <div class="qualifications">
         <div class="container qualifications-container">
             <span class="qualification-item">PhD (Forensic Science)</span>
             <span class="qualification-divider">|</span>
             <span class="qualification-item">MSc Forensic Psychology &amp; Social Exclusion</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">PgDip CBT (in progress)</span>
+            <span class="qualification-item">PgDip CBT</span>
             <span class="qualification-divider">|</span>
             <span class="qualification-item">BPS Chartered Psychologist</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">BABCP Member</span>
+            <span class="qualification-item">BABCP-Accredited Therapist</span>
         </div>
     </div>
 
-    <!-- MY STORY -->
     <section class="about-section about-section-white">
         <div class="container about-container">
 
 <div class="about-content" data-aos="fade-right">
-                <h2 class="about-title">My Story</h2>
-                <p class="about-text">
+                <h2 class="about-title" data-en="My Story" data-pt="A Minha História">My Story</h2>
+                <p class="about-text" data-en="I am Edília, a CBT Therapist and Chartered Psychologist integrating clinical practice, forensic psychology, and social justice. I believe psychological distress is inseparable from the systems and structures shaping our daily lives." data-pt="Sou a Edília, uma Terapeuta CBT e Psicóloga Credenciada que integra a prática clínica, a psicologia forense e a justiça social. Acredito que o sofrimento psicológico é indissociável dos sistemas e das estruturas que moldam o nosso quotidiano.">
                     I am Edília, a CBT Therapist and Chartered Psychologist integrating clinical practice, forensic psychology, and social justice. I believe psychological distress is inseparable from the systems and structures shaping our daily lives.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="I specialise in trauma from domestic abuse, migration, and inequality. I bring this same non-judgmental, compassionate care to everyone I work with, including men." data-pt="Especializo-me em trauma decorrente de violência doméstica, migração e desigualdade social. Trago este mesmo cuidado compassivo e isento de julgamentos a todas as pessoas com quem trabalho, incluindo homens.">
                     I specialise in trauma from domestic abuse, migration, and inequality. I bring this same non-judgmental, compassionate care to everyone I work with, including men.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="My background studying violence and systemic disadvantage in forensic contexts means I understand complexity—and I know the immense courage it takes to ask for help." data-pt="O meu percurso no estudo da violência e da desvantagem sistémica em contextos forenses significa que compreendo a complexidade — e conheço a imensa coragem necessária para pedir ajuda.">
                     My background studying violence and systemic disadvantage in forensic contexts means I understand complexity—and I know the immense courage it takes to ask for help.
                 </p>
-                <a href="contact" class="btn-pill">Start with a Free 20-Minute Call</a>
+                <a href="contact" class="btn-pill" data-en="Start with a Free 20-Minute Call" data-pt="Comece com uma Chamada Gratuita de 20 Minutos">Start with a Free 20-Minute Call</a>
             </div>
 
             <div class="about-image-wrapper" data-aos="fade-left">
@@ -1330,7 +1327,6 @@
         </div>
     </section>
 
-    <!-- MY APPROACH -->
     <section class="about-section about-section-gray">
         <div class="container about-container">
 
@@ -1339,14 +1335,14 @@
             </div>
 
             <div class="about-content" data-aos="fade-left">
-                <h2 class="about-title">My Approach</h2>
-                <p class="about-text">
+                <h2 class="about-title" data-en="My Approach" data-pt="A Minha Abordagem">My Approach</h2>
+                <p class="about-text" data-en="I work using Cognitive Behavioural Therapy (CBT) within a trauma-informed framework. This means we work with your thoughts, feelings, and behaviours - but always with an awareness of the broader context that has shaped your experiences. Therapy with me is collaborative, honest, and grounded in respect for your pace." data-pt="Trabalho utilizando a Terapia Cognitivo-Comportamental (CBT) dentro de uma abordagem informada pelo trauma. Isto significa que intervimos nos seus pensamentos, sentimentos e comportamentos - mas sempre com a consciência do contexto mais amplo que moldou as suas experiências. A terapia comigo é colaborativa, honesta e fundamentada no respeito pelo seu próprio ritmo.">
                     I work using Cognitive Behavioural Therapy (CBT) within a trauma-informed framework. This means we work with your thoughts, feelings, and behaviours - but always with an awareness of the broader context that has shaped your experiences. Therapy with me is collaborative, honest, and grounded in respect for your pace.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="I do not believe in a one-size-fits-all approach. Many of the people I work with have faced not only personal pain but systemic barriers - discrimination, displacement, injustice. I work to create a space that feels genuinely safe, culturally aware, and free from judgment." data-pt="Não acredito numa abordagem de tamanho único. Muitas das pessoas com quem trabalho enfrentaram não apenas dor pessoal, mas barreiras sistémicas — discriminação, deslocação, injustiça. Dedico-me a criar um espaço que pareça genuinamente seguro, culturalmente consciente e livre de julgamentos.">
                     I do not believe in a one-size-fits-all approach. Many of the people I work with have faced not only personal pain but systemic barriers - discrimination, displacement, injustice. I work to create a space that feels genuinely safe, culturally aware, and free from judgment.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="Sessions are delivered online, making therapy accessible wherever you are - across the UK and internationally, including for Portuguese-speaking clients worldwide." data-pt="As sessões são realizadas online, tornando a terapia acessível onde quer que esteja — em todo o Reino Unido e internacionalmente, incluindo para clientes que falam português em todo o mundo.">
                     Sessions are delivered online, making therapy accessible wherever you are - across the UK and internationally, including for Portuguese-speaking clients worldwide.
                 </p>
             </div>
@@ -1354,19 +1350,17 @@
         </div>
     </section>
 
-    <!-- QUOTE PARALLAX -->
     <div class="parallax-section" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1920&auto=format&fit=crop');">
         <div class="parallax-content" data-aos="zoom-in">
             <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <h2 class="parallax-quote">
+            <h2 class="parallax-quote" data-en="&quot;I bring forensic psychology, clinical expertise, and a deep understanding of the social forces that shape human suffering - because people deserve more than surface-level support.&quot;" data-pt="&quot;Concilio a psicologia forense, a especialização clínica e uma profunda compreensão das forças sociais que moldam o sofrimento humano — porque as pessoas merecem mais do que um apoio superficial.&quot;">
                 "I bring forensic psychology, clinical expertise, and a deep understanding of the social forces that shape human suffering - because people deserve more than surface-level support."
             </h2>
         </div>
     </div>
 
-    <!-- CREDENTIALS & EXPERTISE -->
     <section id="credentials" class="services-section">
 
         <div class="services-pattern"></div>
@@ -1376,66 +1370,65 @@
         <div class="container relative z-10">
 
             <div class="services-header" data-aos="fade-up">
-                <h2 class="services-title">Qualifications &amp; Expertise</h2>
+                <h2 class="services-title" data-en="Qualifications &amp; Expertise" data-pt="Qualificações e Especialização">Qualifications &amp; Expertise</h2>
                 <div class="services-divider"></div>
-                <p class="services-subtitle">A distinctive combination of academic rigour, clinical training, and lived professional experience.</p>
+                <p class="services-subtitle" data-en="A distinctive combination of academic rigour, clinical training, and lived professional experience." data-pt="Uma combinação distinta de rigor académico, formação clínica e experiência profissional vivida.">A distinctive combination of academic rigour, clinical training, and lived professional experience.</p>
             </div>
 
             <div class="services-grid">
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-info">
-                        <h3 class="service-card-title">Academic Background</h3>
-                        <p class="service-card-text">PhD in Forensic Science · MSc in Forensic Psychology &amp; Social Exclusion · PgDip CBT (completing May 2026)</p>
+                        <h3 class="service-card-title" data-en="Academic Background" data-pt="Percurso Académico">Academic Background</h3>
+                        <p class="service-card-text" data-en="PhD in Forensic Science · MSc in Forensic Psychology &amp; Social Exclusion · PgDip CBT" data-pt="Doutoramento em Ciências Forenses · Mestrado em Psicologia Forense e Exclusão Social · Pós-Graduação em CBT">PhD in Forensic Science · MSc in Forensic Psychology &amp; Social Exclusion · PgDip CBT</p>
                     </div>
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-info">
-                        <h3 class="service-card-title">Professional Accreditation</h3>
-                        <p class="service-card-text">Chartered Psychologist with the British Psychological Society (BPS) · BABCP Member · Internationally qualified coach</p>
+                        <h3 class="service-card-title" data-en="Professional Accreditation" data-pt="Acreditação Profissional">Professional Accreditation</h3>
+                        <p class="service-card-text" data-en="Chartered Psychologist with the British Psychological Society (BPS) · BABCP-Accredited Therapist · Internationally qualified coach" data-pt="Psicóloga Credenciada pela British Psychological Society (BPS) · Terapeuta Acreditada pela BABCP · Coach qualificada internacionalmente">Chartered Psychologist with the British Psychological Society (BPS) · BABCP-Accredited Therapist · Internationally qualified coach</p>
                     </div>
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-info">
-                        <h3 class="service-card-title">Clinical Specialisms</h3>
-                        <p class="service-card-text">Domestic abuse and gender-based violence · Migration and cultural adjustment · Trauma, anxiety, and depression · Discrimination and identity · Complex presentations · Addiction</p>
+                        <h3 class="service-card-title" data-en="Clinical Specialisms" data-pt="Especialidades Clínicas">Clinical Specialisms</h3>
+                        <p class="service-card-text" data-en="Domestic abuse and gender-based violence · Migration and cultural adjustment · Trauma, anxiety, and depression · Discrimination and identity · Complex presentations" data-pt="Violência doméstica e de género · Migração e adaptação cultural · Trauma, ansiedade e depressão · Discriminação e identidade · Apresentações complexas">Domestic abuse and gender-based violence · Migration and cultural adjustment · Trauma, anxiety, and depression · Discrimination and identity · Complex presentations</p>
                     </div>
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-info">
-                        <h3 class="service-card-title">Languages</h3>
-                        <p class="service-card-text">Therapy and consultancy available in English, Portuguese, and Creole - supporting clients across the UK, Europe, and Portuguese-speaking countries internationally.</p>
+                        <h3 class="service-card-title" data-en="Languages" data-pt="Idiomas">Languages</h3>
+                        <p class="service-card-text" data-en="Therapy and consultancy available in English, Portuguese, and Creole - supporting clients across the UK, Europe, and Portuguese-speaking countries internationally." data-pt="Terapia e consultoria disponíveis em Inglês, Português e Crioulo — apoiando clientes no Reino Unido, Europa e países de língua oficial portuguesa a nível internacional.">Therapy and consultancy available in English, Portuguese, and Creole - supporting clients across the UK, Europe, and Portuguese-speaking countries internationally.</p>
                     </div>
                 </div>
 
             </div>
 
             <div class="services-footer" data-aos="fade-up">
-                <a href="contact" class="btn-pill btn-outline-white">Book a Free 20-Minute Call</a>
+                <a href="contact" class="btn-pill btn-outline-white" data-en="Book a Free 20-Minute Call" data-pt="Marcar Chamada Gratuita de 20 Minutos">Book a Free 20-Minute Call</a>
             </div>
 
         </div>
     </section>
 
-    <!-- WHO I WORK WITH -->
     <section class="about-section about-section-white">
         <div class="container about-container">
 
             <div class="about-content" data-aos="fade-right">
-                <h2 class="about-title">Who I Work With</h2>
-                <p class="about-text">
+                <h2 class="about-title" data-en="Who I Work With" data-pt="Com Quem Trabalho">Who I Work With</h2>
+                <p class="about-text" data-en="I work with adults (18+) online, across the UK and internationally. My clients come from many different backgrounds, cultures, and life stages — what they share is a desire to understand themselves more deeply and move forward." data-pt="Trabalho com adultos (18+) online, em todo o Reino Unido e internacionalmente. Os meus clientes provêm de diversos contextos, culturas e fases da vida — o que partilham é o desejo de se compreenderem mais profundamente e de avançarem no seu percurso.">
                     I work with adults (18+) online, across the UK and internationally. My clients come from many different backgrounds, cultures, and life stages — what they share is a desire to understand themselves more deeply and move forward.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="I work with people experiencing depression, anxiety, and complex emotional difficulties, particularly those connected to domestic abuse, discrimination, migration, and relational trauma. I also work with men, and welcome clients navigating identity, cultural adjustment, and the aftermath of difficult or unjust systems." data-pt="Trabalho com pessoas que vivenciam depressão, ansiedade e dificuldades emocionais complexas, particularmente aquelas ligadas a situações de violência doméstica, discriminação, migração e trauma relacional. Também trabalho com homens, e acolho clientes que estejam a lidar com questões de identidade, ajustamento cultural e as repercussões de sistemas complexos ou injustos.">
                     I work with people experiencing depression, anxiety, and complex emotional difficulties, particularly those connected to domestic abuse, discrimination, migration, and relational trauma. I also work with men, and welcome clients navigating identity, cultural adjustment, and the aftermath of difficult or unjust systems.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="For Portuguese-speaking clients based in the UK, Europe, Africa, or elsewhere — I offer therapy and consultancy in Portuguese, in a space that understands your cultural context." data-pt="Para clientes de língua portuguesa sediados no Reino Unido, Europa, África ou qualquer outro lugar — ofereço terapia e consultoria em português, num espaço seguro que compreende a sua matriz cultural.">
                     For Portuguese-speaking clients based in the UK, Europe, Africa, or elsewhere — I offer therapy and consultancy in Portuguese, in a space that understands your cultural context.
                 </p>
-                <a href="services" class="btn-pill">Explore All Services</a>
+                <a href="services" class="btn-pill" data-en="Explore All Services" data-pt="Explorar Todos os Serviços">Explore All Services</a>
             </div>
 
             <div class="about-image-wrapper" data-aos="fade-left">
@@ -1450,7 +1443,7 @@
         <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
-        <h2 class="parallax-quote">
+        <h2 class="parallax-quote" data-en="&quot;Healing isn't just about moving on—it's about rebuilding a sense of safety in a world that felt unsafe.&quot;" data-pt="&quot;A cura não se resume a seguir em frente — trata-se de reconstruir um sentido de segurança num mundo que se tornou inseguro.&quot;">
             "Healing isn't just about moving on—it's about rebuilding a sense of safety in a world that felt unsafe."
         </h2>
     </div>
@@ -1465,9 +1458,9 @@
 
         <div class="container relative z-10">
             <div class="services-header" data-aos="fade-up">
-                <h2 class="services-title">Therapeutic Expertise</h2>
+                <h2 class="services-title" data-en="Therapeutic Expertise" data-pt="Competência Terapêutica">Therapeutic Expertise</h2>
                 <div class="services-divider"></div>
-                <p class="services-subtitle">Comprehensive support intersecting psychological evidence and cultural awareness.</p>
+                <p class="services-subtitle" data-en="Comprehensive support intersecting psychological evidence and cultural awareness." data-pt="Apoio abrangente que cruza a evidência psicológica com a consciência cultural.">Comprehensive support intersecting psychological evidence and cultural awareness.</p>
             </div>
 
             <div class="services-grid">
@@ -1476,10 +1469,10 @@
                     <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600" alt="Trauma Support" class="service-img">
                     
                     <div class="service-info">
-                        <h3 class="service-card-title">Complex Trauma</h3>
-                        <p class="service-card-text">Specialised CBT for domestic abuse recovery, managing triggers, and cultivating long-term survival and thriving strategies.</p>
+                        <h3 class="service-card-title" data-en="Complex Trauma" data-pt="Trauma Complexo">Complex Trauma</h3>
+                        <p class="service-card-text" data-en="Specialised CBT for domestic abuse recovery, managing triggers, and cultivating long-term survival and thriving strategies." data-pt="CBT especializada para recuperação de violência doméstica, gestão de triggers e desenvolvimento de estratégias de sobrevivência a longo prazo.">Specialised CBT for domestic abuse recovery, managing triggers, and cultivating long-term survival and thriving strategies.</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                            Learn more 
+                            <span data-en="Learn more" data-pt="Saber mais">Learn more</span> 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -1489,10 +1482,10 @@
                     <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" alt="Cultural Awareness" class="service-img">
                     
                     <div class="service-info">
-                        <h3 class="service-card-title">Migration & Identity</h3>
-                        <p class="service-card-text">Understanding the unique psychological impact of cultural adjustment, intergenerational trauma, and systemic racism.</p>
+                        <h3 class="service-card-title" data-en="Migration & Identity" data-pt="Migração e Identidade">Migration & Identity</h3>
+                        <p class="service-card-text" data-en="Understanding the unique psychological impact of cultural adjustment, intergenerational trauma, and systemic racism." data-pt="Compreensão do impacto psicológico singular do ajustamento cultural, do trauma intergeracional e do racismo sistémico.">Understanding the unique psychological impact of cultural adjustment, intergenerational trauma, and systemic racism.</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                            Learn more 
+                            <span data-en="Learn more" data-pt="Saber mais">Learn more</span> 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -1502,10 +1495,10 @@
                     <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" alt="Consultancy" class="service-img">
                     
                     <div class="service-info">
-                        <h3 class="service-card-title">Consultancy</h3>
-                        <p class="service-card-text">High-level, trauma-informed training packages for international organisations, social services, and justice systems.</p>
+                        <h3 class="service-card-title" data-en="Training, Consultancy &amp; Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy &amp; Research</h3>
+                        <p class="service-card-text" data-en="High-level, trauma-informed training packages for international organisations, social services, and justice systems, with a specific focus on Portuguese-speaking countries." data-pt="Programas de formação especializada e informada pelo trauma para organizações internacionais, serviços sociais e sistemas de justiça, com foco em países de língua portuguesa.">High-level, trauma-informed training packages for international organisations, social services, and justice systems, with a specific focus on Portuguese-speaking countries.</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                            Learn more 
+                            <span data-en="Learn more" data-pt="Saber mais">Learn more</span> 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -1515,10 +1508,10 @@
                     <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600" alt="Focused Groups" class="service-img">
                     
                     <div class="service-info">
-                        <h3 class="service-card-title">Focused Groups</h3>
-                        <p class="service-card-text">Small, community-driven therapy pods recovering from coercive control in safe-space environments (LGBTQ+ inclusive).</p>
+                        <h3 class="service-card-title" data-en="Focused Groups" data-pt="Grupos Focados">Focused Groups</h3>
+                        <p class="service-card-text" data-en="Small, community-driven therapy pods recovering from coercive control in safe-space environments (LGBTQ+ inclusive)." data-pt="Pequenos grupos terapêuticos focados no apoio à recuperação de dinâmicas de controlo coercivo, integrados em ambientes seguros (inclusivos para a comunidade LGBTQ+).">Small, community-driven therapy pods recovering from coercive control in safe-space environments (LGBTQ+ inclusive).</p>
                         <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                            Learn more 
+                            <span data-en="Learn more" data-pt="Saber mais">Learn more</span> 
                             <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -1527,14 +1520,14 @@
             </div>
             
             <div class="services-footer" data-aos="fade-up">
-                <a href="#contact" class="btn-pill btn-outline-white">Discuss Your Needs</a>
+                <a href="#contact" class="btn-pill btn-outline-white" data-en="Discuss Your Needs" data-pt="Falar Sobre as Suas Necessidades">Discuss Your Needs</a>
             </div>
         </div>
     </section>
 
     <div class="parallax-section" style="margin-top: 5rem; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
     <div class="parallax-content" data-aos="zoom-in">
-        <h2 class="parallax-quote" style="font-style: normal;">
+        <h2 class="parallax-quote" style="font-style: normal;" data-en="Bridging the gap between policy, practice, and lived reality." data-pt="Fazendo a ponte entre a política estrutural, a prática clínica e a realidade vivida.">
             Bridging the gap between policy, practice, and lived reality.
         </h2>
     </div>
@@ -1543,7 +1536,7 @@
         <div class="container">
             
             <div class="contact-header" data-aos="fade-up">
-                <h2 class="contact-title">Take the First Step</h2>
+                <h2 class="contact-title" data-en="Take the First Step" data-pt="Dê o Primeiro Passo">Take the First Step</h2>
                 <div class="contact-divider"></div>
             </div>
 
@@ -1551,29 +1544,29 @@
                 
                 <div class="contact-info">
                     <div>
-                        <h3 class="contact-info-title">Book Your Free Call</h3>
-                        <p class="contact-info-text">I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together.</p>
+                        <h3 class="contact-info-title" data-en="Book Your Free Call" data-pt="Marque a sua Chamada Gratuita">Book Your Free Call</h3>
+                        <p class="contact-info-text" data-en="I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together." data-pt="Ofereço uma consulta exploratória gratuita de 20 minutos para avaliarmos as suas necessidades específicas, esclarecer dúvidas e estruturar a nossa intervenção colaborativa.">I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together.</p>
                         
                         <ul class="contact-list">
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Global Access</h4>
-                                    <p class="contact-list-desc">Online Sessions (UK & International)</p>
+                                    <h4 class="contact-list-title" data-en="Global Access" data-pt="Acesso Global">Global Access</h4>
+                                    <p class="contact-list-desc" data-en="Online Sessions (UK & International)" data-pt="Sessões Online (Reino Unido e Internacional)">Online Sessions (UK & International)</p>
                                 </div>
                             </li>
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Multilingual Support</h4>
-                                    <p class="contact-list-desc">English, Portuguese, Creole</p>
+                                    <h4 class="contact-list-title" data-en="Multilingual Support" data-pt="Apoio Multilingue">Multilingual Support</h4>
+                                    <p class="contact-list-desc" data-en="English, Portuguese, Creole" data-pt="Inglês, Português, Crioulo">English, Portuguese, Creole</p>
                                 </div>
                             </li>
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Transparent Fees</h4>
-                                    <p class="contact-list-desc">£80 per 50-Minute Session</p>
+                                    <h4 class="contact-list-title" data-en="Transparent Fees" data-pt="Honorários Transparentes">Transparent Fees</h4>
+                                    <p class="contact-list-desc" data-en="£80 per 50-Minute Session" data-pt="£80 por Sessão de 50 Minutos">£80 per 50-Minute Session</p>
                                 </div>
                             </li>
                         </ul>
@@ -1584,26 +1577,26 @@
                     <form action="#" class="contact-form">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label class="form-label">First Name</label>
-                                <input type="text" placeholder="Jane" class="form-input">
+                                <label class="form-label" data-en="First Name" data-pt="Primeiro Nome">First Name</label>
+                                <input type="text" placeholder="Jane" data-placeholder-en="Jane" data-placeholder-pt="Maria" class="form-input">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" placeholder="Doe" class="form-input">
+                                <label class="form-label" data-en="Last Name" data-pt="Apelido">Last Name</label>
+                                <input type="text" placeholder="Doe" data-placeholder-en="Doe" data-placeholder-pt="Silva" class="form-input">
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" placeholder="jane@example.com" class="form-input">
+                            <label class="form-label" data-en="Email Address" data-pt="Endereço de Email">Email Address</label>
+                            <input type="email" placeholder="jane@example.com" data-placeholder-en="jane@example.com" data-placeholder-pt="maria@exemplo.com" class="form-input">
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">How can I help you?</label>
-                            <textarea placeholder="Please briefly describe what you are looking for..." rows="5" class="form-textarea"></textarea>
+                            <label class="form-label" data-en="How can I help you?" data-pt="Como posso ajudar?">How can I help you?</label>
+                            <textarea placeholder="Please briefly describe what you are looking for..." data-placeholder-en="Please briefly describe what you are looking for..." data-placeholder-pt="Por favor, descreva brevemente o motivo do seu contacto..." rows="5" class="form-textarea"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn-pill btn-dark form-submit">Send Secure Message</button>
+                        <button type="submit" class="btn-pill btn-dark form-submit" data-en="Send Secure Message" data-pt="Enviar Mensagem Segura">Send Secure Message</button>
                     </form>
                 </div>
             </div>
@@ -1619,28 +1612,28 @@
             
             <div class="footer-brand">
                 <h3 class="footer-brand-title">MERIDIAN WELLBEING</h3>
-                <p class="footer-brand-text">Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care.</p>
+                <p class="footer-brand-text" data-en="Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care." data-pt="Psicóloga Credenciada e Terapeuta CBT promovendo a recuperação clínica através de cuidados compassivos e informados pelo trauma.">Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care.</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <img src="../Chartered Psychologist Logo - Business Use - Edilia Rodrigues.jpg" alt="BPS Logo" class="footer-logo">
                 </div>
             </div>
             
             <div>
-                <h4 class="footer-heading">Navigation</h4>
+                <h4 class="footer-heading" data-en="Navigation" data-pt="Navegação">Navigation</h4>
                 <ul class="footer-nav-list">
-                    <li><a href="/" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Home</a></li>
-                    <li><a href="https://alethara.com/edilia-draft-site/about" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> About Me</a></li>
-                    <li><a href="https://alethara.com/edilia-draft-site/services" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Therapy Services</a></li>
-                    <li><a href="#" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Int. Consultancy</a></li>
+                    <li><a href="/" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Home" data-pt="Início">Home</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/about" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="About Me" data-pt="Sobre Mim">About Me</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/services" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Therapy Services" data-pt="Serviços Clínicos">Therapy Services</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/training" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Training, Consultancy &amp; Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy &amp; Research</span></a></li>
                 </ul>
             </div>
             
             <div>
-                <h4 class="footer-heading">Practice Information</h4>
-                <p class="footer-info-text">
+                <h4 class="footer-heading" data-en="Practice Information" data-pt="Informações do Consultório">Practice Information</h4>
+                <p class="footer-info-text" data-en="Online Practice<br>UK & Worldwide" data-pt="Consulta Online<br>Reino Unido e Internacional">
                     Online Practice<br>UK & Worldwide
                 </p>
-                <p class="footer-info-text">
+                <p class="footer-info-text" data-en="Specialising in Gender-Based Violence & Migration Trauma" data-pt="Especializada em Violência de Género e Trauma de Migração">
                     Specialising in Gender-Based Violence & Migration Trauma
                 </p>
             </div>
@@ -1649,13 +1642,29 @@
         
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Meridian Wellbeing. All rights reserved.</p>
+                <p data-en="&copy; 2026 Meridian Wellbeing. All rights reserved." data-pt="&copy; 2026 Meridian Wellbeing. Todos os direitos reservados.">&copy; 2026 Meridian Wellbeing. All rights reserved.</p>
                 </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + lang);
+            });
+            
+            document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+                el.setAttribute('placeholder', el.getAttribute('data-placeholder-' + lang));
+            });
+            
+            document.querySelectorAll('.lang-toggle').forEach(el => {
+                el.textContent = lang === 'en' ? 'EN | PT' : 'PT | EN';
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
                 duration: 900,
