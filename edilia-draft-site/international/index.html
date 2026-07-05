@@ -171,7 +171,7 @@
         }
 
         .navbar-menu {
-            display: none;
+            display: flex;
             align-items: center;
             gap: 2rem;
         }
@@ -213,13 +213,17 @@
             border: 1.5px solid var(--gray-200);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.2s ease;
             color: var(--gray-600);
+            display: flex;
+            gap: 0.5rem;
         }
 
-        .lang-toggle:hover {
-            border-color: var(--navy-light);
+        .lang-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
             color: var(--navy-light);
         }
 
@@ -1226,18 +1230,20 @@
             <div class="navbar-menu">
                 <div class="nav-links-wrapper">
                     <div class="nav-links-row">
-                        <a href="/" class="nav-link nav-link-active">Home</a>
-                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
-                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link">International</a>
-                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link">Groups</a>
+                        <a href="/" class="nav-link nav-link-active" data-en="Home" data-pt="Início">Home</a>
+                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link" data-en="About" data-pt="Sobre">About</a>
+                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link" data-en="International" data-pt="Internacional">International</a>
+                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link" data-en="Groups" data-pt="Grupos">Groups</a>
                     </div>
                     <div class="nav-links-row">
-                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link">Training, Consultancy & Research</a>
-                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
                     </div>
                 </div>
-                <div class="lang-toggle">EN | PT</div>
-                <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill btn-dark">Book Free Consult</a>
+                <div class="lang-toggle">
+                    <span class="lang-btn active" data-lang="en">EN</span> | <span class="lang-btn" data-lang="pt">PT</span>
+                </div>
+                <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill btn-dark" data-en="Book Free Consult" data-pt="Agendar Consulta Gratuita">Book Free Consult</a>
             </div>
 
             <button class="navbar-toggle" id="menu-btn" aria-label="Toggle Menu">
@@ -1254,14 +1260,16 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <a href="/" class="mobile-nav-link mobile-nav-link-active">Home</a>
-        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link">About</a>
-        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link">International</a>
-        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link">Groups</a>
-        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link">Training, Consultancy & Research</a>
-        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link">Contact</a>
-        <div class="lang-toggle mobile-lang-toggle">EN | PT</div>
-        <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill">Book Free Consult</a>
+        <a href="/" class="mobile-nav-link mobile-nav-link-active" data-en="Home" data-pt="Início">Home</a>
+        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link" data-en="About" data-pt="Sobre">About</a>
+        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link" data-en="International" data-pt="Internacional">International</a>
+        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link" data-en="Groups" data-pt="Grupos">Groups</a>
+        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
+        <div class="lang-toggle mobile-lang-toggle">
+            <span class="lang-btn active" data-lang="en">EN</span> | <span class="lang-btn" data-lang="pt">PT</span>
+        </div>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="btn-pill" data-en="Book Free Consult" data-pt="Agendar Consulta Gratuita">Book Free Consult</a>
     </div>
 
 <section class="hero">
@@ -1274,15 +1282,15 @@
             </div>
 
             <div class="hero-content" data-aos="fade-left">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-en="About<br><span class='hero-title-accent'>Edília.</span>" data-pt="Sobre<br><span class='hero-title-accent'>Edília.</span>">
                     About<br><span class="hero-title-accent">Edília.</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-en="CBT Therapist and Chartered Psychologist. Where mental health, justice, and social change meet." data-pt="Terapeuta TCC e Psicóloga Especialista. Saúde mental, a justiça e a mudança social se encontram.">
                     CBT Therapist and Chartered Psychologist. Where mental health, justice, and social change meet.
                 </p>
                 <div class="hero-actions">
-                    <a href="contact" class="btn-pill btn-primary">Book a Free Call</a>
-                    <a href="services" class="btn-pill">View Services</a>
+                    <a href="contact" class="btn-pill btn-primary" data-en="Book a Free Call" data-pt="Agendar Chamada Gratuita">Book a Free Call</a>
+                    <a href="services" class="btn-pill" data-en="View Services" data-pt="Ver Serviços">View Services</a>
                 </div>
             </div>
 
@@ -1291,15 +1299,15 @@
 
     <div class="qualifications">
         <div class="container qualifications-container">
-            <span class="qualification-item">PhD (Forensic Science)</span>
+            <span class="qualification-item" data-en="PhD (Forensic Science)" data-pt="Doutoramento (Ciência Forense)">PhD (Forensic Science)</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">MSc Forensic Psychology &amp; Social Exclusion</span>
+            <span class="qualification-item" data-en="MSc Forensic Psychology &amp; Social Exclusion" data-pt="Mestrado em Psicologia Forense e Exclusão Social">MSc Forensic Psychology &amp; Social Exclusion</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">PgDip CBT</span>
+            <span class="qualification-item" data-en="PgDip CBT" data-pt="Pós-Graduação em TCC">PgDip CBT</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">BPS Chartered Psychologist</span>
+            <span class="qualification-item" data-en="BPS Chartered Psychologist" data-pt="Psicóloga Credenciada pela BPS">BPS Chartered Psychologist</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">BABCP-Accredited Therapist</span>
+            <span class="qualification-item" data-en="BABCP-Accredited Therapist" data-pt="Terapeuta Acreditada pela BABCP">BABCP-Accredited Therapist</span>
         </div>
     </div>
 
@@ -1307,17 +1315,17 @@
     <div class="container about-container">
 
         <div class="about-content" data-aos="fade-right">
-            <h2 class="about-title">International Consultancy, Training & Research</h2>
-            <p class="about-text">
-                I support global organisations, international NGOs, public services, community initiatives, educational institutions, and cross-border programs in developing trauma-informed, culturally responsive, and evidence-based approaches to practice[cite: 3].
+            <h2 class="about-title" data-en="International Consultancy, Training & Research" data-pt="Consultoria, Formação e Investigação Internacional">International Consultancy, Training & Research</h2>
+            <p class="about-text" data-en="I support global organisations, international NGOs, public services, community initiatives, educational institutions, and cross-border programs in developing trauma-informed, culturally responsive, and evidence-based approaches to practice." data-pt="Apoio organizações globais, ONGs internacionais, serviços públicos, iniciativas comunitárias, instituições de ensino e programas transfronteiriços no desenvolvimento de abordagens práticas informadas pelo trauma, culturalmente céleres e baseadas em evidências.">
+                I support global organisations, international NGOs, public services, community initiatives, educational institutions, and cross-border programs in developing trauma-informed, culturally responsive, and evidence-based approaches to practice.
             </p>
-            <p class="about-text">
-                My areas of expertise encompass navigating complex systemic challenges, including gender-based violence, domestic abuse, migration-related trauma, social inclusion, and forensic psychological presentations[cite: 5, 6, 12, 91].
+            <p class="about-text" data-en="My areas of expertise encompass navigating complex systemic challenges, including gender-based violence, domestic abuse, migration-related trauma, social inclusion, and forensic psychological presentations." data-pt="As minhas áreas de especialização abrangem a resposta a desafios sistémicos complexos, incluindo violência baseada no género, abuso doméstico, trauma associado à migração, inclusão social e apresentações psicológicas forenses.">
+                My areas of expertise encompass navigating complex systemic challenges, including gender-based violence, domestic abuse, migration-related trauma, social inclusion, and forensic psychological presentations.
             </p>
-            <p class="about-text">
-                Consultancy services are tailored to the distinct cultural, linguistic, and operational realities of each country or international development framework, encompassing service design and policy implementation[cite: 13, 14, 78].
+            <p class="about-text" data-en="Consultancy services are tailored to the distinct cultural, linguistic, and operational realities of each country or international development framework, encompassing service design and policy implementation." data-pt="Os serviços de consultoria são adaptados às realidades culturais, linguísticas e operacionais específicas de cada país ou quadro de desenvolvimento internacional, abrangendo o design de serviços e a implementação de políticas.">
+                Consultancy services are tailored to the distinct cultural, linguistic, and operational realities of each country or international development framework, encompassing service design and policy implementation.
             </p>
-            <a href="contact" class="btn-pill">Discuss an International Project</a>
+            <a href="contact" class="btn-pill" data-en="Discuss an International Project" data-pt="Discutir um Projeto Internacional">Discuss an International Project</a>
         </div>
 
         <div class="about-image-wrapper" data-aos="fade-left">
@@ -1335,15 +1343,15 @@
         </div>
 
         <div class="about-content" data-aos="fade-left">
-            <h2 class="about-title">Global Training & Workshops</h2>
-            <p class="about-text">
-                I provide specialized professional training, capacity-building workshops, and interactive webinars for international organisations, practitioners, community services, and multidisciplinary teams[cite: 16, 79].
+            <h2 class="about-title" data-en="Global Training & Workshops" data-pt="Formação Global & Workshops">Global Training & Workshops</h2>
+            <p class="about-text" data-en="I provide specialized professional training, capacity-building workshops, and interactive webinars for international organisations, practitioners, community services, and multidisciplinary teams." data-pt="Disponibilizo formação profissional especializada, workshops de capacitação e webinars interativos para organizações internacionais, profissionais de saúde, serviços comunitários e equipas multidisciplinares.">
+                I provide specialized professional training, capacity-building workshops, and interactive webinars for international organisations, practitioners, community services, and multidisciplinary teams.
             </p>
-            <p class="about-text">
-                Key topics focus heavily on understanding trauma in migration contexts, cross-cultural competence, trauma-informed criminal justice practices, and preventing burnout within high-pressure international aid environments[cite: 30, 33, 38, 39].
+            <p class="about-text" data-en="Key topics focus heavily on understanding trauma in migration contexts, cross-cultural competence, trauma-informed criminal justice practices, and preventing burnout within high-pressure international aid environments." data-pt="Os tópicos principais centram-se fortemente na compreensão do trauma em contextos de migração, competência intercultural, práticas de justiça criminal informadas pelo trauma e na prevenção do burnout em ambientes de ajuda internacional sob forte pressão.">
+                Key topics focus heavily on understanding trauma in migration contexts, cross-cultural competence, trauma-informed criminal justice practices, and preventing burnout within high-pressure international aid environments.
             </p>
-            <p class="about-text">
-                Training can be delivered seamlessly online or in person, adapted to your local regional context and specific linguistic needs[cite: 42, 138].
+            <p class="about-text" data-en="Training can be delivered seamlessly online or in person, adapted to your local regional context and specific linguistic needs." data-pt="A formação pode ser ministrada de forma flexível online ou presencialmente, adaptada ao seu contexto regional local e às suas necessidades linguísticas específicas.">
+                Training can be delivered seamlessly online or in person, adapted to your local regional context and specific linguistic needs.
             </p>
         </div>
 
@@ -1355,8 +1363,8 @@
         <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
-        <h2 class="parallax-quote">
-            "Consultancy, training, and research services are specialized for Portuguese-speaking countries and fully available in both English and Portuguese[cite: 64]."
+        <h2 class="parallax-quote" data-en="&quot;Consultancy, training, and research services are specialized for Portuguese-speaking countries and fully available in both English and Portuguese.&quot;" data-pt="&quot;Os serviços de consultoria, formação e investigação são especializados para os países de língua portuguesa e estão totalmente disponíveis tanto em inglês como em português.&quot;">
+            "Consultancy, training, and research services are specialized for Portuguese-speaking countries and fully available in both English and Portuguese."
         </h2>
     </div>
 </div>
@@ -1370,45 +1378,45 @@
     <div class="container relative z-10">
 
         <div class="services-header" data-aos="fade-up">
-            <h2 class="services-title">International Focus & Expertise</h2>
+            <h2 class="services-title" data-en="International Focus & Expertise" data-pt="Foco & Especialização Internacional">International Focus & Expertise</h2>
             <div class="services-divider"></div>
-            <p class="services-subtitle">Tailored to the unique cultural backgrounds, multi-jurisdictional needs, and international goals of your organisation[cite: 14].</p>
+            <p class="services-subtitle" data-en="Tailored to the unique cultural backgrounds, multi-jurisdictional needs, and international goals of your organisation." data-pt="Adaptado aos contextos culturais únicos, necessidades multi-jurisdicionais e objetivos internacionais da sua organização.">Tailored to the unique cultural backgrounds, multi-jurisdictional needs, and international goals of your organisation.</p>
         </div>
 
         <div class="services-grid">
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-info">
-                    <h3 class="service-card-title">Cross-Border Trauma</h3>
-                    <p class="service-card-text">Addressing migration and psychological wellbeing, structural trauma, and fostering deep psychological recovery and resilience across borders[cite: 21, 39, 166].</p>
+                    <h3 class="service-card-title" data-en="Cross-Border Trauma" data-pt="Trauma Transfronteiriço">Cross-Border Trauma</h3>
+                    <p class="service-card-text" data-en="Addressing migration and psychological wellbeing, structural trauma, and fostering deep psychological recovery and resilience across borders." data-pt="Abordando a migração e o bem-estar psicológico, o trauma estrutural e promovendo uma profunda recuperação psicológica e resiliência além-fronteiras.">Addressing migration and psychological wellbeing, structural trauma, and fostering deep psychological recovery and resilience across borders.</p>
                 </div>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-info">
-                    <h3 class="service-card-title">Gender-Based Violence</h3>
-                    <p class="service-card-text">Implementing international survivor-centred practice, analyzing coercive control, and assessing the psychological impact of cross-border abuse[cite: 6, 23, 25].</p>
+                    <h3 class="service-card-title" data-en="Gender-Based Violence" data-pt="Violência Baseada no Género">Gender-Based Violence</h3>
+                    <p class="service-card-text" data-en="Implementing international survivor-centred practice, analyzing coercive control, and assessing the psychological impact of cross-border abuse." data-pt="Implementando práticas internacionais centradas no sobrevivente, analisando o controlo coercivo e avaliando o impacto psicológico do abuso transfronteiriço.">Implementing international survivor-centred practice, analyzing coercive control, and assessing the psychological impact of cross-border abuse.</p>
                 </div>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-info">
-                    <h3 class="service-card-title">Global Justice Systems</h3>
-                    <p class="service-card-text">Developing trauma-informed criminal justice practices, managing complex presentations, and supporting cross-border youth violence prevention[cite: 9, 33, 35].</p>
+                    <h3 class="service-card-title" data-en="Global Justice Systems" data-pt="Sistemas de Justiça Global">Global Justice Systems</h3>
+                    <p class="service-card-text" data-en="Developing trauma-informed criminal justice practices, managing complex presentations, and supporting cross-border youth violence prevention." data-pt="Desenvolvendo práticas de justiça criminal informadas pelo trauma, gerindo quadros clínicos complexos e apoiando a prevenção da violência juvenil transfronteiriça.">Developing trauma-informed criminal justice practices, managing complex presentations, and supporting cross-border youth violence prevention.</p>
                 </div>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-info">
-                    <h3 class="service-card-title">Diversity & Integration</h3>
-                    <p class="service-card-text">Enhancing cultural competence, supporting highly vulnerable or displaced populations, and mitigating the impact of systemic discrimination[cite: 38, 40, 41].</p>
+                    <h3 class="service-card-title" data-en="Diversity & Integration" data-pt="Diversidade & Integração">Diversity & Integration</h3>
+                    <p class="service-card-text" data-en="Enhancing cultural competence, supporting highly vulnerable or displaced populations, and mitigating the impact of systemic discrimination." data-pt="Aumentando a competência cultural, apoiando populações altamente vulneráveis ou deslocadas e mitigando o impacto da discriminação sistémica.">Enhancing cultural competence, supporting highly vulnerable or displaced populations, and mitigating the impact of systemic discrimination.</p>
                 </div>
             </div>
 
         </div>
 
         <div class="services-footer" data-aos="fade-up">
-            <a href="contact" class="btn-pill btn-outline-white">Discuss Your Multi-Regional Needs</a>
+            <a href="contact" class="btn-pill btn-outline-white" data-en="Discuss Your Multi-Regional Needs" data-pt="Discutir as Suas Necessidades Multirregionais">Discuss Your Multi-Regional Needs</a>
         </div>
 
     </div>
@@ -1418,17 +1426,17 @@
     <div class="container about-container">
 
         <div class="about-content" data-aos="fade-right">
-            <h2 class="about-title">Global Collaboration Opportunities</h2>
-            <p class="about-text">
-                I collaborate extensively with international NGOs, humanitarian charities, global universities, research institutions, public sector services, and cross-border development projects[cite: 62, 74, 75, 76, 78].
+            <h2 class="about-title" data-en="Global Collaboration Opportunities" data-pt="Oportunidades de Colaboração Global">Global Collaboration Opportunities</h2>
+            <p class="about-text" data-en="I collaborate extensively with international NGOs, humanitarian charities, global universities, research institutions, public sector services, and cross-border development projects." data-pt="Colaboro extensamente com ONGs internacionais, instituições de solidariedade humanitária, universidades globais, instituições de investigação, serviços do setor público e projetos de desenvolvimento transfronteiriços.">
+                I collaborate extensively with international NGOs, humanitarian charities, global universities, research institutions, public sector services, and cross-border development projects.
             </p>
-            <p class="about-text">
-                I hold a specialized focus on establishing partnerships across Portuguese-speaking countries (CPLP), bringing targeted experience to initiatives across Portugal, Brazil, Angola, Mozambique, Cabo Verde, Guinea-Bissau, and São Tomé e Príncipe[cite: 65, 139].
+            <p class="about-text" data-en="I hold a specialized focus on establishing partnerships across Portuguese-speaking countries (CPLP), bringing targeted experience to initiatives across Portugal, Brazil, Angola, Mozambique, Cabo Verde, Guinea-Bissau, and São Tomé e Príncipe." data-pt="Mantenho um foco especializado no estabelecimento de parcerias com países de língua portuguesa (CPLP), trazendo uma experiência direcionada para iniciativas em Portugal, Brasil, Angola, Moçambique, Cabo Verde, Guiné-Bissau e São Tomé e Príncipe.">
+                I hold a specialized focus on establishing partnerships across Portuguese-speaking countries (CPLP), bringing targeted experience to initiatives across Portugal, Brazil, Angola, Mozambique, Cabo Verde, Guinea-Bissau, and São Tomé e Príncipe.
             </p>
-            <p class="about-text">
-                Whether you are looking to integrate psychological expertise into international framework policies or expand professional capacity in sub-Saharan or Lusophone spaces, please reach out to discuss a collaboration[cite: 3, 13, 64, 80].
+            <p class="about-text" data-en="Whether you are looking to integrate psychological expertise into international framework policies or expand professional capacity in sub-Saharan or Lusophone spaces, please reach out to discuss a collaboration." data-pt="Quer pretenda integrar a especialização psicológica em políticas estruturais internacionais ou expandir a capacidade profissional em espaços da África Subsariana ou da Lusofonia, entre em contacto para discutir uma colaboração.">
+                Whether you are looking to integrate psychological expertise into international framework policies or expand professional capacity in sub-Saharan or Lusophone spaces, please reach out to discuss a collaboration.
             </p>
-            <a href="services" class="btn-pill">Get in Touch</a>
+            <a href="services" class="btn-pill" data-en="Get in Touch" data-pt="Entre em Contacto">Get in Touch</a>
         </div>
 
         <div class="about-image-wrapper" data-aos="fade-left">
@@ -1443,8 +1451,8 @@
         <svg class="parallax-icon" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
-        <h2 class="parallax-quote">
-            "I provide research, evaluation, and program development support to strengthen the global evidence base and structural impact of humanitarian work[cite: 44]."
+        <h2 class="parallax-quote" data-en="&quot;I provide research, evaluation, and program development support to strengthen the global evidence base and structural impact of humanitarian work.&quot;" data-pt="&quot;Presto apoio à investigação, avaliação e desenvolvimento de programas para fortalecer a base de evidências global e o impacto estrutural do trabalho humanitário.&quot;">
+            "I provide research, evaluation, and program development support to strengthen the global evidence base and structural impact of humanitarian work."
         </h2>
     </div>
 </div>
@@ -1458,9 +1466,9 @@
 
     <div class="container relative z-10">
         <div class="services-header" data-aos="fade-up">
-            <h2 class="services-title">International Research & Evaluation</h2>
+            <h2 class="services-title" data-en="International Research & Evaluation" data-pt="Investigação & Avaliação Internacional">International Research & Evaluation</h2>
             <div class="services-divider"></div>
-            <p class="services-subtitle">Available to international NGOs, charities, universities, community organisations, and international development projects[cite: 62, 75, 78].</p>
+            <p class="services-subtitle" data-en="Available to international NGOs, charities, universities, community organisations, and international development projects." data-pt="Disponível para ONGs internacionais, IPSS, universidades, organizações comunitárias e projetos de desenvolvimento internacional.">Available to international NGOs, charities, universities, community organisations, and international development projects.</p>
         </div>
 
         <div class="services-grid">
@@ -1469,10 +1477,10 @@
                 <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600" alt="Trauma Support" class="service-img">
                 
                 <div class="service-info">
-                    <h3 class="service-card-title">Cross-Border Evaluation</h3>
-                    <p class="service-card-text">Providing international programme and service evaluations, multi-regional impact assessments, and localized needs assessments[cite: 46, 47, 48].</p>
+                    <h3 class="service-card-title" data-en="Cross-Border Evaluation" data-pt="Avaliação Transfronteiriça">Cross-Border Evaluation</h3>
+                    <p class="service-card-text" data-en="Providing international programme and service evaluations, multi-regional impact assessments, and localized needs assessments." data-pt="Disponibilizando avaliações de programas e serviços internacionais, avaliações de impacto multirregionais e diagnósticos de necessidades localizados.">Providing international programme and service evaluations, multi-regional impact assessments, and localized needs assessments.</p>
                     <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                        Learn more 
+                        <span data-en="Learn more" data-pt="Saiba mais">Learn more</span> 
                         <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
@@ -1482,10 +1490,10 @@
                 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" alt="Cultural Awareness" class="service-img">
                 
                 <div class="service-info">
-                    <h3 class="service-card-title">Global Methodologies</h3>
-                    <p class="service-card-text">Specialised support in global literature reviews, culturally responsive research design, and cross-cultural data analysis and interpretation[cite: 38, 49, 50, 51].</p>
+                    <h3 class="service-card-title" data-en="Global Methodologies" data-pt="Metodologias Globais">Global Methodologies</h3>
+                    <p class="service-card-text" data-en="Specialised support in global literature reviews, culturally responsive research design, and cross-cultural data analysis and interpretation." data-pt="Suporte especializado em revisões da literatura globais, metodologias de investigação culturalmente céleres e análise e interpretação de dados interculturais.">Specialised support in global literature reviews, culturally responsive research design, and cross-cultural data analysis and interpretation.</p>
                     <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                        Learn more 
+                        <span data-en="Learn more" data-pt="Saiba mais">Learn more</span> 
                         <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
@@ -1495,10 +1503,10 @@
                 <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" alt="Consultancy" class="service-img">
                 
                 <div class="service-info">
-                    <h3 class="service-card-title">Monitoring & Dissemination</h3>
-                    <p class="service-card-text">Designing multi-layered monitoring and evaluation frameworks, alongside comprehensive technical report writing and international dissemination[cite: 52, 53].</p>
+                    <h3 class="service-card-title" data-en="Monitoring & Dissemination" data-pt="Monitorização & Disseminação">Monitoring & Dissemination</h3>
+                    <p class="service-card-text" data-en="Designing multi-layered monitoring and evaluation frameworks, alongside comprehensive technical report writing and international dissemination." data-pt="Desenho de modelos de monitorização e avaliação multicamadas, a par da redação de relatórios técnicos robustos e disseminação internacional.">Designing multi-layered monitoring and evaluation frameworks, alongside comprehensive technical report writing and international dissemination.</p>
                     <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                        Learn more 
+                        <span data-en="Learn more" data-pt="Saiba mais">Learn more</span> 
                         <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
@@ -1508,10 +1516,10 @@
                 <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600" alt="Focused Groups" class="service-img">
                 
                 <div class="service-info">
-                    <h3 class="service-card-title">Evidence-Informed Design</h3>
-                    <p class="service-card-text">Strengthening evidence-informed global development across complex fields, including gender-based violence, mental health, and migration[cite: 54, 56, 58, 61].</p>
+                    <h3 class="service-card-title" data-en="Evidence-Informed Design" data-pt="Design Informado por Evidências">Evidence-Informed Design</h3>
+                    <p class="service-card-text" data-en="Strengthening evidence-informed global development across complex fields, including gender-based violence, mental health, and migration." data-pt="Fortalecimento do desenvolvimento global baseado em evidências em domínios complexos, incluindo violência baseada no género, saúde mental e migração.">Strengthening evidence-informed global development across complex fields, including gender-based violence, mental health, and migration.</p>
                     <a href="https://alethara.com/edilia-draft-site/services" class="service-link">
-                        Learn more 
+                        <span data-en="Learn more" data-pt="Saiba mais">Learn more</span> 
                         <svg class="service-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
@@ -1520,15 +1528,15 @@
         </div>
         
         <div class="services-footer" data-aos="fade-up">
-            <a href="#contact" class="btn-pill btn-outline-white">Discuss an International Research Collaboration</a>
+            <a href="#contact" class="btn-pill btn-outline-white" data-en="Discuss an International Research Collaboration" data-pt="Discutir uma Colaboração de Investigação Internacional">Discuss an International Research Collaboration</a>
         </div>
     </div>
 </section>
 
 <div class="parallax-section" style="margin-top: 5rem; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
     <div class="parallax-content" data-aos="zoom-in">
-        <h2 class="parallax-quote" style="font-style: normal;">
-            Cross-border service development, international policy implementation, and global programme design[cite: 13, 78].
+        <h2 class="parallax-quote" style="font-style: normal;" data-en="Cross-border service development, international policy implementation, and global programme design." data-pt="Desenvolvimento de serviços transfronteiriços, implementação de políticas internacionais e design de programas globais.">
+            Cross-border service development, international policy implementation, and global programme design.
         </h2>
     </div>
 </div>
@@ -1536,7 +1544,7 @@
         <div class="container">
             
             <div class="contact-header" data-aos="fade-up">
-                <h2 class="contact-title">Take the First Step</h2>
+                <h2 class="contact-title" data-en="Take the First Step" data-pt="Dê o Primeiro Passo">Take the First Step</h2>
                 <div class="contact-divider"></div>
             </div>
 
@@ -1544,29 +1552,29 @@
                 
                 <div class="contact-info">
                     <div>
-                        <h3 class="contact-info-title">Book Your Free Call</h3>
-                        <p class="contact-info-text">I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together.</p>
+                        <h3 class="contact-info-title" data-en="Book Your Free Call" data-pt="Agende a Sua Chamada Gratuita">Book Your Free Call</h3>
+                        <p class="contact-info-text" data-en="I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together." data-pt="Ofereço uma consulta de cortesia de 20 minutos para discutir as suas necessidades específicas, responder a questões e analisar de que forma podemos colaborar de forma integrada.">I offer a complimentary 20-minute consultation to discuss your specific needs, answer any questions, and see how we can collaboratively work together.</p>
                         
                         <ul class="contact-list">
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Global Access</h4>
-                                    <p class="contact-list-desc">Online Sessions (UK & International)</p>
+                                    <h4 class="contact-list-title" data-en="Global Access" data-pt="Acesso Global">Global Access</h4>
+                                    <p class="contact-list-desc" data-en="Online Sessions (UK & International)" data-pt="Sessões Online (Reino Unido & Internacional)">Online Sessions (UK & International)</p>
                                 </div>
                             </li>
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Multilingual Support</h4>
-                                    <p class="contact-list-desc">English, Portuguese, Creole</p>
+                                    <h4 class="contact-list-title" data-en="Multilingual Support" data-pt="Suporte Multilingue">Multilingual Support</h4>
+                                    <p class="contact-list-desc" data-en="English, Portuguese, Creole" data-pt="Inglês, Português, Crioulo">English, Portuguese, Creole</p>
                                 </div>
                             </li>
                             <li class="contact-list-item">
                                 <svg class="contact-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <div>
-                                    <h4 class="contact-list-title">Transparent Fees</h4>
-                                    <p class="contact-list-desc">£80 per 50-Minute Session</p>
+                                    <h4 class="contact-list-title" data-en="Transparent Fees" data-pt="Honorários Transparentes">Transparent Fees</h4>
+                                    <p class="contact-list-desc" data-en="£80 per 50-Minute Session" data-pt="£80 por Sessão de 50 Minutos">£80 per 50-Minute Session</p>
                                 </div>
                             </li>
                         </ul>
@@ -1577,26 +1585,26 @@
                     <form action="#" class="contact-form">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label class="form-label">First Name</label>
-                                <input type="text" placeholder="Jane" class="form-input">
+                                <label class="form-label" data-en="First Name" data-pt="Primeiro Nome">First Name</label>
+                                <input type="text" placeholder="Jane" class="form-input" data-en-placeholder="Jane" data-pt-placeholder="Maria">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" placeholder="Doe" class="form-input">
+                                <label class="form-label" data-en="Last Name" data-pt="Apelido / Sobrenome">Last Name</label>
+                                <input type="text" placeholder="Doe" class="form-input" data-en-placeholder="Doe" data-pt-placeholder="Silva">
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" placeholder="jane@example.com" class="form-input">
+                            <label class="form-label" data-en="Email Address" data-pt="Endereço de E-mail">Email Address</label>
+                            <input type="email" placeholder="jane@example.com" class="form-input" data-en-placeholder="jane@example.com" data-pt-placeholder="maria@exemplo.com">
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">How can I help you?</label>
-                            <textarea placeholder="Please briefly describe what you are looking for..." rows="5" class="form-textarea"></textarea>
+                            <label class="form-label" data-en="How can I help you?" data-pt="Como posso ajudar?">How can I help you?</label>
+                            <textarea placeholder="Please briefly describe what you are looking for..." rows="5" class="form-textarea" data-en-placeholder="Please briefly describe what you are looking for..." data-pt-placeholder="Por favor, descreva brevemente o que procura..."></textarea>
                         </div>
                         
-                        <button type="submit" class="btn-pill btn-dark form-submit">Send Secure Message</button>
+                        <button type="submit" class="btn-pill btn-dark form-submit" data-en="Send Secure Message" data-pt="Enviar Mensagem Segura">Send Secure Message</button>
                     </form>
                 </div>
             </div>
@@ -1612,28 +1620,28 @@
             
             <div class="footer-brand">
                 <h3 class="footer-brand-title">MERIDIAN WELLBEING</h3>
-                <p class="footer-brand-text">Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care.</p>
+                <p class="footer-brand-text" data-en="Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care." data-pt="Psicóloga Especialista e Terapeuta TCC promovendo a recuperação através de cuidados compassivos informados pelo trauma.">Chartered Psychologist & CBT Therapist empowering recovery through compassionate, trauma-informed care.</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <img src="../Chartered Psychologist Logo - Business Use - Edilia Rodrigues.jpg" alt="BPS Logo" class="footer-logo">
                 </div>
             </div>
             
             <div>
-                <h4 class="footer-heading">Navigation</h4>
+                <h4 class="footer-heading" data-en="Navigation" data-pt="Navegação">Navigation</h4>
                 <ul class="footer-nav-list">
-                    <li><a href="/" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Home</a></li>
-                    <li><a href="https://alethara.com/edilia-draft-site/about" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> About Me</a></li>
-                    <li><a href="https://alethara.com/edilia-draft-site/services" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Therapy Services</a></li>
-                    <li><a href="https://alethara.com/edilia-draft-site/training" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Training, Consultancy &amp; Research</a></li>
+                    <li><a href="/" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Home" data-pt="Início">Home</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/about" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="About Me" data-pt="Sobre Mim">About Me</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/services" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Therapy Services" data-pt="Serviços Clínicos">Therapy Services</span></a></li>
+                    <li><a href="https://alethara.com/edilia-draft-site/training" class="footer-nav-link"><svg class="footer-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> <span data-en="Training, Consultancy &amp; Research" data-pt="Formação, Consultoria &amp; Investigação">Training, Consultancy &amp; Research</span></a></li>
                 </ul>
             </div>
             
             <div>
-                <h4 class="footer-heading">Practice Information</h4>
-                <p class="footer-info-text">
+                <h4 class="footer-heading" data-en="Practice Information" data-pt="Informações do Consultório">Practice Information</h4>
+                <p class="footer-info-text" data-en="Online Practice<br>UK & Worldwide" data-pt="Consultório Online<br>Reino Unido & Global">
                     Online Practice<br>UK & Worldwide
                 </p>
-                <p class="footer-info-text">
+                <p class="footer-info-text" data-en="Specialising in Gender-Based Violence & Migration Trauma" data-pt="Especialização em Violência Baseada no Género & Trauma de Migração">
                     Specialising in Gender-Based Violence & Migration Trauma
                 </p>
             </div>
@@ -1642,13 +1650,37 @@
         
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2026 Meridian Wellbeing. All rights reserved.</p>
+                <p data-en="&copy; 2026 Meridian Wellbeing. All rights reserved." data-pt="&copy; 2026 Meridian Wellbeing. Todos os direitos reservados.">&copy; 2026 Meridian Wellbeing. All rights reserved.</p>
                 </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        function switchLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + lang);
+            });
+            
+            document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+                el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+            });
+
+            document.querySelectorAll('.lang-toggle').forEach(toggleContainer => {
+                toggleContainer.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            });
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
                 duration: 900,
@@ -1674,6 +1706,17 @@
 
             menuBtn.addEventListener('click', toggleMenu);
             closeBtn.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    switchLanguage(e.target.getAttribute('data-lang'));
+                });
+            });
+
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            if (savedLang !== 'en') {
+                switchLanguage(savedLang);
+            }
 
             let ticking = false;
             window.addEventListener('scroll', () => {
