@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups | Meridian Wellbeing | Edília Rodrigues</title>
+    <meta name="description" content="A structured trauma-informed group programme designed to help participants strengthen voice, choice, boundaries, self-trust, and influence.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy-deep: #1F2A44;
+            --navy-light: #4A608A;
+            --soft-neutral: #F5EFE7;
+            --accent-rose: #C29B9B;
+            --text-grey: #4A4A4A;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --bg-gray-50: #f9fafb;
+            --white: #ffffff;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-grey);
+            overflow-x: hidden;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nanum Myeongjo', serif;
+            color: var(--navy-deep);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img, svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        button, input, textarea, select {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--navy-light);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--navy-deep);
+        }
+
+       .btn-pill {
+            border: 1px solid var(--navy-light);
+            color: var(--navy-light);
+            padding: 0.75rem 2.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            display: inline-block;
+            text-align: center;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .btn-pill:hover {
+            background-color: var(--navy-light);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 96, 138, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--navy-light);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--navy-deep);
+            border-color: var(--navy-deep);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            z-index: 50;
+            border-bottom: 1px solid var(--navy-deep); 
+            height: 5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            color: var(--navy-deep);
+        }
+
+        .navbar-brand-light {
+            font-weight: 300;
+        }
+
+        .navbar-menu {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .nav-links-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray-500);
+            font-weight: 500;
+            padding: 0.15rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            color: var(--navy-deep);
+        }
+
+        .nav-link-active {
+            color: var(--navy-deep);
+            border-bottom: 2px solid var(--navy-light);
+        }
+
+        .lang-toggle {
+            font-weight: 600;
+            font-size: 0.75rem;
+            border: 1.5px solid var(--gray-200);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--gray-600);
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--navy-light);
+            color: var(--navy-light);
+        }
+
+        .navbar-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--navy-deep);
+            cursor: pointer;
+        }
+
+        .navbar-toggle-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background-color: var(--white);
+            z-index: 60; 
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            padding-top: 5rem; 
+            padding-bottom: 2rem;
+            gap: 1.5rem; 
+            overflow-y: auto; 
+            border-bottom-left-radius: 1rem; 
+            border-bottom-right-radius: 1rem; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+            
+        .mobile-menu-open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--navy-deep);
+            cursor: pointer;
+        }
+
+        .mobile-menu-close-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .mobile-nav-link {
+            font-size: 1.5rem;
+            color: var(--gray-600);
+        }
+
+        .mobile-nav-link-active {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+        }
+
+        .mobile-lang-toggle {
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+            border: none;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 80vh; 
+            height: auto;
+            padding-top: 5rem;
+            padding-bottom: 0; 
+            display: flex;
+            align-items: stretch; 
+            overflow: hidden;
+            background-color: var(--white);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: auto;
+            order: 1; 
+            padding-bottom: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            order: 2; 
+            padding: 2rem 0.5rem 2rem 0.5rem;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 56rem; 
+            max-height: 90vh; 
+            object-fit: contain;
+            object-position: bottom;
+            display: block;
+        }
+
+        .hero-container {
+            display: grid;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        .hero-dot-grid-side, .hero-dot-grid-bottom {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-dot-grid-side {
+            background-image: radial-gradient(#D1D9E6 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+            width: 6rem;
+            height: 24rem;
+            top: 50%;
+            right: 0;
+            transform: translate(2rem, -50%);
+        }
+
+        .hero-dot-grid-bottom {
+            background-image: radial-gradient(#D1D9E6 1.5px, transparent 1.5px);
+            background-size: 14px 14px;
+            width: 24rem;
+            height: 6rem;
+            bottom: 0;
+            left: 0;
+            transform: translate(-2rem, 2rem);
+        }
+
+        .hero-title {
+            font-size: 1.75rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title-accent {
+            color: var(--navy-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.625;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .qualifications {
+            background-color: var(--navy-deep);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            position: relative;
+            z-index: 20;
+        }
+
+        .qualifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .qualification-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .qualification-divider {
+            display: none;
+            color: var(--accent-rose);
+            opacity: 0.5;
+        }
+
+        .about-section {
+            padding: 3rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-section-white {
+            background-color: var(--white);
+            padding-bottom: 0;
+        }
+
+        .about-section-white .about-image-wrapper {
+            align-self: end;
+        }
+
+        .about-container {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .about-image {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 44rem; 
+            aspect-ratio: 1 / 2.0; 
+            max-height: 90vh; 
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .about-content {
+            padding: 0 0.5rem;
+        }
+
+        .about-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            line-height: 1.625;
+        }
+
+        .contact-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-divider {
+            width: 4rem;
+            height: 0.25rem;
+            background-color: var(--navy-deep);
+            margin: 0 auto;
+            border-radius: 9999px;
+        }
+
+        .contact-card {
+            max-width: 64rem;
+            margin: 0 auto;
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 1rem; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-form-wrapper {
+            padding: 2.5rem;
+            background-color: var(--bg-gray-50);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%; /* Overriding consultancy dual-column layout for full width registration */
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.5rem; 
+            outline: none;
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .form-input:focus {
+            border-color: var(--navy-deep);
+            box-shadow: 0 0 0 1px var(--navy-deep);
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 640px) {
+            .hero-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 970px) {
+            .navbar-brand { font-size: 1.5rem; }
+            .navbar-toggle { display: none; }
+            .navbar-menu { display: flex; }
+            .mobile-menu { display: none; }
+            .hero-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-image-wrapper { order: 1; }
+            .hero-content { order: 2; padding-bottom: 0; }
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 1.25rem; }
+            .qualifications-container { font-size: 0.875rem; }
+            .qualification-divider { display: inline; }
+            .about-container { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+            .about-title { font-size: 2.25rem; }
+            .form-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-form-wrapper { padding: 4rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image { max-width: 72rem; }
+            .hero-title { font-size: 4.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .qualifications-container { font-size: 1rem; }
+            .about-image { max-width: 44rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                MERIDIAN<span class="navbar-brand-light">WELLBEING</span>
+            </div>
+            
+            <div class="navbar-menu">
+                <div class="nav-links-wrapper">
+                    <div class="nav-links-row">
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
+                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link">International</a>
+                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link nav-link-active">Groups</a>
+                    </div>
+                    <div class="nav-links-row">
+                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link">Training, Consultancy & Research</a>
+                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="lang-toggle">EN | PT</div>
+            </div>
+            
+            <button class="navbar-toggle" id="menu-btn" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="navbar-toggle-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="close-menu-btn" class="mobile-menu-close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mobile-menu-close-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="/" class="mobile-nav-link">Home</a>
+        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link">About</a>
+        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link">International</a>
+        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link mobile-nav-link-active">Groups</a>
+        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link">Training, Consultancy & Research</a>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link">Contact</a>
+        <div class="lang-toggle mobile-lang-toggle">EN | PT</div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-image-wrapper" data-aos="fade-right">
+                <div class="hero-dot-grid-side"></div>
+                <div class="hero-dot-grid-bottom"></div>
+                <img src="../edilia8.png" alt="Edília Rodrigues" class="hero-image">
+            </div>
+            
+            <div class="hero-content" data-aos="fade-left">
+                <h1 class="hero-title">
+                    Agency Development<br><span class="hero-title-accent">Programme.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <strong>Coming Soon…</strong><br><br>
+                    A structured trauma-informed group programme designed to help participants strengthen voice, choice, boundaries, self-trust, and influence.
+                </p>
+                <div class="hero-actions">
+                    <a href="#register" class="btn-pill btn-primary">Register Your Interest</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="qualifications">
+        <div class="container qualifications-container">
+            <span class="qualification-item">PhD (Forensic Science)</span>
+            <span class="qualification-divider">|</span>
+            <span class="qualification-item">MSc Forensic Psychology &amp; Social Exclusion</span>
+            <span class="qualification-divider">|</span>
+            <span class="qualification-item">PgDip CBT</span>
+            <span class="qualification-divider">|</span>
+            <span class="qualification-item">BPS Chartered Psychologist</span>
+            <span class="qualification-divider">|</span>
+            <span class="qualification-item">BABCP-Accredited Therapist</span>
+        </div>
+    </div>
+
+    <section class="about-section about-section-white">
+        <div class="container about-container">
+            <div class="about-content" data-aos="fade-right">
+                <h2 class="about-title">Rebuilding Confidence & Meaningful Action</h2>
+                <p class="about-text">
+                    Inspired by the emerging TRACES Framework, this programme aims to support individuals in rebuilding confidence, strengthening personal agency, and moving forward following adversity, trauma, discrimination, relationship difficulties, or experiences that have affected their sense of identity, confidence, or direction in life.
+                </p>
+                <p class="about-text">
+                    <strong>Available in English and Portuguese.</strong>
+                </p>
+            </div>
+            
+            <div class="about-image-wrapper" data-aos="fade-left">
+                <img src="../edilia10.png" alt="Group Session Representation" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="contact-title">Register Your Interest</h2>
+                <div class="contact-divider"></div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">What type of programme would you be interested in?</label>
+                            <select class="form-input" required>
+                                <option value="" disabled selected>Please select an option...</option>
+                                <option value="General Agency Development">General Agency Development</option>
+                                <option value="Trauma Recovery">Trauma Recovery</option>
+                                <option value="Domestic Abuse Recovery">Domestic Abuse Recovery</option>
+                                <option value="Migrant & Expat Wellbeing">Migrant & Expat Wellbeing</option>
+                                <option value="Workplace Wellbeing">Workplace Wellbeing</option>
+                                <option value="Relationship Recovery">Relationship Recovery</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-pill btn-primary form-submit">Submit Registration</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('mobile-menu-open')) {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    document.body.style.overflow = '';
+                } else {
+                    mobileMenu.classList.add('mobile-menu-open');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>
