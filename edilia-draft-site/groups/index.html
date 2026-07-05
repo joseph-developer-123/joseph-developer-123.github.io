@@ -192,14 +192,24 @@
             border: 1.5px solid var(--gray-200);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.2s ease;
             color: var(--gray-600);
+            display: flex;
+            gap: 0.5rem;
+            user-select: none;
         }
 
-        .lang-toggle:hover {
-            border-color: var(--navy-light);
+        .lang-option {
+            cursor: pointer;
+            transition: color 0.2s ease, font-weight 0.2s ease;
+        }
+
+        .lang-option:hover {
             color: var(--navy-light);
+        }
+
+        .lang-option.active {
+            color: var(--navy-deep);
+            font-weight: 700;
         }
 
         .navbar-toggle {
@@ -269,6 +279,8 @@
             font-size: 1.25rem;
             margin: 0.5rem 0;
             border: none;
+            border-radius: 0;
+            padding: 0;
         }
 
         .hero {
@@ -500,7 +512,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 100%; /* Overriding consultancy dual-column layout for full width registration */
+            width: 100%;
         }
 
         .contact-form {
@@ -595,17 +607,21 @@
             <div class="navbar-menu">
                 <div class="nav-links-wrapper">
                     <div class="nav-links-row">
-                        <a href="/" class="nav-link">Home</a>
-                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link">About</a>
-                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link">International</a>
-                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link nav-link-active">Groups</a>
+                        <a href="/" class="nav-link" data-en="Home" data-pt="Início">Home</a>
+                        <a href="https://alethara.com/edilia-draft-site/about" class="nav-link" data-en="About" data-pt="Sobre">About</a>
+                        <a href="https://alethara.com/edilia-draft-site/international" class="nav-link" data-en="International" data-pt="Internacional">International</a>
+                        <a href="https://alethara.com/edilia-draft-site/groups" class="nav-link nav-link-active" data-en="Groups" data-pt="Grupos">Groups</a>
                     </div>
                     <div class="nav-links-row">
-                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link">Training, Consultancy & Research</a>
-                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link">Contact</a>
+                        <a href="https://alethara.com/edilia-draft-site/training" class="nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+                        <a href="https://alethara.com/edilia-draft-site/contact" class="nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
                     </div>
                 </div>
-                <div class="lang-toggle">EN | PT</div>
+                <div class="lang-toggle">
+                    <span class="lang-option active" data-target-lang="en">EN</span>
+                    <span>|</span>
+                    <span class="lang-option" data-target-lang="pt">PT</span>
+                </div>
             </div>
             
             <button class="navbar-toggle" id="menu-btn" aria-label="Toggle Menu">
@@ -622,13 +638,17 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <a href="/" class="mobile-nav-link">Home</a>
-        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link">About</a>
-        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link">International</a>
-        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link mobile-nav-link-active">Groups</a>
-        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link">Training, Consultancy & Research</a>
-        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link">Contact</a>
-        <div class="lang-toggle mobile-lang-toggle">EN | PT</div>
+        <a href="/" class="mobile-nav-link" data-en="Home" data-pt="Início">Home</a>
+        <a href="https://alethara.com/edilia-draft-site/about" class="mobile-nav-link" data-en="About" data-pt="Sobre">About</a>
+        <a href="https://alethara.com/edilia-draft-site/international" class="mobile-nav-link" data-en="International" data-pt="Internacional">International</a>
+        <a href="https://alethara.com/edilia-draft-site/groups" class="mobile-nav-link mobile-nav-link-active" data-en="Groups" data-pt="Grupos">Groups</a>
+        <a href="https://alethara.com/edilia-draft-site/training" class="mobile-nav-link" data-en="Training, Consultancy & Research" data-pt="Formação, Consultoria e Investigação">Training, Consultancy & Research</a>
+        <a href="https://alethara.com/edilia-draft-site/contact" class="mobile-nav-link" data-en="Contact" data-pt="Contacto">Contact</a>
+        <div class="lang-toggle mobile-lang-toggle">
+            <span class="lang-option active" data-target-lang="en">EN</span>
+            <span>|</span>
+            <span class="lang-option" data-target-lang="pt">PT</span>
+        </div>
     </div>
 
     <section class="hero">
@@ -640,15 +660,15 @@
             </div>
             
             <div class="hero-content" data-aos="fade-left">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-en="Agency Development<br><span class='hero-title-accent'>Programme.</span>" data-pt="Programa de Desenvolvimento<br><span class='hero-title-accent'>de Agência.</span>">
                     Agency Development<br><span class="hero-title-accent">Programme.</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-en="<strong>Coming Soon…</strong><br><br>A structured trauma-informed group programme designed to help participants strengthen voice, choice, boundaries, self-trust, and influence." data-pt="<strong>Em breve…</strong><br><br>Um programa de grupo estruturado e informado sobre o trauma, concebido para ajudar os participantes a fortalecer a voz, a escolha, os limites, a autoconfiança e a influência.">
                     <strong>Coming Soon…</strong><br><br>
                     A structured trauma-informed group programme designed to help participants strengthen voice, choice, boundaries, self-trust, and influence.
                 </p>
                 <div class="hero-actions">
-                    <a href="#register" class="btn-pill btn-primary">Register Your Interest</a>
+                    <a href="#register" class="btn-pill btn-primary" data-en="Register Your Interest" data-pt="Registe o seu Interesse">Register Your Interest</a>
                 </div>
             </div>
         </div>
@@ -656,26 +676,26 @@
 
     <div class="qualifications">
         <div class="container qualifications-container">
-            <span class="qualification-item">PhD (Forensic Science)</span>
+            <span class="qualification-item" data-en="PhD (Forensic Science)" data-pt="Doutoramento (Ciências Forenses)">PhD (Forensic Science)</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">MSc Forensic Psychology &amp; Social Exclusion</span>
+            <span class="qualification-item" data-en="MSc Forensic Psychology &amp; Social Exclusion" data-pt="Mestrado em Psicologia Forense e Exclusão Social">MSc Forensic Psychology &amp; Social Exclusion</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">PgDip CBT</span>
+            <span class="qualification-item" data-en="PgDip CBT" data-pt="Pós-Graduação em TCC (CBT)">PgDip CBT</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">BPS Chartered Psychologist</span>
+            <span class="qualification-item" data-en="BPS Chartered Psychologist" data-pt="Psicólogo Clínico Credenciado pela BPS">BPS Chartered Psychologist</span>
             <span class="qualification-divider">|</span>
-            <span class="qualification-item">BABCP-Accredited Therapist</span>
+            <span class="qualification-item" data-en="BABCP-Accredited Therapist" data-pt="Terapeuta Acreditado pela BABCP">BABCP-Accredited Therapist</span>
         </div>
     </div>
 
     <section class="about-section about-section-white">
         <div class="container about-container">
             <div class="about-content" data-aos="fade-right">
-                <h2 class="about-title">Rebuilding Confidence & Meaningful Action</h2>
-                <p class="about-text">
+                <h2 class="about-title" data-en="Rebuilding Confidence &amp; Meaningful Action" data-pt="Reconstruir a Confiança e Ação Significativa">Rebuilding Confidence &amp; Meaningful Action</h2>
+                <p class="about-text" data-en="Inspired by the emerging TRACES Framework, this programme aims to support individuals in rebuilding confidence, strengthening personal agency, and moving forward following adversity, trauma, discrimination, relationship difficulties, or experiences that have affected their sense of identity, confidence, or direction in life." data-pt="Inspirado na emergente Estrutura TRACES, este programa visa apoiar as pessoas na reconstrução da confiança, no fortalecimento da agência pessoal e no avanço após adversidades, traumas, discriminação, dificuldades de relacionamento ou experiências que tenham afetado o seu sentido de identidade, confiança ou direção na vida.">
                     Inspired by the emerging TRACES Framework, this programme aims to support individuals in rebuilding confidence, strengthening personal agency, and moving forward following adversity, trauma, discrimination, relationship difficulties, or experiences that have affected their sense of identity, confidence, or direction in life.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-en="<strong>Available in English and Portuguese.</strong>" data-pt="<strong>Disponível em Inglês e Português.</strong>">
                     <strong>Available in English and Portuguese.</strong>
                 </p>
             </div>
@@ -689,7 +709,7 @@
     <section id="register" class="contact-section">
         <div class="container">
             <div class="contact-header">
-                <h2 class="contact-title">Register Your Interest</h2>
+                <h2 class="contact-title" data-en="Register Your Interest" data-pt="Registe o seu Interesse">Register Your Interest</h2>
                 <div class="contact-divider"></div>
             </div>
             <div class="contact-card">
@@ -697,28 +717,28 @@
                     <form class="contact-form">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-input" placeholder="Your Name" required>
+                                <label class="form-label" data-en="Full Name" data-pt="Nome Completo">Full Name</label>
+                                <input type="text" class="form-input" placeholder="Your Name" data-en-placeholder="Your Name" data-pt-placeholder="Seu Nome" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-input" placeholder="Your Email" required>
+                                <label class="form-label" data-en="Email Address" data-pt="Endereço de Email">Email Address</label>
+                                <input type="email" class="form-input" placeholder="Your Email" data-en-placeholder="Your Email" data-pt-placeholder="Seu Email" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">What type of programme would you be interested in?</label>
+                            <label class="form-label" data-en="What type of programme would you be interested in?" data-pt="Em que tipo de programa estaria interessado(a)?">What type of programme would you be interested in?</label>
                             <select class="form-input" required>
-                                <option value="" disabled selected>Please select an option...</option>
-                                <option value="General Agency Development">General Agency Development</option>
-                                <option value="Trauma Recovery">Trauma Recovery</option>
-                                <option value="Domestic Abuse Recovery">Domestic Abuse Recovery</option>
-                                <option value="Migrant & Expat Wellbeing">Migrant & Expat Wellbeing</option>
-                                <option value="Workplace Wellbeing">Workplace Wellbeing</option>
-                                <option value="Relationship Recovery">Relationship Recovery</option>
-                                <option value="Other">Other</option>
+                                <option value="" disabled selected data-en="Please select an option..." data-pt="Por favor selecione uma opção...">Please select an option...</option>
+                                <option value="General Agency Development" data-en="General Agency Development" data-pt="Desenvolvimento de Agência Geral">General Agency Development</option>
+                                <option value="Trauma Recovery" data-en="Trauma Recovery" data-pt="Recuperação de Trauma">Trauma Recovery</option>
+                                <option value="Domestic Abuse Recovery" data-en="Domestic Abuse Recovery" data-pt="Recuperação de Abuso Doméstico">Domestic Abuse Recovery</option>
+                                <option value="Migrant &amp; Expat Wellbeing" data-en="Migrant &amp; Expat Wellbeing" data-pt="Bem-estar de Migrantes e Expatriados">Migrant &amp; Expat Wellbeing</option>
+                                <option value="Workplace Wellbeing" data-en="Workplace Wellbeing" data-pt="Bem-estar no Local de Trabalho">Workplace Wellbeing</option>
+                                <option value="Relationship Recovery" data-en="Relationship Recovery" data-pt="Recuperação de Relacionamentos">Relationship Recovery</option>
+                                <option value="Other" data-en="Other" data-pt="Outro">Other</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn-pill btn-primary form-submit">Submit Registration</button>
+                        <button type="submit" class="btn-pill btn-primary form-submit" data-en="Submit Registration" data-pt="Enviar Inscrição">Submit Registration</button>
                     </form>
                 </div>
             </div>
@@ -733,7 +753,39 @@
             offset: 100,
         });
 
+        // Dynamic Translation Engine
+        function switchLanguage(lang) {
+            // Update the HTML document context language for accessibility / screen readers
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Translate all elements with data-en/data-pt text attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.innerHTML = text;
+                }
+            });
+            
+            // Translate form input/textarea placeholders
+            document.querySelectorAll('[data-en-placeholder]').forEach(element => {
+                const placeholder = element.getAttribute('data-' + lang + '-placeholder');
+                if (placeholder) {
+                    element.setAttribute('placeholder', placeholder);
+                }
+            });
+
+            // Synchronise layout state components across responsive selectors (Desktop & Mobile tracking)
+            document.querySelectorAll('.lang-option').forEach(option => {
+                if (option.getAttribute('data-target-lang') === lang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Setup Mobile Menu Functionality
             const menuBtn = document.getElementById('menu-btn');
             const closeBtn = document.getElementById('close-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -748,8 +800,18 @@
                 }
             }
 
-            menuBtn.addEventListener('click', toggleMenu);
-            closeBtn.addEventListener('click', toggleMenu);
+            if(menuBtn) menuBtn.addEventListener('click', toggleMenu);
+            if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+            // Bind Event Listeners to Layout Language Options
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const selectedLang = e.target.getAttribute('data-target-lang');
+                    if (selectedLang) {
+                        switchLanguage(selectedLang);
+                    }
+                });
+            });
         });
     </script>
 </body>
