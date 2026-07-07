@@ -908,7 +908,7 @@
    /* ==========================================================================
            MEDIA QUERIES (MOBILE OPTIMISED)
            ========================================================================== */
-           @media (max-width: 1200px) {
+           @media (max-width: 1250px) {
     .nav-links {
         position: absolute; 
         top: 100%; 
@@ -1047,7 +1047,7 @@
         }
 
         /* Responsive Dropdown for Mobile (Hamburger Only) */
-        @media (max-width: 1200px) {
+        @media (max-width: 1250px) {
             /* Target ONLY direct children 'li' so it doesn't add massive gaps to the sub-menu */
             .nav-links > li {
                 width: 100%;
@@ -1430,6 +1430,27 @@
                 background-image: url('../herojosephnew10.jpg');
             }
         }
+
+        @media (max-width: 359px) {
+    .thoracic-grid {
+        /* Overrides the minmax(320px, 1fr) causing the overflow */
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* 2. Reduce the text size of the long email address in the footer */
+.footer-col a[href*="lesley.wilson3"] {
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+
+/* 3. Stack the email and phone number fields on screens <600px */
+@media (max-width: 768px) {
+    /* Uses !important to override the inline grid-template-columns style */
+    .contact-form-section form div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+}
 
     </style>
 </head>
