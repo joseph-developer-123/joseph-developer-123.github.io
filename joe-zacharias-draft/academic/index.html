@@ -1322,6 +1322,153 @@
             }
         }
 
+                .academic-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 950px;
+            margin: 3rem auto 0;
+        }
+
+        /* Unified Custom Scrollable Containers */
+        .academic-scroll-card {
+            background: var(--color-background);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--box-shadow);
+        }
+
+        .academic-scroll-card h3 {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .academic-scroll-card .scroll-subtitle {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .scroll-frame {
+            max-height: 440px;
+            overflow-y: auto;
+            padding-right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        /* Scroll Frame Customized Track */
+        .scroll-frame::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scroll-frame::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scroll-frame::-webkit-scrollbar-thumb {
+            background-color: rgba(30, 41, 59, 0.15);
+            border-radius: 10px;
+            border: none;
+        }
+        .scroll-frame::-webkit-scrollbar-thumb:hover {
+            background-color: #7b61ff;
+        }
+
+        /* Inner list item styles */
+        .academic-item-row {
+            background: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .academic-item-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            border-color: rgba(123, 97, 255, 0.15);
+        }
+
+                .item-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.4;
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            align-items: center;
+        }
+
+        .item-author {
+            font-weight: 500;
+            color: var(--color-primary-light);
+        }
+
+        .journal-badge {
+            background: rgba(30, 41, 59, 0.05);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .item-link {
+            align-self: flex-start;
+            font-size: 0.85rem;
+            color: #7b61ff;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.25rem;
+            transition: color 0.2s;
+        }
+        .item-link:hover { color: var(--color-primary); }
+
+        .lecture-date-badge {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .video-grid-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .play-icon-container {
+            width: 44px;
+            height: 44px;
+            background: var(--color-primary);
+            color: var(--color-surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .academic-item-row:hover .play-icon-container {
+            background: #7b61ff;
+        }
 
     </style>
 </head>
@@ -1394,7 +1541,6 @@
 
         
     <section class="academic-section reveal" id="academic">
-        
         <div class="press-logos-container reveal">
             <h3>Recognised by & Associated with:</h3>
             <div class="press-logos">
@@ -1406,75 +1552,234 @@
         </div>
 
         <h2 style="text-align: center;">Academic Leadership</h2>
-        <p class="subtitle" style="margin: 0 auto 3rem; text-align: center;">Continually advancing the global standard of cardiac care.</p>
+        <p class="subtitle" style="margin: 0 auto 3rem; text-align: center;">Continually advancing the global standard of cardiac care through published data, instructional video guides, and international lectures.</p>
 
         <div class="academic-layout">
-            <div class="video-wrapper reveal">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/HB4eIEpu5N4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <!-- 1. PUBLICATIONS SCROLLABLE CONTAINER -->
+            <div class="academic-scroll-card reveal">
+                <h3>Publications</h3>
+                <div class="scroll-subtitle">Scroll down to view recent peer-reviewed medical publications.</div>
+                <div class="scroll-frame">
+                    
+                    <div class="academic-item-row">
+                        <div class="item-title">Accelerometer-Measured Physical Activity After Mitral Valve Surgery: An Analysis of the UK Mini Mitral Randomized Controlled Trial.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Wagnild JM, Bayliss C, Maier RH, Ogundimu E, Zacharias J, Akowuah EF.</span>
+                            <span class="journal-badge">Circulation (2025)</span>
+                        </div>
+                        <a href="https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.125.074651" target="_blank" rel="noopener noreferrer" class="item-link">View Full Journal Article →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Endoscopic Closure of Iatrogenic Ventricular Septal Defect After 2 Previous Aortic Valve Replacements.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Abdelbar A, Kundan S, Knowles A, Zacharias J.</span>
+                            <span class="journal-badge">JACC Case Rep (2025)</span>
+                        </div>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12441373/" target="_blank" rel="noopener noreferrer" class="item-link">View Full Case Report →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Comparison of mitral valve repair vs. replacement for mitral valve regurgitation.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Dębski M, Qadri S, Bhalraam U, Dębska K, Vassiliou V, Zacharias J.</span>
+                            <span class="journal-badge">Eur Heart J Qual Care Clin Outcomes (2025)</span>
+                        </div>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12342954/" target="_blank" rel="noopener noreferrer" class="item-link">View via PMC →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Lifetime management of heart valve disease—treat it early and treat it right, first time.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Doenst T, Enriquez Sarano M, Kirov H, Caldonazo T, Chikwe J, Dreyfus J, Zacharias J.</span>
+                            <span class="journal-badge">Lancet Comment (2025)</span>
+                        </div>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=zacharias%20j&sort=date" target="_blank" rel="noopener noreferrer" class="item-link">View Comment Archive →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Scarless aortic valve replacement (periareolar approach) with a limited suture technique.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Gadallah B, Abdelbar A, Elhelw E, Zacharias J.</span>
+                            <span class="journal-badge">Multi Media Journal of EACTS (2025)</span>
+                        </div>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=joseph%20zacharias&sort=date" target="_blank" rel="noopener noreferrer" class="item-link">Search Reference PubMed →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Comparison of mitral valve repair versus replacement for mitral valve regurgitation.</div>
+                        <div class="item-meta">
+                            <span class="item-author">Dębski M, Qadri S, Bhalraam U, Dębska K, Vassiliou V, Zacharias J.</span>
+                            <span class="journal-badge">European Heart Journal Qual Care Clin Outcomes (2025)</span>
+                        </div>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/39775859/" target="_blank" rel="noopener noreferrer" class="item-link">View Abstract on PubMed →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">ChordX for Mitral valve repair in a 88 year old patient.</div>
+                        <div class="item-meta"><span class="journal-badge">Vimeo Feature</span></div>
+                        <a href="https://vimeo.com/877528339?fl=pl&fe=vl" target="_blank" rel="noopener noreferrer" class="item-link">Watch Presentation on Vimeo →</a>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <div class="item-title">Endoscopic cardiac surgery for redo tricuspid valve repair.</div>
+                        <div class="item-meta"><span class="journal-badge">Clinical Report Abstract</span></div>
+                    </div>
+
                 </div>
-                <p class="video-caption">Here I spoke with Adam Pick - heart valve patient advocate, author, and founder of HeartValveSurgery.com - about how heart valve disease is under-diagnosed and undertreated. But when caught early and managed at the right centre, it can be curative. My latest publication in The Lancet makes the case for wider care networks, earlier intervention, and modern endoscopic techniques.</p>
             </div>
 
-            <div class="pub-list reveal">
-                <div class="pub-item" onclick="this.classList.toggle('expanded')">
-                    <div class="pub-header">
-                        <div class="pub-number">01</div>
-                        <div class="pub-content-wrap">
-                            <div class="pub-title-row">
-                                <div>
-                                    <h4 class="pub-title">Lifetime Management of Heart Valve Disease</h4>
-                                    <div class="pub-subtext">The Lancet • Co-Authored Paper</div>
-                                </div>
-                                <div class="pub-meta-right">
-                                    <span class="pub-year">2024</span>
-                                    <div class="pub-icons">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- 2. VIDEOS SCROLLABLE CONTAINER -->
+            <div class="academic-scroll-card reveal">
+                <h3>Surgical & Explanatory Videos</h3>
+                <div class="scroll-subtitle">Scroll down to explore case walk-throughs and clinical presentations.</div>
+                <div class="scroll-frame">
+                    
+                    <a href="https://www.youtube.com/watch?v=J0irzSHFIqs" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">An Endoscopic Solution to a Residual Postinfarct Ventricular Septal Defect</div>
+                            <span class="item-link">Watch Video on YouTube</span>
                         </div>
-                    </div>
-                    <div class="pub-body">
-                        <strong>Abstract:</strong> This paper emphasises early intervention in heart valve disease. When treated early and right the first time, heart valve disease can be curative. We advocate for patients to seek specialist networks that offer advanced endoscopic techniques to minimize physical trauma and optimize long-term survivability.
-                    </div>
-                </div>
+                    </a>
 
-                <div class="pub-item" onclick="this.classList.toggle('expanded')">
-                    <div class="pub-header">
-                        <div class="pub-number">02</div>
-                        <div class="pub-content-wrap">
-                            <div class="pub-title-row">
-                                <div>
-                                    <h4 class="pub-title">Global Society Roles & Technical Innovations</h4>
-                                    <div class="pub-subtext">ISMICS / ECSC / NICE Advisory</div>
-                                </div>
-                                <div class="pub-meta-right">
-                                    <span class="pub-year">2023</span>
-                                    <div class="pub-icons">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                    </div>
-                                </div>
-                            </div>
+                    <a href="https://www.youtube.com/watch?v=2SGKZF38gsQ" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Totally Endoscopic Mitral and Aortic Valve Surgery</div>
+                            <span class="item-link">Watch Video on YouTube</span>
                         </div>
-                    </div>
-                    <div class="pub-body">
-                        <strong>Overview:</strong> Serving on the board of the British Heart Valve Society, former director of ISMICS, and current Secretary of the global Endoscopic Cardiac Surgeons Club (ECSC). Additionally, actively advising NICE on the integration and safety protocols of new cardiac surgery technologies in the UK.
-                    </div>
-                </div>
+                    </a>
 
-                <a href="https://www.researchgate.net/profile/Joseph-Zacharias" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                    View More Publications on ResearchGate
-                </a>
+                    <a href="https://www.youtube.com/watch?v=BVLwdgG6meo" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Endoscopic Vein Harvest is Best</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=5n9YeRrr__A" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Concomitant AF Ablation During Minimally Invasive Mitral Valve Surgery</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=71XhDoKyTqE" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Isolated Endoscopic Tricuspid Valve Surgery</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=_xlgJXALBUc" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Minimally Invasive Totally Endoscopic Beating Mitral Valve Repair</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=s-e9Asnypuw" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Four Sternotomies, Three MitraClips: Now What?</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=w0dr-qGLTwc" target="_blank" rel="noopener noreferrer" class="academic-item-row video-grid-item">
+                        <div class="play-icon-container">▶</div>
+                        <div>
+                            <div class="item-title">Respecting the Mitral With Homemade Loops</div>
+                            <span class="item-link">Watch Video on YouTube</span>
+                        </div>
+                    </a>
+
+                </div>
             </div>
+
+            <!-- 3. INVITED LECTURES SCROLLABLE CONTAINER -->
+            <div class="academic-scroll-card reveal">
+                <h3>Invited Lectures</h3>
+                <div class="scroll-subtitle">Scroll down to view domestic and international guest symposia details.</div>
+                <div class="scroll-frame">
+                    
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">25 Oct, 2025</span>
+                        <div class="item-title">CMC 25 and ISMICS workshop</div>
+                        <div class="item-meta">Quanzhou, China</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">17 Oct, 2025</span>
+                        <div class="item-title">E Hospital anniversary endoscopic cardiac surgery meeting</div>
+                        <div class="item-meta">Hanoi, Vietnam</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">10 Oct, 2025</span>
+                        <div class="item-title">EACTS Annual meeting 2025</div>
+                        <div class="item-meta">Copenhagen</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">06 Sep, 2025</span>
+                        <div class="item-title">Endoscopic Cardiac Surgeons club annual meeting</div>
+                        <div class="item-meta">Cincinnati</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">14 Jun, 2025</span>
+                        <div class="item-title">First Endoscopic Cardiac Surgery meeting</div>
+                        <div class="item-meta">Madurai, India</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">30 May, 2025</span>
+                        <div class="item-title">ISMICS Annual meeting</div>
+                        <div class="item-meta">Istanbul</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">29 May, 2025</span>
+                        <div class="item-title">Corcym Lunchtime Symposium at ISMICS</div>
+                        <div class="item-meta">Istanbul</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">29 Apr, 2025</span>
+                        <div class="item-title">British Heart Valve Society Annual Study Day</div>
+                        <div class="item-meta">United Kingdom</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">11 Apr, 2025</span>
+                        <div class="item-title">Corcym User Meeting: Keynote lecture</div>
+                        <div class="item-meta">Symposium</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">15 Jan, 2025</span>
+                        <div class="item-title">University of Jena study day</div>
+                        <div class="item-meta">Germany • Topic: UK mini mitral trial and more</div>
+                    </div>
+
+                    <div class="academic-item-row">
+                        <span class="lecture-date-badge">10 Jan, 2025</span>
+                        <div class="item-title">PCR Tricuspid Group Meeting</div>
+                        <div class="item-meta">London • Topic: Who to refer for Tricuspid valve surgery?</div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
-
-
 
     <section class="parallax-divider">
         <div class="parallax-content reveal">
