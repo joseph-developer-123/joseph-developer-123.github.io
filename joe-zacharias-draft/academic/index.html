@@ -1470,6 +1470,59 @@
             background: #7b61ff;
         }
 
+        .book-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+            align-items: center;
+            background: var(--color-surface);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .book-wrapper img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform var(--transition-fast);
+        }
+
+        .book-wrapper img:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .book-info h5 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .book-info p {
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .book-wrapper {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+            .book-wrapper img {
+                max-width: 60%;
+                margin: 0 auto;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1649,6 +1702,18 @@ Zacharias J., Pitsis A., Glauber M., Solinas M., Kempfert J., Castillo-Sang M., 
     </div>
 
 </div>
+            </div>
+
+            <div class="book-wrapper reveal">
+                <a href="https://link.springer.com/book/10.1007/978-3-031-21104-1" target="_blank" rel="noopener noreferrer">
+                    <img src="../Endoscopic-Cardiac-Surgery-Tips-Tricks-and-Traps-by-Joseph-Zacharias.jpg" alt="Endoscopic Cardiac Surgery Tips, Tricks and Traps by Joseph Zacharias">
+                </a>
+                <div class="book-info">
+                    <h4>Endoscopic Cardiac Surgery:<br>Tips, Tricks and Traps</h4>
+                    <h5>by Joseph Zacharias</h5>
+                    <p>This book uniquely describes the practical considerations of endoscopic cardiac surgery, from basic concepts like patient selection and imaging to specific surgical approaches. With sternotomy becoming less appealing for older and sicker patients, it outlines how technological improvements are driving a steady increase in accepted endoscopic procedures and trained surgeons offering this approach.</p>
+                    <a href="https://link.springer.com/book/10.1007/978-3-031-21104-1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Read More</a>
+                </div>
             </div>
 
             <!-- 2. VIDEOS SCROLLABLE CONTAINER -->
