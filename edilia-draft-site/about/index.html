@@ -1596,12 +1596,9 @@
                         </ul>
                     </div>
                 </div>
-<!-- Invisible iframe to process FormSubmit in the background -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
 <div class="contact-form-wrapper" id="form-wrapper">
-    <!-- Form submits directly into the hidden iframe -->
-    <form id="contact-form" action="https://formsubmit.co/jn461@cam.ac.uk" method="POST" target="hidden_iframe" class="contact-form" onsubmit="handleFormSubmit()">
+    <!-- Form is submitted via JS (fetch) so the page never navigates or reloads -->
+    <form id="contact-form" action="https://formsubmit.co/ajax/jn461@cam.ac.uk" method="POST" class="contact-form">
         
         <!-- FormSubmit Settings -->
         <input type="hidden" name="_subject" value="New Enquiry: Meridian Wellbeing">
@@ -1643,21 +1640,43 @@
 </div>
 
 <script>
-    let isSubmitting = false;
-
-    // Called as soon as the user clicks submit
-    function handleFormSubmit() {
-        isSubmitting = true;
+    (function () {
+        const form = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
-        const isPortuguese = document.documentElement.lang === 'pt';
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = isPortuguese ? "A enviar..." : "Sending...";
-    }
 
-    // Listens for the hidden iframe finish loading response
-    document.getElementById('hidden_iframe').addEventListener('load', function () {
-        if (isSubmitting) {
+        form.addEventListener('submit', function (e) {
+            // Stop the browser's normal form submission (this is what was
+            // causing the page to jump/scroll to the top) and send the
+            // data ourselves in the background instead.
+            e.preventDefault();
+
+            const isPortuguese = document.documentElement.lang === 'pt';
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = isPortuguese ? "A enviar..." : "Sending...";
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(function (response) {
+                if (response.ok) {
+                    showSuccessMessage();
+                } else {
+                    showErrorMessage();
+                }
+            })
+            .catch(function () {
+                showErrorMessage();
+            });
+        });
+
+        function showSuccessMessage() {
             const formWrapper = document.getElementById('form-wrapper');
             const isPortuguese = document.documentElement.lang === 'pt';
 
@@ -1676,9 +1695,17 @@
                     </p>
                 </div>
             `;
-            isSubmitting = false;
         }
-    });
+
+        function showErrorMessage() {
+            const isPortuguese = document.documentElement.lang === 'pt';
+            submitBtn.disabled = false;
+            submitBtn.innerText = isPortuguese ? "Enviar Mensagem Segura" : "Send Secure Message";
+            alert(isPortuguese
+                ? "Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contacte-nos diretamente por email."
+                : "Something went wrong sending your message. Please try again, or email us directly.");
+        }
+    })();
 </script>
             </div>
         </div>
@@ -1793,7 +1820,7 @@
                             if(rect.top < window.innerHeight && rect.bottom > 0) {
                                 const speed = 0.4;
                                 const offset = (scrollPos - parent.offsetTop) * speed;
-                                bg.style.transform = `translateY(${offset}px)`;
+                                bg.style.transform = `translateaY(${offset}px)`;
                             }
                         });
                         ticking = false;
