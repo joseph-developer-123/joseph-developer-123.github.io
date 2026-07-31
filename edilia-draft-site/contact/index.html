@@ -1382,40 +1382,70 @@
                     </ul>
                 </div>
             </div>
+
                 <div class="contact-form-wrapper">
-                    <form action="#" class="contact-form">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label class="form-label" data-en="First Name" data-pt="Nome">First Name</label>
-                                <input type="text" class="form-input" data-en-placeholder="Jane" data-pt-placeholder="Joana">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-en="Last Name" data-pt="Apelido">Last Name</label>
-                                <input type="text" class="form-input" data-en-placeholder="Doe" data-pt-placeholder="Silva">
-                            </div>
-                        </div>
+                      <script>let formSubmitted = false;</script>
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                        onload="if(formSubmitted) 
+                        { document.getElementById('contact-form').style.display='none'; document.getElementById('thank-you-message').classList.remove('hidden'); }"></iframe>
                         
+                        <form id="contact-form" action="https://formsubmit.co/jn461@cam.ac.uk" method="POST" target="hidden_iframe" onsubmit="formSubmitted=true;">
+                        
+                            <input type="hidden" name="_subject" value="New Therapy Enquiry">
+                            <input type="hidden" name="_captcha" value="false">
+
+                        <div class="form-grid">
+
+                            <div>
+                                <label class="form-label" id="form-label-name" for="name" data-en="Name" data-pt="Nome">First Name</label>
+                                <input type="text" id="name" class="form-input" name="name"  data-en-placeholder="Jane Doe" data-pt-placeholder="Joana Silva">
+                            </div>
+
+                        
+
                         <div class="form-group">
-                            <label class="form-label" data-en="Email Address" data-pt="Endereço de Email">Email Address</label>
-                            <input type="email" class="form-input" data-en-placeholder="jane@example.com" data-pt-placeholder="joana@exemplo.com">
+                            <label class="form-label" id="form-label-email" for="email" data-en="Email Address" data-pt="Endereço de Email">Email Address</label>
+                            <input type="email" name="email" class="form-input" data-en-placeholder="jane@example.com" data-pt-placeholder="joana@exemplo.com">
+                        </div>
+
+
+
+                        <div>
+                                <label id="form-label-phone" for="phone" class="form-label" data-en="Phone Number (Optional)" data-pt="Número de Telefone (Opcional)">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" data-en-placeholder="Phone Number (Optional)" data-pt-placeholder="Número de Telefone (Opcional)">
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" data-en="Enquiry Type" data-pt="Tipo de Consulta">Enquiry Type</label>
-                            <select class="form-input" style="appearance: auto;">
-                                <option value="general" data-en="General Therapy Enquiry" data-pt="Consulta Geral de Terapia">General Therapy Enquiry</option>
-                                <option value="referral" data-en="Refer a Client" data-pt="Indicar um Cliente">Refer a Client</option>
-                                <option value="partnership" data-en="Partnerships & Collaboration" data-pt="Parcerias e Colaboração">Partnerships & Collaboration</option>
+                            <select name="enquiry_type" class="form-input" style="appearance: auto;">
+                                <option value="General Therapy Enquiry" data-en="General Therapy Enquiry" data-pt="Consulta Geral de Terapia">General Therapy Enquiry</option>
+                                <option value="Refer a Client" data-en="Refer a Client" data-pt="Indicar um Cliente">Refer a Client</option>
+                                <option value="Partnerships & Collaboration" data-en="Partnerships & Collaboration" data-pt="Parcerias e Colaboração">Partnerships & Collaboration</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" data-en="How can I help you?" data-pt="Como posso ajudar?">How can I help you?</label>
-                            <textarea class="form-textarea" rows="5" data-en-placeholder="Please briefly describe what you are looking for..." data-pt-placeholder="Por favor, descreva brevemente o que procura..."></textarea>
+
+                            <div>
+                                <label class="form-label" id="form-label-message" for="message" data-en="How can I help you?" data-pt="Como posso ajudar?">How can I help you?</label>
+                                <textarea id="message" name="message" required rows="5" class="form-textarea"
+                                 data-en-placeholder="Please briefly describe what you are looking for..." data-pt-placeholder="Por favor, descreva brevemente o que procura..."></textarea>
+                            </div>
+                    
+
+                        <button id="form-submit-btn" type="submit" class="btn-pill btn-dark form-submit"
+                        data-en="Send Secure Message" data-pt="Enviar Mensagem Segura">
+                                Send Secure Message
+                        </button>
+
                         </div>
-                        
-                        <button type="submit" class="btn-pill btn-dark form-submit" data-en="Send Secure Message" data-pt="Enviar Mensagem Segura">Send Secure Message</button>
                     </form>
+
+                        <div id="thank-you-message">
+                            <!--div>
+                                <i data-lucide="check-circle" class="w-8 h-8"></i>
+                            </div-->
+                            <h4 id="thank-you-heading">Thank you!</h4>
+                            <p id="thank-you-desc">Your message has been sent successfully. I will be in touch shortly.</p>
+                        </div>
                 </div>
             </div>
         </div>
