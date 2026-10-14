@@ -23,22 +23,25 @@
         a { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
         .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 2.5rem; }
         .section-padding { padding: 5rem 0; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 500; font-size: 0.95rem; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); transition: var(--transition-smooth); cursor: pointer; border: 1px solid transparent; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 500; font-size: 0.95rem; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); transition: var(--transition-smooth); cursor: pointer; border: 1px solid transparent; text-align: center; }
         .btn-primary { background-color: var(--bg-dark); color: var(--text-light); }
-        .btn-primary:hover { background-color: var(--accent-blue); }
+        .btn-primary:hover { background-color: var(--accent-blue); transform: translateY(-2px); }
         .sticky-header-wrapper { position: sticky; top: 0; z-index: 1000; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .top-trust-bar { background-color: #0d0d0d; color: rgba(255, 255, 255, 0.9); font-family: var(--font-heading); font-size: 0.88rem; padding: 0.4rem 0; }
+        .top-trust-bar { background-color: #0d0d0d; color: rgba(255, 255, 255, 0.9); font-family: var(--font-heading); font-size: 0.88rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .top-trust-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .top-contact-links { display: flex; gap: 2rem; align-items: center; }
-        .main-header { padding: 0.5rem 0; }
+        .top-link-item { display: flex; align-items: center; gap: 0.5rem; }
+        .main-header { background-color: #ffffff; padding: 0.5rem 0; }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500; color: var(--bg-dark); }
-        .logo-subtitle { font-family: var(--font-heading); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+        .logo-subtitle { font-family: var(--font-heading); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 400; }
         .nav-menu-links { display: flex; gap: 2rem; list-style: none; font-family: var(--font-heading); font-size: 0.95rem; }
         .nav-menu-links a:hover { color: var(--accent-blue); }
         .page-header { background-color: var(--bg-elevated); padding: 4rem 0 3rem 0; border-bottom: 1px solid var(--border-subtle); }
         .page-header h1 { font-size: 2.8rem; font-weight: 300; margin-bottom: 0.5rem; }
         .practise-section { background-color: var(--bg-pure); border-top: 1px solid var(--border-subtle); }
+        .section-header-cluster { text-align: center; max-width: 750px; margin: 0 auto 4rem auto; }
+        .section-header-cluster h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300; }
         .deployment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
         .deployment-hub-card { background-color: var(--bg-elevated); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
         .hub-title-context { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); margin-bottom: 0.5rem; }
@@ -65,10 +68,10 @@
     <div class="sticky-header-wrapper">
         <div class="top-trust-bar">
             <div class="container top-trust-inner">
-                <div>Welbeck, Harley Street Medical District, London</div>
+                <div class="top-link-item">Welbeck, Harley Street Medical District, London</div>
                 <div class="top-contact-links">
-                    <a href="tel:+447356015504">+44 (0)7356 015504</a>
-                    <a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a>
+                    <a href="tel:+447356015504" class="top-link-item">+44 (0)7356 015504</a>
+                    <a href="mailto:info@drnayaung.co.uk" class="top-link-item">info@drnayaung.co.uk</a>
                 </div>
             </div>
         </div>
@@ -84,11 +87,12 @@
                 <nav>
                     <ul class="nav-menu-links">
                         <li><a href="https://alethara.com/nay-aung-draft/">Home</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/about">About</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/conditions">Conditions</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/fees">Fees</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/research">Research</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/contact" style="color: var(--accent-blue);">Contact</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/about.html">About</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/conditions.html">Conditions</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/tests.html">Tests</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/fees.html">Fees</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/research.html">Research</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/contact.html" style="color: var(--accent-blue);">Contact</a></li>
                     </ul>
                 </nav>
                 <div>
@@ -101,16 +105,16 @@
     <div class="page-header">
         <div class="container">
             <h1>Contact & Book an Appointment</h1>
-            <p style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-muted);">Get in touch or book your private appointment online.</p>
+            <p style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-muted);">Get in touch or book your private appointment online[cite: 2].</p>
         </div>
     </div>
 
-    <!-- WHERE I PRACTISE -->
+    <!-- WHERE I PRACTISE (DIRECTLY ABOVE BOOKING) -->
     <section class="practise-section section-padding">
         <div class="container">
-            <div style="text-align: center; max-width: 750px; margin: 0 auto 4rem auto;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300;">Where I practise</h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem;">Private appointments at Welbeck in the Harley Street Medical District. NHS appointments at Barts Heart Centre are by referral only.</p>
+            <div class="section-header-cluster">
+                <h2>Where I practise</h2>
+                <p>Private appointments at Welbeck in the Harley Street Medical District. NHS appointments at Barts Heart Centre are by referral only[cite: 2].</p>
             </div>
             <div class="deployment-grid">
                 <div class="deployment-hub-card">
@@ -118,13 +122,98 @@
                         <div class="hub-title-context">Private practice</div>
                         <h3 class="hub-name">Welbeck Heart Health</h3>
                         <ul class="hub-details-list">
-                            <li>1 Welbeck Street, London W1G 0AR</li>
-                            <li>Harley Street Medical District</li>
-                            <li>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
-                            <li>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
+                            <li>1 Welbeck Street, London W1G 0AR[cite: 2]</li>
+                            <li>Harley Street Medical District[cite: 2]</li>
+                            <li>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a>[cite: 2]</li>
+                            <li>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a>[cite: 2]</li>
                         </ul>
                     </div>
                 </div>
                 <div class="deployment-hub-card">
                     <div>
-                        <div class="hub-
+                        <div class="hub-title-context">NHS practice</div>
+                        <h3 class="hub-name">Barts Heart Centre</h3>
+                        <ul class="hub-details-list">
+                            <li>St Bartholomew's Hospital[cite: 2]</li>
+                            <li>West Smithfield, London EC1A 7BE[cite: 2]</li>
+                            <li style="margin-top: 1rem; color: var(--accent-blue); font-weight: 500;">By referral only[cite: 2]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-portal-section section-padding">
+        <div class="container">
+            <div class="carebit-booking-container">
+                <h2>Book an appointment</h2>
+                <p class="carebit-intro-text">
+                    Choose a time that suits you and book online. If you'd rather speak to someone, call or email my secretary[cite: 2].
+                </p>
+                <div class="booking-actions-box">
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Book online via secure patient portal</a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal[cite: 2]</a>
+                </div>
+                <div class="booking-meta-info">
+                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: +44 (0)7356 015504 · Email: info@drnayaung.co.uk[cite: 2]</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over[cite: 2].</p>
+                    <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary[cite: 2].</p>
+                </div>
+                <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong>Insurance & Self-Funding:</strong> I see self-funding patients and patients with most major insurers[cite: 2]. Please check with your insurer before booking, as you may need a GP referral and an authorisation code[cite: 2].
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <strong>Privacy:</strong> Your details are processed by my practice to arrange and manage your care[cite: 2]. See our <a href="https://alethara.com/nay-aung-draft/privacy.html" style="text-decoration: underline;">privacy policy</a>[cite: 2].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="medical-footer-engine">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div>
+                    <div class="footer-link-group-title">Clinics</div>
+                    <ul class="footer-links-list">
+                        <li>Welbeck Heart Health, Harley Street Medical District</li>
+                        <li>Barts Heart Centre (NHS - by referral only)</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-link-group-title">Specialist Areas</div>
+                    <ul class="footer-links-list">
+                        <li>General cardiology</li>
+                        <li>Cardiac MRI</li>
+                        <li>Heart failure</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-link-group-title">Research & Academic</div>
+                    <ul class="footer-links-list">
+                        <li>Queen Mary University of London</li>
+                        <li>Publications</li>
+                        <li>Media coverage</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-link-group-title">Registration & Legal</div>
+                    <ul class="footer-links-list">
+                        <li>GMC Registered</li>
+                        <li>ICO Registered</li>
+                        <li>Welbeck CQC Registered</li>
+                        <li><a href="https://alethara.com/nay-aung-draft/privacy.html">Privacy policy</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/cookies.html">Cookie policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <div>© 2026 Dr Nay Aung. All Rights Reserved.</div>
+                <div>Designed by <a href="https://alethara.com" style="color: #ffffff; text-decoration: underline;" target="_blank">ALETHARA</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
