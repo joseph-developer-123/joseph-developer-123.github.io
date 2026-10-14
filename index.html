@@ -214,7 +214,7 @@
         .hero {
             position: relative;
             padding-top: calc(100px + 4vh); 
-            padding-bottom: var(--space-lg); /* Adjusted to match distance between text and button */
+            padding-bottom: var(--space-lg); 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -230,7 +230,6 @@
             padding-top: 0;
         }
 
-        /* REFINED ELITE TYPOGRAPHY */
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 6.5rem); 
             line-height: 1;
@@ -243,7 +242,7 @@
             font-size: clamp(1rem, 2vw, 1.25rem); 
             color: var(--color-text-secondary);
             max-width: 55ch; 
-            margin: 0 auto var(--space-lg); /* Space above buttons exactly equals space below buttons to banner */
+            margin: 0 auto var(--space-lg); 
             line-height: 1.6;
         }
 
@@ -256,11 +255,6 @@
 
         .hero h1 .word { display: inline-block; transform: translateY(0) rotate(0deg); opacity: 1; }
         
-        @keyframes textReveal {
-            0% { transform: translateY(110%) rotate(2deg); opacity: 0; }
-            100% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        }
-
         .hero-bg {
             position: absolute; top: -50%; right: -20%; width: 80vw; height: 80vw;
             background: radial-gradient(circle, rgba(0,230,118,0.08) 0%, transparent 60%);
@@ -297,12 +291,12 @@
         .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--grid-gap); }
         .portfolio-grid > :nth-child(even) { margin-top: var(--space-xl); }
 
-        .project-card { display: block; group: project; }
+        .project-card { display: block; }
         
         .project-visual {
             aspect-ratio: 16 / 7.48; 
-            background-color: transparent; /* Removed gray box */
-            border-radius: var(--radius-md); /* Ensures rounded corners */
+            background-color: transparent; 
+            border-radius: var(--radius-md); 
             margin-bottom: var(--space-sm); 
             position: relative; 
             overflow: hidden;
@@ -315,7 +309,7 @@
             left: 0;
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Switched to cover to fill container nicely and adopt corners */
+            object-fit: cover; 
             object-position: center; 
             transition: transform 0.8s var(--ease-out-expo);
             display: block;
@@ -327,8 +321,6 @@
         .project-title { font-size: var(--text-lg); margin-bottom: 0.25rem; }
         .project-category { font-size: var(--text-xs); color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
         
-        .project-badge { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; padding: 0.3rem 0.8rem; background: var(--color-bg-inverse); color: var(--color-bg-primary); border-radius: var(--radius-pill); }
-        .project-badge.concept { background: transparent; color: var(--color-text-primary); border: 1px solid var(--color-border-inverse); }
         .project-rationale { margin-top: 1rem; font-size: var(--text-sm); color: var(--color-text-secondary); }
 
         /* ==========================================================================
@@ -356,9 +348,6 @@
         .price-header h3 { font-size: var(--text-xl); margin-bottom: 0.5rem; }
         .price-desc { font-size: var(--text-sm); color: var(--color-text-inverse-muted); }
         .price-card.premium .price-desc { color: var(--color-text-secondary); }
-
-        .price-amount { font-size: var(--text-3xl); font-weight: 800; margin: var(--space-md) 0; display: flex; align-items: baseline; gap: 8px; }
-        .price-amount span { font-size: var(--text-sm); font-weight: 500; opacity: 0.6; }
 
         .feature-list { margin-bottom: var(--space-lg); flex-grow: 1; }
         .feature-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: var(--text-sm); display: flex; align-items: center; gap: 0.75rem; }
@@ -397,7 +386,6 @@
         .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
         .reveal-scale.is-inview { opacity: 1; transform: scale(1); }
 
-        /* Staggered Lists */
         .stagger-group .stagger-item { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo); }
         .stagger-group.is-inview .stagger-item { opacity: 1; transform: translateY(0); }
 
@@ -411,7 +399,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Force Default Cursor on Mobile to remove "mouse thing" */
             body, html { cursor: auto !important; }
             a, button, .btn, .nav-link, .cursor-hover-target { cursor: pointer !important; }
             .cursor-dot, .cursor-outline { display: none !important; }
@@ -440,7 +427,8 @@
                 <a href="#pricing" class="nav-link cursor-hover-target">Pricing</a>
                 <a href="#about" class="nav-link cursor-hover-target">About</a>
             </nav>
-<a href="#contact" class="btn btn-outline plausible-event-name=Header+Book+Call" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border-radius: 100px;">Book Call</a>        </div>
+            <a href="#contact" class="btn btn-outline plausible-event-name=Header+Book+Call" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border-radius: 100px;">Book Call</a>        
+        </div>
     </header>
 
     <main>
@@ -456,8 +444,8 @@
                     We build and manage conversion-optimised websites for private practices that want consistent growth. Stop losing patients to generic, outdated designs. Step into the digital Harley Street.
                 </p>
                 <div class="hero-actions stagger-item" style="transition-delay: 0.7s;">
-<a href="#contact" class="btn btn-primary cursor-hover-target plausible-event-name=Hero+Start+Project">Start Your Project</a>
-<a href="#process" class="btn btn-outline cursor-hover-target plausible-event-name=Hero+Explore+Process" style="border: none;">Explore Process &darr;</a>
+                    <a href="#contact" class="btn btn-primary cursor-hover-target plausible-event-name=Hero+Start+Project">Start Your Project</a>
+                    <a href="#process" class="btn btn-outline cursor-hover-target plausible-event-name=Hero+Explore+Process" style="border: none;">Explore Process &darr;</a>
                 </div>
             </div>
         </section>
@@ -521,7 +509,46 @@
                 </div>
 
                 <div class="portfolio-grid stagger-group">
-<a href="https://akgpsychotherapy.com/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
+                    <a href="https://swankang.co.uk" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
+                        <div class="project-visual">
+                            <img src="swan.png" alt="Swan Kang" class="portfolio-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-meta">
+                            <div>
+                                <h3 class="project-title">Swan Kang</h3>
+                                <span class="project-category">Oculoplastic Surgery</span>
+                            </div>
+                        </div>
+                        <div class="project-rationale">Refined digital presence highlighting precision, medical expertise, and patient reassurance for an oculoplastic surgeon.</div>
+                    </a>
+
+                    <a href="https://www.northlondonrheumatologist.org/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
+                        <div class="project-visual">
+                            <img src="nlr.png" alt="Anna Nuttall" class="portfolio-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-meta">
+                            <div>
+                                <h3 class="project-title">Anna Nuttall</h3>
+                                <span class="project-category">Rheumatology</span>
+                            </div>
+                        </div>
+                        <div class="project-rationale">Clear, authoritative architecture designed to guide patients seeking specialised rheumatology care.</div>
+                    </a>
+
+                    <a href="https://www.jackiegoldingtherapy.com/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.2s;">
+                        <div class="project-visual">
+                            <img src="jackie.png" alt="Jackie Golding" class="portfolio-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-meta">
+                            <div>
+                                <h3 class="project-title">Jackie Golding</h3>
+                                <span class="project-category">Psychotherapy</span>
+                            </div>
+                        </div>
+                        <div class="project-rationale">Creating a warm, professional, and accessible space that encourages meaningful therapeutic connections.</div>
+                    </a>
+
+                    <a href="https://akgpsychotherapy.com/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
                         <div class="project-visual">
                             <img src="akgpsych5.png" alt="AKG Psychotherapy" class="portfolio-img" onerror="this.style.display='none'">
                         </div>
@@ -530,23 +557,8 @@
                                 <h3 class="project-title">AKG Psychotherapy</h3>
                                 <span class="project-category">Psychotherapy</span>
                             </div>
-                            <span class="project-badge">Client</span>
                         </div>
                         <div class="project-rationale">Translating psychodynamic depth into a calm, intuitive digital experience that guides clients gently from first contact to meaningful therapeutic engagement.</div>
-                    </a>
-
-                    <a href="https://daniellazimitherapy.co.uk/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
-                        <div class="project-visual">
-                            <img src="daniellazimi.png" alt="Daniel Lazimi Therapy" class="portfolio-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-meta">
-                            <div>
-                                <h3 class="project-title">Daniel Lazimi Therapy</h3>
-                                <span class="project-category">Counselling</span>
-                            </div>
-                            <span class="project-badge">Client</span>
-                        </div>
-                        <div class="project-rationale">Bridging clinical expertise with relational warmth via precise UX signposting for trauma and SEN support.</div>
                     </a>
 
                     <a href="https://www.themindplace.co.uk" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.2s;">
@@ -558,65 +570,21 @@
                                 <h3 class="project-title">The Mind Place</h3>
                                 <span class="project-category">Integrative Therapy</span>
                             </div>
-                            <span class="project-badge">Client</span>
                         </div>
                         <div class="project-rationale">Architected for approachability, ensuring effortless navigation for high-intent potential clients.</div>
                     </a>
 
-                    <a href="/dianoya" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
+                    <a href="https://daniellazimitherapy.co.uk/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
                         <div class="project-visual">
-                            <img src="dianoya.png" alt="Dianoya Therapeutics" class="portfolio-img" onerror="this.style.display='none'">
+                            <img src="daniellazimi.png" alt="Daniel Lazimi Therapy" class="portfolio-img" onerror="this.style.display='none'">
                         </div>
                         <div class="project-meta">
                             <div>
-                                <h3 class="project-title">Dianoya Therapeutics</h3>
-                                <span class="project-category">Biotech Innovation</span>
+                                <h3 class="project-title">Daniel Lazimi Therapy</h3>
+                                <span class="project-category">Counselling</span>
                             </div>
-                            <span class="project-badge concept">Spec Work</span>
                         </div>
-                        <div class="project-rationale">Translating complex scientific density into clear UI to secure investment partnerships.</div>
-                    </a>
-
-                    <a href="/dental-atelier" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.2s;">
-                        <div class="project-visual">
-                            <img src="dentalatelier.png" alt="Mayfair Dental Atelier" class="portfolio-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-meta">
-                            <div>
-                                <h3 class="project-title">Mayfair Dental Atelier</h3>
-                                <span class="project-category">Cosmetic Dentistry</span>
-                            </div>
-                            <span class="project-badge concept">Spec Work</span>
-                        </div>
-                        <div class="project-rationale">Offsetting luxury aesthetics with trust-building data matrices and fluid animations.</div>
-                    </a>
-
-                    <a href="https://alethara.com/mr-morrissey-ophthalmic-surgery/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.1s;">
-                        <div class="project-visual">
-                            <img src="mrmorrissey.png" alt="Mr. Morrissey" class="portfolio-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-meta">
-                            <div>
-                                <h3 class="project-title">Mr. Morrissey</h3>
-                                <span class="project-category">Ophthalmic Surgery</span>
-                            </div>
-                            <span class="project-badge concept">Spec Work</span>
-                        </div>
-                        <div class="project-rationale">Paired high-end, editorial aesthetics with robust clinical authority data (10,000+ procedures).</div>
-                    </a>
-
-                    <a href="https://alethara.com/nova-psychiatry/" target="_blank" class="project-card stagger-item cursor-hover-target" style="transition-delay: 0.2s;">
-                        <div class="project-visual">
-                            <img src="novapsychiatry.png" alt="Nova Psychiatry" class="portfolio-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-meta">
-                            <div>
-                                <h3 class="project-title">Nova Psychiatry</h3>
-                                <span class="project-category">Private Mental Healthcare</span>
-                            </div>
-                            <span class="project-badge concept">Spec Work</span>
-                        </div>
-                        <div class="project-rationale">Surfaced immediate availability and 5-star Trustpilot ratings to quickly convert high-intent patients.</div>
+                        <div class="project-rationale">Bridging clinical expertise with relational warmth via precise UX signposting for trauma and SEN support.</div>
                     </a>
                 </div>
             </div>
@@ -663,7 +631,7 @@
                                 <h3>Website Build</h3>
                                 <p class="price-desc">Complete bespoke practice architecture.</p>
                             </div>
-<a href="#contact" class="btn btn-primary cursor-hover-target plausible-event-name=Pricing+Discuss+Project" style="margin-top: var(--space-md);">Discuss Your Project</a>
+                            <a href="#contact" class="btn btn-primary cursor-hover-target plausible-event-name=Pricing+Discuss+Project" style="margin-top: var(--space-md);">Discuss Your Project</a>
                         </div>
                         <div style="flex: 1;">
                             <ul class="feature-list" style="margin: 0;">
@@ -686,7 +654,7 @@
                             <li>Monthly SEO & Performance Monitoring</li>
                             <li>Privacy-friendly analytics</li>
                         </ul>
-<a href="#contact" class="btn btn-outline inverse cursor-hover-target plausible-event-name=Pricing+Explore+Maintenance" style="width: 100%;">Explore Maintenance</a>
+                        <a href="#contact" class="btn btn-outline inverse cursor-hover-target plausible-event-name=Pricing+Explore+Maintenance" style="width: 100%;">Explore Maintenance</a>
                     </div>
 
                     <div class="price-card stagger-item" style="transition-delay: 0.3s;">
@@ -700,7 +668,7 @@
                             <li>Precision keyword targeting</li>
                             <li>Continuous bid optimisation</li>
                         </ul>
-<a href="mailto:founders@alethara.com" class="btn btn-outline inverse cursor-hover-target plausible-event-name=Pricing+Schedule+Strategy" style="width: 100%;">Schedule Strategy</a>
+                        <a href="mailto:founders@alethara.com" class="btn btn-outline inverse cursor-hover-target plausible-event-name=Pricing+Schedule+Strategy" style="width: 100%;">Schedule Strategy</a>
                     </div>
                 </div>
 
@@ -727,13 +695,13 @@
                     <p style="margin: 0 auto 2rem; font-size: var(--text-lg); max-width: 50ch;">Schedule a complimentary strategy call. We will discuss your current patient acquisition bottlenecks and outline the exact framework to increase your bookings.</p>
                     
                     <a href="https://calendly.com/jn461-cam/30min" target="_blank" class="btn btn-primary cursor-hover-target plausible-event-name=Calendly+Strategy+Call" style="padding: 1.25rem 2.5rem; font-size: var(--text-base);">
-    Schedule Strategy Call
-</a>
+                        Schedule Strategy Call
+                    </a>
                     
                     <div class="contact-links">
                         <a href="https://wa.me/447429448533" target="_blank" class="cursor-hover-target plausible-event-name=WhatsApp+Click">WhatsApp: 07429 448533</a>
-<span>|</span>
-<a href="mailto:founders@alethara.com" class="cursor-hover-target plausible-event-name=Email+Click">Email: founders@alethara.com</a>
+                        <span>|</span>
+                        <a href="mailto:founders@alethara.com" class="cursor-hover-target plausible-event-name=Email+Click">Email: founders@alethara.com</a>
                     </div>
                 </div>
             </div>
@@ -760,8 +728,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Custom Smooth Cursor (Safeguarded logic for non-mobile)
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
             const hoverTargets = document.querySelectorAll('.cursor-hover-target');
@@ -797,7 +763,6 @@
                 area.addEventListener('mouseleave', () => document.body.classList.remove('inverse-cursor'));
             });
 
-            // 2. Header Scroll state
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -807,7 +772,6 @@
                 }
             });
 
-            // 3. Reveal Animations (Intersection Observer)
             const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
             
             const revealObserver = new IntersectionObserver((entries) => {
@@ -822,7 +786,6 @@
                 revealObserver.observe(el);
             });
 
-            // 4. Process Module Activation (Scroll Spy)
             const processItems = document.querySelectorAll('.process-item');
             const processObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -835,7 +798,6 @@
 
             processItems.forEach(item => processObserver.observe(item));
 
-            // 5. Hero Title Stagger effect initialization
             setTimeout(() => {
                 const words = document.querySelectorAll('.hero h1 .word');
                 words.forEach((word, index) => {
