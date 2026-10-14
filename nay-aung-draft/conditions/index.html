@@ -34,7 +34,7 @@
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500; color: var(--bg-dark); }
         .logo-subtitle { font-family: var(--font-heading); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
-        .nav-menu-links { display: flex; gap: 1.5rem; list-style: none; font-family: var(--font-heading); font-size: 0.95rem; }
+        .nav-menu-links { display: flex; gap: 2rem; list-style: none; font-family: var(--font-heading); font-size: 0.95rem; }
         .nav-menu-links a:hover { color: var(--accent-blue); }
         .page-header { background-color: var(--bg-elevated); padding: 4rem 0 3rem 0; border-bottom: 1px solid var(--border-subtle); }
         .page-header h1 { font-size: 2.8rem; font-weight: 300; margin-bottom: 0.5rem; }
@@ -42,6 +42,13 @@
         .symptom-card { background-color: var(--bg-elevated); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
         .symptom-card h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.75rem; color: var(--bg-dark); }
         .symptom-card p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 0; }
+        .contact-portal-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
+        .carebit-booking-container { background-color: var(--bg-pure); padding: 3.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.03); max-width: 900px; margin: 0 auto; }
+        .carebit-booking-container h2 { font-size: 2.2rem; margin-bottom: 1rem; font-weight: 300; text-align: center; }
+        .carebit-intro-text { text-align: center; font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+        .booking-actions-box { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding: 2.5rem; background-color: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 2rem; }
+        .portal-login-link { font-family: var(--font-heading); font-size: 0.95rem; color: var(--accent-blue); text-decoration: underline; }
+        .booking-meta-info { font-family: var(--font-heading); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
         .medical-footer-engine { background-color: var(--bg-dark); color: rgba(255, 255, 255, 0.65); font-family: var(--font-heading); font-size: 0.95rem; padding: 4.5rem 0 2.5rem 0; }
         .footer-top-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 3.5rem; }
         .footer-link-group-title { font-size: 0.88rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
@@ -76,10 +83,8 @@
                         <li><a href="https://alethara.com/nay-aung-draft/">Home</a></li>
                         <li><a href="https://alethara.com/nay-aung-draft/about">About</a></li>
                         <li><a href="https://alethara.com/nay-aung-draft/conditions" style="color: var(--accent-blue);">Conditions</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/tests">Tests</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/fees">Fees & Insurance</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/research">Research & Media</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/faqs">FAQs</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/fees">Fees</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/research">Research</a></li>
                         <li><a href="https://alethara.com/nay-aung-draft/contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -160,6 +165,37 @@
                 <div class="symptom-card" style="grid-column: span 2;">
                     <h3>Second opinions</h3>
                     <p>A fresh review of a diagnosis, scan result or treatment plan[cite: 2].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="contact-portal-section section-padding">
+        <div class="container">
+            <div class="carebit-booking-container">
+                <h2>Book an appointment</h2>
+                <p class="carebit-intro-text">
+                    Choose a time that suits you and book online. If you'd rather speak to someone, call or email my secretary[cite: 2].
+                </p>
+
+                <div class="booking-actions-box">
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Book online via secure patient portal</a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal[cite: 2]</a>
+                </div>
+
+                <div class="booking-meta-info">
+                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: +44 (0)7356 015504 · Email: info@drnayaung.co.uk[cite: 2]</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over[cite: 2].</p>
+                    <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary[cite: 2].</p>
+                </div>
+
+                <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong>Insurance & Self-Funding:</strong> I see self-funding patients and patients with most major insurers[cite: 2]. Please check with your insurer before booking, as you may need a GP referral and an authorisation code[cite: 2].
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        <strong>Privacy:</strong> Your details are processed by my practice to arrange and manage your care[cite: 2]. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>[cite: 2].
+                    </p>
                 </div>
             </div>
         </div>
