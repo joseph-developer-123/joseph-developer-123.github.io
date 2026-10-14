@@ -3,31 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Contact & Book an Appointment | Dr Nay Aung Cardiologist London</title>
+    <meta name="description" content="Book an appointment online via the secure Carebit portal or get in touch with Dr Nay Aung's practice secretary at Welbeck Heart Health, London.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-pure: #ffffff; --bg-elevated: #f8f9fa; --bg-dark: #0a0a0a;
+            --text-main: #1a1a1a; --text-muted: #4a5568; --text-light: #ffffff;
+            --accent-blue: #0b2c5c; --accent-blue-light: #e6eef7; --border-subtle: #e2e8f0;
+            --radius-md: 10px; --radius-sm: 6px; --transition-smooth: all 0.3s ease;
+            --font-heading: 'Figtree', sans-serif; --font-body: 'Faustina', serif;
         }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 600;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { background-color: var(--bg-pure); color: var(--text-main); font-family: var(--font-body); font-size: 1.15rem; line-height: 1.65; }
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; color: var(--bg-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
+        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 2.5rem; }
+        .section-padding { padding: 5rem 0; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 500; font-size: 0.95rem; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); transition: var(--transition-smooth); cursor: pointer; border: 1px solid transparent; }
+        .btn-primary { background-color: var(--bg-dark); color: var(--text-light); }
+        .btn-primary:hover { background-color: var(--accent-blue); }
+        .sticky-header-wrapper { position: sticky; top: 0; z-index: 1000; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .top-trust-bar { background-color: #0d0d0d; color: rgba(255, 255, 255, 0.9); font-family: var(--font-heading); font-size: 0.88rem; padding: 0.4rem 0; }
+        .top-trust-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .top-contact-links { display: flex; gap: 2rem; align-items: center; }
+        .main-header { padding: 0.5rem 0; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500; color: var(--bg-dark); }
+        .logo-subtitle { font-family: var(--font-heading); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+        .nav-menu-links { display: flex; gap: 2rem; list-style: none; font-family: var(--font-heading); font-size: 0.95rem; }
+        .nav-menu-links a:hover { color: var(--accent-blue); }
+        .page-header { background-color: var(--bg-elevated); padding: 4rem 0 3rem 0; border-bottom: 1px solid var(--border-subtle); }
+        .page-header h1 { font-size: 2.8rem; font-weight: 300; margin-bottom: 0.5rem; }
+        .practise-section { background-color: var(--bg-pure); border-top: 1px solid var(--border-subtle); }
+        .deployment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .deployment-hub-card { background-color: var(--bg-elevated); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
+        .hub-title-context { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); margin-bottom: 0.5rem; }
+        .hub-name { font-size: 1.8rem; margin-bottom: 1.25rem; font-weight: 400; }
+        .hub-details-list { list-style: none; margin-bottom: 1.5rem; }
+        .hub-details-list li { font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 0.75rem; }
+        .contact-portal-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
+        .carebit-booking-container { background-color: var(--bg-pure); padding: 3.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.03); max-width: 900px; margin: 0 auto; }
+        .carebit-booking-container h2 { font-size: 2.2rem; margin-bottom: 1rem; font-weight: 300; text-align: center; }
+        .carebit-intro-text { text-align: center; font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+        .booking-actions-box { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding: 2.5rem; background-color: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 2rem; }
+        .portal-login-link { font-family: var(--font-heading); font-size: 0.95rem; color: var(--accent-blue); text-decoration: underline; }
+        .booking-meta-info { font-family: var(--font-heading); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
+        .medical-footer-engine { background-color: var(--bg-dark); color: rgba(255, 255, 255, 0.65); font-family: var(--font-heading); font-size: 0.95rem; padding: 4.5rem 0 2.5rem 0; }
+        .footer-top-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 3.5rem; }
+        .footer-link-group-title { font-size: 0.88rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
+        .footer-links-list { list-style: none; }
+        .footer-links-list li { margin-bottom: 0.75rem; font-size: 0.92rem; }
+        .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
+        @media(max-width: 1024px) { .deployment-grid { grid-template-columns: 1fr; } .footer-top-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
-    <h1>Coming Soon</h1>
-</body>
-</html>
+    <div class="sticky-header-wrapper">
+        <div class="top-trust-bar">
+            <div class="container top-trust-inner">
+                <div>Welbeck, Harley Street Medical District, London</div>
+                <div class="top-contact-links">
+                    <a href="tel:+447356015504">+44 (0)7356 015504</a>
+                    <a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a>
+                </div>
+            </div>
+        </div>
+        <header class="main-header">
+            <div class="container nav-inner">
+                <div class="branding-zone">
+                    <a href="https://alethara.com/nay-aung-draft/">
+                        <div class="logo-title">DR NAY AUNG</div>
+                        <div class="logo-subtitle">MBBS · MSc · MRCP · PhD</div>
+                        <div class="logo-subtitle">Consultant Cardiologist</div>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="nav-menu-links">
+                        <li><a href="https://alethara.com/nay-aung-draft/">Home</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/about">About</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/conditions">Conditions</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/fees">Fees</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/research">Research</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/contact" style="color: var(--accent-blue);">Contact</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.88rem;">Book an appointment</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Contact & Book an Appointment</h1>
+            <p style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-muted);">Get in touch or book your private appointment online.</p>
+        </div>
+    </div>
+
+    <!-- WHERE I PRACTISE -->
+    <section class="practise-section section-padding">
+        <div class="container">
+            <div style="text-align: center; max-width: 750px; margin: 0 auto 4rem auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300;">Where I practise</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">Private appointments at Welbeck in the Harley Street Medical District. NHS appointments at Barts Heart Centre are by referral only.</p>
+            </div>
+            <div class="deployment-grid">
+                <div class="deployment-hub-card">
+                    <div>
+                        <div class="hub-title-context">Private practice</div>
+                        <h3 class="hub-name">Welbeck Heart Health</h3>
+                        <ul class="hub-details-list">
+                            <li>1 Welbeck Street, London W1G 0AR</li>
+                            <li>Harley Street Medical District</li>
+                            <li>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
+                            <li>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="deployment-hub-card">
+                    <div>
+                        <div class="hub-
