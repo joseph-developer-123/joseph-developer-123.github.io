@@ -42,6 +42,13 @@
         .symptom-card { background-color: var(--bg-elevated); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
         .symptom-card h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.75rem; color: var(--bg-dark); }
         .symptom-card p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 0; }
+        .practise-section { background-color: var(--bg-pure); border-top: 1px solid var(--border-subtle); }
+        .deployment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .deployment-hub-card { background-color: var(--bg-elevated); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
+        .hub-title-context { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); margin-bottom: 0.5rem; }
+        .hub-name { font-size: 1.8rem; margin-bottom: 1.25rem; font-weight: 400; }
+        .hub-details-list { list-style: none; margin-bottom: 1.5rem; }
+        .hub-details-list li { font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 0.75rem; }
         .contact-portal-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
         .carebit-booking-container { background-color: var(--bg-pure); padding: 3.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.03); max-width: 900px; margin: 0 auto; }
         .carebit-booking-container h2 { font-size: 2.2rem; margin-bottom: 1rem; font-weight: 300; text-align: center; }
@@ -55,7 +62,7 @@
         .footer-links-list { list-style: none; }
         .footer-links-list li { margin-bottom: 0.75rem; font-size: 0.92rem; }
         .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
-        @media(max-width: 1024px) { .services-card-grid { grid-template-columns: 1fr; } .footer-top-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width: 1024px) { .services-card-grid, .deployment-grid { grid-template-columns: 1fr; } .footer-top-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
@@ -108,19 +115,19 @@
             <div class="services-card-grid">
                 <div class="symptom-card">
                     <h3>Chest pain or tightness</h3>
-                    <p>Finding out whether it's your heart, and what to do about it[cite: 2].</p>
+                    <p>Finding out whether it's your heart, and what to do about it.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Palpitations and irregular heartbeat</h3>
-                    <p>Assessment of racing, skipping or irregular heartbeats, including atrial fibrillation[cite: 2].</p>
+                    <p>Assessment of racing, skipping or irregular heartbeats, including atrial fibrillation.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Breathlessness and tiredness</h3>
-                    <p>Checking whether your heart is the cause[cite: 2].</p>
+                    <p>Checking whether your heart is the cause.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Dizziness and blackouts</h3>
-                    <p>Investigating fainting and light-headedness[cite: 2].</p>
+                    <p>Investigating fainting and light-headedness.</p>
                 </div>
             </div>
 
@@ -128,19 +135,19 @@
             <div class="services-card-grid">
                 <div class="symptom-card">
                     <h3>High blood pressure</h3>
-                    <p>Including blood pressure that's hard to control[cite: 2].</p>
+                    <p>Including blood pressure that's hard to control.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>High cholesterol</h3>
-                    <p>Understanding your numbers and your options[cite: 2].</p>
+                    <p>Understanding your numbers and your options.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Heart health checks</h3>
-                    <p>A personalised assessment of your risk of heart disease[cite: 2].</p>
+                    <p>A personalised assessment of your risk of heart disease.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Family history of heart disease</h3>
-                    <p>Screening and advice if a relative has had heart problems at a young age[cite: 2].</p>
+                    <p>Screening and advice if a relative has had heart problems at a young age.</p>
                 </div>
             </div>
 
@@ -148,53 +155,85 @@
             <div class="services-card-grid">
                 <div class="symptom-card">
                     <h3>Heart failure</h3>
-                    <p>Finding the cause of a weakened or stiff heart, and building a treatment plan to protect and improve it[cite: 2].</p>
+                    <p>Finding the cause of a weakened or stiff heart, and building a treatment plan to protect and improve it.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Heart valve disease</h3>
-                    <p>Assessment and monitoring of leaking or narrowed valves[cite: 2].</p>
+                    <p>Assessment and monitoring of leaking or narrowed valves.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Cardiomyopathy</h3>
-                    <p>Assessment and management of heart muscle disease[cite: 2].</p>
+                    <p>Assessment and management of heart muscle disease.</p>
                 </div>
                 <div class="symptom-card">
                     <h3>Coronary artery disease</h3>
-                    <p>Investigating chest pain and coronary risk, using CT coronary angiography or stress imaging where appropriate[cite: 2].</p>
+                    <p>Investigating chest pain and coronary risk, using CT coronary angiography or stress imaging where appropriate.</p>
                 </div>
                 <div class="symptom-card" style="grid-column: span 2;">
                     <h3>Second opinions</h3>
-                    <p>A fresh review of a diagnosis, scan result or treatment plan[cite: 2].</p>
+                    <p>A fresh review of a diagnosis, scan result or treatment plan.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="booking" class="contact-portal-section section-padding">
+    <!-- WHERE I PRACTISE -->
+    <section class="practise-section section-padding">
+        <div class="container">
+            <div style="text-align: center; max-width: 750px; margin: 0 auto 4rem auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300;">Where I practise</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">Private appointments at Welbeck in the Harley Street Medical District. NHS appointments at Barts Heart Centre are by referral only.</p>
+            </div>
+            <div class="deployment-grid">
+                <div class="deployment-hub-card">
+                    <div>
+                        <div class="hub-title-context">Private practice</div>
+                        <h3 class="hub-name">Welbeck Heart Health</h3>
+                        <ul class="hub-details-list">
+                            <li>1 Welbeck Street, London W1G 0AR</li>
+                            <li>Harley Street Medical District</li>
+                            <li>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
+                            <li>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="deployment-hub-card">
+                    <div>
+                        <div class="hub-title-context">NHS practice</div>
+                        <h3 class="hub-name">Barts Heart Centre</h3>
+                        <ul class="hub-details-list">
+                            <li>St Bartholomew's Hospital</li>
+                            <li>West Smithfield, London EC1A 7BE</li>
+                            <li style="margin-top: 1rem; color: var(--accent-blue); font-weight: 500;">By referral only</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-portal-section section-padding">
         <div class="container">
             <div class="carebit-booking-container">
                 <h2>Book an appointment</h2>
                 <p class="carebit-intro-text">
-                    Choose a time that suits you and book online. If you'd rather speak to someone, call or email my secretary[cite: 2].
+                    Choose a time that suits you and book online. If you'd rather speak to someone, call or email my secretary.
                 </p>
-
                 <div class="booking-actions-box">
                     <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Book online via secure patient portal</a>
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal[cite: 2]</a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal</a>
                 </div>
-
                 <div class="booking-meta-info">
-                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: +44 (0)7356 015504 · Email: info@drnayaung.co.uk[cite: 2]</p>
-                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over[cite: 2].</p>
-                    <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary[cite: 2].</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: +44 (0)7356 015504 · Email: info@drnayaung.co.uk</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over.</p>
+                    <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary.</p>
                 </div>
-
                 <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
                     <p style="margin-bottom: 0.75rem;">
-                        <strong>Insurance & Self-Funding:</strong> I see self-funding patients and patients with most major insurers[cite: 2]. Please check with your insurer before booking, as you may need a GP referral and an authorisation code[cite: 2].
+                        <strong>Insurance & Self-Funding:</strong> I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
                     </p>
                     <p style="margin-bottom: 0;">
-                        <strong>Privacy:</strong> Your details are processed by my practice to arrange and manage your care[cite: 2]. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>[cite: 2].
+                        <strong>Privacy:</strong> Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>.
                     </p>
                 </div>
             </div>
