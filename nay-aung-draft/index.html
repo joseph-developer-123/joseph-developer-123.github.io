@@ -51,7 +51,12 @@
         .hero-profile-container { display: flex; justify-content: flex-end; align-self: center; }
         .hero-image-wrapper { width: 100%; max-width: 350px; height: 350px; background-color: var(--border-subtle); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .hero-image-placeholder { width: 100%; height: 100%; object-fit: cover; }
-        .philosophy-section { background-color: #111827; color: var(--text-light); padding: 5rem 0; }
+        .philosophy-section { background-color: #111827; background-image: linear-gradient(rgba(12,12,14,0.74), rgba(12,12,14,0.74)), url('Preventative.jpg'); background-size: cover; background-position: center; color: var(--text-light); padding: 5rem 0; }
+        .symptom-card { overflow: hidden; }
+        .img-card { position: relative; background-size: cover; background-position: center; min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end; border-color: transparent; }
+        .img-card::before { content: ""; position: absolute; inset: 0; background: rgba(12, 12, 14, 0.74); transition: var(--transition-smooth); }
+        .img-card:hover::before { background: rgba(12, 12, 14, 0.6); }
+        .img-card h3, .img-card p { position: relative; z-index: 1; color: #ffffff; }
         .philosophy-quote-block { max-width: 750px; margin: 0 auto; text-align: center; }
         .philosophy-quote-block p { font-size: 1.4rem; line-height: 1.6; color: #f3f4f6; font-style: italic; margin-bottom: 1.5rem; }
         .philosophy-attribution { font-family: var(--font-heading); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; }
@@ -71,15 +76,18 @@
         .research-publications-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
         .research-media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
         .research-card-item { background-color: var(--bg-pure); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-links-group { display: flex; gap: 1rem; flex-wrap: wrap; font-family: var(--font-heading); font-size: 0.92rem; font-weight: 500; }
-        .card-links-group a { color: var(--accent-blue); text-decoration: underline; }
+        .card-links-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; font-family: var(--font-heading); font-size: 0.92rem; font-weight: 500; }
+        .card-links-group a { display: inline-flex; align-items: center; justify-content: center; background-color: #ffffff; color: #000000; border: 1px solid #000000; border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; text-decoration: none; line-height: 1.2; transition: var(--transition-smooth); }
+        .card-links-group a:hover { background-color: #000000; color: #ffffff; }
         .awards-homepage-box { background-color: var(--bg-pure); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 3rem; }
         .awards-list-clean { list-style: none; }
         .awards-list-clean li { font-family: var(--font-heading); font-size: 1.08rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.75rem; }
         .awards-list-clean li::before { content: "•"; color: var(--accent-blue); font-size: 1.5rem; }
-        .practise-section { background-color: var(--bg-pure); border-top: 1px solid var(--border-subtle); }
+        .practise-section { background-color: #141416; background-image: linear-gradient(rgba(12,12,14,0.84), rgba(12,12,14,0.84)), url('london.jpg'); background-size: cover; background-position: center; border-top: 1px solid var(--border-subtle); color: #ffffff; }
+        .practise-section .section-header-cluster h2, .practise-section .section-header-cluster p, .practise-section .hub-name, .practise-section .hub-details-list li, .practise-section .hub-details-list a { color: #ffffff; }
+        .practise-section .hub-title-context { color: rgba(255,255,255,0.8); }
         .deployment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-        .deployment-hub-card { background-color: var(--bg-elevated); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
+        .deployment-hub-card { background-color: transparent; padding: 3rem; border-radius: var(--radius-md); border: none; display: flex; flex-direction: column; justify-content: space-between; }
         .hub-title-context { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); margin-bottom: 0.5rem; }
         .hub-name { font-size: 1.8rem; margin-bottom: 1.25rem; font-weight: 400; }
         .hub-details-list { list-style: none; margin-bottom: 1.5rem; }
@@ -97,22 +105,98 @@
         .footer-links-list { list-style: none; }
         .footer-links-list li { margin-bottom: 0.75rem; font-size: 0.92rem; }
         .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
-        @media(max-width: 1024px) { .hero-layout, .deployment-grid, .research-media-row, .services-card-grid { grid-template-columns: 1fr; } .footer-top-grid { grid-template-columns: repeat(2, 1fr); } }
+        .btn-header { padding: 0.65rem 1.4rem; font-size: 0.88rem; white-space: nowrap; }
+        .header-actions { display: flex; align-items: center; gap: 0.6rem; }
+        .book-short, .tb-short { display: none; }
+        .menu-toggle { --shift: 7px; display: none; width: 40px; height: 40px; flex-shrink: 0; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; border: none; border-radius: var(--radius-sm); background: transparent; cursor: pointer; }
+        .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--bg-dark); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(var(--shift)) rotate(45deg); }
+        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(calc(var(--shift) * -1)) rotate(-45deg); }
+        @media(max-width: 1000px) {
+            .menu-toggle { display: flex; }
+            .main-header .container { padding-right: 0.75rem; }
+            .book-full { display: none; }
+            .book-short { display: inline; }
+            .main-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border-top: 1px solid var(--border-subtle); box-shadow: 0 14px 24px rgba(0,0,0,0.1); max-height: calc(100vh - 110px); overflow-y: auto; }
+            .main-header nav.open { display: block; }
+            .nav-menu-links { flex-direction: column; gap: 0; padding: 0.5rem 2.5rem 1rem; }
+            .nav-menu-links a { display: block; padding: 0.95rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 1.05rem; }
+        }
+        @media(max-width: 600px) {
+            .main-header .container { padding: 0 0.3rem 0 0.85rem; }
+            .main-header { padding: 0; }
+            .nav-inner { gap: 0.5rem; flex-wrap: nowrap; min-height: 62px; }
+            .logo-subtitle { display: none; }
+            .logo-title { font-size: clamp(0.85rem, 4.4vw, 1.1rem); white-space: nowrap; }
+            .header-actions { gap: 0.4rem; }
+            .header-actions .btn { font-size: clamp(0.72rem, 3.8vw, 0.95rem); padding: 0 0.6rem; height: 32px; }
+            .menu-toggle { --shift: 6px; width: 32px; height: 32px; gap: 4px; }
+            .menu-toggle span { width: 15px; }
+            .nav-menu-links { padding: 0.5rem 0.85rem 1rem; }
+        }
+        @media(max-width: 380px) {
+            .branding-zone { flex-shrink: 0; }
+            .header-actions { flex: 1; min-width: 0; }
+            .header-actions .btn { flex: 1; padding: 0 0.4rem; }
+        }
+        @media(max-width: 450px) {
+            .top-trust-bar { padding: 0.5rem 0; }
+            .top-location { display: none; }
+            .top-trust-inner { justify-content: center; }
+            .top-contact-links { width: 100%; gap: 0.5rem; }
+            .top-contact-links a { flex: 1; justify-content: center; border: 1px solid rgba(255,255,255,0.35); border-radius: var(--radius-sm); padding: 0.5rem; font-weight: 600; }
+            .tb-full { display: none; }
+            .tb-short { display: inline; }
+        }
+        .tests-list { list-style: none; column-count: 2; column-gap: 2.5rem; font-family: var(--font-heading); color: var(--bg-dark); line-height: 1.5; }
+        .tests-list li { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; break-inside: avoid; }
+        .tests-list li::before { content: "•"; color: var(--accent-blue); font-size: 1.3rem; line-height: 1.15; }
+        .img-card h3, .img-card p, .philosophy-quote-block p, .philosophy-attribution, .practise-section .section-header-cluster h2, .practise-section .section-header-cluster p, .practise-section .hub-name, .practise-section .hub-details-list li, .practise-section .hub-title-context { text-shadow: -1px -1px 0 rgba(0,0,0,0.85), 1px -1px 0 rgba(0,0,0,0.85), -1px 1px 0 rgba(0,0,0,0.85), 1px 1px 0 rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.5); }
+        .deployment-grid { max-width: 1000px; margin: 0 auto; justify-items: center; }
+        .practise-section .deployment-hub-card { width: 100%; max-width: 560px; border: 1px solid rgba(255,255,255,0.45); text-align: center; align-items: center; }
+        @media(max-width: 700px) { .tests-list { column-count: 1; } }
+        @media(max-width: 1030px) {
+            .conditions-grid { grid-template-columns: 1fr; }
+            .conditions-grid .img-card { grid-column: auto !important; }
+        }
+        @media(max-width: 1024px) {
+            .deployment-grid, .research-media-row, .services-card-grid { grid-template-columns: 1fr; }
+            .footer-top-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-layout { grid-template-columns: 1.15fr 0.85fr; gap: 1.25rem; }
+            .hero-section .container { padding: 0 1.5rem; }
+            .hero-main-title { font-size: 2.1rem; }
+            .hero-subheading { font-size: 1.1rem; margin-bottom: 0.75rem; }
+            .hero-lead-text { font-size: 1rem; line-height: 1.55; margin-bottom: 1.1rem; }
+            .hero-cta-container { gap: 0.75rem; }
+            .hero-cta-container .btn { font-size: 0.85rem; padding: 0.7rem 1.1rem; }
+            .hero-clinical-summary { font-size: 0.78rem; }
+            .hero-image-wrapper { max-width: 350px; height: auto; aspect-ratio: 1 / 1; }
+            .hero-image-placeholder { display: block; }
+        }
+        @media(max-width: 700px) {
+            .hero-section { min-height: auto; padding: 2rem 0; }
+            .hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-profile-container { order: -1; justify-content: center; }
+            .hero-image-wrapper { width: 260px; max-width: 100%; margin: 0 auto; }
+            .hero-main-title { font-size: 2.3rem; }
+            .hero-lead-text { font-size: 1.05rem; }
+        }
     </style>
 </head>
 <body>
     <div class="sticky-header-wrapper">
         <div class="top-trust-bar">
             <div class="container top-trust-inner">
-                <div class="top-link-item">Welbeck, Harley Street Medical District, London</div>
+                <div class="top-link-item top-location">Welbeck, Harley Street Medical District, London</div>
                 <div class="top-contact-links">
                     <a href="tel:+447356015504" class="top-link-item">
                         <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-                        +44 (0)7356 015504
+                        <span class="tb-full">+44 (0)7356 015504</span><span class="tb-short">Call</span>
                     </a>
                     <a href="mailto:info@drnayaung.co.uk" class="top-link-item">
                         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        info@drnayaung.co.uk
+                        <span class="tb-full">info@drnayaung.co.uk</span><span class="tb-short">Email</span>
                     </a>
                 </div>
             </div>
@@ -126,7 +210,7 @@
                         <div class="logo-subtitle">Consultant Cardiologist</div>
                     </a>
                 </div>
-                <nav>
+                <nav id="site-nav" aria-label="Main navigation">
                     <ul class="nav-menu-links">
                         <li><a href="https://alethara.com/nay-aung-draft/">Home</a></li>
                         <li><a href="https://alethara.com/nay-aung-draft/about">About</a></li>
@@ -136,8 +220,9 @@
                         <li><a href="https://alethara.com/nay-aung-draft/contact">Contact</a></li>
                     </ul>
                 </nav>
-                <div>
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.88rem;">Book an appointment</a>
+                <div class="header-actions">
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book consultation</span></a>
+                    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
                 </div>
             </div>
         </header>
@@ -232,24 +317,24 @@
             </div>
             <div class="services-group-block">
                 <h3 class="services-group-title">Known heart conditions</h3>
-                <div class="services-card-grid">
-                    <div class="symptom-card">
+                <div class="services-card-grid conditions-grid">
+                    <div class="symptom-card img-card" style="background-image: url('failure.jpg');">
                         <h3>Heart failure</h3>
                         <p>Finding the cause of a weakened or stiff heart, and building a treatment plan to protect and improve it.</p>
                     </div>
-                    <div class="symptom-card">
+                    <div class="symptom-card img-card" style="background-image: url('Arrhythmia.jpg');">
                         <h3>Heart valve disease</h3>
                         <p>Assessment and monitoring of leaking or narrowed valves.</p>
                     </div>
-                    <div class="symptom-card">
+                    <div class="symptom-card img-card" style="background-image: url('Dna.jpg');">
                         <h3>Cardiomyopathy</h3>
                         <p>Assessment and management of heart muscle disease.</p>
                     </div>
-                    <div class="symptom-card">
+                    <div class="symptom-card img-card" style="background-image: url('cad.jpg');">
                         <h3>Coronary artery disease</h3>
                         <p>Investigating chest pain and coronary risk, using CT coronary angiography or stress imaging where appropriate.</p>
                     </div>
-                    <div class="symptom-card" style="grid-column: span 2;">
+                    <div class="symptom-card img-card" style="grid-column: span 2; background-image: url('Mri.jpg');">
                         <h3>Second opinions</h3>
                         <p>A fresh review of a diagnosis, scan result or treatment plan.</p>
                     </div>
@@ -257,9 +342,15 @@
             </div>
             <div class="tests-strip-box">
                 <h3>Diagnostic Tests Available</h3>
-                <div style="font-family: var(--font-heading); color: var(--bg-dark); line-height: 1.8;">
-                    ECG · Echocardiogram (heart ultrasound) · Holter monitoring (24-hour or longer heart rhythm recording) · 24-hour blood pressure monitoring · Exercise test · Cardiac MRI · CT coronary angiography
-                </div>
+                <ul class="tests-list">
+                    <li>ECG</li>
+                    <li>Echocardiogram (heart ultrasound)</li>
+                    <li>Holter monitoring (24-hour or longer heart rhythm recording)</li>
+                    <li>24-hour blood pressure monitoring</li>
+                    <li>Exercise test</li>
+                    <li>Cardiac MRI</li>
+                    <li>CT coronary angiography</li>
+                </ul>
             </div>
             <div class="special-interests-box">
                 <h3>Special interests</h3>
@@ -285,8 +376,8 @@
                         </p>
                     </div>
                     <div class="card-links-group">
-                        <a href="https://www.bbc.co.uk/news/health-45034972" target="_blank">Watch on BBC News</a> · 
-                        <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank">Read in the Guardian</a> · 
+                        <a href="https://www.bbc.co.uk/news/health-45034972" target="_blank">Watch on BBC News</a> 
+                        <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank">Read in the Guardian</a> 
                         <a href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856" target="_blank">Read the study</a>
                     </div>
                 </div>
@@ -348,7 +439,7 @@
                         <ul class="hub-details-list">
                             <li>St Bartholomew's Hospital</li>
                             <li>West Smithfield, London EC1A 7BE</li>
-                            <li style="margin-top: 1rem; color: var(--accent-blue); font-weight: 500;">By referral only</li>
+                            <li style="margin-top: 1rem; font-weight: 600;">By referral only</li>
                         </ul>
                     </div>
                 </div>
@@ -368,7 +459,7 @@
                     <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal</a>
                 </div>
                 <div class="booking-meta-info">
-                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: +44 (0)7356 015504 · Email: info@drnayaung.co.uk</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a> · Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></p>
                     <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over.</p>
                     <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary.</p>
                 </div>
@@ -427,5 +518,22 @@
             </div>
         </div>
     </footer>
+    <script>
+    (function () {
+        var btn = document.getElementById('menu-toggle');
+        var nav = document.getElementById('site-nav');
+        if (!btn || !nav) return;
+        function setOpen(open) {
+            nav.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
+        btn.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!nav.classList.contains('open')); });
+        nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+        document.addEventListener('click', function (e) { if (!nav.contains(e.target) && !btn.contains(e.target)) setOpen(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setOpen(false); btn.focus(); } });
+        window.matchMedia('(min-width: 1001px)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
+    })();
+    </script>
 </body>
 </html>
