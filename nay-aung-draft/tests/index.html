@@ -6,13 +6,25 @@
     <title>Diagnostic Tests & Cardiac Imaging | Dr Nay Aung London</title>
     <meta name="description" content="Advanced cardiac diagnostic tests including ECG, echocardiogram, cardiac MRI, CT coronary angiography, and Holter monitoring performed and reported by Dr Nay Aung.">
     <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dr Nay Aung, Consultant Cardiologist">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:title" content="Diagnostic Tests & Cardiac Imaging | Dr Nay Aung London">
+    <meta property="og:description" content="Advanced cardiac diagnostic tests including ECG, echocardiogram, cardiac MRI, CT coronary angiography, and Holter monitoring performed and reported by Dr Nay Aung.">
+    <meta property="og:url" content="https://alethara.com/nay-aung-draft/tests/">
+    <meta property="og:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
+    <meta property="og:image:alt" content="Dr Nay Aung, Consultant Cardiologist">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Diagnostic Tests & Cardiac Imaging | Dr Nay Aung London">
+    <meta name="twitter:description" content="Advanced cardiac diagnostic tests including ECG, echocardiogram, cardiac MRI, CT coronary angiography, and Holter monitoring performed and reported by Dr Nay Aung.">
+    <meta name="twitter:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-pure: #ffffff; --bg-elevated: #f8f9fa; --bg-dark: #0a0a0a;
-            --text-main: #1a1a1a; --text-muted: #4a5568; --text-light: #ffffff;
+            --text-main: #1a1a1a; --text-muted: #333c4a; --text-light: #ffffff;
             --accent-blue: #0b2c5c; --accent-blue-light: #e6eef7; --border-subtle: #e2e8f0;
             --radius-md: 10px; --radius-sm: 6px; --transition-smooth: all 0.3s ease;
             --font-heading: 'Figtree', sans-serif; --font-body: 'Faustina', serif;
@@ -205,6 +217,17 @@
             .practise-section .hub-details-list { margin: 0 auto 0.5rem auto; padding: 0; text-align: center; }
             .practise-section .hub-details-list li { text-align: center; }
         }
+
+        /* ===== Readability, card images ===== */
+        .about-text p, .content-block p, .faq-answer p, .research-card-item p, .page-header p { max-width: 70ch; }
+        .section-header-cluster p, .carebit-intro-text { max-width: 70ch; margin-left: auto; margin-right: auto; }
+        .content-block { max-width: 720px; }
+        .img-card { isolation: isolate; }
+        img.card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+        .awards-group-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--accent-blue); margin: 1.75rem 0 0.25rem 0; }
+        .awards-list a { color: var(--accent-blue); text-decoration: underline; font-size: 0.92rem; margin-left: 0.4rem; }
+        .research-card-item p + p { margin-top: -0.5rem; font-size: 0.95rem; }
+        @media(max-width: 1024px) { .test-grid .test-card { grid-column: auto !important; } }
     </style>
 </head>
 <body>
@@ -246,7 +269,7 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book consultation</span></a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book an appointment</span></a>
                     <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
                 </div>
             </div>
@@ -351,7 +374,7 @@
                         <strong>Insurance & Self-Funding</strong> – I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
                     </p>
                     <p style="margin-bottom: 0;">
-                        <strong>Privacy</strong> – Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>.
+                        <strong>Privacy</strong> – Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy-policy" style="text-decoration: underline;">privacy policy</a>.
                     </p>
                 </div>
             </div>
@@ -387,11 +410,11 @@
                 <div>
                     <div class="footer-link-group-title">Registration & Legal</div>
                     <ul class="footer-links-list">
-                        <li>GMC Registered</li>
-                        <li>ICO Registered</li>
-                        <li>Welbeck CQC Registered</li>
-                        <li><a href="https://alethara.com/nay-aung-draft/privacy">Privacy policy</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/cookies">Cookie policy</a></li>
+                        <li>GMC number 7015555</li>
+                        <li>ICO registration number [to be added]</li>
+                        <li>Welbeck CQC registration [to be added]</li>
+                        <li><a href="https://alethara.com/nay-aung-draft/privacy-policy">Privacy policy</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/cookie-policy">Cookie policy</a></li>
                     </ul>
                 </div>
             </div>
