@@ -6,13 +6,25 @@
     <title>Research & Media Coverage | Dr Nay Aung Consultant Cardiologist</title>
     <meta name="description" content="Explore Dr Nay Aung's peer-reviewed research papers in Circulation, JACC, and Nature Genetics, alongside media coverage on BBC News and the Guardian.">
     <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dr Nay Aung, Consultant Cardiologist">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:title" content="Research & Media Coverage | Dr Nay Aung Consultant Cardiologist">
+    <meta property="og:description" content="Explore Dr Nay Aung's peer-reviewed research papers in Circulation, JACC, and Nature Genetics, alongside media coverage on BBC News and the Guardian.">
+    <meta property="og:url" content="https://alethara.com/nay-aung-draft/research/">
+    <meta property="og:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
+    <meta property="og:image:alt" content="Dr Nay Aung, Consultant Cardiologist">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Research & Media Coverage | Dr Nay Aung Consultant Cardiologist">
+    <meta name="twitter:description" content="Explore Dr Nay Aung's peer-reviewed research papers in Circulation, JACC, and Nature Genetics, alongside media coverage on BBC News and the Guardian.">
+    <meta name="twitter:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-pure: #ffffff; --bg-elevated: #f8f9fa; --bg-dark: #0a0a0a;
-            --text-main: #1a1a1a; --text-muted: #4a5568; --text-light: #ffffff;
+            --text-main: #1a1a1a; --text-muted: #333c4a; --text-light: #ffffff;
             --accent-blue: #0b2c5c; --accent-blue-light: #e6eef7; --border-subtle: #e2e8f0;
             --radius-md: 10px; --radius-sm: 6px; --transition-smooth: all 0.3s ease;
             --font-heading: 'Figtree', sans-serif; --font-body: 'Faustina', serif;
@@ -208,6 +220,16 @@
             .practise-section .hub-details-list { margin: 0 auto 0.5rem auto; padding: 0; text-align: center; }
             .practise-section .hub-details-list li { text-align: center; }
         }
+
+        /* ===== Readability, card images ===== */
+        .about-text p, .content-block p, .faq-answer p, .research-card-item p, .page-header p { max-width: 70ch; }
+        .section-header-cluster p, .carebit-intro-text { max-width: 70ch; margin-left: auto; margin-right: auto; }
+        .content-block { max-width: 720px; }
+        .img-card { isolation: isolate; }
+        img.card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+        .awards-group-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--accent-blue); margin: 1.75rem 0 0.25rem 0; }
+        .awards-list a { color: var(--accent-blue); text-decoration: underline; font-size: 0.92rem; margin-left: 0.4rem; }
+        .research-card-item p + p { margin-top: -0.5rem; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -249,7 +271,7 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book consultation</span></a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book an appointment</span></a>
                     <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
                 </div>
             </div>
@@ -273,33 +295,99 @@
                 <h3>2026 - iHeF - AI Heart Failure Screening from a Routine ECG</h3>
                 <p>I lead the development of iHeF, an AI tool that screens for heart failure from a standard ECG. In 2026 the project received £1.3m from the National Institute for Health and Care Research to prepare it for NHS use.</p>
                 <div class="card-links-group">
-                    <a href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html" target="_blank">Queen Mary Press Release</a> · 
-                    <a href="https://www.bartshealth.nhs.uk/news/new-ai-heart-failure-screening-tool-tested-at-barts-health-could-cut-hospital-waiting-lists-for-patients-18689/" target="_blank">Barts Health News</a> · 
-                    <a href="https://qminnovation.co.uk/project/ihef/" target="_blank">QM Innovation Project Page</a>
+                    <a href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html" target="_blank" rel="noopener">Queen Mary press release (11 June 2026)</a> · 
+                    <a href="https://www.bartshealth.nhs.uk/news/new-ai-heart-failure-screening-tool-tested-at-barts-health-could-cut-hospital-waiting-lists-for-patients-18689/" target="_blank" rel="noopener">Barts Health news</a> · 
+                    <a href="https://qminnovation.co.uk/project/ihef/" target="_blank" rel="noopener">Queen Mary Innovation project page</a> · 
+                    <a href="https://www.eurekalert.org/news-releases/1131822" target="_blank" rel="noopener">EurekAlert</a> · 
+                    <a href="https://medicalupdateonline.com/2026/06/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings/" target="_blank" rel="noopener">Medical Update Online</a>
                 </div>
             </div>
             <div class="research-card-item">
                 <h3>2026 - Muscle, Fat and Heart Risk - The Sarcopenic Obesity Index (JACC)</h3>
                 <p>My research suggests why muscle and fat may tell us more about heart risk than BMI. Published as senior author in JACC.</p>
                 <div class="card-links-group">
-                    <a href="https://www.medscape.com/viewarticle/novel-muscle-fat-index-predicts-risks-heart-failure-and-2026a1000nfp" target="_blank">Medscape Coverage</a> · 
-                    <a href="https://www.acc.org/Latest-in-Cardiology/Journal-Scans/2026/06/29/15/38/Novel-Sarcopenic-Obesity-Index" target="_blank">ACC Journal Scan</a>
+                    <a href="https://www.medscape.com/viewarticle/novel-muscle-fat-index-predicts-risks-heart-failure-and-2026a1000nfp" target="_blank" rel="noopener">Medscape (10 July 2026)</a> · 
+                    <a href="https://www.acc.org/Latest-in-Cardiology/Journal-Scans/2026/06/29/15/38/Novel-Sarcopenic-Obesity-Index" target="_blank" rel="noopener">American College of Cardiology journal scan</a> · 
+                    <a href="https://medicaldialogues.in/cardiology-ctvs/news/sarcopenic-obesity-index-outperforms-bmi-in-predicting-heart-failure-and-mortality-study-175416" target="_blank" rel="noopener">Medical Dialogues</a>
                 </div>
             </div>
             <div class="research-card-item">
                 <h3>2026 - Air Pollution Research Cited in Parliament Evidence</h3>
                 <p>Cited by the British Heart Foundation in written evidence to the House of Commons Environmental Audit Committee (2026), referencing my 2018 Circulation study.</p>
                 <div class="card-links-group">
-                    <a href="https://committees.parliament.uk/writtenevidence/163293/html/" target="_blank">Read BHF Written Evidence</a>
+                    <a href="https://committees.parliament.uk/writtenevidence/163293/html/" target="_blank" rel="noopener">Read the BHF written evidence</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2024 - Inherited Cardiac Amyloidosis (JAMA Cardiology)</h3>
+                <p>As first author, I published research in JAMA Cardiology on inherited cardiac amyloidosis, a condition in which abnormal protein builds up in the heart muscle. The study found that more people may be at risk of this hereditary heart disease than previously thought.</p>
+                <div class="card-links-group">
+                    <a href="https://www.qmul.ac.uk/news/latest-news/2024/fmd/new-study-finds-more-people-at-risk-of-hereditary-heart-disease.html" target="_blank" rel="noopener">Queen Mary press release</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2023 - Telomere Length and Heart Failure (JAMA Cardiology)</h3>
+                <p>As first author, I published research in JAMA Cardiology linking telomere length, a marker of biological ageing, to heart function, heart size and the risk of heart failure.</p>
+                <div class="card-links-group">
+                    <a href="https://www.medscape.com/viewarticle/995043" target="_blank" rel="noopener">Medscape</a> · 
+                    <a href="https://www.physiciansweekly.com/post/correlation-between-longer-ltl-with-cardiac-function-size-and-heart-failure-risk" target="_blank" rel="noopener">Physicians Weekly</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2023 - Expert Consensus on Excessive Trabeculation</h3>
+                <p>I co-authored an expert consensus on excessive trabeculation of the heart muscle, which called for a refreshed look at the clinical approach to this heart muscle disorder. I was quoted in the coverage.</p>
+                <div class="card-links-group">
+                    <a href="https://www.newswise.com/articles/review-calls-for-a-refreshed-look-at-clinical-approach-to-heart-muscle-disorder" target="_blank" rel="noopener">Newswise</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2022 - Genetics of the Right Ventricle (Nature Genetics)</h3>
+                <p>As first author, I published research in Nature Genetics on the genetics of the right ventricle, the heart chamber that pumps blood to the lungs.</p>
+                <div class="card-links-group">
+                    <a href="https://www.qmul.ac.uk/whri/latest-news/2022/" target="_blank" rel="noopener">William Harvey Research Institute news (14 June 2022)</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2020 and 2017 - Cholesterol and the Heart (JACC and EuroCMR)</h3>
+                <p>My research suggests that cholesterol affects the heart muscle itself, not only the arteries. In over 17,000 UK Biobank participants, people genetically predisposed to higher LDL (&ldquo;bad&rdquo;) cholesterol and triglycerides had changes in the structure of the heart's main pumping chamber (JACC, 2020). Earlier, I found that people taking statins were less likely to have a thickened or enlarged heart (presented at EuroCMR 2017).</p>
+                <p>Aung N, et al. The Effect of Blood Lipids on the Left Ventricle - A Mendelian Randomization Study. J Am Coll Cardiol 2020;76:2477-2488.</p>
+                <div class="card-links-group">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/33213727/" target="_blank" rel="noopener">JACC paper (PubMed)</a> · 
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/33213728/" target="_blank" rel="noopener">JACC editorial</a> · 
+                    <a href="https://www.escardio.org/The-ESC/Press-Office/Press-releases/Statins-associated-with-improved-heart-structure-and-function" target="_blank" rel="noopener">European Society of Cardiology press release</a> · 
+                    <a href="https://www.sciencedaily.com/releases/2017/05/170526143940.htm" target="_blank" rel="noopener">ScienceDaily</a> · 
+                    <a href="https://pharmaceutical-journal.com/article/news/statins-linked-to-improved-heart-structure-and-function" target="_blank" rel="noopener">The Pharmaceutical Journal</a> · 
+                    <a href="https://citoday.com/news/study-shows-benefits-of-statins-beyond-lowering-cholesterol" target="_blank" rel="noopener">Cardiac Interventions Today (2 June 2017)</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2020 - Obesity, Cholesterol and COVID-19 Risk (Frontiers in Genetics)</h3>
+                <p>As lead author, I used genetic data to investigate whether obesity and related cardiometabolic factors, such as cholesterol, may influence susceptibility to COVID-19.</p>
+                <div class="card-links-group">
+                    <a href="https://www.qmul.ac.uk/whri/news-and-events/2020/items/causal-inference-for-genetic-obesity-cardiometabolic-profile-and-covid-19-susceptibility-a-mendelian-randomization-study.html" target="_blank" rel="noopener">Queen Mary release</a> · 
+                    <a href="https://www.eurekalert.org/news-releases/683888" target="_blank" rel="noopener">EurekAlert</a>
+                </div>
+            </div>
+            <div class="research-card-item">
+                <h3>2019 - Cannabis and Heart Structure (JACC Cardiovascular Imaging, co-author)</h3>
+                <p>I co-authored research that identified a possible link between cannabis use and structural changes to the heart.</p>
+                <div class="card-links-group">
+                    <a href="https://www.qmul.ac.uk/media/news/2019/smd/researchers-identify-possible-link-between-cannabis-use-and-structural-changes-to-heart.html" target="_blank" rel="noopener">Queen Mary news</a>
                 </div>
             </div>
             <div class="research-card-item">
                 <h3>2018 - Air Pollution and Heart Structure (Circulation)</h3>
                 <p>My research using cardiac MRI scans from nearly 4,000 UK Biobank participants found that people with higher long-term exposure to traffic-related air pollution had larger heart chambers, a change also seen in the early stages of heart failure.</p>
                 <div class="card-links-group">
-                    <a href="https://www.bbc.co.uk/news/health-45034972" target="_blank">Watch on BBC News</a> · 
-                    <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank">Read in the Guardian</a> · 
-                    <a href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856" target="_blank">Read the Study</a>
+                    <a href="https://www.bbc.co.uk/news/health-45034972" target="_blank" rel="noopener">Watch on BBC News</a> · 
+                    <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank" rel="noopener">Read in the Guardian</a> · 
+                    <a href="https://www.thetimes.co.uk/article/living-by-a-busy-road-can-dangerously-alter-your-heart-3pc5rvph6" target="_blank" rel="noopener">The Times</a> · 
+                    <a href="https://www.telegraph.co.uk/science/2018/08/03/uk-safe-pollution-threshold-should-halved-heart-experts-warn/" target="_blank" rel="noopener">The Telegraph</a> · 
+                    <a href="https://www.heart.org/en/news/2018/08/03/think-your-citys-air-is-healthy" target="_blank" rel="noopener">American Heart Association News</a> · 
+                    <a href="https://www.bartshealth.nhs.uk/news/new-research-links-low-levels-of-air-pollution-with-serious-changes-in-the-heart-3924" target="_blank" rel="noopener">Barts Health press release</a> · 
+                    <a href="https://www.sciencedaily.com/releases/2018/08/180803103315.htm" target="_blank" rel="noopener">ScienceDaily</a> · 
+                    <a href="https://www.eurekalert.org/news-releases/506195" target="_blank" rel="noopener">EurekAlert</a> · 
+                    <a href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856" target="_blank" rel="noopener">Read the study</a>
                 </div>
             </div>
         </div>
@@ -361,7 +449,7 @@
                         <strong>Insurance & Self-Funding</strong> - I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
                     </p>
                     <p style="margin-bottom: 0;">
-                        <strong>Privacy</strong> - Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>.
+                        <strong>Privacy</strong> - Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy-policy" style="text-decoration: underline;">privacy policy</a>.
                     </p>
                 </div>
             </div>
@@ -397,11 +485,11 @@
                 <div>
                     <div class="footer-link-group-title">Registration & Legal</div>
                     <ul class="footer-links-list">
-                        <li>GMC Registered</li>
-                        <li>ICO Registered</li>
-                        <li>Welbeck CQC Registered</li>
-                        <li><a href="https://alethara.com/nay-aung-draft/privacy">Privacy policy</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/cookies">Cookie policy</a></li>
+                        <li>GMC number 7015555</li>
+                        <li>ICO registration number [to be added]</li>
+                        <li>Welbeck CQC registration [to be added]</li>
+                        <li><a href="https://alethara.com/nay-aung-draft/privacy-policy">Privacy policy</a></li>
+                        <li><a href="https://alethara.com/nay-aung-draft/cookie-policy">Cookie policy</a></li>
                     </ul>
                 </div>
             </div>
