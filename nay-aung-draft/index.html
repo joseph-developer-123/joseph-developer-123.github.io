@@ -51,7 +51,7 @@
         .hero-profile-container { display: flex; justify-content: flex-end; align-self: center; }
         .hero-image-wrapper { width: 100%; max-width: 350px; height: 350px; background-color: var(--border-subtle); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .hero-image-placeholder { width: 100%; height: 100%; object-fit: cover; }
-        .philosophy-section { background-color: #111827; background-image: linear-gradient(rgba(12,12,14,0.74), rgba(12,12,14,0.74)), url('Preventative.jpg'); background-size: cover; background-position: center; color: var(--text-light); padding: 5rem 0; }
+        .philosophy-section { background-color: #111827; background-image: linear-gradient(rgba(12,12,14,0.74), rgba(12,12,14,0.74)), url('preventative.jpg'); background-size: cover; background-position: center; color: var(--text-light); padding: 5rem 0; }
         .symptom-card { overflow: hidden; }
         .img-card { position: relative; background-size: cover; background-position: center; min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end; border-color: transparent; }
         .img-card::before { content: ""; position: absolute; inset: 0; background: rgba(12, 12, 14, 0.74); transition: var(--transition-smooth); }
@@ -77,8 +77,8 @@
         .research-media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
         .research-card-item { background-color: var(--bg-pure); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
         .card-links-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; font-family: var(--font-heading); font-size: 0.92rem; font-weight: 500; }
-        .card-links-group a { display: inline-flex; align-items: center; justify-content: center; background-color: #ffffff; color: #000000; border: 1px solid #000000; border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; text-decoration: none; line-height: 1.2; transition: var(--transition-smooth); }
-        .card-links-group a:hover { background-color: #000000; color: #ffffff; }
+        .card-links-group a { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: var(--bg-dark); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; text-decoration: none; line-height: 1.2; transition: var(--transition-smooth); }
+        .card-links-group a:hover { background-color: var(--bg-dark); color: var(--text-light); border-color: var(--bg-dark); }
         .awards-homepage-box { background-color: var(--bg-pure); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 3rem; }
         .awards-list-clean { list-style: none; }
         .awards-list-clean li { font-family: var(--font-heading); font-size: 1.08rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.75rem; }
@@ -182,6 +182,87 @@
             .hero-main-title { font-size: 2.3rem; }
             .hero-lead-text { font-size: 1.05rem; }
         }
+
+        /* ===== Phone sizing: smaller text, tighter boxes ===== */
+        @media(max-width: 600px) {
+            body { font-size: 1rem; line-height: 1.55; }
+            .container { padding: 0 1rem; }
+            .section-padding { padding: 2.5rem 0; }
+            .hero-section .container { padding: 0 1rem; }
+            .section-header-cluster { margin-bottom: 2rem; }
+            .section-header-cluster h2 { font-size: 1.7rem; }
+            .section-header-cluster p { font-size: 1rem; }
+            .page-header { padding: 2.25rem 0 1.75rem 0; }
+            .page-header h1 { font-size: 1.85rem; line-height: 1.2; }
+            .page-header p { font-size: 1rem !important; }
+            h2 { overflow-wrap: anywhere; }
+            .btn { font-size: 0.9rem; padding: 0.75rem 1rem; line-height: 1.3; max-width: 100%; }
+            .btn-header { padding: 0 1rem; }
+            .hero-main-title { font-size: 2rem; }
+            .hero-subheading { font-size: 1.05rem; }
+            .hero-lead-text { font-size: 1rem; }
+            .hero-cta-container { flex-direction: column; gap: 0.6rem; }
+            .hero-cta-container .btn { width: 100%; }
+            .philosophy-section { padding: 2.5rem 0; }
+            .philosophy-quote-block p { font-size: 1.1rem; }
+            .credibility-banner { font-size: 0.78rem; padding: 0.5rem 0.75rem; }
+            .services-group-title, .faq-group-title { font-size: 1.2rem; }
+            .services-card-grid { gap: 0.9rem; margin-top: 1.5rem; }
+            .symptom-card { padding: 1.1rem 1.15rem; }
+            .symptom-card h3 { font-size: 1.1rem; }
+            .symptom-card p { font-size: 0.95rem; }
+            .img-card { min-height: 190px; }
+            .tests-strip-box, .special-interests-box, .awards-homepage-box, .info-box, .sidebar-box { padding: 1.25rem; margin-top: 1.5rem; }
+            .tests-strip-box h3, .special-interests-box h3, .awards-homepage-box h3, .info-box h3, .sidebar-box h3 { font-size: 1.15rem; }
+            .test-grid { gap: 0.9rem; margin-top: 1.5rem; }
+            .test-card { padding: 1.25rem; }
+            .test-card h3 { font-size: 1.15rem; }
+            .test-card p { font-size: 0.95rem; }
+            .content-grid { gap: 1.5rem; margin-top: 1.5rem; }
+            .awards-list li, .awards-list-clean li { font-size: 0.95rem; padding: 0.7rem 0; }
+            .research-card-item { padding: 1.25rem; margin-bottom: 1rem; }
+            .research-card-item h3 { font-size: 1.15rem; }
+            .research-media-row { gap: 1rem; margin-bottom: 1.5rem; }
+            .card-links-group { gap: 0.5rem; margin-top: 1rem; font-size: 0.85rem; }
+            .card-links-group a { padding: 0.5rem 0.75rem; }
+            .deployment-grid { gap: 1rem; }
+            .deployment-hub-card, .practise-section .deployment-hub-card { padding: 1.25rem; }
+            .hub-name { font-size: 1.35rem; margin-bottom: 0.75rem; }
+            .hub-details-list li { font-size: 0.95rem; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+            .carebit-booking-container { padding: 1.25rem; }
+            .carebit-booking-container h2 { font-size: 1.6rem; }
+            .carebit-intro-text { font-size: 1rem; margin-bottom: 1.25rem; }
+            .booking-actions-box { padding: 1rem; gap: 0.9rem; margin-bottom: 1.25rem; width: 100%; }
+            .booking-actions-box .btn { width: 100%; font-size: 0.95rem !important; padding: 0.8rem 0.75rem !important; }
+            .portal-login-link { font-size: 0.9rem; text-align: center; }
+            .booking-meta-info { font-size: 0.9rem; line-height: 1.6; padding-top: 1rem; overflow-wrap: anywhere; }
+            .carebit-booking-container [style*="font-size: 0.95rem"] { font-size: 0.85rem !important; }
+            .medical-footer-engine { padding: 2.5rem 0 1.5rem 0; font-size: 0.9rem; }
+            .footer-top-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; }
+            .footer-bottom-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .faq-item summary { font-size: 1rem; padding: 1rem 2.75rem 1rem 1rem; }
+            .faq-item summary::after { right: 1rem; }
+            .faq-answer { padding: 0 1rem 1rem 1rem; font-size: 0.95rem; }
+            .faq-urgent { padding: 1rem; font-size: 0.9rem; margin-bottom: 2rem; }
+            .content-block p, .about-text p { font-size: 1rem; }
+            .about-text h2, .content-block h2 { font-size: 1.5rem !important; }
+        }
+
+        /* Centre the practise cards on phones */
+        @media(max-width: 600px) {
+            .deployment-grid { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; margin: 0 auto; }
+            .practise-section .deployment-hub-card { width: 100%; max-width: 100%; margin: 0 auto; justify-content: center; align-items: center; text-align: center; }
+            .practise-section .deployment-hub-card > div { width: 100%; text-align: center; }
+            .practise-section .hub-details-list { margin: 0 auto 0.5rem auto; padding: 0; text-align: center; }
+            .practise-section .hub-details-list li { text-align: center; }
+        }
+
+        /* Centre hero text below 700px */
+        @media(max-width: 699px) {
+            .hero-content-frame { text-align: center; }
+            .hero-lead-text { margin-left: auto; margin-right: auto; }
+            .hero-cta-container { justify-content: center; align-items: center; }
+        }
     </style>
 </head>
 <body>
@@ -264,7 +345,7 @@
                 <p>
                     “People often come to me with a nagging worry about their heart, and questions no one has yet answered. I take time to listen, explain what I find in plain language, and stay with you until we have an answer. You should leave knowing exactly what's going on and what happens next.”
                 </p>
-                <div class="philosophy-attribution">— Dr Nay Aung</div>
+                <div class="philosophy-attribution">- Dr Nay Aung</div>
             </div>
         </div>
     </section>
@@ -372,7 +453,7 @@
             <div class="research-media-row">
                 <div class="research-card-item">
                     <div>
-                        <h3>In the news: air pollution and the heart</h3>
+                        <h3>In the news - air pollution and the heart</h3>
                         <p>
                             My research using cardiac MRI scans from nearly 4,000 UK Biobank participants found that people with higher long-term exposure to traffic-related air pollution had larger heart chambers, a change also seen in the early stages of heart failure. The study was published in Circulation and covered by BBC News, the Guardian, The Times and the Telegraph.
                         </p>
@@ -429,8 +510,8 @@
                         <ul class="hub-details-list">
                             <li>1 Welbeck Street, London W1G 0AR</li>
                             <li>Harley Street Medical District</li>
-                            <li>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
-                            <li>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
+                            <li>Phone - <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
+                            <li>Email - <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
                         </ul>
                     </div>
                 </div>
@@ -458,19 +539,19 @@
                 </p>
                 <div class="booking-actions-box">
                     <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Book online via secure patient portal</a>
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients: log in to your patient portal</a>
+                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients - log in to your patient portal</a>
                 </div>
                 <div class="booking-meta-info">
-                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact:</strong> Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a> · Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></p>
-                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope:</strong> Adults aged 18 and over.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact</strong><br>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a><br>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope</strong> - Adults aged 18 and over.</p>
                     <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary.</p>
                 </div>
                 <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
                     <p style="margin-bottom: 0.75rem;">
-                        <strong>Insurance & Self-Funding:</strong> I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
+                        <strong>Insurance & Self-Funding</strong> - I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
                     </p>
                     <p style="margin-bottom: 0;">
-                        <strong>Privacy:</strong> Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>.
+                        <strong>Privacy</strong> - Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy" style="text-decoration: underline;">privacy policy</a>.
                     </p>
                 </div>
             </div>
