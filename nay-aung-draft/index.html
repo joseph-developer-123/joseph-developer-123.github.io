@@ -268,7 +268,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 var rv=document.getElementById('reviews');
 if(!REVIEWS.length){rv.hidden=true}else{
  document.getElementById('rvcount').textContent=REVIEWS.length;
- document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.s?' (sample, replace)':', '+esc(r.d))+'</div></article>'}).join('')}
+ document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.s?' (sample)':', '+esc(r.d))+'</div></article>'}).join('')}
 document.getElementById('posts').innerHTML=POSTS.map(function(p){return '<article class="card"><h3>'+esc(p.t)+'</h3><small>'+esc(p.d)+'</small><a href="'+p.u+'">Read more</a></article>'}).join('');
 /* ---- Manual carousels (no autoplay): arrows, swipe, keyboard ---- */
 function step(t){var c=t.firstElementChild;return c?c.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):300}
