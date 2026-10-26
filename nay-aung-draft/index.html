@@ -1,714 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr Nay Aung | Consultant Cardiologist in London | Private Heart Specialist</title>
-    <meta name="description" content="Consultant cardiologist at Welbeck Heart Health, Harley Street Medical District. Chest pain, palpitations, breathlessness, blood pressure, cholesterol and heart checks.">
-    <meta name="robots" content="noindex, nofollow">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Dr Nay Aung, Consultant Cardiologist">
-    <meta property="og:locale" content="en_GB">
-    <meta property="og:title" content="Dr Nay Aung, Consultant Cardiologist, London">
-    <meta property="og:description" content="Private cardiology at Welbeck Heart Health, Harley Street Medical District, London. Consultant at Barts Heart Centre.">
-    <meta property="og:url" content="https://alethara.com/nay-aung-draft/">
-    <meta property="og:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
-    <meta property="og:image:alt" content="Dr Nay Aung, Consultant Cardiologist">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Dr Nay Aung, Consultant Cardiologist, London">
-    <meta name="twitter:description" content="Private cardiology at Welbeck Heart Health, Harley Street Medical District, London. Consultant at Barts Heart Centre.">
-    <meta name="twitter:image" content="https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-pure: #ffffff; --bg-elevated: #f8f9fa; --bg-dark: #0a0a0a;
-            --text-main: #1a1a1a; --text-muted: #333c4a; --text-light: #ffffff;
-            --accent-blue: #0b2c5c; --accent-blue-light: #e6eef7; --border-subtle: #e2e8f0;
-            --radius-md: 10px; --radius-sm: 6px; --transition-smooth: all 0.3s ease;
-            --font-heading: 'Figtree', sans-serif; --font-body: 'Faustina', serif;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { background-color: var(--bg-pure); color: var(--text-main); font-family: var(--font-body); font-size: 1.15rem; line-height: 1.65; }
-        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; color: var(--bg-dark); }
-        a { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
-        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 2.5rem; }
-        .section-padding { padding: 6rem 0; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 500; font-size: 0.95rem; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); transition: var(--transition-smooth); cursor: pointer; border: 1px solid transparent; text-align: center; }
-        .btn-primary { background-color: var(--bg-dark); color: var(--text-light); }
-        .btn-primary:hover { background-color: var(--accent-blue); transform: translateY(-2px); }
-        .btn-secondary { background-color: transparent; color: var(--bg-dark); border-color: var(--border-subtle); }
-        .btn-secondary:hover { background-color: var(--bg-dark); color: var(--text-light); border-color: var(--bg-dark); }
-        .sticky-header-wrapper { position: sticky; top: 0; z-index: 1000; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .credibility-banner { background-color: #000000; color: #ffffff; text-align: center; padding: 0.6rem 1rem; font-family: var(--font-heading); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; }
-        .top-trust-bar { background-color: #0d0d0d; color: rgba(255, 255, 255, 0.9); font-family: var(--font-heading); font-size: 0.88rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .top-trust-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .top-contact-links { display: flex; gap: 2rem; align-items: center; }
-        .top-link-item { display: flex; align-items: center; gap: 0.5rem; }
-        .top-link-item svg { width: 14px; height: 14px; fill: currentColor; opacity: 0.85; }
-        .main-header { background-color: #ffffff; padding: 0.5rem 0; }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500; color: var(--bg-dark); }
-        .logo-subtitle { font-family: var(--font-heading); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 400; }
-        .nav-menu-links { display: flex; gap: 1.6rem; list-style: none; font-family: var(--font-heading); font-size: 0.95rem; }
-        .nav-menu-links a:hover { color: var(--accent-blue); }
-        .hero-section { background-color: var(--bg-elevated); padding: 2.5rem 0 2rem 0; border-bottom: 1px solid var(--border-subtle); min-height: calc(100vh - 155px); display: flex; align-items: center; }
-        .hero-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2rem; align-items: center; }
-        .hero-clinical-summary { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
-        .hero-main-title { font-family: var(--font-heading); font-size: 2.8rem; line-height: 1.15; margin-bottom: 0.25rem; font-weight: 300; }
-        .hero-subheading { font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 400; }
-        .hero-lead-text { font-size: 1.15rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6; max-width: 680px; }
-        .hero-cta-container { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-        .hero-profile-container { display: flex; justify-content: flex-end; align-self: center; }
-        .hero-image-wrapper { width: 100%; max-width: 350px; height: 350px; background-color: var(--border-subtle); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .hero-image-placeholder { width: 100%; height: 100%; object-fit: cover; }
-        .philosophy-section { background-color: #111827; background-image: linear-gradient(rgba(12,12,14,0.74), rgba(12,12,14,0.74)), url('preventative.jpg'); background-size: cover; background-position: center; color: var(--text-light); padding: 5rem 0; }
-        .symptom-card { overflow: hidden; }
-        .img-card { position: relative; background-size: cover; background-position: center; min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end; border-color: transparent; }
-        .img-card::before { content: ""; position: absolute; inset: 0; background: rgba(12, 12, 14, 0.74); transition: var(--transition-smooth); }
-        .img-card:hover::before { background: rgba(12, 12, 14, 0.6); }
-        .img-card h3, .img-card p { position: relative; z-index: 1; color: #ffffff; }
-        .philosophy-quote-block { max-width: 750px; margin: 0 auto; text-align: center; }
-        .philosophy-quote-block p { font-size: 1.4rem; line-height: 1.6; color: #f3f4f6; font-style: italic; margin-bottom: 1.5rem; }
-        .philosophy-attribution { font-family: var(--font-heading); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; }
-        .clinical-services-section { background-color: var(--bg-pure); }
-        .section-header-cluster { text-align: center; max-width: 750px; margin: 0 auto 4rem auto; }
-        .section-header-cluster h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300; }
-        .services-group-block { margin-bottom: 3.5rem; }
-        .services-group-title { font-size: 1.4rem; font-weight: 500; color: var(--bg-dark); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent-blue-light); }
-        .services-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .symptom-card { background-color: var(--bg-elevated); padding: 1.75rem 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); transition: var(--transition-smooth); }
-        .symptom-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
-        .symptom-card h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .tests-strip-box { background-color: var(--accent-blue-light); padding: 2.5rem; border-radius: var(--radius-md); margin-top: 2rem; border: 1px solid #d0e1f9; }
-        .tests-strip-box h3 { font-size: 1.3rem; font-weight: 500; color: var(--accent-blue); margin-bottom: 0.75rem; }
-        .special-interests-box { background-color: var(--bg-elevated); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 4rem; }
-        .special-interests-box h3 { font-size: 1.6rem; margin-bottom: 1rem; font-weight: 400; }
-        .research-publications-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
-        .research-media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
-        .research-card-item { background-color: var(--bg-pure); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-links-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; font-family: var(--font-heading); font-size: 0.92rem; font-weight: 500; }
-        .card-links-group a { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: var(--bg-dark); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; text-decoration: none; line-height: 1.2; transition: var(--transition-smooth); }
-        .card-links-group a:hover { background-color: var(--bg-dark); color: var(--text-light); border-color: var(--bg-dark); }
-        .awards-homepage-box { background-color: var(--bg-pure); padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 3rem; }
-        .awards-list-clean { list-style: none; }
-        .awards-list-clean li { font-family: var(--font-heading); font-size: 1.08rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.75rem; }
-        .awards-list-clean li::before { content: "•"; color: var(--accent-blue); font-size: 1.5rem; }
-        .practise-section { background-color: #141416; background-image: linear-gradient(rgba(12,12,14,0.84), rgba(12,12,14,0.84)), url('london.jpg'); background-size: cover; background-position: center; border-top: 1px solid var(--border-subtle); color: #ffffff; }
-        .practise-section .section-header-cluster h2, .practise-section .section-header-cluster p, .practise-section .hub-name, .practise-section .hub-details-list li, .practise-section .hub-details-list a { color: #ffffff; }
-        .practise-section .hub-title-context { color: rgba(255,255,255,0.8); }
-        .deployment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-        .deployment-hub-card { background-color: transparent; padding: 3rem; border-radius: var(--radius-md); border: none; display: flex; flex-direction: column; justify-content: space-between; }
-        .hub-title-context { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); margin-bottom: 0.5rem; }
-        .hub-name { font-size: 1.8rem; margin-bottom: 1.25rem; font-weight: 400; }
-        .hub-details-list { list-style: none; margin-bottom: 1.5rem; }
-        .hub-details-list li { font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 0.75rem; }
-        .contact-portal-section { background-color: var(--bg-elevated); border-top: 1px solid var(--border-subtle); }
-        .carebit-booking-container { background-color: var(--bg-pure); padding: 3.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.03); max-width: 900px; margin: 0 auto; }
-        .carebit-booking-container h2 { font-size: 2.2rem; margin-bottom: 1rem; font-weight: 300; text-align: center; }
-        .carebit-intro-text { text-align: center; font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-        .booking-actions-box { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding: 2.5rem; background-color: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 2rem; }
-        .portal-login-link { font-family: var(--font-heading); font-size: 0.95rem; color: var(--accent-blue); text-decoration: underline; }
-        .booking-meta-info { font-family: var(--font-heading); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
-        .medical-footer-engine { background-color: var(--bg-dark); color: rgba(255, 255, 255, 0.65); font-family: var(--font-heading); font-size: 0.95rem; padding: 4.5rem 0 2.5rem 0; }
-        .footer-top-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 3.5rem; }
-        .footer-link-group-title { font-size: 0.88rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
-        .footer-links-list { list-style: none; }
-        .footer-links-list li { margin-bottom: 0.75rem; font-size: 0.92rem; }
-        .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
-        .btn-header { padding: 0.65rem 1.4rem; font-size: 0.88rem; white-space: nowrap; }
-        .header-actions { display: flex; align-items: center; gap: 0.6rem; }
-        .book-short, .tb-short { display: none; }
-        .menu-toggle { --shift: 7px; display: none; width: 40px; height: 40px; flex-shrink: 0; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; border: none; border-radius: var(--radius-sm); background: transparent; cursor: pointer; }
-        .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--bg-dark); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
-        .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(var(--shift)) rotate(45deg); }
-        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-        .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(calc(var(--shift) * -1)) rotate(-45deg); }
-        @media(max-width: 1100px) {
-            .menu-toggle { display: flex; }
-            .main-header .container { padding-right: 0.75rem; }
-            .book-full { display: none; }
-            .book-short { display: inline; }
-            .main-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border-top: 1px solid var(--border-subtle); box-shadow: 0 14px 24px rgba(0,0,0,0.1); max-height: calc(100vh - 110px); overflow-y: auto; }
-            .main-header nav.open { display: block; }
-            .nav-menu-links { flex-direction: column; gap: 0; padding: 0.5rem 2.5rem 1rem; }
-            .nav-menu-links a { display: block; padding: 0.95rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 1.05rem; }
-        }
-        @media(max-width: 600px) {
-            .main-header .container { padding: 0 0.3rem 0 0.85rem; }
-            .main-header { padding: 0; }
-            .nav-inner { gap: 0.5rem; flex-wrap: nowrap; min-height: 62px; }
-            .logo-subtitle { display: none; }
-            .logo-title { font-size: clamp(0.85rem, 4.4vw, 1.1rem); white-space: nowrap; }
-            .header-actions { gap: 0.4rem; }
-            .header-actions .btn { font-size: clamp(0.62rem, 3vw, 0.8rem); padding: 0 1.1rem; height: 32px; }
-            .menu-toggle { --shift: 6px; width: 32px; height: 32px; gap: 4px; }
-            .menu-toggle span { width: 15px; }
-            .nav-menu-links { padding: 0.5rem 0.85rem 1rem; }
-        }
-        @media(max-width: 380px) {
-            .branding-zone { flex-shrink: 0; }
-            .header-actions { flex: 1; min-width: 0; }
-            .header-actions .btn { flex: 1; padding: 0 0.5rem; }
-        }
-        @media(max-width: 450px) {
-            .top-trust-bar { padding: 0.5rem 0; }
-            .top-location { display: none; }
-            .top-trust-inner { justify-content: center; }
-            .top-contact-links { width: 100%; gap: 0.5rem; }
-            .top-contact-links a { flex: 1; justify-content: center; border: 1px solid rgba(255,255,255,0.35); border-radius: var(--radius-sm); padding: 0.5rem; font-weight: 600; }
-            .tb-full { display: none; }
-            .tb-short { display: inline; }
-        }
-        .tests-list { list-style: none; column-count: 2; column-gap: 2.5rem; font-family: var(--font-heading); color: var(--bg-dark); line-height: 1.5; }
-        .tests-list li { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; break-inside: avoid; }
-        .tests-list li::before { content: "•"; color: var(--accent-blue); font-size: 1.3rem; line-height: 1.15; }
-        .img-card h3, .img-card p, .philosophy-quote-block p, .philosophy-attribution, .practise-section .section-header-cluster h2, .practise-section .section-header-cluster p, .practise-section .hub-name, .practise-section .hub-details-list li, .practise-section .hub-title-context { text-shadow: -1px -1px 0 rgba(0,0,0,0.85), 1px -1px 0 rgba(0,0,0,0.85), -1px 1px 0 rgba(0,0,0,0.85), 1px 1px 0 rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.5); }
-        .deployment-grid { max-width: 1000px; margin: 0 auto; justify-items: center; }
-        .practise-section .deployment-hub-card { width: 100%; max-width: 560px; border: 1px solid rgba(255,255,255,0.45); text-align: center; align-items: center; }
-        @media(max-width: 700px) { .tests-list { column-count: 1; } }
-        @media(max-width: 1030px) {
-            .conditions-grid { grid-template-columns: 1fr; }
-            .conditions-grid .img-card { grid-column: auto !important; }
-        }
-        @media(max-width: 1024px) {
-            .deployment-grid, .research-media-row, .services-card-grid { grid-template-columns: 1fr; }
-            .footer-top-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-layout { grid-template-columns: 1.15fr 0.85fr; gap: 1.25rem; }
-            .hero-section .container { padding: 0 1.5rem; }
-            .hero-main-title { font-size: 2.1rem; }
-            .hero-subheading { font-size: 1.1rem; margin-bottom: 0.75rem; }
-            .hero-lead-text { font-size: 1rem; line-height: 1.55; margin-bottom: 1.1rem; }
-            .hero-cta-container { gap: 0.75rem; }
-            .hero-cta-container .btn { font-size: 0.85rem; padding: 0.7rem 1.1rem; }
-            .hero-clinical-summary { font-size: 0.78rem; }
-            .hero-image-wrapper { max-width: 350px; height: auto; aspect-ratio: 1 / 1; }
-            .hero-image-placeholder { display: block; }
-        }
-        @media(max-width: 700px) {
-            .hero-section { min-height: auto; padding: 2rem 0; }
-            .hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
-            .hero-profile-container { order: -1; justify-content: center; }
-            .hero-image-wrapper { width: 260px; max-width: 100%; margin: 0 auto; }
-            .hero-main-title { font-size: 2.3rem; }
-            .hero-lead-text { font-size: 1.05rem; }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr Nay Aung | Consultant Cardiologist, Harley Street Medical District</title>
+<meta name="description" content="Private cardiology at Welbeck Heart Health, London. Chest pain, palpitations, breathlessness, blood pressure, cholesterol and heart checks.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--petrol:#0b3a47;--deep:#062a34;--saf:#f2ab1c;--saf-d:#d9930a;--stone:#f5f2ec;--ink:#0f2229;--mut:#34464d;--line:#cfc9bd;--white:#fff;--serif:'Newsreader',Georgia,serif;--sans:'Figtree',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--stone:#f5f2ec}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+:root{padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--white);color:var(--ink);font:400 1.2rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(2.7rem,6vw,4.9rem)}h2{font-size:clamp(2.2rem,4.2vw,3.4rem);margin-bottom:1.25rem}h3{font-size:1.7rem;font-weight:400;line-height:1.2}
+a{color:inherit}p+p{margin-top:1rem}
+:focus-visible{outline:3px solid var(--saf);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+section{padding:clamp(4.5rem,9vw,8rem) 0}
+[data-v=home] [data-view=contact],[data-v=contact] [data-view=home]{display:none}
+.btn-ring{display:inline-flex;padding:6px;border-radius:99px;border:1px solid rgba(127,127,127,.35)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 1.05rem var(--sans);padding:.95rem 1.7rem;border-radius:99px;border:0;cursor:pointer;text-decoration:none;background:var(--saf);color:var(--deep);transition:background .2s}
+.btn:hover{background:var(--saf-d)}.btn.pet{background:var(--petrol);color:#fff}.btn.pet:hover{background:var(--deep)}.btn.wht{background:#fff;color:var(--deep)}.btn.wht:hover{background:var(--stone)}
+.btn svg{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2}
+/* menu */
+.menu-btn{position:fixed;top:calc(1.1rem + env(safe-area-inset-top,0px));right:1.25rem;z-index:60;padding:.8rem 1.4rem}
+.logo{position:absolute;top:1.6rem;left:clamp(1.25rem,4vw,2.5rem);z-index:5;color:#fff;text-decoration:none;font:300 1.7rem/1 var(--serif)}
+.logo small{display:block;font:500 .85rem/1.5 var(--sans);letter-spacing:.04em;margin-top:.45rem;opacity:.9}
+.nav{position:fixed;inset:0 0 0 auto;width:min(26rem,100%);background:var(--deep);color:#fff;z-index:55;padding:6rem 2.5rem 2rem;transform:translateX(100%);visibility:hidden;transition:transform .35s,visibility .35s;overflow:auto}
+.nav.open{transform:none;visibility:visible}
+.nav a{display:block;font:300 2rem/1.3 var(--serif);text-decoration:none;padding:.4rem 0}.nav a:hover{color:var(--saf)}
+.nav p{font-size:1rem;opacity:.8;margin-top:2rem}
+/* floating actions */
+.float{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;display:flex;gap:.4rem;padding:6px;border-radius:99px;background:#fff;box-shadow:0 6px 28px rgba(6,42,52,.22)}
+.float .btn{padding:.8rem 1.3rem;font-size:1rem}
+/* hero */
+.hero{background:var(--petrol);color:#fff;padding:0;position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:flex-end}
+.hero::before,.grid::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/56px 56px;pointer-events:none}
 
-        /* ===== Phone sizing: smaller text, tighter boxes ===== */
-        @media(max-width: 600px) {
-            body { font-size: 1rem; line-height: 1.55; }
-            .container { padding: 0 1rem; }
-            .section-padding { padding: 2.5rem 0; }
-            .hero-section .container { padding: 0 1rem; }
-            .section-header-cluster { margin-bottom: 2rem; }
-            .section-header-cluster h2 { font-size: 1.7rem; }
-            .section-header-cluster p { font-size: 1rem; }
-            .page-header { padding: 2.25rem 0 1.75rem 0; }
-            .page-header h1 { font-size: 1.85rem; line-height: 1.2; }
-            .page-header p { font-size: 1rem !important; }
-            h2 { overflow-wrap: anywhere; }
-            .btn { font-size: 0.9rem; padding: 0.75rem 1rem; line-height: 1.3; max-width: 100%; }
-            .btn-header { padding: 0 1rem; }
-            .hero-main-title { font-size: 2rem; }
-            .hero-subheading { font-size: 1.05rem; }
-            .hero-lead-text { font-size: 1rem; }
-            .hero-cta-container { flex-direction: column; gap: 0.6rem; }
-            .hero-cta-container .btn { width: 100%; }
-            .philosophy-section { padding: 2.5rem 0; }
-            .philosophy-quote-block p { font-size: 1.1rem; }
-            .credibility-banner { font-size: 0.78rem; padding: 0.5rem 0.75rem; }
-            .services-group-title, .faq-group-title { font-size: 1.2rem; }
-            .services-card-grid { gap: 0.9rem; margin-top: 1.5rem; }
-            .symptom-card { padding: 1.1rem 1.15rem; }
-            .symptom-card h3 { font-size: 1.1rem; }
-            .symptom-card p { font-size: 0.95rem; }
-            .img-card { min-height: 190px; }
-            .tests-strip-box, .special-interests-box, .awards-homepage-box, .info-box, .sidebar-box { padding: 1.25rem; margin-top: 1.5rem; }
-            .tests-strip-box h3, .special-interests-box h3, .awards-homepage-box h3, .info-box h3, .sidebar-box h3 { font-size: 1.15rem; }
-            .test-grid { gap: 0.9rem; margin-top: 1.5rem; }
-            .test-card { padding: 1.25rem; }
-            .test-card h3 { font-size: 1.15rem; }
-            .test-card p { font-size: 0.95rem; }
-            .content-grid { gap: 1.5rem; margin-top: 1.5rem; }
-            .awards-list li, .awards-list-clean li { font-size: 0.95rem; padding: 0.7rem 0; }
-            .research-card-item { padding: 1.25rem; margin-bottom: 1rem; }
-            .research-card-item h3 { font-size: 1.15rem; }
-            .research-media-row { gap: 1rem; margin-bottom: 1.5rem; }
-            .card-links-group { gap: 0.5rem; margin-top: 1rem; font-size: 0.85rem; }
-            .card-links-group a { padding: 0.5rem 0.75rem; }
-            .deployment-grid { gap: 1rem; }
-            .deployment-hub-card, .practise-section .deployment-hub-card { padding: 1.25rem; }
-            .hub-name { font-size: 1.35rem; margin-bottom: 0.75rem; }
-            .hub-details-list li { font-size: 0.95rem; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
-            .carebit-booking-container { padding: 1.25rem; }
-            .carebit-booking-container h2 { font-size: 1.6rem; }
-            .carebit-intro-text { font-size: 1rem; margin-bottom: 1.25rem; }
-            .booking-actions-box { padding: 1rem; gap: 0.9rem; margin-bottom: 1.25rem; width: 100%; }
-            .booking-actions-box .btn { width: 100%; font-size: 0.95rem !important; padding: 0.8rem 0.75rem !important; }
-            .portal-login-link { font-size: 0.9rem; text-align: center; }
-            .booking-meta-info { font-size: 0.9rem; line-height: 1.6; padding-top: 1rem; overflow-wrap: anywhere; }
-            .carebit-booking-container [style*="font-size: 0.95rem"] { font-size: 0.85rem !important; }
-            .medical-footer-engine { padding: 2.5rem 0 1.5rem 0; font-size: 0.9rem; }
-            .footer-top-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; }
-            .footer-bottom-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
-            .faq-item summary { font-size: 1rem; padding: 1rem 2.75rem 1rem 1rem; }
-            .faq-item summary::after { right: 1rem; }
-            .faq-answer { padding: 0 1rem 1rem 1rem; font-size: 0.95rem; }
-            .faq-urgent { padding: 1rem; font-size: 0.9rem; margin-bottom: 2rem; }
-            .content-block p, .about-text p { font-size: 1rem; }
-            .about-text h2, .content-block h2 { font-size: 1.5rem !important; }
-        }
-
-        /* Centre the practise cards on phones */
-        @media(max-width: 600px) {
-            .deployment-grid { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; margin: 0 auto; }
-            .practise-section .deployment-hub-card { width: 100%; max-width: 100%; margin: 0 auto; justify-content: center; align-items: center; text-align: center; }
-            .practise-section .deployment-hub-card > div { width: 100%; text-align: center; }
-            .practise-section .hub-details-list { margin: 0 auto 0.5rem auto; padding: 0; text-align: center; }
-            .practise-section .hub-details-list li { text-align: center; }
-        }
-
-        /* Centre hero text below 700px */
-        @media(max-width: 699px) {
-            .hero-content-frame { text-align: center; }
-            .hero-lead-text { margin-left: auto; margin-right: auto; }
-            .hero-cta-container { justify-content: center; align-items: center; }
-        }
-
-        /* ===== Readability, card images ===== */
-        .about-text p, .content-block p, .faq-answer p, .research-card-item p, .page-header p { max-width: 70ch; }
-        .section-header-cluster p, .carebit-intro-text { max-width: 70ch; margin-left: auto; margin-right: auto; }
-        .content-block { max-width: 720px; }
-        .img-card { isolation: isolate; }
-        img.card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        .awards-group-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--accent-blue); margin: 1.75rem 0 0.25rem 0; }
-        .awards-list a { color: var(--accent-blue); text-decoration: underline; font-size: 0.92rem; margin-left: 0.4rem; }
-        .research-card-item p + p { margin-top: -0.5rem; font-size: 0.95rem; }
-    </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Physician",
-      "@id": "https://alethara.com/nay-aung-draft/#physician",
-      "name": "Dr Nay Aung",
-      "url": "https://alethara.com/nay-aung-draft/",
-      "image": "https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png",
-      "jobTitle": "Consultant Cardiologist",
-      "description": "Consultant cardiologist at Welbeck Heart Health, Harley Street Medical District, London. Chest pain, palpitations, breathlessness, blood pressure, cholesterol and heart checks.",
-      "medicalSpecialty": "Cardiovascular",
-      "telephone": "+447356015504",
-      "email": "info@drnayaung.co.uk",
-      "worksFor": [
-        {
-          "@id": "https://alethara.com/nay-aung-draft/#clinic"
-        }
-      ],
-      "affiliation": [
-        {
-          "@type": "Hospital",
-          "name": "Barts Heart Centre, St Bartholomew's Hospital",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "West Smithfield",
-            "addressLocality": "London",
-            "postalCode": "EC1A 7BE",
-            "addressCountry": "GB"
-          }
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Queen Mary University of London"
-        }
-      ],
-      "sameAs": [
-        "https://orcid.org/0000-0001-5095-1611",
-        "https://scholar.google.com/citations?user=K-_DAdgAAAAJ&hl=en"
-      ]
-    },
-    {
-      "@type": "MedicalClinic",
-      "@id": "https://alethara.com/nay-aung-draft/#clinic",
-      "name": "Welbeck Heart Health",
-      "url": "https://alethara.com/nay-aung-draft/",
-      "image": "https://alethara.com/nay-aung-draft/dr-nay-aung-cardiologist.png",
-      "medicalSpecialty": "Cardiovascular",
-      "telephone": "+447356015504",
-      "email": "info@drnayaung.co.uk",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1 Welbeck Street",
-        "addressLocality": "London",
-        "postalCode": "W1G 0AR",
-        "addressCountry": "GB"
-      },
-      "employee": {
-        "@id": "https://alethara.com/nay-aung-draft/#physician"
-      }
-    }
-  ]
-}
-    </script>
+.hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end;padding-top:9rem;padding-bottom:clamp(5rem,9vw,7rem)}
+.hero p.lead{font-size:1.4rem;max-width:34rem;margin:1.75rem 0 2.25rem;color:#e8eff1}
+.hero .acts{display:flex;gap:1rem;flex-wrap:wrap}
+.hero img{width:100%;max-width:380px;justify-self:end;aspect-ratio:3/4;object-fit:cover;background:var(--deep)}
+/* reviews */
+.reviews{background:var(--stone);padding:clamp(3.5rem,6vw,5rem) 0}
+.rv-head{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:space-between;margin-bottom:2rem}
+.stars{color:var(--saf-d);letter-spacing:.15em;font-size:1.3rem}
+.rv-head b{font-weight:600}
+.car{position:relative}
+.track{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(26rem,86%);scroll-snap-align:start;background:#fff;padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.card p{font-size:1.15rem;line-height:1.6}
+.card .who{font-weight:600;font-size:1rem;margin-top:auto}.card .who span{font-weight:400;color:var(--mut)}
+.arrows{display:flex;gap:.6rem}
+.arr{width:3.4rem;height:3.4rem;border-radius:50%;border:0;background:var(--petrol);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.arr svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.arr:hover{background:var(--saf);color:var(--deep)}
+.reviews h2{max-width:14ch}
+.qbox{background:var(--petrol);color:#fff;padding:clamp(2rem,5vw,4.5rem);position:relative;margin-top:2.5rem}
+.qm{position:absolute;left:clamp(1rem,3vw,2.5rem);top:.2rem;font:300 9rem/1 var(--serif);color:var(--saf)}
+.qbox .track{gap:0;padding:0}
+.slide{flex:0 0 100%;scroll-snap-align:start;padding-left:clamp(3.5rem,9vw,7rem);display:flex;flex-direction:column;gap:1.25rem}
+.slide p{font:300 clamp(1.6rem,3vw,2.4rem)/1.35 var(--serif)}
+.slide .who{font-weight:500;font-size:1.05rem;color:#d3e1e5}
+.qrate{padding-left:clamp(3.5rem,9vw,7rem);margin-top:1.75rem;display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;font-size:1.05rem}
+.qrate .stars{color:var(--saf)}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;margin-top:2.5rem;padding-left:clamp(0rem,0vw,0rem)}
+.qbox .arr{background:var(--saf);color:var(--deep)}.qbox .arr:hover{background:#fff}
+.bars{display:flex;gap:.5rem}.bar{width:clamp(2.5rem,7vw,5rem);height:3px;background:rgba(255,255,255,.3)}.bar.on{background:var(--saf)}
+.ham{display:inline-block;width:1.3rem;height:.8rem;border-top:2px solid;border-bottom:2px solid;position:relative;vertical-align:-.05rem}.ham::after{content:"";position:absolute;left:0;right:0;top:50%;margin-top:-1px;border-top:2px solid}
+.tag{display:inline-block;font-size:.85rem;background:var(--saf);color:var(--deep);padding:.1rem .6rem;border-radius:99px;font-weight:600;align-self:flex-start}
+/* intro */
+.intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.panel{background:var(--petrol);color:#fff;padding:clamp(2rem,4vw,3.5rem)}
+.panel blockquote{font:300 1.7rem/1.4 var(--serif)}.panel cite{display:block;margin-top:1.5rem;font:500 1rem var(--sans);font-style:normal;color:var(--saf)}
+.panel .btn{margin-top:1.75rem}
+.cred{margin-top:1.75rem;color:var(--mut)}
+/* help */
+.help{background:var(--stone)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem);margin-top:3rem}
+.cols>div{border-top:2px solid var(--petrol);padding-top:1.25rem}
+.cols ul{list-style:none;margin-top:1rem}.cols li{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.tests{margin-top:3.5rem;padding:2rem 2.25rem;border:1px solid var(--petrol)}
+.tests p{color:var(--mut);margin-top:.5rem}
+/* research + news */
+.cards3 .card{flex-basis:min(34rem,88%);padding:2.5rem;gap:1.25rem;background:var(--stone)}
+.cards3 a.lk{font-weight:600;color:var(--petrol);text-underline-offset:4px;margin-right:1.25rem}
+.news{margin-top:3rem;font-size:1.25rem;border-top:1px solid var(--line);padding-top:1.5rem}
+.news a{font-weight:600;text-underline-offset:4px}
+.head-row{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.head-row h2{margin:0}
+/* blog */
+.grid{background:var(--petrol);color:#fff;position:relative}
+.grid>.wrap{position:relative;z-index:1}
+.grid .card{background:#fff;color:var(--ink);flex-basis:min(24rem,86%);min-height:20rem}
+.grid .card small{color:var(--mut);font-size:1rem}
+.grid .card a{align-self:flex-start;background:var(--saf);color:var(--deep);padding:.65rem 1.4rem;border-radius:99px;text-decoration:none;font-weight:600;margin-top:auto}.grid .card a:hover{background:var(--saf-d)}
+.grid .arr{background:var(--saf);color:var(--deep)}.grid .arr:hover{background:#fff}
+/* contact */
+.page-top{background:var(--petrol);color:#fff;padding:9rem 0 5rem;position:relative}
+.page-top p{font-size:1.35rem;max-width:36rem;margin-top:1rem;color:#e8eff1}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.three>div{border:1px solid var(--ink);padding:2rem;display:flex;flex-direction:column;gap:1rem;min-height:18rem}
+.three .btn{margin-top:auto;align-self:flex-start}
+.three a.tel{color:var(--petrol);font-weight:600}
+.formwrap{background:var(--stone)}
+.formwrap .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,6rem)}
+form{display:grid;gap:1.25rem}
+label{font-weight:600;font-size:1.05rem;display:grid;gap:.4rem}
+input,select,textarea{font:400 1.15rem var(--sans);padding:.9rem 1rem;border:1.5px solid var(--mut);background:#fff;color:var(--ink);border-radius:4px;width:100%}
+textarea{min-height:7rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.chk{display:flex;gap:.75rem;font-weight:400;font-size:1rem;align-items:flex-start}.chk input{width:1.4rem;height:1.4rem;margin-top:.25rem}
+#ok{display:none;background:var(--petrol);color:#fff;padding:1.5rem 2rem}
+.where{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)}
+.where h3{margin:.25rem 0 .75rem}.fine{font-size:1.05rem;color:var(--mut);max-width:48rem}
+/* footer */
+footer{background:var(--deep);color:#e8eff1;padding:5rem 0 7rem;font-size:1.05rem;position:relative;overflow:hidden}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
+footer h3{color:#fff;margin-bottom:.75rem}footer a{text-underline-offset:3px}
+footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.2)}
+@media(max-width:900px){.hero .wrap,.intro .wrap,.formwrap .wrap,.where,footer .wrap{grid-template-columns:1fr}.hero img{justify-self:start;max-width:260px}.cols,.three,.two{grid-template-columns:1fr}.hero{min-height:auto}.float .btn{padding:.75rem 1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
 </head>
-<body>
-    <div class="sticky-header-wrapper">
-        <div class="top-trust-bar">
-            <div class="container top-trust-inner">
-                <div class="top-link-item top-location">Welbeck, Harley Street Medical District, London</div>
-                <div class="top-contact-links">
-                    <a href="tel:+447356015504" class="top-link-item">
-                        <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-                        <span class="tb-full">+44 (0)7356 015504</span><span class="tb-short">Call</span>
-                    </a>
-                    <a href="mailto:info@drnayaung.co.uk" class="top-link-item">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <span class="tb-full">info@drnayaung.co.uk</span><span class="tb-short">Email</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <header class="main-header">
-            <div class="container nav-inner">
-                <div class="branding-zone">
-                    <a href="https://alethara.com/nay-aung-draft/">
-                        <div class="logo-title">DR NAY AUNG</div>
-                        <div class="logo-subtitle">MBBS · MSc · MRCP · PhD</div>
-                        <div class="logo-subtitle">Consultant Cardiologist</div>
-                    </a>
-                </div>
-                <nav id="site-nav" aria-label="Main navigation">
-                    <ul class="nav-menu-links">
-                        <li><a href="https://alethara.com/nay-aung-draft/">Home</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/about">About</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/conditions">Conditions</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/tests">Tests</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/fees">Fees</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/research">Research</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/faqs">FAQs</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary btn-header"><span class="book-full">Book an appointment</span><span class="book-short">Book an appointment</span></a>
-                    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-                </div>
-            </div>
-        </header>
+<body data-v="home">
+<a class="btn" style="position:absolute;left:-999px" href="#main">Skip to content</a>
+<button class="btn menu-btn" id="mb" aria-expanded="false" aria-controls="nav">Menu <span class="ham"></span></button>
+<nav class="nav" id="nav" aria-label="Main">
+  <a href="#home">Home</a><a href="#about">About</a><a href="#help">Conditions and tests</a><a href="#research">Research</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+  <p>Welbeck Heart Health<br>1 Welbeck Street, London W1G 0AR<br><a href="tel:+447356015504" style="font:inherit;display:inline;text-decoration:underline">+44 (0)7356 015504</a></p>
+</nav>
+<div class="float"><span class="btn-ring" style="padding:0;border:0"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book online</a></span><a class="btn pet" href="tel:+447356015504">Call me</a></div>
+
+<main id="main">
+<!-- ============ HOME ============ -->
+<div data-view="home">
+<header class="hero">
+  <a class="logo" href="#home">DR NAY AUNG<small>MBBS · MSc · MRCP · PhD<br>Consultant Cardiologist</small></a>
+  <div class="wrap">
+    <div>
+      <h1>Private cardiology in the Harley Street Medical District</h1>
+      <p class="lead">Heart symptoms are worrying. I’ll find out what’s causing them, quickly and precisely, and agree a plan that makes sense to you.</p>
+      <div class="acts"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span><span class="btn-ring"><a class="btn wht" href="#callback">Request a call back</a></span></div>
     </div>
+    <img src="dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" onerror="this.style.visibility='hidden'">
+  </div>
+</header>
 
-    <section class="hero-section">
-        <div class="container hero-layout">
-            <div class="hero-content-frame">
-                <div class="hero-clinical-summary">Private cardiology · Harley Street Medical District, London</div>
-                <h1 class="hero-main-title">Dr Nay Aung</h1>
-                <div class="hero-subheading">Consultant Cardiologist</div>
-                <p class="hero-lead-text">
-                    Heart symptoms are worrying. My job is to find out what's causing them, quickly and precisely, and to agree a plan that makes sense to you, using cutting-edge diagnostics such as cardiac MRI when a clearer answer is needed.
-                </p>
-                <div class="hero-cta-container">
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary">Book an appointment</a>
-                    <a href="https://alethara.com/nay-aung-draft/conditions" class="btn btn-secondary">What I can help with</a>
-                </div>
-            </div>
-            <div class="hero-profile-container">
-                <div class="hero-image-wrapper">
-                    <img src="dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" class="hero-image-placeholder">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="credibility-banner">
-        <div class="container">
-            Consultant at Barts Heart Centre · MRC Clinician Scientist · Royal Society of Medicine President's Prize · Featured on BBC News and in the Guardian
-        </div>
+<section class="reviews" id="reviews" aria-labelledby="rvh">
+  <div class="wrap">
+    <h2 id="rvh">What our patients say</h2>
+    <div class="qbox"><span class="qm" aria-hidden="true">“</span>
+      <div class="track" id="rvtrack" tabindex="0" aria-label="Patient reviews"></div>
+      <div class="qrate"><span class="stars" aria-hidden="true">★★★★★</span><b id="rvscore">5.0</b><span><span id="rvcount">0</span> Google reviews</span></div>
+      <div class="qfoot"><div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous review"></button><button class="arr" data-dir="1" aria-label="Next review"></button></div><div class="bars" id="rvbars" aria-hidden="true"></div></div>
     </div>
+  </div>
+</section>
 
-    <section class="philosophy-section">
-        <div class="container">
-            <div class="philosophy-quote-block">
-                <p>
-                    “People often come to me with a nagging worry about their heart, and questions no one has yet answered. I take time to listen, explain what I find in plain language, and stay with you until we have an answer. You should leave knowing exactly what's going on and what happens next.”
-                </p>
-                <div class="philosophy-attribution">- Dr Nay Aung</div>
-            </div>
-        </div>
-    </section>
+<section class="intro" id="about"><div class="wrap">
+  <div>
+    <h2>Time to listen, and answers you can understand</h2>
+    <p>I’m a consultant at Barts Heart Centre and an MRC Clinician Scientist at Queen Mary University of London. In private practice I use detailed tests such as cardiac MRI when a clearer answer is needed, and I report your scan myself.</p>
+    <p class="cred">MBBS · MSc · MRCP · PhD. Adults aged 18 and over.</p>
+  </div>
+  <div class="panel">
+    <blockquote>“You should leave knowing exactly what’s going on and what happens next.”</blockquote>
+    <cite>Dr Nay Aung</cite>
+    <a class="btn wht" href="#contact">Get in touch</a>
+  </div>
+</div></section>
 
-    <section class="clinical-services-section section-padding">
-        <div class="container">
-            <div class="section-header-cluster">
-                <h2>What I can help with</h2>
-                <p>Specialist assessment and treatment for adults, with detailed tests when they're needed.</p>
-            </div>
-            <div class="services-group-block">
-                <h3 class="services-group-title">Symptoms</h3>
-                <div class="services-card-grid">
-                    <div class="symptom-card">
-                        <h3>Chest pain or tightness</h3>
-                        <p>Finding out whether it's your heart, and what to do about it.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>Palpitations and irregular heartbeat</h3>
-                        <p>Assessment of racing, skipping or irregular heartbeats, including atrial fibrillation.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>Breathlessness and tiredness</h3>
-                        <p>Checking whether your heart is the cause.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>Dizziness and blackouts</h3>
-                        <p>Investigating fainting and light-headedness.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="services-group-block">
-                <h3 class="services-group-title">Risk and prevention</h3>
-                <div class="services-card-grid">
-                    <div class="symptom-card">
-                        <h3>High blood pressure</h3>
-                        <p>Including blood pressure that's hard to control.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>High cholesterol</h3>
-                        <p>Understanding your numbers and your options.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>Heart health checks</h3>
-                        <p>A personalised assessment of your risk of heart disease.</p>
-                    </div>
-                    <div class="symptom-card">
-                        <h3>Family history of heart disease</h3>
-                        <p>Screening and advice if a relative has had heart problems at a young age.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="services-group-block">
-                <h3 class="services-group-title">Known heart conditions</h3>
-                <div class="services-card-grid conditions-grid">
-                    <div class="symptom-card img-card">
-                    <img class="card-bg" src="failure.jpg" alt="Illustration for heart failure" loading="lazy" decoding="async">
-                        <h3>Heart failure</h3>
-                        <p>Finding the cause of a weakened or stiff heart, and building a treatment plan to protect and improve it.</p>
-                    </div>
-                    <div class="symptom-card img-card">
-                    <img class="card-bg" src="arrhythmia.jpg" alt="Illustration for heart valve disease" loading="lazy" decoding="async">
-                        <h3>Heart valve disease</h3>
-                        <p>Assessment and monitoring of leaking or narrowed valves.</p>
-                    </div>
-                    <div class="symptom-card img-card">
-                    <img class="card-bg" src="dna.jpg" alt="Illustration for cardiomyopathy" loading="lazy" decoding="async">
-                        <h3>Cardiomyopathy</h3>
-                        <p>Assessment and management of heart muscle disease.</p>
-                    </div>
-                    <div class="symptom-card img-card">
-                    <img class="card-bg" src="cad.jpg" alt="Illustration for coronary artery disease" loading="lazy" decoding="async">
-                        <h3>Coronary artery disease</h3>
-                        <p>Investigating chest pain and coronary risk, using CT coronary angiography or stress imaging where appropriate.</p>
-                    </div>
-                    <div class="symptom-card img-card" style="grid-column: span 2;">
-                    <img class="card-bg" src="mri.jpg" alt="Illustration for second opinions and cardiac imaging" loading="lazy" decoding="async">
-                        <h3>Second opinions</h3>
-                        <p>A fresh review of a diagnosis, scan result or treatment plan.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="tests-strip-box">
-                <h3>Diagnostic Tests Available</h3>
-                <ul class="tests-list">
-                    <li>ECG</li>
-                    <li>Echocardiogram (heart ultrasound)</li>
-                    <li>Holter monitoring (24-hour or longer heart rhythm recording)</li>
-                    <li>24-hour blood pressure monitoring</li>
-                    <li>Exercise test</li>
-                    <li>Cardiac MRI</li>
-                    <li>CT coronary angiography</li>
-                </ul>
-            </div>
-            <div class="special-interests-box">
-                <h3>Special interests</h3>
-                <p>
-                    Alongside general cardiology, I have specialist expertise in cardiac imaging and heart failure. I personally report cardiac MRI and echocardiography, so your scan is interpreted by the cardiologist who knows your case. These are also the focus of my research at Queen Mary University of London.
-                </p>
-            </div>
-        </div>
-    </section>
+<section class="help" id="help"><div class="wrap">
+  <h2>What I can help with</h2>
+  <p style="max-width:40rem">Specialist assessment and treatment for adults, with detailed tests when they’re needed.</p>
+  <div class="cols">
+    <div><h3>Symptoms</h3><ul><li>Chest pain or tightness</li><li>Palpitations and irregular heartbeat</li><li>Breathlessness and tiredness</li><li>Dizziness and blackouts</li></ul></div>
+    <div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul></div>
+    <div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul></div>
+  </div>
+  <div class="tests"><h3>Tests available</h3><p>ECG · Echocardiogram · Holter monitoring · 24-hour blood pressure monitoring · Exercise test · Cardiac MRI · CT coronary angiography</p></div>
+</div></section>
 
-    <section class="research-publications-section section-padding">
-        <div class="container">
-            <div class="section-header-cluster">
-                <h2>Research that shapes my practice</h2>
-                <p>My research uses cardiac MRI, genetics and artificial intelligence to find heart disease earlier. It has been published in over 150 peer-reviewed papers, in journals including Nature Genetics and JACC, and featured by BBC News and the Guardian.</p>
-            </div>
-            <div class="research-media-row">
-                <div class="research-card-item">
-                    <div>
-                        <h3>In the news - air pollution and the heart</h3>
-                        <p>
-                            My research using cardiac MRI scans from nearly 4,000 UK Biobank participants found that people with higher long-term exposure to traffic-related air pollution had larger heart chambers, a change also seen in the early stages of heart failure. The study was published in Circulation and covered by BBC News, the Guardian, The Times and the Telegraph.
-                        </p>
-                    </div>
-                    <div class="card-links-group">
-                        <a href="https://www.bbc.co.uk/news/health-45034972" target="_blank">Watch on BBC News</a> 
-                        <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank">Read in the Guardian</a> 
-                        <a href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856" target="_blank">Read the study</a>
-                    </div>
-                </div>
-                <div class="research-card-item">
-                    <div>
-                        <h3>Detecting heart failure from a routine ECG</h3>
-                        <p>
-                            I lead the development of iHeF, an AI tool that screens for heart failure from a standard ECG. In 2026 the project received £1.3m from the National Institute for Health and Care Research to prepare it for NHS use.
-                        </p>
-                    </div>
-                    <div class="card-links-group">
-                        <a href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html" target="_blank">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://scholar.google.com/citations?user=K-_DAdgAAAAJ&hl=en" target="_blank" class="btn btn-secondary">Full publication list (Google Scholar)</a>
-                    <a href="https://orcid.org/0000-0001-5095-1611" target="_blank" class="btn btn-secondary">ORCID record</a>
-                </div>
-            </div>
-            <div class="awards-homepage-box">
-                <h3>Awards and recognition</h3>
-                <ul class="awards-list-clean">
-                    <li>William Harvey Research Institute Young Investigator Award, 2026</li>
-                    <li>Medical Research Council Clinician Scientist Fellowship, 2023</li>
-                    <li>Outstanding Early Career Researcher Award, Faculty of Medicine and Dentistry, Queen Mary University of London, 2022</li>
-                    <li>Royal Society of Medicine President's Prize (Cardiology), 2020</li>
-                    <li>EuroCMR Young Investigator Award, 2019</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<section id="research"><div class="wrap">
+  <div class="head-row"><div><h2>Research that shapes my practice</h2><p style="max-width:40rem">Over 150 peer-reviewed papers using cardiac MRI, genetics and AI to find heart disease earlier.</p></div>
+  <div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous">‹</button><button class="arr" data-dir="1" aria-label="Next">›</button></div></div>
+  <div class="car cards3"><div class="track" tabindex="0" aria-label="Research highlights">
+    <article class="card"><h3>Air pollution and the heart</h3><p>Cardiac MRI scans from nearly 4,000 UK Biobank participants showed larger heart chambers in people with higher long-term exposure to traffic-related pollution, a change also seen in early heart failure. Published in Circulation.</p><div><a class="lk" href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856">Read the study</a><a class="lk" href="https://www.bbc.co.uk/news/health-45034972">BBC News</a></div></article>
+    <article class="card"><h3>Detecting heart failure from a routine ECG</h3><p>I lead iHeF, an AI tool that screens for heart failure from a standard ECG. In 2026 the project received £1.3m from the NIHR to prepare it for NHS use.</p><div><a class="lk" href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html">Read more</a></div></article>
+    <article class="card"><h3>Awards and recognition</h3><p>William Harvey Research Institute Young Investigator Award, 2026. MRC Clinician Scientist Fellowship, 2023. Royal Society of Medicine President’s Prize (Cardiology), 2020.</p><div><a class="lk" href="https://scholar.google.com/citations?user=K-_DAdgAAAAJ&hl=en">Google Scholar</a><a class="lk" href="https://orcid.org/0000-0001-5095-1611">ORCID</a></div></article>
+  </div></div>
+  <p class="news">My research in the news: <a href="https://www.bbc.co.uk/news/health-45034972">BBC News</a> · <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure">the Guardian</a> · <a href="#" data-todo>The Times</a> · <a href="#" data-todo>the Telegraph</a></p>
+</div></section>
 
-    <!-- WHERE I PRACTISE (DIRECTLY ABOVE BOOKING) -->
-    <section class="practise-section section-padding">
-        <div class="container">
-            <div class="section-header-cluster">
-                <h2>Where I practise</h2>
-                <p>Private appointments at Welbeck in the Harley Street Medical District. NHS appointments at Barts Heart Centre are by referral only.</p>
-            </div>
-            <div class="deployment-grid">
-                <div class="deployment-hub-card">
-                    <div>
-                        <div class="hub-title-context">Private practice</div>
-                        <h3 class="hub-name">Welbeck Heart Health</h3>
-                        <ul class="hub-details-list">
-                            <li>1 Welbeck Street, London W1G 0AR</li>
-                            <li>Harley Street Medical District</li>
-                            <li>Phone - <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a></li>
-                            <li>Email - <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="deployment-hub-card">
-                    <div>
-                        <div class="hub-title-context">NHS practice</div>
-                        <h3 class="hub-name">Barts Heart Centre</h3>
-                        <ul class="hub-details-list">
-                            <li>St Bartholomew's Hospital</li>
-                            <li>West Smithfield, London EC1A 7BE</li>
-                            <li style="margin-top: 1rem; font-weight: 600;">By referral only</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="grid" id="blog"><div class="wrap">
+  <div class="head-row"><h2>Latest articles</h2><div style="display:flex;gap:1.25rem;align-items:center"><span class="btn-ring"><a class="btn wht" href="#blog">All articles</a></span><div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous article">‹</button><button class="arr" data-dir="1" aria-label="Next article">›</button></div></div></div>
+  <div class="car"><div class="track" id="posts" tabindex="0" aria-label="Latest articles"></div></div>
+</div></section>
 
-    <section class="contact-portal-section section-padding">
-        <div class="container">
-            <div class="carebit-booking-container">
-                <h2>Book an appointment</h2>
-                <p class="carebit-intro-text">
-                    Choose a time that suits you and book online. If you'd rather speak to someone, call or email my secretary.
-                </p>
-                <div class="booking-actions-box">
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.2rem;">Book online via secure patient portal</a>
-                    <a href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up" class="portal-login-link">Existing patients - log in to your patient portal</a>
-                </div>
-                <div class="booking-meta-info">
-                    <p style="margin-bottom: 0.5rem;"><strong>Practice Secretary Contact</strong><br>Phone: <a href="tel:+447356015504" style="text-decoration: underline;">+44 (0)7356 015504</a><br>Email: <a href="mailto:info@drnayaung.co.uk" style="text-decoration: underline;">info@drnayaung.co.uk</a></p>
-                    <p style="margin-bottom: 0.5rem;"><strong>Patient Scope</strong> - Adults aged 18 and over.</p>
-                    <p style="margin-bottom: 0.5rem;">Can't find a suitable time? Call or email my secretary.</p>
-                </div>
-                <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-                    <p style="margin-bottom: 0.75rem;">
-                        <strong>Insurance & Self-Funding</strong> - I see self-funding patients and patients with most major insurers. Please check with your insurer before booking, as you may need a GP referral and an authorisation code.
-                    </p>
-                    <p style="margin-bottom: 0;">
-                        <strong>Privacy</strong> - Your details are processed by my practice to arrange and manage your care. See our <a href="https://alethara.com/nay-aung-draft/privacy-policy" style="text-decoration: underline;">privacy policy</a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section><div class="wrap">
+  <h2>Where I practise</h2>
+  <div class="where">
+    <div><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
+    <div><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
+  </div>
+</div></section>
+</div>
 
-    <footer class="medical-footer-engine">
-        <div class="container">
-            <div class="footer-top-grid">
-                <div>
-                    <div class="footer-link-group-title">Clinics</div>
-                    <ul class="footer-links-list">
-                        <li>Welbeck Heart Health, Harley Street Medical District</li>
-                        <li>Barts Heart Centre (NHS - by referral only)</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-link-group-title">Specialist Areas</div>
-                    <ul class="footer-links-list">
-                        <li>General cardiology</li>
-                        <li>Cardiac MRI</li>
-                        <li>Heart failure</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-link-group-title">Research & Academic</div>
-                    <ul class="footer-links-list">
-                        <li>Queen Mary University of London</li>
-                        <li>Publications</li>
-                        <li>Media coverage</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-link-group-title">Registration & Legal</div>
-                    <ul class="footer-links-list">
-                        <li>GMC number 7015555</li>
-                        <li>ICO registration number [to be added]</li>
-                        <li>Welbeck CQC registration [to be added]</li>
-                        <li><a href="https://alethara.com/nay-aung-draft/privacy-policy">Privacy policy</a></li>
-                        <li><a href="https://alethara.com/nay-aung-draft/cookie-policy">Cookie policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom-bar">
-                <div>© 2026 Dr Nay Aung. All Rights Reserved.</div>
-                <div>Designed by <a href="https://alethara.com" style="color: #ffffff; text-decoration: underline;" target="_blank">ALETHARA</a></div>
-            </div>
-        </div>
-    </footer>
-    <script>
-    (function () {
-        var btn = document.getElementById('menu-toggle');
-        var nav = document.getElementById('site-nav');
-        if (!btn || !nav) return;
-        function setOpen(open) {
-            nav.classList.toggle('open', open);
-            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        }
-        btn.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!nav.classList.contains('open')); });
-        nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
-        document.addEventListener('click', function (e) { if (!nav.contains(e.target) && !btn.contains(e.target)) setOpen(false); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setOpen(false); btn.focus(); } });
-        window.matchMedia('(min-width: 1101px)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
-    })();
-    </script>
+<!-- ============ CONTACT ============ -->
+<div data-view="contact">
+<header class="page-top"><a class="logo" href="#home">DR NAY AUNG<small>MBBS · MSc · MRCP · PhD<br>Consultant Cardiologist</small></a>
+  <div class="wrap"><h1>Get in touch</h1><p>Book online, talk to my secretary, or ask us to call you.</p></div></header>
+<section><div class="wrap"><div class="three">
+  <div><h3>Book online</h3><p>Choose a time that suits you through the secure patient portal.</p><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></div>
+  <div><h3>Give us a call</h3><p>Call my secretary to find out more or make an appointment.</p><a class="tel" href="tel:+447356015504">+44 (0)7356 015504</a><a class="btn pet" href="tel:+447356015504">Call us</a></div>
+  <div><h3>Request a call back</h3><p>Fill in the form and we’ll call you back to discuss what you need.</p><a class="btn" href="#callback">Go to the form</a></div>
+</div></div></section>
+
+<section class="formwrap" id="callback"><div class="wrap">
+  <div><h2>Request a call back</h2><p>Many people prefer to ask a question before booking. Tell us when suits you and we’ll phone.</p><p class="fine">Please don’t put detailed medical information in this form. If you think it’s an emergency, call 999.</p></div>
+  <div>
+    <form id="cb">
+      <div class="two"><label>Name<input name="n" required autocomplete="name"></label><label>Phone number<input name="p" type="tel" required autocomplete="tel"></label></div>
+      <label>Email (optional)<input name="e" type="email" autocomplete="email"></label>
+      <div class="two"><label>Best time to call<select name="t"><option>Morning</option><option>Afternoon</option><option>Evening</option><option>No preference</option></select></label>
+      <label>How will you pay?<select name="f"><option>Self-funding</option><option>Private medical insurance</option><option>Not sure yet</option></select></label></div>
+      <label>What would you like to talk about?<select name="r"><option>Chest pain</option><option>Palpitations</option><option>Breathlessness</option><option>Blood pressure or cholesterol</option><option>Heart health check</option><option>Second opinion</option><option>Something else</option></select></label>
+      <label>Message (optional)<textarea name="m"></textarea></label>
+      <label class="chk"><input type="checkbox" required> I agree to be contacted about my enquiry. My details are used only to arrange and manage care; see the privacy policy.</label>
+      <div><button class="btn" type="submit">Request a call back</button></div>
+    </form>
+    <div id="ok" role="status">Thank you. We’ll call you back at the time you chose.</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="where">
+    <div><h3>Fees and insurance</h3><p class="fine">I see self-funding patients and patients with most major insurers. Check with your insurer before booking, as you may need a GP referral and an authorisation code.</p></div>
+    <div><h3>Email</h3><p><a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a></p><p class="fine">Can’t find a suitable time? Call or email my secretary.</p></div>
+  </div>
+</div></section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div><h3>Dr Nay Aung</h3><p>Consultant Cardiologist<br>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR<br><a href="tel:+447356015504">+44 (0)7356 015504</a> · <a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a></p></div>
+  <div><p>Consultations take place at Welbeck Heart Health (registered with the CQC as OneWelbeck Heart Health, location ID <a href="https://www.cqc.org.uk/location/1-8001081664">1-8001081664</a>).</p>
+  <p class="reg">GMC number 7021140 · ICO registration ZC036250<br><a href="#">Privacy policy</a> · <a href="#">Cookie policy</a><br>© 2026 Dr Nay Aung. Designed by <a href="https://alethara.com">ALETHARA</a></p></div>
+</div></footer>
+
+<script>
+/* ---- Content you can edit ---- */
+var REVIEWS=[ /* add real Google reviews here: {t:"text",a:"Name",d:"3 weeks ago"} ; list stays hidden when empty */
+ {t:"I came in worried about palpitations. Dr Aung explained everything clearly, arranged the right tests and I left knowing exactly what was happening.",a:"Emma",d:"",s:1},
+ {t:"Quick to see, no rushing and no jargon. I finally got a straight answer about my chest pain. Would recommend to anyone.",a:"Jake",d:"",s:1},
+ {t:"Kind, thorough and genuinely took the time to listen. I felt looked after from the first call to the follow-up.",a:"Sarah",d:"",s:1}];
+var POSTS=[
+ {t:"Preventive Cardiology Strategies for Heart Disease Management",d:"11 Jan",x:"Many forms of heart disease are preventable. We look at the strategies that reduce risk before problems arise.",u:"#blog"},
+ {t:"Understanding Comprehensive Cardiovascular Care",d:"11 Jan",x:"A holistic approach that joins up prevention, diagnosis and treatment.",u:"#blog"},
+ {t:"Advanced Cardiac Imaging: A Game Changer in Heart Health",d:"11 Jan",x:"How modern imaging improves diagnosis and changes patient care.",u:"#blog"}];
+/* ---- Reviews + posts ---- */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var rv=document.getElementById('reviews');
+if(!REVIEWS.length){rv.hidden=true}else{
+ document.getElementById('rvcount').textContent=REVIEWS.length;
+ document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.s?' (sample, replace)':', '+esc(r.d))+'</div></article>'}).join('')}
+document.getElementById('posts').innerHTML=POSTS.map(function(p){return '<article class="card"><h3>'+esc(p.t)+'</h3><small>'+esc(p.d)+'</small><a href="'+p.u+'">Read more</a></article>'}).join('');
+/* ---- Manual carousels (no autoplay): arrows, swipe, keyboard ---- */
+function step(t){var c=t.firstElementChild;return c?c.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):300}
+document.querySelectorAll('.arr').forEach(function(b){var d=+b.dataset.dir;
+ b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+(d<0?'M15 5l-7 7 7 7':'M9 5l7 7-7 7')+'"/></svg>';
+ b.addEventListener('click',function(){var t=b.closest('section').querySelector('.track');t.scrollBy({left:d*step(t),behavior:'smooth'})})});
+document.querySelectorAll('.track').forEach(function(t){t.addEventListener('keydown',function(e){
+ if(e.key==='ArrowRight')t.scrollBy({left:step(t),behavior:'smooth'});
+ if(e.key==='ArrowLeft')t.scrollBy({left:-step(t),behavior:'smooth'})})});
+(function(){var t=document.getElementById('rvtrack'),bx=document.getElementById('rvbars');if(!t||!bx)return;
+ bx.innerHTML=REVIEWS.map(function(){return '<span class="bar"></span>'}).join('');
+ function up(){var i=Math.round(t.scrollLeft/step(t));[].forEach.call(bx.children,function(b,k){b.classList.toggle('on',k===i)})}
+ t.addEventListener('scroll',up);up()})();
+/* ---- Menu ---- */
+var mb=document.getElementById('mb'),nav=document.getElementById('nav');
+function menu(o){nav.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.firstChild.nodeValue=o?'Close ':'Menu '}
+mb.onclick=function(){menu(!nav.classList.contains('open'))};
+nav.onclick=function(e){if(e.target.closest('a'))menu(false)};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+/* ---- Two views: home and contact ---- */
+function route(){var h=location.hash.slice(1)||'home',v=(h==='contact'||h==='callback')?'contact':'home';
+ document.body.dataset.v=v;
+ var el=h==='home'||h==='contact'?null:document.getElementById(h);
+ if(el)setTimeout(function(){el.scrollIntoView()},0);else window.scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+/* ---- Call-back form (demo - connect to a secure form handler before launch) ---- */
+document.getElementById('cb').onsubmit=function(e){e.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'};
+document.querySelectorAll('[data-todo]').forEach(function(a){a.title='Link to be added'});
+</script>
 </body>
 </html>
