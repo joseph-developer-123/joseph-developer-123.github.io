@@ -231,7 +231,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 6.5rem); 
+            font-size: clamp(2.5rem, min(8vw, 10vh), 6.5rem); 
             line-height: 1;
             margin-bottom: var(--space-md);
             letter-spacing: -0.04em;
@@ -251,6 +251,41 @@
             gap: var(--space-sm); 
             align-items: center; 
             justify-content: center; 
+        }
+
+        .hero-proof {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            margin-top: clamp(1rem, 3vh, 2rem);
+            padding: 0.6rem 1.1rem 0.6rem 0.75rem;
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            line-height: 1;
+            white-space: nowrap;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .hero-proof:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: var(--color-text-primary); }
+        .hero-proof-logo { width: 1.35rem; height: 1.35rem; flex-shrink: 0; }
+        .hero-proof-stars { color: #FBBC04; letter-spacing: 0.12em; font-size: 1rem; }
+        .hero-proof-text { color: var(--color-text-secondary); }
+        .hero-proof-text strong { color: var(--color-text-primary); font-weight: 700; }
+        .hero-proof-arrow { transition: transform 0.3s ease; }
+        .hero-proof:hover .hero-proof-arrow { transform: translateX(3px); }
+
+        /* Keep the hero (incl. the Google rating) above the fold on short screens */
+        @media (min-width: 769px) and (max-height: 820px) {
+            .hero { padding-top: calc(84px + 2vh); padding-bottom: var(--space-sm); }
+            .hero h1 { margin-bottom: var(--space-sm); }
+            .hero-desc { margin-bottom: var(--space-md); }
+        }
+        @media (max-width: 768px) and (max-height: 740px) {
+            .hero { padding-top: calc(84px + 1vh); }
+            .hero h1 { margin-bottom: var(--space-sm); }
+            .hero-desc { margin-bottom: var(--space-sm); }
         }
 
         .hero h1 .word { display: inline-block; transform: translateY(0) rotate(0deg); opacity: 1; }
@@ -329,6 +364,8 @@
         .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
         .testimonial-card { padding: var(--space-lg); background: var(--color-bg-secondary); border-radius: var(--radius-lg); position: relative; transition: transform 0.4s ease; }
         .testimonial-card:hover { transform: translateY(-5px); }
+        .testimonial-stars { color: var(--color-accent); letter-spacing: 0.15em; font-size: var(--text-base); margin-bottom: var(--space-sm); }
+        .testimonial-more { margin-top: var(--space-lg); text-align: center; }
         .quote-mark { font-size: var(--text-3xl); color: var(--color-accent); line-height: 0.5; margin-bottom: var(--space-sm); font-family: Georgia, serif; }
         .testimonial-text { font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-md); color: var(--color-text-primary); }
         .testimonial-author { display: flex; flex-direction: column; }
@@ -410,6 +447,7 @@
             .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
             .hero-actions { flex-direction: column; width: 100%; }
             .hero-actions .btn { width: 100%; }
+            .hero-proof { white-space: normal; flex-wrap: wrap; justify-content: center; border-radius: 1.25rem; gap: 0.5rem 0.75rem; }
         }
 
         /* ==========================================================================
@@ -481,6 +519,12 @@
                     <a href="#contact" class="btn btn-primary cursor-hover-target plausible-event-name=Hero+Start+Project">Start Your Project</a>
                     <a href="#process" class="btn btn-outline cursor-hover-target plausible-event-name=Hero+Explore+Process" style="border: none;">Explore Process &darr;</a>
                 </div>
+                <a href="https://www.google.com/search?q=Alethara&amp;stick=H4sIAAAAAAAA_-NgU1I1qDBKNTA2Mko1NzU3MLVMM0mxMqgwTTJNSbI0NDM2NEtLtUhOWcTK4ZiTWpKRWJQIAC6Afxc0AAAA&amp;hl=en-GB&amp;mat=CR8LPA02wQlvElcBzAmVZh-jQrjE9YRqh_uyH6VibTMD8hycx8EF6z265-dYvDJRBFmELCCHqJoyWA9P5JX-lm8cdMuQZPbzX2fdjccVWtXsjXc0WA2ztw7VCsxsf6e4WWE&amp;authuser=2&amp;ved=1t:350944" target="_blank" rel="noopener" class="hero-proof stagger-item cursor-hover-target plausible-event-name=Hero+Google+Reviews" style="transition-delay: 0.9s;" aria-label="Rated 5 out of 5 stars from 6 Google reviews. Read them on Google">
+                    <svg class="hero-proof-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    <span class="hero-proof-stars" aria-hidden="true">★★★★★</span>
+                    <span class="hero-proof-text"><strong>5.0</strong> from 6 Google reviews</span>
+                    <span class="hero-proof-arrow" aria-hidden="true">&rarr;</span>
+                </a>
             </div>
         </section>
 
@@ -631,21 +675,61 @@
                 
                 <div class="testimonial-grid stagger-group">
                     <div class="testimonial-card stagger-item" style="transition-delay: 0.1s;">
-                        <div class="quote-mark">“</div>
-                        <p class="testimonial-text">Working with Joseph has been an absolute pleasure. As a therapist launching my private practice, I wanted a website that felt warm, professional, and easy to navigate. Joseph completely understood this vision and created a modern site reflecting the exact ethos of my practice.</p>
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">I can’t thank Joseph enough. Excellent website design, very responsive and great attention to detail. Highly recommended</p>
                         <div class="testimonial-author">
-                            <span class="author-name">Deborah Armiger</span>
-                            <span class="author-role">Founder, The Mind Place</span>
+                            <span class="author-name">Anna Nuttall</span>
+                            <span class="author-role">Google Review</span>
                         </div>
                     </div>
                     <div class="testimonial-card stagger-item" style="transition-delay: 0.2s;">
-                        <div class="quote-mark">“</div>
-                        <p class="testimonial-text">He was very professional, helpful, and responsive in his communication throughout. He worked swiftly to create a top-class website for my practice, making the whole process straightforward and stress-free. I am very happy with the end result!</p>
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">Incredible experience with Joseph making my website. I am extremely happy with the process and also with the subsequent performance of the site. I recommend Alethara to anyone hoping for help crafting a beautiful and effective site for their business.</p>
                         <div class="testimonial-author">
-                            <span class="author-name">Daniel Lazimi</span>
-                            <span class="author-role">Founder, Daniel Lazimi Therapy</span>
+                            <span class="author-name">Anna Kenny-Ginard</span>
+                            <span class="author-role">Google Review</span>
                         </div>
                     </div>
+                    <div class="testimonial-card stagger-item" style="transition-delay: 0.1s;">
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">Joseph has done a brilliant job on my website. He really took the time to understand me and what I do, and the result reflects that perfectly. He has been incredibly helpful, patient, and supportive throughout the whole process, always going above and beyond. I would highly recommend him to anyone looking for a professional and dedicated web designer.</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">Claire Frances Bex</span>
+                            <span class="author-role">Google Review</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card stagger-item" style="transition-delay: 0.2s;">
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">The whole process working with Joseph has been extremely professional. I found him to be highly responsive and attuned to what I needed to get my website revamped. He was patient with my various requests along the way and always worked quickly but with diligence. Most importantly the website looks smart, informative and is now more proactive inviting clients to contact me. He was careful to understand what was really needed and how I wanted the end result to look so I am very happy with the result. I would not hesitate to recommend Joseph and Alethara and would certainly return to him in the future if needed.</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">Jackie Golding</span>
+                            <span class="author-role">Google Review</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card stagger-item" style="transition-delay: 0.1s;">
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">Working with Joseph has been an absolute pleasure. As a health professional launching my private practice, The Mind Place, I wanted a website that felt warm, professional, and easy for potential clients to navigate. Joseph completely understood this vision and created a clean, modern site that reflects both the ethos of my practice and the calm, welcoming atmosphere I hope clients will experience.</p>
+                        <p class="testimonial-text">Joseph has a real talent for designing websites specifically for health professionals. He took the time to understand my work as an integrative counsellor and translated that into a beautiful, thoughtful design that feels authentic to me. The process was smooth, collaborative, and surprisingly stress-free - something I was very grateful for whilst setting up a new practice.</p>
+                        <p class="testimonial-text">I would wholeheartedly recommend Joseph to any health professional looking for a clean, professional website that truly reflects their practice. His creativity, technical skill, and kindness make him wonderful to work with.</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">Deborah Armiger</span>
+                            <span class="author-role">Founder, The Mind Place · Google Review</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card stagger-item" style="transition-delay: 0.2s;">
+                        <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-text">great working with Joseph - I'm very pleased with website and he was very helpful and professional in communication and support throughout - and made the process straightforward and stress free.</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">Daniel Lazimi</span>
+                            <span class="author-role">Founder, Daniel Lazimi Therapy · Google Review</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-more reveal-up">
+                    <a href="https://www.google.com/search?q=Alethara&amp;stick=H4sIAAAAAAAA_-NgU1I1qDBKNTA2Mko1NzU3MLVMM0mxMqgwTTJNSbI0NDM2NEtLtUhOWcTK4ZiTWpKRWJQIAC6Afxc0AAAA&amp;hl=en-GB&amp;mat=CR8LPA02wQlvElcBzAmVZh-jQrjE9YRqh_uyH6VibTMD8hycx8EF6z265-dYvDJRBFmELCCHqJoyWA9P5JX-lm8cdMuQZPbzX2fdjccVWtXsjXc0WA2ztw7VCsxsf6e4WWE&amp;authuser=2&amp;ved=1t:350944" target="_blank" rel="noopener noreferrer" class="btn btn-outline cursor-hover-target">See all reviews on Google &nearr;</a>
+                </div>
+                <div class="reveal-up" style="margin-top: var(--space-lg); text-align: center;">
+                    <a href="https://www.google.com/search?q=Alethara&amp;stick=H4sIAAAAAAAA_-NgU1I1qDBKNTA2Mko1NzU3MLVMM0mxMqgwTTJNSbI0NDM2NEtLtUhOWcTK4ZiTWpKRWJQIAC6Afxc0AAAA&amp;hl=en-GB&amp;mat=CR8LPA02wQlvElcBzAmVZh-jQrjE9YRqh_uyH6VibTMD8hycx8EF6z265-dYvDJRBFmELCCHqJoyWA9P5JX-lm8cdMuQZPbzX2fdjccVWtXsjXc0WA2ztw7VCsxsf6e4WWE&amp;authuser=2&amp;ved=1t:350944" target="_blank" rel="noopener" class="btn btn-outline cursor-hover-target">See all Google reviews &rarr;</a>
                 </div>
             </div>
         </section>
