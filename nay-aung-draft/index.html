@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>Dr Nay Aung | Consultant Cardiologist, Harley Street Medical District</title>
 <meta name="description" content="Private cardiology at Welbeck Heart Health, London. Chest pain, palpitations, breathlessness, blood pressure, cholesterol and heart checks.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,6 +94,35 @@ section{padding:clamp(4.5rem,9vw,8rem) 0}
 .news a{font-weight:600;text-underline-offset:4px}
 .head-row{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
 .head-row h2{margin:0}
+/* media (files in media/; a missing file hides its own frame) */
+.frame{position:relative;margin:0;overflow:hidden;background:#06090e}.frame video,.frame img{width:100%;display:block}
+.frame[hidden]{display:none}
+.about-col{display:grid;gap:1.5rem}
+.cols .frame{margin-top:1.25rem}
+.cond .frame{aspect-ratio:5/2}.cond .frame video{height:100%;object-fit:contain}
+.mri .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.mri .stack{display:grid;gap:1rem}
+.tissue .frame{aspect-ratio:1;margin-top:1.25rem}.tissue .frame img{height:100%;object-fit:cover}
+.tissue .cols{grid-template-columns:repeat(3,1fr)}.tissue .cols>div{border-top:0;padding-top:0}
+.cards3 .card .frame{margin:-2.5rem -2.5rem 0;aspect-ratio:16/9}.cards3 .card .frame video{height:100%;object-fit:cover}
+.grid .card .frame{margin:-2rem -2rem 0;aspect-ratio:16/9}.grid .card .frame img{height:100%;object-fit:cover}
+@media(max-width:900px){.mri .wrap{grid-template-columns:1fr}}
+/* parallax quote band (background: media/bg_starry_night.jpg) */
+.qband{position:relative;overflow:hidden;background:var(--deep);color:#fff;text-align:center;padding:clamp(6rem,15vw,11rem) 0}
+.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background:url(media/bg_starry_night.jpg) center/cover no-repeat;will-change:transform}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,42,52,.55),rgba(6,42,52,.7))}
+.qband .wrap{position:relative;z-index:2;max-width:60rem}
+.qband blockquote{font:300 clamp(2rem,4.6vw,3.6rem)/1.25 var(--serif);text-shadow:0 2px 18px rgba(6,42,52,.6)}
+.qband cite{display:block;margin-top:1.75rem;font:500 1.05rem var(--sans);font-style:normal;letter-spacing:.06em;color:var(--saf)}
+/* mri + awards */
+.mri h2{max-width:20ch}.mri .k,.tissue .k{display:block;color:var(--saf-d);font-weight:600;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em;margin-bottom:.75rem}
+.mri .btn{margin-top:1.75rem}
+.tissue .cols p{color:var(--mut);margin-top:.5rem}
+.awards{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4rem)}
+.awards h3{margin-bottom:.75rem}.awards ul{padding-left:1.1em;color:var(--mut)}.awards li{margin:.35rem 0}
+.awards p{margin-top:.75rem;color:var(--mut)}.awards a{font-weight:600;text-underline-offset:4px;margin-right:1rem}
+.insurers{display:flex;flex-wrap:wrap;gap:.6rem;margin:.75rem 0 0}.insurers span{border:1px solid var(--line);padding:.35rem .9rem;border-radius:99px;font-size:1rem;font-weight:600}
+.where h3.sub{margin-top:1.5rem}
 /* blog */
 .grid{background:var(--petrol);color:#fff;position:relative}
 .grid>.wrap{position:relative;z-index:1}
@@ -123,7 +153,7 @@ footer{background:var(--deep);color:#e8eff1;padding:5rem 0 7rem;font-size:1.05re
 footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
 footer h3{color:#fff;margin-bottom:.75rem}footer a{text-underline-offset:3px}
 footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.2)}
-@media(max-width:900px){.hero .wrap,.intro .wrap,.formwrap .wrap,.where,footer .wrap{grid-template-columns:1fr}.hero img{justify-self:start;max-width:260px}.cols,.three,.two{grid-template-columns:1fr}.hero{min-height:auto}.float .btn{padding:.75rem 1rem}}
+@media(max-width:900px){.hero .wrap,.intro .wrap,.formwrap .wrap,.where,footer .wrap{grid-template-columns:1fr}.hero img{justify-self:start;max-width:260px}.cols,.three,.two,.awards{grid-template-columns:1fr}.hero{min-height:auto}.float .btn{padding:.75rem 1rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -144,16 +174,16 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
   <div class="wrap">
     <div>
       <h1>Private cardiology in the Harley Street Medical District</h1>
-      <p class="lead">Heart symptoms are worrying. I’ll find out what’s causing them, quickly and precisely, and agree a plan that makes sense to you.</p>
+      <p class="lead">Heart symptoms are worrying. You deserve quick, precise answers and treatment tailored to you.</p>
       <div class="acts"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span><span class="btn-ring"><a class="btn wht" href="#callback">Request a call back</a></span></div>
     </div>
     <img src="dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" onerror="this.style.visibility='hidden'">
   </div>
 </header>
 
-<section class="reviews" id="reviews" aria-labelledby="rvh">
+<section class="reviews" id="reviews" aria-labelledby="rvh" hidden>
   <div class="wrap">
-    <h2 id="rvh">What our patients say</h2>
+    <h2 id="rvh">What my patients say</h2>
     <div class="qbox"><span class="qm" aria-hidden="true">“</span>
       <div class="track" id="rvtrack" tabindex="0" aria-label="Patient reviews"></div>
       <div class="qrate"><span class="stars" aria-hidden="true">★★★★★</span><b id="rvscore">5.0</b><span><span id="rvcount">0</span> Google reviews</span></div>
@@ -165,41 +195,75 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
 <section class="intro" id="about"><div class="wrap">
   <div>
     <h2>Time to listen, and answers you can understand</h2>
-    <p>I’m a consultant at Barts Heart Centre and an MRC Clinician Scientist at Queen Mary University of London. In private practice I use detailed tests such as cardiac MRI when a clearer answer is needed, and I report your scan myself.</p>
+    <p>Dr Nay Aung is a Consultant Cardiologist at Barts Heart Centre, one of the largest cardiovascular centres in Europe and home to one of the world’s largest cardiac MRI services. He holds a prestigious Medical Research Council Clinician Scientist Fellowship at Queen Mary University of London, where his research uses cardiac MRI, genetics and AI to detect heart disease earlier.</p>
+    <p>He brings that experience to every consultation. He takes time to understand your symptoms, explains his findings in plain language, and uses advanced tests such as cardiac MRI when a clearer answer is needed, reporting the scans himself.</p>
     <p class="cred">MBBS · MSc · MRCP · PhD. Adults aged 18 and over.</p>
+    <p style="margin-top:1.75rem"><a class="btn pet" href="#contact">Get in touch</a></p>
   </div>
-  <div class="panel">
-    <blockquote>“You should leave knowing exactly what’s going on and what happens next.”</blockquote>
-    <cite>Dr Nay Aung</cite>
-    <a class="btn wht" href="#contact">Get in touch</a>
+  <div class="about-col">
+  <figure class="frame"><video src="media/anatomy_4ch_reveal_1080.mp4" autoplay muted playsinline preload="metadata" aria-label="Your heart, chamber by chamber" controls onerror="this.parentNode.hidden=true"></video></figure>
   </div>
 </div></section>
 
 <section class="help" id="help"><div class="wrap">
   <h2>What I can help with</h2>
-  <p style="max-width:40rem">Specialist assessment and treatment for adults, with detailed tests when they’re needed.</p>
-  <div class="cols">
-    <div><h3>Symptoms</h3><ul><li>Chest pain or tightness</li><li>Palpitations and irregular heartbeat</li><li>Breathlessness and tiredness</li><li>Dizziness and blackouts</li></ul></div>
-    <div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul></div>
-    <div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul></div>
+  <p style="max-width:40rem">Not sure which applies to you? Book a consultation and we’ll work it out together.</p>
+  <div class="cols cond">
+    <div><h3>Symptoms</h3><ul><li>Chest pain</li><li>Palpitations</li><li>Breathlessness</li><li>Dizziness and blackouts</li></ul><figure class="frame"><video src="media/09_beating_art_almond.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure></div>
+    <div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul><figure class="frame"><video src="media/09_beating_art_whistler.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure></div>
+    <div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul><figure class="frame"><video src="media/compare_sax_outlined.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure></div>
   </div>
-  <div class="tests"><h3>Tests available</h3><p>ECG · Echocardiogram · Holter monitoring · 24-hour blood pressure monitoring · Exercise test · Cardiac MRI · CT coronary angiography</p></div>
+  <div class="tests"><h3>Tests available</h3><p>ECG, heart ultrasound (echo), heart rhythm monitoring, 24-hour blood pressure monitoring, exercise test</p><p><b><a href="#mri">Cardiac MRI →</a></b> (see how the heart muscle works, below)</p><p>CT coronary angiography</p></div>
+</div></section>
+
+<section class="qband" aria-label="Quote"><div class="qb-bg" id="qbbg" aria-hidden="true"></div><div class="wrap"><blockquote>“You should leave knowing exactly what’s going on and what happens next.”</blockquote><cite>Dr Nay Aung</cite></div></section>
+
+<section class="mri" id="mri"><div class="wrap">
+  <div>
+  <span class="k">Cardiac MRI</span>
+  <h2>Seeing how well your heart muscle works</h2>
+  <p>With every beat, your heart muscle shortens from top to bottom and squeezes inwards, a little like wringing out a towel. Cardiac MRI can measure this movement precisely. In the images, brighter colours mean stronger contraction: a healthy heart glows, while a weakened heart stays darker. These measurements can show changes in the heart muscle earlier than standard tests.</p>
+  <p style="font-size:.95rem;color:var(--mut)">Top: the heart muscle shortening, seen from three angles. Bottom: the heart squeezing inwards, a healthy heart (left) beside a heart with heart failure (right).</p>
+  <a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a>
+  </div>
+  <div class="stack"><figure class="frame"><video src="media/wall_shortening_3views_1920x1080.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure><figure class="frame"><video src="media/strain_sax_normal_vs_hf_1920x1080.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure></div>
+</div></section>
+
+<section class="tissue help" id="tissue"><div class="wrap">
+  <span class="k">Cardiac MRI</span>
+  <h2>What your heart muscle is made of</h2>
+  <p style="max-width:46rem">Beyond how well the heart pumps, cardiac MRI can look inside the muscle itself, without a biopsy or radiation. It shows scarring after a heart attack, diffuse scarring in conditions such as cardiomyopathy, and swelling from inflammation such as myocarditis.</p>
+  <div class="cols">
+    <div><figure class="frame"><img src="media/lge_scar_1080.jpg" alt="Cardiac MRI showing a bright band of scar along the inner heart wall" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">Scar</h3><p>After a contrast injection, scarred muscle lights up. Here a bright band along the inner lining of the wall, from a past heart attack.</p></div>
+    <div><figure class="frame"><img src="media/t1_map_1080.jpg" alt="Colour T1 map of the heart muscle" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">T1 map</h3><p>Each colour is a measurement. Fibrosis and conditions such as amyloidosis change the muscle's value.</p></div>
+    <div><figure class="frame"><img src="media/t2_map_1080.jpg" alt="Colour T2 map of the heart muscle" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">T2 map</h3><p>Measures water in the muscle, so it picks up swelling from inflammation or a recent injury.</p></div>
+  </div>
 </div></section>
 
 <section id="research"><div class="wrap">
-  <div class="head-row"><div><h2>Research that shapes my practice</h2><p style="max-width:40rem">Over 150 peer-reviewed papers using cardiac MRI, genetics and AI to find heart disease earlier.</p></div>
+  <div class="head-row"><div><h2>Research that shapes my practice</h2><p style="max-width:40rem">My research uses cardiac MRI, genetics and AI to detect heart disease earlier. It has led to over 150 peer-reviewed papers, and it shapes how I care for my patients.</p></div>
   <div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous">‹</button><button class="arr" data-dir="1" aria-label="Next">›</button></div></div>
   <div class="car cards3"><div class="track" tabindex="0" aria-label="Research highlights">
-    <article class="card"><h3>Air pollution and the heart</h3><p>Cardiac MRI scans from nearly 4,000 UK Biobank participants showed larger heart chambers in people with higher long-term exposure to traffic-related pollution, a change also seen in early heart failure. Published in Circulation.</p><div><a class="lk" href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856">Read the study</a><a class="lk" href="https://www.bbc.co.uk/news/health-45034972">BBC News</a></div></article>
-    <article class="card"><h3>Detecting heart failure from a routine ECG</h3><p>I lead iHeF, an AI tool that screens for heart failure from a standard ECG. In 2026 the project received £1.3m from the NIHR to prepare it for NHS use.</p><div><a class="lk" href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html">Read more</a></div></article>
-    <article class="card"><h3>Awards and recognition</h3><p>William Harvey Research Institute Young Investigator Award, 2026. MRC Clinician Scientist Fellowship, 2023. Royal Society of Medicine President’s Prize (Cardiology), 2020.</p><div><a class="lk" href="https://scholar.google.com/citations?user=K-_DAdgAAAAJ&hl=en">Google Scholar</a><a class="lk" href="https://orcid.org/0000-0001-5095-1611">ORCID</a></div></article>
+    <article class="card"><figure class="frame"><video src="media/air_pollution_heart_1280x720.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure><h3>Air pollution and the heart</h3><p>In nearly 4,000 people, I found that higher exposure to traffic pollution was linked to enlarged heart chambers, a change also seen in early heart failure. Covered by BBC News and the Guardian.</p><div><a class="lk" href="https://doi.org/10.1161/CIRCULATIONAHA.118.034856" target="_blank" rel="noopener">Read the study</a><a class="lk" href="https://www.bbc.co.uk/news/health-45034972" target="_blank" rel="noopener">BBC News</a></div></article>
+    <article class="card"><figure class="frame"><video src="media/ecg_to_heart_1280x720.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure><h3>Detecting heart failure from a routine ECG</h3><p>I lead iHeF, an AI tool that spots signs of heart failure on a standard ECG, a quick test available in any GP surgery. In 2026 it received £1.3m from the NIHR to prepare it for NHS use.</p><div><a class="lk" href="https://www.qmul.ac.uk/news/latest-news/2026/medicine-and-dentistry/fmd/new-ai-heart-failure-screening-tool-could-save-lives-cut-hospital-waiting-lists-and-deliver-major-nhs-cost-savings-.html" target="_blank" rel="noopener">Queen Mary news</a><a class="lk" href="https://www.bartshealth.nhs.uk/news/new-ai-heart-failure-screening-tool-tested-at-barts-health-could-cut-hospital-waiting-lists-for-patients-18689/" target="_blank" rel="noopener">Barts Health news</a></div></article>
+    <article class="card"><figure class="frame"><video src="media/heart3d_with_input_1920x1080.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" onerror="this.parentNode.hidden=true"></video></figure><h3>AI for heart imaging</h3><p>AI can outline every heart chamber on MRI and build a 3D model in seconds. Using it on 17,000 scans, my team found 14 genetic regions linked to heart size and function, pointing to new ways to predict heart failure.</p><div><a class="lk" href="https://www.qmul.ac.uk/news/latest-news/2019/smd/ai-identifies-genes-linked-to-heart-failure.html" target="_blank" rel="noopener">Read more</a></div></article>
   </div></div>
-  <p class="news">My research in the news: <a href="https://www.bbc.co.uk/news/health-45034972">BBC News</a> · <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure">the Guardian</a> · <a href="#" data-todo>The Times</a> · <a href="#" data-todo>the Telegraph</a></p>
+  <div class="awards">
+    <div><h3>Awards and recognition</h3><ul>
+      <li>William Harvey Research Institute Young Investigator Award, 2026</li>
+      <li>MRC Clinician Scientist Fellowship, 2023</li>
+      <li>Outstanding Early Career Researcher Award, Faculty of Medicine and Dentistry, Queen Mary University of London, 2022</li>
+      <li>Royal Society of Medicine President’s Prize (Cardiology), 2020</li></ul></div>
+    <div><h3>My research in the news</h3>
+      <p class="news-links"><a href="https://www.bbc.co.uk/news/health-45034972" target="_blank" rel="noopener">BBC News</a> <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank" rel="noopener">the Guardian</a> <a href="https://www.thetimes.co.uk/article/living-by-a-busy-road-can-dangerously-alter-your-heart-3pc5rvph6" target="_blank" rel="noopener">The Times</a> <a href="https://www.telegraph.co.uk/science/2018/08/03/uk-safe-pollution-threshold-should-halved-heart-experts-warn/" target="_blank" rel="noopener">the Telegraph</a></p>
+      <p>Full publication list: <a href="https://scholar.google.com/citations?user=K-_DAdgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> <a href="https://orcid.org/0000-0001-5095-1611" target="_blank" rel="noopener">ORCID</a></p></div>
+  </div>
 </div></section>
 
 <section class="grid" id="blog"><div class="wrap">
-  <div class="head-row"><h2>Latest articles</h2><div style="display:flex;gap:1.25rem;align-items:center"><span class="btn-ring"><a class="btn wht" href="#blog">All articles</a></span><div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous article">‹</button><button class="arr" data-dir="1" aria-label="Next article">›</button></div></div></div>
+  <div class="head-row"><h2>Latest articles</h2><div style="display:flex;gap:1.25rem;align-items:center"><div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous article">‹</button><button class="arr" data-dir="1" aria-label="Next article">›</button></div></div></div>
   <div class="car"><div class="track" id="posts" tabindex="0" aria-label="Latest articles"></div></div>
+  <p style="margin-top:1.5rem;color:#d3e1e5">More articles coming soon.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -231,7 +295,7 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
       <label>How will you pay?<select name="f"><option>Self-funding</option><option>Private medical insurance</option><option>Not sure yet</option></select></label></div>
       <label>What would you like to talk about?<select name="r"><option>Chest pain</option><option>Palpitations</option><option>Breathlessness</option><option>Blood pressure or cholesterol</option><option>Heart health check</option><option>Second opinion</option><option>Something else</option></select></label>
       <label>Message (optional)<textarea name="m"></textarea></label>
-      <label class="chk"><input type="checkbox" required> I agree to be contacted about my enquiry. My details are used only to arrange and manage care; see the privacy policy.</label>
+      <label class="chk"><input type="checkbox" required> I agree to be contacted about my enquiry. My details are used only to arrange and manage my care; see the <a href="https://alethara.com/nay-aung-draft/privacy-policy/">privacy policy</a>.</label>
       <div><button class="btn" type="submit">Request a call back</button></div>
     </form>
     <div id="ok" role="status">Thank you. We’ll call you back at the time you chose.</div>
@@ -240,7 +304,7 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
 
 <section><div class="wrap">
   <div class="where">
-    <div><h3>Fees and insurance</h3><p class="fine">I see self-funding patients and patients with most major insurers. Check with your insurer before booking, as you may need a GP referral and an authorisation code.</p></div>
+    <div><h3>Fees and insurance</h3><p class="fine">I see self-funding patients and patients with most major insurers. Check with your insurer before booking, as you may need a GP referral and an authorisation code.</p><h3 class="sub">Insurers I work with</h3><div class="insurers"><span>Aviva</span><span>AXA Health</span><span>Vitality</span><span>WPA</span><span>Healix</span></div></div>
     <div><h3>Email</h3><p><a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a></p><p class="fine">Can’t find a suitable time? Call or email my secretary.</p></div>
   </div>
 </div></section>
@@ -250,26 +314,24 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
 <footer><div class="wrap">
   <div><h3>Dr Nay Aung</h3><p>Consultant Cardiologist<br>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR<br><a href="tel:+447356015504">+44 (0)7356 015504</a> · <a href="mailto:info@drnayaung.co.uk">info@drnayaung.co.uk</a></p></div>
   <div><p>Consultations take place at Welbeck Heart Health (registered with the CQC as OneWelbeck Heart Health, location ID <a href="https://www.cqc.org.uk/location/1-8001081664">1-8001081664</a>).</p>
-  <p class="reg">GMC number 7021140 · ICO registration ZC036250<br><a href="#">Privacy policy</a> · <a href="#">Cookie policy</a><br>© 2026 Dr Nay Aung. Designed by <a href="https://alethara.com">ALETHARA</a></p></div>
+  <p class="reg">GMC number 7021140 · ICO registration ZC036250<br><a href="https://alethara.com/nay-aung-draft/privacy-policy/">Privacy policy</a> · <a href="https://alethara.com/nay-aung-draft/cookie-policy/">Cookie policy</a><br>© 2026 Dr Nay Aung. Designed by <a href="https://alethara.com">ALETHARA</a></p></div>
 </div></footer>
 
 <script>
 /* ---- Content you can edit ---- */
-var REVIEWS=[ /* add real Google reviews here: {t:"text",a:"Name",d:"3 weeks ago"} ; list stays hidden when empty */
- {t:"I came in worried about palpitations. Dr Aung explained everything clearly, arranged the right tests and I left knowing exactly what was happening.",a:"Emma",d:"",s:1},
- {t:"Quick to see, no rushing and no jargon. I finally got a straight answer about my chest pain. Would recommend to anyone.",a:"Jake",d:"",s:1},
- {t:"Kind, thorough and genuinely took the time to listen. I felt looked after from the first call to the follow-up.",a:"Sarah",d:"",s:1}];
+var REVIEWS=[ /* add real Google reviews here: {t:"text",a:"Name",d:"3 weeks ago"} ; the whole section stays hidden while this list is empty */ ];
 var POSTS=[
- {t:"Preventive Cardiology Strategies for Heart Disease Management",d:"11 Jan",x:"Many forms of heart disease are preventable. We look at the strategies that reduce risk before problems arise.",u:"#blog"},
- {t:"Understanding Comprehensive Cardiovascular Care",d:"11 Jan",x:"A holistic approach that joins up prevention, diagnosis and treatment.",u:"#blog"},
- {t:"Advanced Cardiac Imaging: A Game Changer in Heart Health",d:"11 Jan",x:"How modern imaging improves diagnosis and changes patient care.",u:"#blog"}];
+ {i:"aortic_arch_close_great_wave_palette",t:"Preventive Cardiology Strategies for Heart Disease Management",d:"11 Jan",x:"Many forms of heart disease are preventable. We look at the strategies that reduce risk before problems arise.",u:"#blog"},
+ {i:"thick_heart_kandinsky_composition_vii",t:"Understanding Comprehensive Cardiovascular Care",d:"11 Jan",x:"A holistic approach that joins up prevention, diagnosis and treatment.",u:"#blog"},
+ {i:"three_chamber_close_klimt_tree_of_life",t:"Advanced Cardiac Imaging: A Game Changer in Heart Health",d:"11 Jan",x:"How modern imaging improves diagnosis and changes patient care.",u:"#blog"}];
 /* ---- Reviews + posts ---- */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var rv=document.getElementById('reviews');
 if(!REVIEWS.length){rv.hidden=true}else{
+ rv.hidden=false;
  document.getElementById('rvcount').textContent=REVIEWS.length;
- document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.s?' (sample)':', '+esc(r.d))+'</div></article>'}).join('')}
-document.getElementById('posts').innerHTML=POSTS.map(function(p){return '<article class="card"><h3>'+esc(p.t)+'</h3><small>'+esc(p.d)+'</small><a href="'+p.u+'">Read more</a></article>'}).join('');
+ document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.d?', '+esc(r.d):'')+'</div></article>'}).join('')}
+document.getElementById('posts').innerHTML=POSTS.map(function(p){return '<article class="card">'+(p.i?'<figure class="frame"><img src="media/'+p.i+'.jpg" alt="" loading="lazy" onerror="this.parentNode.hidden=true"></figure>':'')+'<h3>'+esc(p.t)+'</h3><small>'+esc(p.d)+'</small><a href="'+p.u+'">Read more</a></article>'}).join('');
 /* ---- Manual carousels (no autoplay): arrows, swipe, keyboard ---- */
 function step(t){var c=t.firstElementChild;return c?c.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):300}
 document.querySelectorAll('.arr').forEach(function(b){var d=+b.dataset.dir;
@@ -282,6 +344,12 @@ document.querySelectorAll('.track').forEach(function(t){t.addEventListener('keyd
  bx.innerHTML=REVIEWS.map(function(){return '<span class="bar"></span>'}).join('');
  function up(){var i=Math.round(t.scrollLeft/step(t));[].forEach.call(bx.children,function(b,k){b.classList.toggle('on',k===i)})}
  t.addEventListener('scroll',up);up()})();
+/* ---- Videos: respect reduced-motion ---- */
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)document.querySelectorAll('video').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true;v.removeAttribute('aria-hidden')});
+/* ---- Parallax band ---- */
+(function(){var bg=document.getElementById('qbbg');if(!bg||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var band=bg.parentNode,tick=false;
+ function go(){tick=false;var r=band.getBoundingClientRect(),vh=innerHeight;if(r.bottom<0||r.top>vh)return;bg.style.transform='translate3d(0,'+((r.top+r.height/2-vh/2)*-.15).toFixed(1)+'px,0)'}
+ addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(go)}},{passive:true});addEventListener('resize',go);go()})();
 /* ---- Menu ---- */
 var mb=document.getElementById('mb'),nav=document.getElementById('nav');
 function menu(o){nav.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.firstChild.nodeValue=o?'Close ':'Menu '}
@@ -296,7 +364,6 @@ function route(){var h=location.hash.slice(1)||'home',v=(h==='contact'||h==='cal
 addEventListener('hashchange',route);route();
 /* ---- Call-back form (demo - connect to a secure form handler before launch) ---- */
 document.getElementById('cb').onsubmit=function(e){e.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'};
-document.querySelectorAll('[data-todo]').forEach(function(a){a.title='Link to be added'});
 </script>
 </body>
 </html>
