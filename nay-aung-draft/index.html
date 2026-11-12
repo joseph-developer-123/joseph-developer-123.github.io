@@ -208,6 +208,27 @@ body{font-size:1.1rem}
 .nav a[aria-current=page]{color:var(--saf)}
 .more{margin-top:1.5rem;font-weight:600}.more a{text-underline-offset:4px;color:var(--petrol)}
 footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}footer .navlinks a{font-size:1rem}
+
+/* parallax bands */
+.qband{position:relative;overflow:hidden;background:var(--deep);color:#fff;text-align:center;padding:clamp(5rem,13vw,9rem) 0}
+.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background-position:center;background-size:cover;background-repeat:no-repeat;will-change:transform}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,42,52,.55),rgba(6,42,52,.72))}
+.qband .wrap{position:relative;z-index:2;max-width:60rem}
+.qband h2,.qband blockquote{font:300 clamp(2rem,4.6vw,3.4rem)/1.25 var(--serif);text-shadow:0 2px 18px rgba(6,42,52,.6);margin:0}
+.qband p{max-width:38rem;margin:1rem auto 0;color:#e8eff1;text-shadow:0 2px 12px rgba(6,42,52,.6)}
+.qband .btn-ring{margin-top:1.75rem}
+.chk span{display:block}
+
+.intro .wrap{row-gap:clamp(2.5rem,5vw,4.5rem)}
+.intro .qr-pic{margin:0;overflow:hidden;border-radius:20px}.intro .qr-pic img{width:100%;display:block;aspect-ratio:5/4;object-fit:cover;object-position:50% 20%}
+.intro .panel h3{color:#fff;margin-bottom:1rem}.intro .panel dl{display:grid;gap:.9rem;font-size:1.05rem}.intro .panel dt{font-weight:600;color:var(--saf)}.intro .panel dd{margin:0;color:#e8eff1}
+@media(max-width:900px){
+.hero{align-items:flex-start}
+.hero .wrap{padding-top:6.4rem;padding-bottom:5.5rem;gap:1.25rem}
+.hero .portrait{order:-1;grid-column:auto;justify-self:stretch;width:100%;max-width:none;max-height:none;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:50% 18%}
+.hero .htxt{width:100%}
+.slide .heartp{display:none}
+}
 </style>
 </head>
 <body data-v="home">
@@ -258,6 +279,8 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   <div class="about-col">
   <figure class="frame"><video poster="media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted playsinline preload="metadata" aria-label="Your heart, chamber by chamber" controls><source src="media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure>
   </div>
+  <figure class="qr-pic"><img src="dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" loading="lazy" onerror="this.parentNode.hidden=true"></figure>
+  <div class="panel"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div>
 </div></section>
 
 <section class="help" id="help"><div class="wrap">
@@ -351,13 +374,14 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
       <label>How will you pay?<select name="f"><option>Self-funding</option><option>Private medical insurance</option><option>Not sure yet</option></select></label></div>
       <label>What would you like to talk about?<select name="r"><option>Chest pain</option><option>Palpitations</option><option>Breathlessness</option><option>Blood pressure or cholesterol</option><option>Heart health check</option><option>Second opinion</option><option>Something else</option></select></label>
       <label>Message (optional)<textarea name="m"></textarea></label>
-      <label class="chk"><input type="checkbox" required> I agree to be contacted about my enquiry. My details are used only to arrange and manage my care; see the <a href="https://alethara.com/nay-aung-draft/privacy-policy/">privacy policy</a>.</label>
+      <label class="chk"><input type="checkbox" required><span>I agree to be contacted about my enquiry. My details are used only to arrange and manage my care; see the <a href="https://alethara.com/nay-aung-draft/privacy-policy/">privacy policy</a>.</span></label>
       <div><button class="btn" type="submit">Request a call back</button></div>
     </form>
     <div id="ok" role="status">Thank you. We’ll call you back at the time you chose.</div>
   </div>
 </div></section>
 
+<section class="qband" aria-label="Many people prefer to ask a question before booking"><div class="qb-bg" aria-hidden="true" style="background-image:url(media/bg_starry_night.jpg)"></div><div class="wrap"><h2>Many people prefer to ask a question before booking</h2><p>Call, email or request a call back. There’s no need to decide first.</p></div></section>
 <section><div class="wrap">
   <div class="where">
     <div><h3>Fees and insurance</h3><p class="fine">I see self-funding patients and patients with most major insurers. Check with your insurer before booking, as you may need a GP referral and an authorisation code.</p><h3 class="sub">Insurers I work with</h3><div class="insurers"><span>Aviva</span><span>AXA Health</span><span>Vitality</span><span>WPA</span><span>Healix</span></div></div>
@@ -421,9 +445,9 @@ document.querySelectorAll('.track').forEach(function(t){t.addEventListener('keyd
   var prev=sl[i];i=(i+1)%sl.length;var nx=sl[i],v=nx.querySelector('video');
   v.preload='auto';v.currentTime=0;nx.classList.add('on');play(v);prev.classList.remove('on');
   setTimeout(function(){if(!prev.classList.contains('on'))prev.querySelector('video').pause()},1500)},6000)})();
-/* ---- Parallax band ---- */
-(function(){var bg=document.getElementById('qbbg');if(!bg||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var band=bg.parentNode,tick=false;
- function go(){tick=false;var r=band.getBoundingClientRect(),vh=innerHeight;if(r.bottom<0||r.top>vh)return;bg.style.transform='translate3d(0,'+((r.top+r.height/2-vh/2)*-.15).toFixed(1)+'px,0)'}
+/* ---- Parallax bands ---- */
+(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var bs=[].slice.call(document.querySelectorAll('.qband')),tick=false;if(!bs.length)return;
+ function go(){tick=false;var vh=innerHeight;bs.forEach(function(b){var bg=b.querySelector('.qb-bg');if(!bg)return;var r=b.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;bg.style.transform='translate3d(0,'+((r.top+r.height/2-vh/2)*-.15).toFixed(1)+'px,0)'})}
  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(go)}},{passive:true});addEventListener('resize',go);go()})();
 /* ---- Menu ---- */
 var mb=document.getElementById('mb'),nav=document.getElementById('nav');
