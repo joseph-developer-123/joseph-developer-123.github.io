@@ -138,9 +138,9 @@ section{padding:clamp(4.5rem,9vw,8rem) 0}
 .cards3 .card .frame{margin:-2.5rem -2.5rem 0;aspect-ratio:16/9}.cards3 .card .frame video{height:100%;object-fit:cover}
 .grid .card .frame{margin:-2rem -2rem 0;aspect-ratio:16/9}.grid .card .frame img{height:100%;object-fit:cover}
 @media(max-width:900px){.mri .wrap{grid-template-columns:1fr}}
-/* parallax quote band (background: media/bg_starry_night.jpg) */
+/* parallax quote band (background: onewelbeck.jpg) */
 .qband{position:relative;overflow:hidden;background:var(--deep);color:#fff;text-align:center;padding:clamp(6rem,15vw,11rem) 0}
-.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background:url(media/bg_starry_night.jpg) center/cover no-repeat;will-change:transform}
+.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background:url(../onewelbeck.jpg) center/cover no-repeat;will-change:transform}
 .qband::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,42,52,.55),rgba(6,42,52,.7))}
 .qband .wrap{position:relative;z-index:2;max-width:60rem}
 .qband blockquote{font:300 clamp(2rem,4.6vw,3.6rem)/1.25 var(--serif);text-shadow:0 2px 18px rgba(6,42,52,.6)}
@@ -239,6 +239,8 @@ body{font-size:1.1rem}
 /* about */
 .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,6vw,6rem);align-items:start}
 .about-grid .side{display:grid;gap:1.5rem}
+.portrait-fig{background:none;border-radius:20px}.portrait-fig img{aspect-ratio:1;object-fit:cover;object-position:50% 20%;border-radius:20px}
+.panel.compact{padding:1.1rem 1.4rem}.panel.compact h3{font-size:1.3rem;margin-bottom:.7rem}.panel.compact dl{grid-template-columns:max-content 1fr;gap:.35rem 1rem;font-size:.9rem;line-height:1.4}
 .panel h3{margin-bottom:1rem;color:#fff}
 .panel dl{display:grid;gap:.9rem;font-size:1.05rem}
 .panel dt{font-weight:600;color:var(--saf)}
@@ -349,15 +351,16 @@ footer .navlinks a{font-size:1rem}
   <div class="wrap"><h1>About Dr Nay Aung</h1><p>Consultant Cardiologist and Clinical Senior Lecturer</p></div></header>
 <main id="main">
 <section class="intro"><div class="wrap about-grid">
-<div class="prose"><h2>Time to listen, and answers you can understand</h2>
+<div><div class="prose"><h2>Time to listen, and answers you can understand</h2>
 <p>Dr Nay Aung is a Consultant Cardiologist at Barts Heart Centre, one of the largest cardiovascular centres in Europe and home to one of the world’s largest cardiac MRI services. He holds a prestigious Medical Research Council Clinician Scientist Fellowship at Queen Mary University of London, where his research uses cardiac MRI, genetics and AI to detect heart disease earlier.</p>
 <p>He brings that experience to every consultation. He takes time to understand your symptoms, explains his findings in plain language, and uses advanced tests such as cardiac MRI when a clearer answer is needed, reporting the scans himself.</p>
 <p class="cred">MBBS · MSc · MRCP · PhD. Adults aged 18 and over.</p>
 <p style="margin-top:1.75rem"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span></p></div>
-<div class="side"><figure class="frame"><video poster="../media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="../media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="../media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure>
-<div class="panel"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div></div>
+<figure class="frame" style="margin-top:2rem;max-width:46rem"><video poster="../media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="../media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="../media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure></div>
+<div class="side"><figure class="frame portrait-fig"><img src="../dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" onerror="this.parentNode.hidden=true"></figure>
+<div class="panel compact"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div></div>
 </div></section>
-<section class="qband" aria-label="Research that shapes how I care for my patients"><div class="qb-bg" aria-hidden="true" style="background-image:url(../media/bg_whistler_nocturne.jpg)"></div><div class="wrap"><h2>Research that shapes how I care for my patients</h2><p>Cardiac MRI, genetics and AI, used to detect heart disease earlier.</p></div></section>
+<section class="qband" aria-label="Research that shapes how I care for my patients"><div class="qb-bg" aria-hidden="true" style="background-image:url(../barts.jpg)"></div><div class="wrap"><h2>Research that shapes how I care for my patients</h2><p>Cardiac MRI, genetics and AI, used to detect heart disease earlier.</p></div></section>
 <section class="help"><div class="wrap"><h2>Awards and recognition</h2>
 <div class="awgrid">
  <div><h3>Research prizes</h3><ul>
