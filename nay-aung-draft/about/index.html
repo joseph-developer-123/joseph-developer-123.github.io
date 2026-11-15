@@ -445,7 +445,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)}
 <script>
 (function(){var cols=[].slice.call(document.querySelectorAll('.intro .about-col,.about-grid .side'));if(!cols.length)return;
 function fit(){cols.forEach(function(c){var l=c.previousElementSibling;c.style.width='';c.style.height='';if(!l||matchMedia('(max-width:900px)').matches)return;
-var cap=Math.min(800,Math.round(c.parentNode.clientWidth*.62));
+var cap=Math.min(800,Math.round(c.parentNode.clientWidth*.4));
 for(var w=cap;w>=240;w-=8){c.style.width=w+'px';c.style.height='';var H=l.offsetHeight;if(c.offsetHeight<=H){c.style.height=H+'px';return}}}) }
 ['load','resize'].forEach(function(e){addEventListener(e,fit)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 [].forEach.call(document.querySelectorAll('.intro img,.about-grid img'),function(i){i.addEventListener('load',fit)});fit()})();
