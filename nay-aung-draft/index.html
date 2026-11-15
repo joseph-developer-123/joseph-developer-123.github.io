@@ -226,6 +226,14 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 .hero .htxt{width:100%}
 }
 .where .loc{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 1rem}
+.hero{background:var(--stone);color:var(--ink)}
+.hero::after,.hero .htxt::before{display:none}
+.logo{color:var(--petrol)}
+.hero h1{color:var(--petrol);text-shadow:none;font-size:clamp(2.2rem,min(4vw,6.5svh),3.5rem);line-height:1.1}
+.hero p.lead{color:var(--mut);text-shadow:none;font-size:clamp(1.25rem,1.9vw,1.45rem);max-width:42rem}
+@media(min-width:901px){.hero{--tw:min(640px,48vw)}.hero .wrap{grid-template-columns:var(--tw) minmax(0,1fr) var(--bw)}.hero .htxt{width:var(--tw)}}
+@media(min-width:1100px){.hero .acts{flex-wrap:nowrap}.hero .btn{white-space:nowrap}}
+.mri .still{background:none}.mri .still img{aspect-ratio:3/2;max-height:none;object-fit:cover}
 </style>
 </head>
 <body data-v="home">
