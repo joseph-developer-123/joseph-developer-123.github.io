@@ -43,20 +43,20 @@ section{padding:clamp(4.5rem,9vw,8rem) 0}
 .hero:not(.art)::before,.grid::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/56px 56px;pointer-events:none}
 
 .hero .wrap{position:relative;z-index:2;width:100%;display:grid;gap:3rem;padding-top:6.5rem;padding-bottom:5.5rem}
-.hero p.lead{font-size:1.15rem;line-height:1.55;max-width:34rem;margin:1rem 0 1.4rem;color:#e8eff1;text-shadow:0 2px 12px rgba(6,42,52,.7)}
+.hero p.lead{font-size:1.15rem;line-height:1.55;max-width:34rem;margin:1rem 0 1.4rem;color:#cfe8f3;text-shadow:0 2px 12px rgba(6,42,52,.75)}
 .hero .acts{display:flex;gap:1rem;flex-wrap:wrap}
-.hero .portrait{width:auto;height:auto;max-width:100%;max-height:min(64svh,480px);justify-self:end;object-fit:cover;border-radius:20px;border:3px solid rgba(255,255,255,.85);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.hero .portrait{width:auto;height:auto;max-width:100%;max-height:min(64svh,480px);justify-self:end;object-fit:cover;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
 /* blended hero: blurred painting + beating heart feathered into it, crossfading */
 .hero{align-items:center}
 .slides{position:absolute;inset:0;overflow:hidden}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}.slide.on{opacity:1}
 .slide .bgp{position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(7px) saturate(1.15) brightness(.9)}
-.slide .heartp{position:absolute;left:51%;top:50%;width:min(470px,36vw);aspect-ratio:1;object-fit:cover;transform:translate(-50%,-50%);-webkit-mask-image:radial-gradient(circle,#000 52%,transparent 71%);mask-image:radial-gradient(circle,#000 52%,transparent 71%)}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(rgba(6,42,52,.7),rgba(6,42,52,0) 9rem)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(rgba(6,42,52,.7),rgba(6,42,52,0) 9rem),linear-gradient(90deg,rgba(6,42,52,.72),rgba(6,42,52,.35) 40%,rgba(6,42,52,0) 65%)}
 .hero .wrap{grid-template-columns:minmax(0,460px) minmax(0,1fr) minmax(0,400px);max-width:1340px;align-items:center}
-.hero .htxt{grid-column:1;background:rgba(6,42,52,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:clamp(1.5rem,2.4vw,2rem);border-radius:22px;border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.hero .htxt{grid-column:1;position:relative}
+.hero .htxt::before{content:"";position:absolute;inset:-3rem -4rem;background:radial-gradient(ellipse at 40% 50%,rgba(6,42,52,.6),rgba(6,42,52,0) 72%);z-index:-1;pointer-events:none}
 .hero .portrait{grid-column:3}
-.hero h1{font-size:clamp(1.9rem,min(3.2vw,5.4svh),2.8rem);text-shadow:0 2px 12px rgba(6,42,52,.7)}
+.hero h1{font-size:clamp(1.9rem,min(3.2vw,5.4svh),2.8rem);color:#cfe8f3;text-shadow:0 2px 14px rgba(6,42,52,.75)}
 /* reviews */
 .reviews{background:var(--stone);padding:clamp(3.5rem,6vw,5rem) 0}
 .rv-head{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;justify-content:space-between;margin-bottom:2rem}
@@ -118,25 +118,24 @@ section{padding:clamp(4.5rem,9vw,8rem) 0}
 .cond-row h3{font-size:clamp(1.9rem,3vw,2.4rem)}
 .cond-row ul{list-style:none;margin-top:1rem}.cond-row li{padding:.5rem 0;border-bottom:1px solid var(--line)}
 .cond-row .frame{margin:0;width:100%;max-width:560px;justify-self:center;aspect-ratio:5/4}
-.cond-row .frame video{height:100%;object-fit:cover}.cond-row .frame video.fit{object-fit:contain}
+.cond-row .frame img{height:100%;object-fit:cover}.cond-row .frame video{height:100%;object-fit:cover}.cond-row .frame video.fit{object-fit:contain}
 .mri .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .mri .stack{display:grid;gap:1rem}
-.tissue .frame{aspect-ratio:1;margin-top:1.25rem}.tissue .frame img{height:100%;object-fit:cover}
-.tissue .cols{grid-template-columns:repeat(3,1fr)}.tissue .cols>div{border-top:0;padding-top:0}
+.mri .still img{aspect-ratio:1;max-height:420px;object-fit:contain}
+.mri figcaption{background:#06090e;color:#e8eff1;font-size:.95rem;padding:.6rem 1rem}
 .cards3 .card .frame{margin:-2.5rem -2.5rem 0;aspect-ratio:16/9}.cards3 .card .frame video{height:100%;object-fit:cover}
 .grid .card .frame{margin:-2rem -2rem 0;aspect-ratio:16/9}.grid .card .frame img{height:100%;object-fit:cover}
 @media(max-width:900px){.mri .wrap{grid-template-columns:1fr}}
-/* parallax quote band (background: media/bg_starry_night.jpg) */
+/* parallax quote band (background: onewelbeck.jpg) */
 .qband{position:relative;overflow:hidden;background:var(--deep);color:#fff;text-align:center;padding:clamp(6rem,15vw,11rem) 0}
-.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background:url(media/bg_starry_night.jpg) center/cover no-repeat;will-change:transform}
+.qb-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;background:url(onewelbeck.jpg) center/cover no-repeat;will-change:transform}
 .qband::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,42,52,.55),rgba(6,42,52,.7))}
 .qband .wrap{position:relative;z-index:2;max-width:60rem}
 .qband blockquote{font:300 clamp(2rem,4.6vw,3.6rem)/1.25 var(--serif);text-shadow:0 2px 18px rgba(6,42,52,.6)}
 .qband cite{display:block;margin-top:1.75rem;font:500 1.05rem var(--sans);font-style:normal;letter-spacing:.06em;color:var(--saf)}
 /* mri + awards */
-.mri h2{max-width:20ch}.mri .k,.tissue .k{display:block;color:var(--saf-d);font-weight:600;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em;margin-bottom:.75rem}
+.mri h2{max-width:20ch}.mri .k{display:block;color:var(--saf-d);font-weight:600;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em;margin-bottom:.75rem}
 .mri .btn{margin-top:1.75rem}
-.tissue .cols p{color:var(--mut);margin-top:.5rem}
 .awards{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4rem)}
 .awards h3{margin-bottom:.75rem}.awards ul{padding-left:1.1em;color:var(--mut)}.awards li{margin:.35rem 0}
 .awards p{margin-top:.75rem;color:var(--mut)}.awards a{font-weight:600;text-underline-offset:4px;margin-right:1rem}
@@ -176,12 +175,10 @@ footer .reg{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,2
 @media(max-width:900px){
 .hero{--hs:min(72vw,330px);align-items:flex-start}
 .hero .wrap{grid-template-columns:1fr;gap:1.5rem;padding-top:calc(5rem + var(--hs));padding-bottom:5.5rem}
-.slide .heartp{top:5rem;left:50%;width:var(--hs);transform:translateX(-50%)}
 .hero .htxt,.hero .portrait{grid-column:auto}
 .hero .portrait{justify-self:start;max-width:200px}
-.tissue .cols,.cond-row{grid-template-columns:1fr}
+.cond-row{grid-template-columns:1fr}
 .cond-row:nth-child(even) .frame{order:0}.cond-row .frame{max-width:none}
-.tissue .cols{gap:2.5rem}
 }
 @media(max-width:600px){
 body{font-size:1.1rem}
@@ -197,7 +194,7 @@ body{font-size:1.1rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media(min-width:901px){.hero .btn{padding:.8rem 1.4rem}.hero .btn-ring{padding:4px}.hero .acts{gap:.6rem}}
-@media(min-width:901px) and (max-height:760px){.hero .wrap{padding-top:5.5rem;padding-bottom:4.5rem}.hero p.lead{font-size:1.05rem;margin:.75rem 0 1.1rem}.hero .htxt{padding:1.25rem 1.5rem}}
+@media(min-width:901px) and (max-height:760px){.hero .wrap{padding-top:5.5rem;padding-bottom:4.5rem}.hero p.lead{font-size:1.05rem;margin:.75rem 0 1.1rem}}
 @media(min-width:901px){
 .hero{--hh:max(100svh,640px);--bw:min(440px,31vw);min-height:var(--hh)}
 .hero .wrap{grid-template-columns:var(--bw) minmax(0,1fr) var(--bw)}
@@ -220,14 +217,13 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 .chk span{display:block}
 
 .intro .wrap{row-gap:clamp(2.5rem,5vw,4.5rem)}
-.intro .qr-pic{margin:0;overflow:hidden;border-radius:20px}.intro .qr-pic img{width:100%;display:block;aspect-ratio:5/4;object-fit:cover;object-position:50% 20%}
-.intro .panel h3{color:#fff;margin-bottom:1rem}.intro .panel dl{display:grid;gap:.9rem;font-size:1.05rem}.intro .panel dt{font-weight:600;color:var(--saf)}.intro .panel dd{margin:0;color:#e8eff1}
+.panel.compact{padding:1.1rem 1.4rem}.panel.compact h3{font-size:1.3rem;margin-bottom:.7rem}.panel.compact dl{grid-template-columns:max-content 1fr;gap:.35rem 1rem;font-size:.9rem;line-height:1.4}
+.intro .panel h3{color:#fff}.intro .panel dl{display:grid}.intro .panel dt{font-weight:600;color:var(--saf)}.intro .panel dd{margin:0;color:#e8eff1}
 @media(max-width:900px){
 .hero{align-items:flex-start}
 .hero .wrap{padding-top:6.4rem;padding-bottom:5.5rem;gap:1.25rem}
 .hero .portrait{order:-1;grid-column:auto;justify-self:stretch;width:100%;max-width:none;max-height:none;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:50% 18%}
 .hero .htxt{width:100%}
-.slide .heartp{display:none}
 }
 </style>
 </head>
@@ -244,7 +240,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 <!-- ============ HOME ============ -->
 <div data-view="home">
 <header class="hero art">
-  <div class="slides" aria-hidden="true"><div class="slide on"><img class="bgp" src="media/bg_almond_blossom.jpg" alt="" fetchpriority="high"><video class="heartp" poster="media/09_beating_art_almond_poster.jpg" muted loop playsinline preload="auto" tabindex="-1"><source src="media/09_beating_art_almond.webm" type="video/webm"><source src="media/09_beating_art_almond.mp4" type="video/mp4"></video></div><div class="slide"><img class="bgp" src="media/bg_starry_night.jpg" alt="" loading="lazy"><video class="heartp" poster="media/09_beating_art_starry_night_poster.jpg" muted loop playsinline preload="metadata" tabindex="-1"><source src="media/09_beating_art_starry_night.webm" type="video/webm"><source src="media/09_beating_art_starry_night.mp4" type="video/mp4"></video></div><div class="slide"><img class="bgp" src="media/bg_whistler_nocturne.jpg" alt="" loading="lazy"><video class="heartp" poster="media/09_beating_art_whistler_poster.jpg" muted loop playsinline preload="metadata" tabindex="-1"><source src="media/09_beating_art_whistler.webm" type="video/webm"><source src="media/09_beating_art_whistler.mp4" type="video/mp4"></video></div></div>
+  <div class="slides" aria-hidden="true"><div class="slide on"><img class="bgp" src="media/bg_almond_blossom.jpg" alt="" fetchpriority="high"></div><div class="slide"><img class="bgp" src="media/bg_starry_night.jpg" alt="" loading="lazy"></div><div class="slide"><img class="bgp" src="media/bg_whistler_nocturne.jpg" alt="" loading="lazy"></div></div>
   <a class="logo" href="#home">DR NAY AUNG<small>MBBS · MSc · MRCP · PhD<br>Consultant Cardiologist</small></a>
   <div class="wrap">
     <div class="htxt">
@@ -278,18 +274,17 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   </div>
   <div class="about-col">
   <figure class="frame"><video poster="media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted playsinline preload="metadata" aria-label="Your heart, chamber by chamber" controls><source src="media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure>
+  <div class="panel compact"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div>
   </div>
-  <figure class="qr-pic"><img src="dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" loading="lazy" onerror="this.parentNode.hidden=true"></figure>
-  <div class="panel"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div>
 </div></section>
 
 <section class="help" id="help"><div class="wrap">
   <h2>What I can help with</h2>
   <p style="max-width:40rem">Not sure which applies to you? Book a consultation and we’ll work it out together.</p>
   <div class="cond">
-    <div class="cond-row"><div><h3>Symptoms</h3><ul><li>Chest pain</li><li>Palpitations</li><li>Breathlessness</li><li>Dizziness and blackouts</li></ul></div><figure class="frame"><video poster="media/09_beating_art_almond_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/09_beating_art_almond.webm" type="video/webm"><source src="media/09_beating_art_almond.mp4" type="video/mp4"></video></figure></div>
-    <div class="cond-row"><div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul></div><figure class="frame"><video poster="media/09_beating_art_whistler_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/09_beating_art_whistler.webm" type="video/webm"><source src="media/09_beating_art_whistler.mp4" type="video/mp4"></video></figure></div>
-    <div class="cond-row"><div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul></div><figure class="frame"><video class="fit" poster="media/compare_sax_outlined_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/compare_sax_outlined.webm" type="video/webm"><source src="media/compare_sax_outlined.mp4" type="video/mp4"></video></figure></div>
+    <div class="cond-row"><div><h3>Symptoms</h3><ul><li>Chest pain</li><li>Palpitations</li><li>Breathlessness</li><li>Dizziness and blackouts</li></ul></div><figure class="frame"><img src="chestpain.jpg" alt="Chest pain" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
+    <div class="cond-row"><div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul></div><figure class="frame"><img src="ct-coronary-calcification.jpg" alt="CT scan showing calcium in the coronary arteries" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
+    <div class="cond-row"><div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul></div><figure class="frame"><img src="mri.jpg" alt="Cardiac MRI scan" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
   </div>
   <div class="tests"><h3>Tests available</h3><p>ECG, heart ultrasound (echo), heart rhythm monitoring, 24-hour blood pressure monitoring, exercise test</p><p><b><a href="#mri">Cardiac MRI →</a></b> (see how the heart muscle works, below)</p><p>CT coronary angiography</p><p class="more"><a href="https://alethara.com/nay-aung-draft/conditions/">All conditions I see</a> · <a href="https://alethara.com/nay-aung-draft/tests/">What each test involves</a> · <a href="https://alethara.com/nay-aung-draft/fees/">Fees and insurance</a></p></div>
 </div></section>
@@ -301,21 +296,10 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   <span class="k">Cardiac MRI</span>
   <h2>Seeing how well your heart muscle works</h2>
   <p>With every beat, your heart muscle shortens from top to bottom and squeezes inwards, a little like wringing out a towel. Cardiac MRI can measure this movement precisely. In the images, brighter colours mean stronger contraction: a healthy heart glows, while a weakened heart stays darker. These measurements can show changes in the heart muscle earlier than standard tests.</p>
-  <p style="font-size:.95rem;color:var(--mut)">Top: the heart muscle shortening, seen from three angles. Bottom: the heart squeezing inwards, a healthy heart (left) beside a heart with heart failure (right).</p>
+  <p style="font-size:.95rem;color:var(--mut)">Top: a cardiac MRI of the heart, with its chambers labelled. Bottom: how strongly the heart muscle contracts, a healthy heart (left) beside a heart with heart failure (right).</p>
   <a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a>
   </div>
-  <div class="stack"><figure class="frame"><video poster="media/wall_shortening_3views_1920x1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/wall_shortening_3views_1920x1080.webm" type="video/webm"><source src="media/wall_shortening_3views_1920x1080.mp4" type="video/mp4"></video></figure><figure class="frame"><video poster="media/strain_sax_normal_vs_hf_1920x1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/strain_sax_normal_vs_hf_1920x1080.webm" type="video/webm"><source src="media/strain_sax_normal_vs_hf_1920x1080.mp4" type="video/mp4"></video></figure></div>
-</div></section>
-
-<section class="tissue help" id="tissue"><div class="wrap">
-  <span class="k">Cardiac MRI</span>
-  <h2>What your heart muscle is made of</h2>
-  <p style="max-width:46rem">Beyond how well the heart pumps, cardiac MRI can look inside the muscle itself, without a biopsy or radiation. It shows scarring after a heart attack, diffuse scarring in conditions such as cardiomyopathy, and swelling from inflammation such as myocarditis.</p>
-  <div class="cols">
-    <div><figure class="frame"><img src="media/lge_scar_1080.jpg" alt="Cardiac MRI showing a bright band of scar along the inner heart wall" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">Scar</h3><p>After a contrast injection, scarred muscle lights up. Here a bright band along the inner lining of the wall, from a past heart attack.</p></div>
-    <div><figure class="frame"><img src="media/t1_map_1080.jpg" alt="Colour T1 map of the heart muscle" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">T1 map</h3><p>Each colour is a measurement. Fibrosis and conditions such as amyloidosis change the muscle's value.</p></div>
-    <div><figure class="frame"><img src="media/t2_map_1080.jpg" alt="Colour T2 map of the heart muscle" loading="lazy" onerror="this.parentNode.hidden=true"></figure><h3 style="margin-top:1.25rem">T2 map</h3><p>Measures water in the muscle, so it picks up swelling from inflammation or a recent injury.</p></div>
-  </div>
+  <div class="stack"><figure class="frame still"><img src="media/anatomy_4ch_reveal_1080_poster.jpg" alt="Cardiac MRI of the heart with the four chambers and the heart muscle labelled" loading="lazy"></figure><figure class="frame"><video poster="media/strain_sax_normal_vs_hf_1920x1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="How strongly the heart muscle contracts"><source src="media/strain_sax_normal_vs_hf_1920x1080.webm" type="video/webm"><source src="media/strain_sax_normal_vs_hf_1920x1080.mp4" type="video/mp4"></video><figcaption>How strongly the heart muscle contracts</figcaption></figure></div>
 </div></section>
 
 <section id="research"><div class="wrap">
@@ -337,12 +321,6 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
       <p class="news-links"><a href="https://www.bbc.co.uk/news/health-45034972" target="_blank" rel="noopener">BBC News</a> <a href="https://www.theguardian.com/environment/2018/aug/03/air-pollution-linked-to-changes-in-heart-structure" target="_blank" rel="noopener">the Guardian</a> <a href="https://www.thetimes.co.uk/article/living-by-a-busy-road-can-dangerously-alter-your-heart-3pc5rvph6" target="_blank" rel="noopener">The Times</a> <a href="https://www.telegraph.co.uk/science/2018/08/03/uk-safe-pollution-threshold-should-halved-heart-experts-warn/" target="_blank" rel="noopener">the Telegraph</a></p>
       <p>Full publication list: <a href="https://scholar.google.com/citations?user=K-_DAdgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> <a href="https://orcid.org/0000-0001-5095-1611" target="_blank" rel="noopener">ORCID</a></p></div>
   </div>
-</div></section>
-
-<section class="grid" id="blog"><div class="wrap">
-  <div class="head-row"><h2>Latest articles</h2><div style="display:flex;gap:1.25rem;align-items:center"><div class="arrows"><button class="arr" data-dir="-1" aria-label="Previous article">‹</button><button class="arr" data-dir="1" aria-label="Next article">›</button></div></div></div>
-  <div class="car"><div class="track" id="posts" tabindex="0" aria-label="Latest articles"></div></div>
-  <p style="margin-top:1.5rem;color:#d3e1e5">More articles coming soon.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -381,7 +359,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   </div>
 </div></section>
 
-<section class="qband" aria-label="Many people prefer to ask a question before booking"><div class="qb-bg" aria-hidden="true" style="background-image:url(media/bg_starry_night.jpg)"></div><div class="wrap"><h2>Many people prefer to ask a question before booking</h2><p>Call, email or request a call back. There’s no need to decide first.</p></div></section>
+<section class="qband" aria-label="Many people prefer to ask a question before booking"><div class="qb-bg" aria-hidden="true" style="background-image:url(onewelbeck.jpg)"></div><div class="wrap"><h2>Many people prefer to ask a question before booking</h2><p>Call, email or request a call back. There’s no need to decide first.</p></div></section>
 <section><div class="wrap">
   <div class="where">
     <div><h3>Fees and insurance</h3><p class="fine">I see self-funding patients and patients with most major insurers. Check with your insurer before booking, as you may need a GP referral and an authorisation code.</p><h3 class="sub">Insurers I work with</h3><div class="insurers"><span>Aviva</span><span>AXA Health</span><span>Vitality</span><span>WPA</span><span>Healix</span></div></div>
@@ -400,10 +378,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 <script>
 /* ---- Content you can edit ---- */
 var REVIEWS=[ /* add real Google reviews here: {t:"text",a:"Name",d:"3 weeks ago"} ; the whole section stays hidden while this list is empty */ ];
-var POSTS=[
- {i:"aortic_arch_close_great_wave_palette",t:"Preventive Cardiology Strategies for Heart Disease Management",d:"11 Jan",x:"Many forms of heart disease are preventable. We look at the strategies that reduce risk before problems arise.",u:""},
- {i:"thick_heart_kandinsky_composition_vii",t:"Understanding Comprehensive Cardiovascular Care",d:"11 Jan",x:"A holistic approach that joins up prevention, diagnosis and treatment.",u:""},
- {i:"three_chamber_close_klimt_tree_of_life",t:"Advanced Cardiac Imaging: A Game Changer in Heart Health",d:"11 Jan",x:"How modern imaging improves diagnosis and changes patient care.",u:""}];
+
 /* ---- Reviews + posts ---- */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var rv=document.getElementById('reviews');
@@ -411,7 +386,6 @@ if(!REVIEWS.length){rv.hidden=true}else{
  rv.hidden=false;
  document.getElementById('rvcount').textContent=REVIEWS.length;
  document.getElementById('rvtrack').innerHTML=REVIEWS.map(function(r){return '<article class="slide"><p>'+esc(r.t)+'</p><div class="who">'+esc(r.a)+(r.d?', '+esc(r.d):'')+'</div></article>'}).join('')}
-document.getElementById('posts').innerHTML=POSTS.map(function(p){return '<article class="card">'+(p.i?'<figure class="frame"><img src="media/'+p.i+'.jpg" alt="" loading="lazy" onerror="this.parentNode.hidden=true"></figure>':'')+'<h3>'+esc(p.t)+'</h3><small>'+esc(p.d)+'</small>'+(p.u?'<a href="'+p.u+'">Read more</a>':'')+'</article>'}).join('');
 /* ---- Manual carousels (no autoplay): arrows, swipe, keyboard ---- */
 function step(t){var c=t.firstElementChild;return c?c.getBoundingClientRect().width+(parseFloat(getComputedStyle(t).columnGap)||0):300}
 document.querySelectorAll('.arr').forEach(function(b){var d=+b.dataset.dir;
@@ -439,12 +413,9 @@ document.querySelectorAll('.track').forEach(function(t){t.addEventListener('keyd
  function retry(){seen.forEach(function(v){if(v.paused)play(v)})}
  ['touchend','pointerup','click'].forEach(function(t){addEventListener(t,retry,{once:true,passive:true})});
  document.addEventListener('visibilitychange',function(){if(!document.hidden)retry()});
- /* hero: crossfade the three paintings; only the active heart plays */
+ /* hero: crossfade the three paintings */
  var sl=[].slice.call(document.querySelectorAll('.hero .slide')),i=0;if(sl.length<2)return;
- setInterval(function(){if(document.hidden)return;var heroEl=sl[0].parentNode;if(!seen.has(sl[i].querySelector('video'))&&heroEl.getBoundingClientRect().bottom<0)return;
-  var prev=sl[i];i=(i+1)%sl.length;var nx=sl[i],v=nx.querySelector('video');
-  v.preload='auto';v.currentTime=0;nx.classList.add('on');play(v);prev.classList.remove('on');
-  setTimeout(function(){if(!prev.classList.contains('on'))prev.querySelector('video').pause()},1500)},6000)})();
+ setInterval(function(){if(document.hidden)return;var prev=sl[i];i=(i+1)%sl.length;sl[i].classList.add('on');prev.classList.remove('on')},6000)})();
 /* ---- Parallax bands ---- */
 (function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var bs=[].slice.call(document.querySelectorAll('.qband')),tick=false;if(!bs.length)return;
  function go(){tick=false;var vh=innerHeight;bs.forEach(function(b){var bg=b.querySelector('.qb-bg');if(!bg)return;var r=b.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;bg.style.transform='translate3d(0,'+((r.top+r.height/2-vh/2)*-.15).toFixed(1)+'px,0)'})}
