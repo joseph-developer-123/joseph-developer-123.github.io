@@ -97,7 +97,7 @@ section{padding:clamp(4.5rem,9vw,8rem) 0}
 .qbox .arr{background:var(--saf);color:var(--deep)}.qbox .arr:hover{background:#fff}
 .bars{display:flex;gap:.5rem}.bar{width:clamp(2.5rem,7vw,5rem);height:3px;background:rgba(255,255,255,.3)}.bar.on{background:var(--saf)}
 .ham{display:inline-block;width:1.3rem;height:.8rem;border-top:2px solid;border-bottom:2px solid;position:relative;vertical-align:-.05rem}.ham::after{content:"";position:absolute;left:0;right:0;top:50%;margin-top:-1px;border-top:2px solid}
-.tag{display:inline-block;font-size:.85rem;background:var(--saf);color:var(--deep);padding:.1rem .6rem;border-radius:99px;font-weight:600;align-self:flex-start}
+.tag{display:inline-block;font-size:.85rem;background:var(--saf);color:var(--deep);padding:.1rem .6rem;border-radius:4px;font-weight:600;align-self:flex-start}
 /* intro */
 .intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
 .panel{background:var(--petrol);color:#fff;padding:clamp(2rem,4vw,3.5rem)}
@@ -335,6 +335,7 @@ footer .navlinks a{font-size:1rem}
 .phin h3{color:#fff;margin-bottom:.75rem}.phin p{color:#e8eff1}
 .insurers.big{gap:.8rem;margin-top:1.25rem}.insurers.big span{background:#fff;font-size:1.15rem;padding:.7rem 1.5rem}
 @media(max-width:900px){.tests-grid,.steps,.paycards,.bring,.mrifeat{grid-template-columns:1fr}}
+.where .loc{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 1rem}
 </style>
 </head>
 <body>
@@ -352,8 +353,8 @@ footer .navlinks a{font-size:1rem}
 <section><div class="wrap">
   <h2>Where I practise</h2>
   <div class="where">
-    <div><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
-    <div><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
+    <div><img class="loc" src="../onewelbeck.jpg" alt="OneWelbeck, 1 Welbeck Street" loading="lazy" onerror="this.hidden=true"><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
+    <div><img class="loc" src="../barts.jpg" alt="Barts Heart Centre, St Bartholomew’s Hospital" loading="lazy" onerror="this.hidden=true"><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
   </div>
 </div></section>
 <section class="qband" aria-label="Detecting heart disease earlier"><div class="qb-bg" aria-hidden="true" style="background-image:url(../onewelbeck.jpg)"></div><div class="wrap"><h2>Detecting heart disease earlier</h2><p>Over 150 peer-reviewed papers using cardiac MRI, genetics and AI.</p></div></section>
