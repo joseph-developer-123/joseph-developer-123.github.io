@@ -337,6 +337,12 @@ footer .navlinks a{font-size:1rem}
 .phin h3{color:#fff;margin-bottom:.75rem}.phin p{color:#e8eff1}
 .insurers.big{gap:.8rem;margin-top:1.25rem}.insurers.big span{background:#fff;font-size:1.15rem;padding:.7rem 1.5rem}
 @media(max-width:900px){.tests-grid,.steps,.paycards,.bring,.mrifeat{grid-template-columns:1fr}}
+.where .loc{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 1rem}
+.about-grid{align-items:stretch}
+.about-grid .side{display:flex;flex-direction:column;gap:1.5rem}
+.about-grid .portrait-fig{position:relative;flex:1 1 0;min-height:150px}
+.about-grid .portrait-fig img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 20%}
+@media(max-width:900px){.about-grid .portrait-fig{flex:none;min-height:0}.about-grid .portrait-fig img{position:static;aspect-ratio:4/3}}
 </style>
 </head>
 <body>
@@ -355,8 +361,7 @@ footer .navlinks a{font-size:1rem}
 <p>Dr Nay Aung is a Consultant Cardiologist at Barts Heart Centre, one of the largest cardiovascular centres in Europe and home to one of the world’s largest cardiac MRI services. He holds a prestigious Medical Research Council Clinician Scientist Fellowship at Queen Mary University of London, where his research uses cardiac MRI, genetics and AI to detect heart disease earlier.</p>
 <p>He brings that experience to every consultation. He takes time to understand your symptoms, explains his findings in plain language, and uses advanced tests such as cardiac MRI when a clearer answer is needed, reporting the scans himself.</p>
 <p class="cred">MBBS · MSc · MRCP · PhD. Adults aged 18 and over.</p>
-<p style="margin-top:1.75rem"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span></p></div>
-<figure class="frame" style="margin-top:2rem;max-width:46rem"><video poster="../media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="../media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="../media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure></div>
+<p style="margin-top:1.75rem"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span></p></div></div>
 <div class="side"><figure class="frame portrait-fig"><img src="../dr-nay-aung-cardiologist.png" alt="Dr Nay Aung, Consultant Cardiologist" onerror="this.parentNode.hidden=true"></figure>
 <div class="panel compact"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div></div>
 </div></section>
@@ -383,8 +388,8 @@ footer .navlinks a{font-size:1rem}
 <section><div class="wrap">
   <h2>Where I practise</h2>
   <div class="where">
-    <div><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
-    <div><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
+    <div><img class="loc" src="../onewelbeck.jpg" alt="OneWelbeck, 1 Welbeck Street" loading="lazy" onerror="this.hidden=true"><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
+    <div><img class="loc" src="../barts.jpg" alt="Barts Heart Centre, St Bartholomew’s Hospital" loading="lazy" onerror="this.hidden=true"><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
   </div>
 </div></section>
 <section class="bookband help"><div class="wrap bb">
