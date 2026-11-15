@@ -225,6 +225,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 .hero .portrait{order:-1;grid-column:auto;justify-self:stretch;width:100%;max-width:none;max-height:none;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:50% 18%}
 .hero .htxt{width:100%}
 }
+.where .loc{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 1rem}
 </style>
 </head>
 <body data-v="home">
@@ -240,7 +241,6 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 <!-- ============ HOME ============ -->
 <div data-view="home">
 <header class="hero art">
-  <div class="slides" aria-hidden="true"><div class="slide on"><img class="bgp" src="media/bg_almond_blossom.jpg" alt="" fetchpriority="high"></div><div class="slide"><img class="bgp" src="media/bg_starry_night.jpg" alt="" loading="lazy"></div><div class="slide"><img class="bgp" src="media/bg_whistler_nocturne.jpg" alt="" loading="lazy"></div></div>
   <a class="logo" href="#home">DR NAY AUNG<small>MBBS · MSc · MRCP · PhD<br>Consultant Cardiologist</small></a>
   <div class="wrap">
     <div class="htxt">
@@ -273,7 +273,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
     <p class="more"><a href="https://alethara.com/nay-aung-draft/about/">More about me and my qualifications</a></p>
   </div>
   <div class="about-col">
-  <figure class="frame"><video poster="media/anatomy_4ch_reveal_1080_poster.jpg" autoplay muted playsinline preload="metadata" aria-label="Your heart, chamber by chamber" controls><source src="media/anatomy_4ch_reveal_1080.webm" type="video/webm"><source src="media/anatomy_4ch_reveal_1080.mp4" type="video/mp4"></video></figure>
+  <figure class="frame"><img src="ecg.jpg" alt="An ECG heart tracing" loading="lazy" onerror="this.parentNode.hidden=true"></figure>
   <div class="panel compact"><h3>Qualifications and roles</h3><dl><dt>Qualifications</dt><dd>MBBS · MSc · MRCP · PhD</dd><dt>NHS role</dt><dd>Consultant Cardiologist, Barts Heart Centre</dd><dt>Academic role</dt><dd>Clinical Senior Lecturer, Queen Mary University of London</dd><dt>Research fellowship</dt><dd>MRC Clinician Scientist</dd><dt>Imaging certification</dt><dd>EACVI Level 3 certification in cardiac MRI</dd><dt>Private clinic</dt><dd>Welbeck Heart Health, 1 Welbeck Street, London W1G 0AR</dd></dl></div>
   </div>
 </div></section>
@@ -284,7 +284,7 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   <div class="cond">
     <div class="cond-row"><div><h3>Symptoms</h3><ul><li>Chest pain</li><li>Palpitations</li><li>Breathlessness</li><li>Dizziness and blackouts</li></ul></div><figure class="frame"><img src="chestpain.jpg" alt="Chest pain" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
     <div class="cond-row"><div><h3>Risk and prevention</h3><ul><li>High blood pressure</li><li>High cholesterol</li><li>Heart health checks</li><li>Family history of heart disease</li></ul></div><figure class="frame"><img src="ct-coronary-calcification.jpg" alt="CT scan showing calcium in the coronary arteries" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
-    <div class="cond-row"><div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul></div><figure class="frame"><img src="mri.jpg" alt="Cardiac MRI scan" loading="lazy" onerror="this.parentNode.hidden=true"></figure></div>
+    <div class="cond-row"><div><h3>Known heart conditions</h3><ul><li>Heart failure</li><li>Heart valve disease</li><li>Cardiomyopathy</li><li>Coronary artery disease</li><li>Second opinions</li></ul><p class="fine" style="margin-top:1rem">How strongly the heart muscle contracts: a healthy heart (left) beside a heart with heart failure (right).</p></div><figure class="frame"><video class="fit" poster="media/strain_sax_normal_vs_hf_1920x1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="How strongly the heart muscle contracts: a healthy heart beside a heart with heart failure"><source src="media/strain_sax_normal_vs_hf_1920x1080.webm" type="video/webm"><source src="media/strain_sax_normal_vs_hf_1920x1080.mp4" type="video/mp4"></video></figure></div>
   </div>
   <div class="tests"><h3>Tests available</h3><p>ECG, heart ultrasound (echo), heart rhythm monitoring, 24-hour blood pressure monitoring, exercise test</p><p><b><a href="#mri">Cardiac MRI →</a></b> (see how the heart muscle works, below)</p><p>CT coronary angiography</p><p class="more"><a href="https://alethara.com/nay-aung-draft/conditions/">All conditions I see</a> · <a href="https://alethara.com/nay-aung-draft/tests/">What each test involves</a> · <a href="https://alethara.com/nay-aung-draft/fees/">Fees and insurance</a></p></div>
 </div></section>
@@ -296,10 +296,9 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
   <span class="k">Cardiac MRI</span>
   <h2>Seeing how well your heart muscle works</h2>
   <p>With every beat, your heart muscle shortens from top to bottom and squeezes inwards, a little like wringing out a towel. Cardiac MRI can measure this movement precisely. In the images, brighter colours mean stronger contraction: a healthy heart glows, while a weakened heart stays darker. These measurements can show changes in the heart muscle earlier than standard tests.</p>
-  <p style="font-size:.95rem;color:var(--mut)">Top: a cardiac MRI of the heart, with its chambers labelled. Bottom: how strongly the heart muscle contracts, a healthy heart (left) beside a heart with heart failure (right).</p>
   <a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a>
   </div>
-  <div class="stack"><figure class="frame still"><img src="media/anatomy_4ch_reveal_1080_poster.jpg" alt="Cardiac MRI of the heart with the four chambers and the heart muscle labelled" loading="lazy"></figure><figure class="frame"><video poster="media/strain_sax_normal_vs_hf_1920x1080_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="How strongly the heart muscle contracts"><source src="media/strain_sax_normal_vs_hf_1920x1080.webm" type="video/webm"><source src="media/strain_sax_normal_vs_hf_1920x1080.mp4" type="video/mp4"></video><figcaption>How strongly the heart muscle contracts</figcaption></figure></div>
+  <figure class="frame still"><img src="mri.jpg" alt="Cardiac MRI scan" loading="lazy" onerror="this.parentNode.hidden=true"></figure>
 </div></section>
 
 <section id="research"><div class="wrap">
@@ -326,8 +325,8 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 <section><div class="wrap">
   <h2>Where I practise</h2>
   <div class="where">
-    <div><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
-    <div><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
+    <div><img class="loc" src="onewelbeck.jpg" alt="OneWelbeck, 1 Welbeck Street" loading="lazy" onerror="this.hidden=true"><h3>Welbeck Heart Health</h3><p>1 Welbeck Street, London W1G 0AR<br>Harley Street Medical District. Private appointments.</p></div>
+    <div><img class="loc" src="barts.jpg" alt="Barts Heart Centre, St Bartholomew’s Hospital" loading="lazy" onerror="this.hidden=true"><h3>Barts Heart Centre</h3><p>St Bartholomew’s Hospital, West Smithfield, London EC1A 7BE<br>NHS appointments, by referral only.</p></div>
   </div>
 </div></section>
 </div>
@@ -412,10 +411,7 @@ document.querySelectorAll('.track').forEach(function(t){t.addEventListener('keyd
  /* some phones only allow playback after a first touch: retry once for anything in view */
  function retry(){seen.forEach(function(v){if(v.paused)play(v)})}
  ['touchend','pointerup','click'].forEach(function(t){addEventListener(t,retry,{once:true,passive:true})});
- document.addEventListener('visibilitychange',function(){if(!document.hidden)retry()});
- /* hero: crossfade the three paintings */
- var sl=[].slice.call(document.querySelectorAll('.hero .slide')),i=0;if(sl.length<2)return;
- setInterval(function(){if(document.hidden)return;var prev=sl[i];i=(i+1)%sl.length;sl[i].classList.add('on');prev.classList.remove('on')},6000)})();
+ document.addEventListener('visibilitychange',function(){if(!document.hidden)retry()});})();
 /* ---- Parallax bands ---- */
 (function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var bs=[].slice.call(document.querySelectorAll('.qband')),tick=false;if(!bs.length)return;
  function go(){tick=false;var vh=innerHeight;bs.forEach(function(b){var bg=b.querySelector('.qb-bg');if(!bg)return;var r=b.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;bg.style.transform='translate3d(0,'+((r.top+r.height/2-vh/2)*-.15).toFixed(1)+'px,0)'})}
