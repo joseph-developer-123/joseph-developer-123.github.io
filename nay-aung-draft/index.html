@@ -265,6 +265,9 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 .hero .acts .btn-ring{flex:0 0 auto;display:inline-flex;width:auto}
 .hero .acts .btn{flex:none;width:auto}
 @media(max-width:900px){.hero .acts{flex-direction:column;align-items:flex-end}}
+@media(min-width:901px){.hero .htxt{max-width:none;width:100%}.hero h1{white-space:nowrap;font-size:clamp(1.6rem,2.8vw,3.2rem)}.hero p.lead{max-width:none}}
+.hero .htxt{max-width:none}
+@media(min-width:901px){.hero h1{white-space:nowrap;font-size:clamp(1.6rem,3.1vw,3.2rem)}.hero p.lead{max-width:40rem}}
 </style>
 </head>
 <body data-v="home">
@@ -280,12 +283,12 @@ footer .navlinks{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 <!-- ============ HOME ============ -->
 <div data-view="home">
 <header class="hero art">
-  <div class="slides" aria-hidden="true"><div class="slide on"><img class="bgp" src="onewelbeck.jpg" alt="" fetchpriority="high"></div><div class="slide"><img class="bgp" src="barts.jpg" alt="" loading="lazy"></div></div>
+  <div class="slides" aria-hidden="true"><div class="slide on"><img class="bgp" src="onewelbeck.jpg" alt="" fetchpriority="high"></div></div>
   <a class="logo" href="#home">DR NAY AUNG<small>MBBS · MSc · MRCP · PhD<br>Consultant Cardiologist</small></a>
   <div class="wrap">
     <div class="htxt">
       <h1>Private cardiology in the Harley Street Medical District</h1>
-      <p class="lead">Heart symptoms are worrying. You deserve quick, precise answers and treatment tailored to you.</p>
+      <p class="lead">Heart symptoms are worrying. Dr Nay Aung gives you quick, precise answers and treatment tailored to you, at OneWelbeck and Barts Heart Centre.</p>
       <div class="acts"><span class="btn-ring"><a class="btn" href="https://dr-nay-aung.carebit.co/patients/accounts/sign-up">Book an appointment</a></span><span class="btn-ring"><a class="btn wht" href="#callback">Request a call back</a></span></div>
     </div>
   </div>
@@ -475,7 +478,7 @@ document.getElementById('cb').onsubmit=function(e){e.preventDefault();this.style
 <script>
 (function(){var cols=[].slice.call(document.querySelectorAll('.intro .about-col,.about-grid .side'));if(!cols.length)return;
 function fit(){cols.forEach(function(c){var l=c.previousElementSibling;c.style.width='';c.style.height='';if(!l||matchMedia('(max-width:900px)').matches)return;
-var cap=Math.min(800,Math.round(c.parentNode.clientWidth*.62));
+var cap=Math.min(800,Math.round(c.parentNode.clientWidth*.4));
 for(var w=cap;w>=240;w-=8){c.style.width=w+'px';c.style.height='';var H=l.offsetHeight;if(c.offsetHeight<=H){c.style.height=H+'px';return}}}) }
 ['load','resize'].forEach(function(e){addEventListener(e,fit)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 [].forEach.call(document.querySelectorAll('.intro img,.about-grid img'),function(i){i.addEventListener('load',fit)});fit()})();
