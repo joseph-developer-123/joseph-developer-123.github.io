@@ -356,6 +356,10 @@ footer .navlinks a{font-size:1rem}
 @media(max-width:900px){.intro .wrap,.about-grid{grid-template-columns:1fr!important}.intro .about-col,.about-grid .side{width:100%;height:auto}}
 .intro .panel.compact dl,.about-grid .panel.compact dl{grid-template-columns:max-content 1fr;gap:.4rem 1rem;font-size:.9rem;line-height:1.4}
 .float{transition:transform .6s ease}.float.atl{transform:translateX(calc(-100vw + 100% + 2rem))}
+.about-grid>div:first-child{display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.about-grid>div:first-child .prose{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+.about-grid>div:first-child .prose>*{margin:0}
+.about-grid>div:first-child>p{margin:0!important}
 </style>
 </head>
 <body>
