@@ -360,6 +360,8 @@ footer .navlinks a{font-size:1rem}
 .about-grid>div:first-child .prose{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
 .about-grid>div:first-child .prose>*{margin:0}
 .about-grid>div:first-child>p{margin:0!important}
+@media(max-width:700px){.intro .panel.compact dl,.about-grid .panel.compact dl{grid-template-columns:1fr;gap:.1rem}.intro .panel.compact dd,.about-grid .panel.compact dd{margin:0 0 .65rem}.intro .panel.compact dd:last-child,.about-grid .panel.compact dd:last-child{margin-bottom:0}}
+.float.atl{transform:none}
 </style>
 </head>
 <body>
@@ -458,8 +460,6 @@ for(var s=1.02;s<=1.7;s+=.02){tx.forEach(function(e,i){e.style.fontSize=(base[i]
 H=Math.max(H,l.offsetHeight);c.style.height=H+'px';l.style.minHeight=H+'px'}) }
 ['load','resize'].forEach(function(e){addEventListener(e,fit)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 [].forEach.call(document.querySelectorAll('.intro img,.about-grid img'),function(i){i.addEventListener('load',fit)});fit()})();
-(function(){var fl=document.querySelector('.float'),h=document.querySelector('.hero,.page-top');if(!fl||!h||!window.IntersectionObserver)return;
-new IntersectionObserver(function(e){fl.classList.toggle('atl',e[0].isIntersecting)},{threshold:0}).observe(h)})();
 </script>
 </body>
 </html>
